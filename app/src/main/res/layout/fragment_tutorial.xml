@@ -11,10 +11,10 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        >
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp">
 
-        <android.support.v7.widget.CardView
-            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/crdJAVA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,29 +24,28 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="7dp"
+            android:clickable="true"
             card_view:cardBackgroundColor="@android:color/background_light"
             card_view:cardCornerRadius="20dp"
             card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            android:clickable="true">
+            card_view:cardUseCompatPadding="false">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:gravity="center"
                 android:text="JAVA"
                 android:textColor="@color/colorPrimary"
-                android:textSize="17sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
         </android.support.v7.widget.CardView>
 
 
-        <android.support.v7.widget.CardView
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/crdAngular"
-            xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="0"
@@ -61,21 +60,20 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:gravity="center"
                 android:text="Angular"
                 android:textColor="@color/colorPrimary"
-                android:textSize="17sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
         </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/crdKotlin"
-            xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="1"
@@ -97,13 +95,13 @@
                 android:gravity="center"
                 android:text="Kotlin"
                 android:textColor="@color/colorPrimary"
-                android:textSize="17sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
         </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView
-            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/crdPHP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="1"
@@ -125,13 +123,13 @@
                 android:gravity="center"
                 android:text="PHP"
                 android:textColor="@color/colorPrimary"
-                android:textSize="17sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
         </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView
-            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/crdHTML"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="2"
@@ -140,11 +138,11 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="7dp"
+            android:clickable="true"
             card_view:cardBackgroundColor="@android:color/background_light"
             card_view:cardCornerRadius="20dp"
             card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            android:clickable="true">
+            card_view:cardUseCompatPadding="false">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -154,14 +152,14 @@
                 android:gravity="center"
                 android:text="HTML"
                 android:textColor="@color/colorPrimary"
-                android:textSize="17sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
         </android.support.v7.widget.CardView>
 
 
-        <android.support.v7.widget.CardView
-            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/crdUnity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="2"
@@ -183,13 +181,13 @@
                 android:gravity="center"
                 android:text="Unity"
                 android:textColor="@color/colorPrimary"
-                android:textSize="17sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
         </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView
-            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/crdGIT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="3"
@@ -211,13 +209,13 @@
                 android:gravity="center"
                 android:text="GIT"
                 android:textColor="@color/colorPrimary"
-                android:textSize="17sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
         </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView
-            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/crdNetwork"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="3"
@@ -232,20 +230,21 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:gravity="center"
-                android:text="Networking"
+                android:text="Network"
                 android:textColor="@color/colorPrimary"
-                android:textSize="17sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
         </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView
-            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/crdFiverr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="4"
@@ -267,13 +266,13 @@
                 android:gravity="center"
                 android:text="Fiverr"
                 android:textColor="@color/colorPrimary"
-                android:textSize="17sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
         </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView
-            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/crdLaravel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="4"
@@ -295,12 +294,10 @@
                 android:gravity="center"
                 android:text="Laravel"
                 android:textColor="@color/colorPrimary"
-                android:textSize="17sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
         </android.support.v7.widget.CardView>
-
-
 
 
     </GridLayout>
