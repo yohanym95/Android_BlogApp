@@ -36,7 +36,7 @@
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:gravity="center"
-                android:text="JAVA"
+                android:text="JAVA - සිංහලෙන්"
                 android:textColor="@color/colorPrimary"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -65,7 +65,7 @@
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:gravity="center"
-                android:text="Angular"
+                android:text="Angular - සිංහලෙන්"
                 android:textColor="@color/colorPrimary"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -121,7 +121,7 @@
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:gravity="center"
-                android:text="PHP"
+                android:text="PHP - සිංහලෙන්"
                 android:textColor="@color/colorPrimary"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -150,7 +150,7 @@
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:gravity="center"
-                android:text="HTML"
+                android:text="HTML - සිංහලෙන්"
                 android:textColor="@color/colorPrimary"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -179,7 +179,7 @@
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:gravity="center"
-                android:text="Unity"
+                android:text="Unity - සිංහලෙන්"
                 android:textColor="@color/colorPrimary"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -207,7 +207,7 @@
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:gravity="center"
-                android:text="GIT"
+                android:text="GIT - සිංහලෙන්"
                 android:textColor="@color/colorPrimary"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -236,7 +236,7 @@
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:gravity="center"
-                android:text="Network"
+                android:text="Networking"
                 android:textColor="@color/colorPrimary"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -264,7 +264,7 @@
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:gravity="center"
-                android:text="Fiverr"
+                android:text="Fiverr - සිංහලෙන්"
                 android:textColor="@color/colorPrimary"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -292,7 +292,7 @@
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:gravity="center"
-                android:text="Laravel"
+                android:text="Laravel - සිංහලෙන්"
                 android:textColor="@color/colorPrimary"
                 android:textSize="13sp"
                 android:textStyle="bold" />

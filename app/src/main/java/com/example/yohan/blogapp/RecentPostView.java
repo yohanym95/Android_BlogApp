@@ -3,6 +3,7 @@ package com.example.yohan.blogapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -21,12 +22,14 @@ public class RecentPostView extends AppCompatActivity {
         String renderContent = i.getStringExtra(RecentFragment.RENDER_CONTENT);
 
 
-        String head = "<head><style>img{max-width:100%;width:auto;height:auto;}</style><heade>";
+        String head = "<head><style>img{max-width:100%;width:auto;height:auto;}</style><head>";
         String body = "<html>"+head+"<body>"+renderContent+"</body></html>";
 
+        WebSettings webSettings = recentpostWebView.getSettings();
         recentpostWebView.setWebViewClient(new WebViewClient());
         recentpostWebView.getSettings().setJavaScriptEnabled(true);
         recentpostWebView.getSettings().setAllowFileAccessFromFileURLs(true);
+        webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
 
 
         // webView.getSettings().setLoadWithOverviewMode(true);

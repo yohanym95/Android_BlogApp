@@ -140,7 +140,7 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
 
                         list.add(new RecentModel( titile,
                                 temdetails,
-                                response.body().get(i).getJetpackFeaturedMediaUrl(),render,RecentModel.IMAGE_TYPE));
+                                response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getThumbnail().getSourceUrl(),render,RecentModel.IMAGE_TYPE));
                     }
 
                     adapter.notifyDataSetChanged();
