@@ -56,7 +56,6 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
         return view;
     }
 
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -136,6 +135,8 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
                         String titile = response.body().get(i).getTitle().getRendered().toString();
                         titile = titile.replace("&#8211;","");
                         String render = response.body().get(i).getContent().getRendered();
+                       /// render = render.replace("--aspect-ratio","aspect-ratio");
+
                        // String profileUrl = response.body().get(i).getLinks().getAuthor().get(0).getHref();
 
                         list.add(new RecentModel( titile,

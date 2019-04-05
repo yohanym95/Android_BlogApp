@@ -9,4 +9,7 @@ public interface RetrofitArrayAPI {
 
     @GET("posts?per_page=10")
     Call<List<WPPost>> getPostInfo();
+
+    @GET("posts?categories=1029")
+    Call<List<WPJavaPost>> getJavaPost();
 }
