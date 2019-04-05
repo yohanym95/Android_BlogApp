@@ -52,6 +52,9 @@ public class TutorialFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+
+                Intent i = new Intent(getContext(), AngularPost.class);
+                startActivity(i);
             }
         });
 

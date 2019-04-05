@@ -12,4 +12,7 @@ public interface RetrofitArrayAPI {
 
     @GET("posts?categories=1029")
     Call<List<WPJavaPost>> getJavaPost();
+
+    @GET("posts?categories=1030")
+    Call<List<WPJavaPost>> getAngularPost();
 }
