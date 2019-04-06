@@ -30,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RecentFragment extends Fragment implements RecentPostAdapter.onItemClicked {
 
     private RecyclerView recyclerView;
-    private ProgressBar progressBar;
+   // private ProgressBar progressBar;
     private LinearLayoutManager linearLayoutManager;
     View view;
 
@@ -141,7 +141,7 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
 
                         list.add(new RecentModel( titile,
                                 temdetails,
-                                response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getThumbnail().getSourceUrl(),render,RecentModel.IMAGE_TYPE));
+                                response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getTieMedium().getSourceUrl(),render,RecentModel.IMAGE_TYPE));
                     }
 
                     adapter.notifyDataSetChanged();

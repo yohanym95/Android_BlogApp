@@ -62,6 +62,8 @@ public class TutorialFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                Intent i = new Intent(getContext(), KotlinPost.class);
+                startActivity(i);
             }
         });
 
@@ -69,6 +71,8 @@ public class TutorialFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                Intent i = new Intent(getContext(), HtmlPost.class);
+                startActivity(i);
             }
         });
 
@@ -90,6 +94,8 @@ public class TutorialFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                Intent i = new Intent(getContext(),GitPosts.class);
+                startActivity(i);
             }
         });
 
@@ -103,6 +109,8 @@ public class TutorialFragment extends Fragment {
         crdFiverr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(getContext(),FiverrPost.class);
+                startActivity(i);
 
             }
         });
