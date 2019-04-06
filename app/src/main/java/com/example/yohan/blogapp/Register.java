@@ -80,7 +80,7 @@ public class Register extends AppCompatActivity {
 
     }
 
-    private void registerUser(final String display_name, String email, String password) {
+    private void registerUser(final String display_name, final String email, final String password) {
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -97,9 +97,9 @@ public class Register extends AppCompatActivity {
                             HashMap<String,String> hashMap = new HashMap<>();
 
                             hashMap.put("name",display_name);
-                            hashMap.put("status","Hi there , I'm Using chat App");
-                            hashMap.put("image","default");
-                            hashMap.put("thumb_Image","default");
+                         //   hashMap.put("status","Hi there , I'm Using chat App");
+                            hashMap.put("email",email);
+                            hashMap.put("password",password);
 
                             mDatabaseReference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override

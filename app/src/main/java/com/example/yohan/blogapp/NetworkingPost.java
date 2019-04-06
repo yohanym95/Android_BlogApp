@@ -27,6 +27,7 @@ public class NetworkingPost extends AppCompatActivity  implements RecentPostAdap
     private ArrayList<RecentModel> list;
     private RecentPostAdapter recentPostAdapter;
     // ProgressDialog progressDialog;
+    ProgressDialog progressDialog1;
 
 
     private String NetworkingBaseURL = "https://readhublk.com/wp-json/wp/v2/";
@@ -43,11 +44,17 @@ public class NetworkingPost extends AppCompatActivity  implements RecentPostAdap
         getSupportActionBar().setTitle("ReadHub - Networking");
 
         NetworkingrecyclerView = findViewById(R.id.Networking_recycleview);
+        progressDialog1 = new ProgressDialog(NetworkingPost.this);
+        progressDialog1.setTitle("Networking Posts");
+        progressDialog1.setMessage("Loading");
+
+
 
         linearLayoutManager = new LinearLayoutManager(NetworkingPost.this,LinearLayoutManager.VERTICAL,false);
         NetworkingrecyclerView.setLayoutManager(linearLayoutManager);
         list = new ArrayList<RecentModel>();
 
+        progressDialog1.show();
         recentPostAdapter = new RecentPostAdapter(list,this);
 
         new GetNetworkJson().execute();
@@ -65,7 +72,7 @@ public class NetworkingPost extends AppCompatActivity  implements RecentPostAdap
             super.onPreExecute();
 
             progressDialog = new ProgressDialog(NetworkingPost.this);
-            progressDialog.setTitle("Networking Post");
+            progressDialog.setTitle("Networking Posts");
             progressDialog.setMessage("Loading");
             progressDialog.show();
 
@@ -97,6 +104,7 @@ public class NetworkingPost extends AppCompatActivity  implements RecentPostAdap
                     Toast.makeText(NetworkingPost.this,"done",Toast.LENGTH_LONG).show();
 
 
+                    progressDialog1.dismiss();
                     for (int i =0;i<response.body().size(); i++){
 
                         String temdetails = response.body().get(i).getDate();

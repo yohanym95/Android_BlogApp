@@ -28,6 +28,8 @@ public class KotlinPost extends AppCompatActivity implements RecentPostAdapter.o
     private RecentPostAdapter recentPostAdapter;
     // ProgressDialog progressDialog;
 
+    ProgressDialog progressDialog1;
+
 
     private String KoltinBaseURL = "https://readhublk.com/wp-json/wp/v2/";
     public static final String RENDER_CONTENT = "RENDER";
@@ -44,10 +46,16 @@ public class KotlinPost extends AppCompatActivity implements RecentPostAdapter.o
 
         KotlinrecyclerView = findViewById(R.id.Koltin_recycleview);
 
+        progressDialog1 = new ProgressDialog(KotlinPost.this);
+        progressDialog1.setTitle("Kotlin Posts");
+        progressDialog1.setMessage("Loading");
+
+
         linearLayoutManager = new LinearLayoutManager(KotlinPost.this,LinearLayoutManager.VERTICAL,false);
         KotlinrecyclerView.setLayoutManager(linearLayoutManager);
         list = new ArrayList<>();
 
+        progressDialog1.show();
         recentPostAdapter = new RecentPostAdapter(list,this);
         new GetKotlinJson().execute();
         KotlinrecyclerView.setAdapter(recentPostAdapter);
@@ -97,6 +105,7 @@ public class KotlinPost extends AppCompatActivity implements RecentPostAdapter.o
                     Toast.makeText(KotlinPost.this,"done",Toast.LENGTH_LONG).show();
 
 
+                    progressDialog1.dismiss();
                     for (int i =0;i<response.body().size(); i++){
 
                         String temdetails = response.body().get(i).getDate();

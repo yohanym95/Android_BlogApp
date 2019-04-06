@@ -27,6 +27,7 @@ public class AngularPost extends AppCompatActivity implements RecentPostAdapter.
     private ArrayList<RecentModel> list;
     private RecentPostAdapter recentPostAdapter;
 
+    ProgressDialog progressDialog1;
 
 
     private String JavaBaseURL = "https://readhublk.com/wp-json/wp/v2/";
@@ -42,12 +43,18 @@ public class AngularPost extends AppCompatActivity implements RecentPostAdapter.
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("ReadHub - Angular");
 
+        progressDialog1 = new ProgressDialog(AngularPost.this);
+        progressDialog1.setTitle("Angular Post");
+        progressDialog1.setMessage("Loading");
+
+
         angularrecyclerView = findViewById(R.id.angular_recycleview);
 
         linearLayoutManager = new LinearLayoutManager(AngularPost.this,LinearLayoutManager.VERTICAL,false);
         angularrecyclerView.setLayoutManager(linearLayoutManager);
         list = new ArrayList<RecentModel>();
 
+        progressDialog1.show();
         recentPostAdapter =  new RecentPostAdapter(list,this);
 
         new GetAngularJson().execute();
@@ -97,6 +104,7 @@ public class AngularPost extends AppCompatActivity implements RecentPostAdapter.
                     Toast.makeText(AngularPost.this,"done",Toast.LENGTH_LONG).show();
 
 
+                    progressDialog1.dismiss();
                     for (int i =0;i<response.body().size(); i++){
 
                         String temdetails = response.body().get(i).getDate();

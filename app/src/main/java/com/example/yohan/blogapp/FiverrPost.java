@@ -27,6 +27,7 @@ public class FiverrPost extends AppCompatActivity implements RecentPostAdapter.o
     private ArrayList<RecentModel> list;
     private RecentPostAdapter recentPostAdapter;
    // ProgressDialog progressDialog;
+   ProgressDialog progressDialog1;
 
 
     private String FiverrBaseURL = "https://readhublk.com/wp-json/wp/v2/";
@@ -44,12 +45,17 @@ public class FiverrPost extends AppCompatActivity implements RecentPostAdapter.o
         getSupportActionBar().setTitle("ReadHub - Fiverr");
 
         FiverrrecyclerView = findViewById(R.id.Fiverr_recycleview);
+        progressDialog1 = new ProgressDialog(FiverrPost.this);
+        progressDialog1.setTitle("Fiverr Post");
+        progressDialog1.setMessage("Loading");
+
 
         linearLayoutManager = new LinearLayoutManager(FiverrPost.this,LinearLayoutManager.VERTICAL,false);
         FiverrrecyclerView.setLayoutManager(linearLayoutManager);
 
         list = new ArrayList<RecentModel>();
 
+        progressDialog1.show();
         recentPostAdapter = new RecentPostAdapter(list,this);
 
         new GetFiverrJson().execute();
@@ -100,6 +106,7 @@ public class FiverrPost extends AppCompatActivity implements RecentPostAdapter.o
                     Toast.makeText(FiverrPost.this,"done",Toast.LENGTH_LONG).show();
 
 
+                    progressDialog1.dismiss();
                     for (int i =0;i<response.body().size(); i++){
 
                         String temdetails = response.body().get(i).getDate();

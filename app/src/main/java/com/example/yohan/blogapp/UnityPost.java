@@ -27,6 +27,7 @@ public class UnityPost extends AppCompatActivity implements RecentPostAdapter.on
     private ArrayList<RecentModel> list;
     private RecentPostAdapter recentPostAdapter;
     // ProgressDialog progressDialog;
+    ProgressDialog progressDialog1;
 
 
     private String UnityBaseURL = "https://readhublk.com/wp-json/wp/v2/";
@@ -43,14 +44,21 @@ public class UnityPost extends AppCompatActivity implements RecentPostAdapter.on
         mToolbar = findViewById(R.id.UnityPost_app_bar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("ReadHub - Unity");
+        progressDialog1 = new ProgressDialog(UnityPost.this);
+        progressDialog1.setTitle("Unity Posts");
+        progressDialog1.setMessage("Loading");
+
+
 
         UnityrecyclerView = findViewById(R.id.Unity_recycleview);
 
         linearLayoutManager = new LinearLayoutManager(UnityPost.this,LinearLayoutManager.VERTICAL,false);
         UnityrecyclerView.setLayoutManager(linearLayoutManager);
 
+
         list = new ArrayList<RecentModel>();
 
+        progressDialog1.show();
         recentPostAdapter = new RecentPostAdapter(list,this);
 
         new GetUnityJson().execute();
@@ -71,7 +79,7 @@ public class UnityPost extends AppCompatActivity implements RecentPostAdapter.on
             super.onPreExecute();
 
             progressDialog = new ProgressDialog(UnityPost.this);
-            progressDialog.setTitle("Unity Post");
+            progressDialog.setTitle("Unity Posts");
             progressDialog.setMessage("Loading");
             progressDialog.show();
 
@@ -103,6 +111,7 @@ public class UnityPost extends AppCompatActivity implements RecentPostAdapter.on
                     Toast.makeText(UnityPost.this,"done",Toast.LENGTH_LONG).show();
 
 
+                    progressDialog1.dismiss();
                     for (int i =0;i<response.body().size(); i++){
 
                         String temdetails = response.body().get(i).getDate();

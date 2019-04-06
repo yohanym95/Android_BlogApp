@@ -27,6 +27,8 @@ public class JavaPost extends AppCompatActivity implements RecentPostAdapter.onI
     private ArrayList<RecentModel> list;
     private RecentPostAdapter recentPostAdapter;
 
+    ProgressDialog progressDialog1;
+
 
 
     private String JavaBaseURL = "https://readhublk.com/wp-json/wp/v2/";
@@ -46,11 +48,17 @@ public class JavaPost extends AppCompatActivity implements RecentPostAdapter.onI
 
         JavarecyclerView = findViewById(R.id.java_recycleview);
 
+        progressDialog1 = new ProgressDialog(JavaPost.this);
+        progressDialog1.setTitle("JAVA Posts");
+        progressDialog1.setMessage("Loading");
+
+
         linearLayoutManager = new LinearLayoutManager(JavaPost.this,LinearLayoutManager.VERTICAL,false);
         JavarecyclerView.setLayoutManager(linearLayoutManager);
 
         list = new ArrayList<RecentModel>();
 
+        progressDialog1.show();
         recentPostAdapter =  new RecentPostAdapter(list,this);
 
         new GetJavaJson().execute();
@@ -70,7 +78,7 @@ public class JavaPost extends AppCompatActivity implements RecentPostAdapter.onI
             super.onPreExecute();
 
             progressDialog = new ProgressDialog(JavaPost.this);
-            progressDialog.setTitle("Recent Post");
+            progressDialog.setTitle("JAVA Post");
             progressDialog.setMessage("Loading");
             progressDialog.show();
 
@@ -102,6 +110,7 @@ public class JavaPost extends AppCompatActivity implements RecentPostAdapter.onI
                     Toast.makeText(JavaPost.this,"done",Toast.LENGTH_LONG).show();
 
 
+                    progressDialog1.dismiss();
                     for (int i =0;i<response.body().size(); i++){
 
                         String temdetails = response.body().get(i).getDate();

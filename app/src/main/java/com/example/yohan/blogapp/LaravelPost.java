@@ -29,6 +29,8 @@ public class LaravelPost extends AppCompatActivity implements RecentPostAdapter.
     private RecentPostAdapter recentPostAdapter;
     // ProgressDialog progressDialog;
 
+    ProgressDialog progressDialog1;
+
 
     private String LaravelBaseURL = "https://readhublk.com/wp-json/wp/v2/";
     public static final String RENDER_CONTENT = "RENDER";
@@ -45,11 +47,17 @@ public class LaravelPost extends AppCompatActivity implements RecentPostAdapter.
 
         LaravelrecyclerView = findViewById(R.id.Laravel_recycleview);
 
+        progressDialog1 = new ProgressDialog(LaravelPost.this);
+        progressDialog1.setTitle("Laravel Posts");
+        progressDialog1.setMessage("Loading");
+
+
         linearLayoutManager = new LinearLayoutManager(LaravelPost.this,LinearLayoutManager.VERTICAL,false);
         LaravelrecyclerView.setLayoutManager(linearLayoutManager);
 
         list = new ArrayList<RecentModel>();
 
+        progressDialog1.show();
         recentPostAdapter = new RecentPostAdapter(list,this);
 
         new GetLaravelJson().execute();
@@ -67,7 +75,7 @@ public class LaravelPost extends AppCompatActivity implements RecentPostAdapter.
             super.onPreExecute();
 
             progressDialog = new ProgressDialog(LaravelPost.this);
-            progressDialog.setTitle("Laravel Post");
+            progressDialog.setTitle("Laravel Posts");
             progressDialog.setMessage("Loading");
             progressDialog.show();
 
@@ -99,6 +107,7 @@ public class LaravelPost extends AppCompatActivity implements RecentPostAdapter.
                     Toast.makeText(LaravelPost.this,"done",Toast.LENGTH_LONG).show();
 
 
+                    progressDialog1.dismiss();
                     for (int i =0;i<response.body().size(); i++){
 
                         String temdetails = response.body().get(i).getDate();

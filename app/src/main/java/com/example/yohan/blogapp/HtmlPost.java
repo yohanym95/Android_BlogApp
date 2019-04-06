@@ -27,6 +27,7 @@ public class HtmlPost extends AppCompatActivity implements RecentPostAdapter.onI
     private ArrayList<RecentModel> list;
     private RecentPostAdapter recentPostAdapter;
     // ProgressDialog progressDialog;
+    ProgressDialog progressDialog1;
 
 
     private String HTMLBaseURL = "https://readhublk.com/wp-json/wp/v2/";
@@ -44,12 +45,19 @@ public class HtmlPost extends AppCompatActivity implements RecentPostAdapter.onI
 
         HTMLrecyclerView = findViewById(R.id.Html_recycleview);
 
+        progressDialog1 = new ProgressDialog(HtmlPost.this);
+        progressDialog1.setTitle("HTML Posts");
+        progressDialog1.setMessage("Loading");
+
+
+
         linearLayoutManager = new LinearLayoutManager(HtmlPost.this,LinearLayoutManager.VERTICAL,false);
 
         HTMLrecyclerView.setLayoutManager(linearLayoutManager);
 
         list = new ArrayList<RecentModel>();
 
+        progressDialog1.show();
         recentPostAdapter = new RecentPostAdapter(list,this);
 
         new GetHTMLJson().execute();
@@ -98,6 +106,7 @@ public class HtmlPost extends AppCompatActivity implements RecentPostAdapter.onI
                     Toast.makeText(HtmlPost.this,"done",Toast.LENGTH_LONG).show();
 
 
+                    progressDialog1.dismiss();
                     for (int i =0;i<response.body().size(); i++){
 
                         String temdetails = response.body().get(i).getDate();

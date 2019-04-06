@@ -28,6 +28,8 @@ public class PHPPost extends AppCompatActivity implements RecentPostAdapter.onIt
     private RecentPostAdapter recentPostAdapter;
     // ProgressDialog progressDialog;
 
+    ProgressDialog progressDialog1;
+
 
     private String PHPBaseURL = "https://readhublk.com/wp-json/wp/v2/";
     public static final String RENDER_CONTENT = "RENDER";
@@ -43,6 +45,10 @@ public class PHPPost extends AppCompatActivity implements RecentPostAdapter.onIt
         getSupportActionBar().setTitle("ReadHub - PHP");
 
         PHPrecyclerView = findViewById(R.id.PHP_recycleview);
+        progressDialog1 = new ProgressDialog(PHPPost.this);
+        progressDialog1.setTitle("PHP Posts");
+        progressDialog1.setMessage("Loading");
+
 
         linearLayoutManager = new LinearLayoutManager(PHPPost.this,LinearLayoutManager.VERTICAL,false);
         PHPrecyclerView.setLayoutManager(linearLayoutManager);
@@ -50,6 +56,7 @@ public class PHPPost extends AppCompatActivity implements RecentPostAdapter.onIt
         list = new ArrayList<>();
 
 
+        progressDialog1.show();
         recentPostAdapter = new RecentPostAdapter(list,this);
 
 
@@ -69,7 +76,7 @@ public class PHPPost extends AppCompatActivity implements RecentPostAdapter.onIt
             super.onPreExecute();
 
             progressDialog = new ProgressDialog(PHPPost.this);
-            progressDialog.setTitle("PHP Post");
+            progressDialog.setTitle("PHP Posts");
             progressDialog.setMessage("Loading");
             progressDialog.show();
 
@@ -101,6 +108,7 @@ public class PHPPost extends AppCompatActivity implements RecentPostAdapter.onIt
                     Toast.makeText(PHPPost.this,"done",Toast.LENGTH_LONG).show();
 
 
+                    progressDialog1.dismiss();
                     for (int i =0;i<response.body().size(); i++){
 
                         String temdetails = response.body().get(i).getDate();

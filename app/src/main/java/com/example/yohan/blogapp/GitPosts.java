@@ -26,6 +26,7 @@ public class GitPosts extends AppCompatActivity implements RecentPostAdapter.onI
     private LinearLayoutManager linearLayoutManager;
     private ArrayList<RecentModel> list;
     private RecentPostAdapter recentPostAdapter;
+    ProgressDialog progressDialog1;
 
     private String GitBaseURL = "https://readhublk.com/wp-json/wp/v2/";
     public static final String RENDER_CONTENT = "RENDER";
@@ -41,6 +42,11 @@ public class GitPosts extends AppCompatActivity implements RecentPostAdapter.onI
         getSupportActionBar().setTitle("ReadHub - Git ");
 
         GitrecyclerView = findViewById(R.id.Git_recycleview);
+
+        progressDialog1 = new ProgressDialog(GitPosts.this);
+        progressDialog1.setTitle("Git Posts");
+        progressDialog1.setMessage("Loading");
+        progressDialog1.show();
 
         linearLayoutManager = new LinearLayoutManager(GitPosts.this,LinearLayoutManager.VERTICAL,false);
         GitrecyclerView.setLayoutManager(linearLayoutManager);
@@ -97,6 +103,7 @@ public class GitPosts extends AppCompatActivity implements RecentPostAdapter.onI
                     Toast.makeText(GitPosts.this,"done",Toast.LENGTH_LONG).show();
 
 
+                    progressDialog1.dismiss();
                     for (int i =0;i<response.body().size(); i++){
 
                         String temdetails = response.body().get(i).getDate();
