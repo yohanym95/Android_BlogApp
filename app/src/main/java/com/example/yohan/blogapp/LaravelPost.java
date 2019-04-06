@@ -3,6 +3,7 @@ package com.example.yohan.blogapp;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.speech.RecognizerResultsIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,43 +20,44 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class GitPosts extends AppCompatActivity implements RecentPostAdapter.onItemClicked {
+public class LaravelPost extends AppCompatActivity implements RecentPostAdapter.onItemClicked {
 
     private Toolbar mToolbar;
-    private RecyclerView GitrecyclerView;
+    private RecyclerView LaravelrecyclerView;
     private LinearLayoutManager linearLayoutManager;
     private ArrayList<RecentModel> list;
     private RecentPostAdapter recentPostAdapter;
+    // ProgressDialog progressDialog;
 
-    private String GitBaseURL = "https://readhublk.com/wp-json/wp/v2/";
+
+    private String LaravelBaseURL = "https://readhublk.com/wp-json/wp/v2/";
     public static final String RENDER_CONTENT = "RENDER";
     public  static final String title = "render";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_git_posts);
+        setContentView(R.layout.activity_laravel_post);
 
-        mToolbar = findViewById(R.id.GitPost_app_bar);
+        mToolbar = findViewById(R.id.LaravelPost_app_bar);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("ReadHub - Git ");
+        getSupportActionBar().setTitle("ReadHub - Laravel");
 
-        GitrecyclerView = findViewById(R.id.Git_recycleview);
+        LaravelrecyclerView = findViewById(R.id.Laravel_recycleview);
 
-        linearLayoutManager = new LinearLayoutManager(GitPosts.this,LinearLayoutManager.VERTICAL,false);
-        GitrecyclerView.setLayoutManager(linearLayoutManager);
+        linearLayoutManager = new LinearLayoutManager(LaravelPost.this,LinearLayoutManager.VERTICAL,false);
+        LaravelrecyclerView.setLayoutManager(linearLayoutManager);
 
-        list = new ArrayList<>();
+        list = new ArrayList<RecentModel>();
 
         recentPostAdapter = new RecentPostAdapter(list,this);
 
-        new GetGitJson().execute();
-        GitrecyclerView.setAdapter(recentPostAdapter);
-
-        recentPostAdapter.SetOnItemClickListener(GitPosts.this);
+        new GetLaravelJson().execute();
+        LaravelrecyclerView.setAdapter(recentPostAdapter);
+        recentPostAdapter.SetOnItemClickListener(LaravelPost.this);
     }
 
-    public class GetGitJson extends AsyncTask<Void,Void,Void> {
+    public class GetLaravelJson extends AsyncTask<Void,Void,Void> {
 
         ProgressDialog progressDialog;
 
@@ -64,8 +66,8 @@ public class GitPosts extends AppCompatActivity implements RecentPostAdapter.onI
         protected void onPreExecute() {
             super.onPreExecute();
 
-            progressDialog = new ProgressDialog(GitPosts.this);
-            progressDialog.setTitle("Git Post");
+            progressDialog = new ProgressDialog(LaravelPost.this);
+            progressDialog.setTitle("Laravel Post");
             progressDialog.setMessage("Loading");
             progressDialog.show();
 
@@ -82,19 +84,19 @@ public class GitPosts extends AppCompatActivity implements RecentPostAdapter.onI
         @Override
         protected Void doInBackground(Void... voids) {
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(GitBaseURL)
+                    .baseUrl(LaravelBaseURL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
             RetrofitArrayAPI retrofitArrayAPI = retrofit. create(RetrofitArrayAPI.class);
 
-            Call<List<WPJavaPost>> call = retrofitArrayAPI.getGitPost();
+            Call<List<WPJavaPost>> call = retrofitArrayAPI.getLaravelPost();
 
 
             call.enqueue(new Callback<List<WPJavaPost>>() {
                 @Override
                 public void onResponse(Call<List<WPJavaPost>> call, Response<List<WPJavaPost>> response) {
-                    Toast.makeText(GitPosts.this,"done",Toast.LENGTH_LONG).show();
+                    Toast.makeText(LaravelPost.this,"done",Toast.LENGTH_LONG).show();
 
 
                     for (int i =0;i<response.body().size(); i++){
@@ -131,7 +133,6 @@ public class GitPosts extends AppCompatActivity implements RecentPostAdapter.onI
             progressDialog.dismiss();
         }
     }
-
 
     @Override
     public void OnItemClick(int index) {

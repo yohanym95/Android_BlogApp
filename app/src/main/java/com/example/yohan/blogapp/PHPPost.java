@@ -19,43 +19,47 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class GitPosts extends AppCompatActivity implements RecentPostAdapter.onItemClicked {
+public class PHPPost extends AppCompatActivity implements RecentPostAdapter.onItemClicked{
 
     private Toolbar mToolbar;
-    private RecyclerView GitrecyclerView;
+    private RecyclerView PHPrecyclerView;
     private LinearLayoutManager linearLayoutManager;
     private ArrayList<RecentModel> list;
     private RecentPostAdapter recentPostAdapter;
+    // ProgressDialog progressDialog;
 
-    private String GitBaseURL = "https://readhublk.com/wp-json/wp/v2/";
+
+    private String PHPBaseURL = "https://readhublk.com/wp-json/wp/v2/";
     public static final String RENDER_CONTENT = "RENDER";
     public  static final String title = "render";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_git_posts);
+        setContentView(R.layout.activity_phppost);
 
-        mToolbar = findViewById(R.id.GitPost_app_bar);
+        mToolbar = findViewById(R.id.PHPPost_app_bar);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("ReadHub - Git ");
+        getSupportActionBar().setTitle("ReadHub - PHP");
 
-        GitrecyclerView = findViewById(R.id.Git_recycleview);
+        PHPrecyclerView = findViewById(R.id.PHP_recycleview);
 
-        linearLayoutManager = new LinearLayoutManager(GitPosts.this,LinearLayoutManager.VERTICAL,false);
-        GitrecyclerView.setLayoutManager(linearLayoutManager);
+        linearLayoutManager = new LinearLayoutManager(PHPPost.this,LinearLayoutManager.VERTICAL,false);
+        PHPrecyclerView.setLayoutManager(linearLayoutManager);
 
         list = new ArrayList<>();
 
+
         recentPostAdapter = new RecentPostAdapter(list,this);
 
-        new GetGitJson().execute();
-        GitrecyclerView.setAdapter(recentPostAdapter);
 
-        recentPostAdapter.SetOnItemClickListener(GitPosts.this);
+        new GetPHPJson().execute();
+        PHPrecyclerView.setAdapter(recentPostAdapter);
+        recentPostAdapter.SetOnItemClickListener(PHPPost.this);
+
     }
 
-    public class GetGitJson extends AsyncTask<Void,Void,Void> {
+    public class GetPHPJson extends AsyncTask<Void,Void,Void> {
 
         ProgressDialog progressDialog;
 
@@ -64,8 +68,8 @@ public class GitPosts extends AppCompatActivity implements RecentPostAdapter.onI
         protected void onPreExecute() {
             super.onPreExecute();
 
-            progressDialog = new ProgressDialog(GitPosts.this);
-            progressDialog.setTitle("Git Post");
+            progressDialog = new ProgressDialog(PHPPost.this);
+            progressDialog.setTitle("PHP Post");
             progressDialog.setMessage("Loading");
             progressDialog.show();
 
@@ -82,19 +86,19 @@ public class GitPosts extends AppCompatActivity implements RecentPostAdapter.onI
         @Override
         protected Void doInBackground(Void... voids) {
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(GitBaseURL)
+                    .baseUrl(PHPBaseURL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
             RetrofitArrayAPI retrofitArrayAPI = retrofit. create(RetrofitArrayAPI.class);
 
-            Call<List<WPJavaPost>> call = retrofitArrayAPI.getGitPost();
+            Call<List<WPJavaPost>> call = retrofitArrayAPI.getPHPPost();
 
 
             call.enqueue(new Callback<List<WPJavaPost>>() {
                 @Override
                 public void onResponse(Call<List<WPJavaPost>> call, Response<List<WPJavaPost>> response) {
-                    Toast.makeText(GitPosts.this,"done",Toast.LENGTH_LONG).show();
+                    Toast.makeText(PHPPost.this,"done",Toast.LENGTH_LONG).show();
 
 
                     for (int i =0;i<response.body().size(); i++){
@@ -135,6 +139,7 @@ public class GitPosts extends AppCompatActivity implements RecentPostAdapter.onI
 
     @Override
     public void OnItemClick(int index) {
+
         Intent i = new Intent(this,RecentPostView.class);
         RecentModel model = list.get(index);
         i.putExtra(RENDER_CONTENT,model.render);

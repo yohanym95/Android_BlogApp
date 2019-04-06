@@ -112,7 +112,7 @@ public class FiverrPost extends AppCompatActivity implements RecentPostAdapter.o
 
                         list.add(new RecentModel( titile,
                                 temdetails,
-                                response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getThumbnail().getSourceUrl(),render,RecentModel.IMAGE_TYPE));
+                                response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getTieMedium().getSourceUrl(),render,RecentModel.IMAGE_TYPE));
 
                     }
 

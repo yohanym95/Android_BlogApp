@@ -27,4 +27,16 @@ public interface RetrofitArrayAPI {
 
     @GET("posts?categories=927")
     Call<List<WPJavaPost>> getKotlinPost();
+
+    @GET("posts?categories=913")
+    Call<List<WPJavaPost>> getLaravelPost();
+
+    @GET("posts?categories=240")
+    Call<List<WPJavaPost>> getNetworkingPost();
+
+    @GET("posts?categories=1112")
+    Call<List<WPJavaPost>> getPHPPost();
+
+    @GET("posts?categories=928")
+    Call<List<WPJavaPost>> getUnityPost();
 }

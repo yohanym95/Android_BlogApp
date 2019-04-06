@@ -80,6 +80,8 @@ public class TutorialFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                Intent i = new Intent(getContext(),PHPPost.class);
+                startActivity(i);
             }
         });
 
@@ -87,6 +89,8 @@ public class TutorialFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                Intent i = new Intent(getContext(),UnityPost.class);
+                startActivity(i);
             }
         });
 
@@ -103,6 +107,8 @@ public class TutorialFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                Intent i = new Intent(getContext(),NetworkingPost.class);
+                startActivity(i);
             }
         });
 
@@ -119,6 +125,8 @@ public class TutorialFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                Intent i = new Intent(getContext(),LaravelPost.class);
+                startActivity(i);
             }
         });
 

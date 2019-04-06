@@ -110,7 +110,7 @@ public class HtmlPost extends AppCompatActivity implements RecentPostAdapter.onI
 
                         list.add(new RecentModel( titile,
                                 temdetails,
-                                response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getThumbnail().getSourceUrl(),render,RecentModel.IMAGE_TYPE));
+                                response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getTieMedium().getSourceUrl(),render,RecentModel.IMAGE_TYPE));
 
                     }
 
