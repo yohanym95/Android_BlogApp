@@ -32,6 +32,7 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
     private RecyclerView recyclerView;
    // private ProgressBar progressBar;
     private LinearLayoutManager linearLayoutManager;
+    ProgressDialog progressDialog1;
     View view;
 
     private ArrayList<RecentModel> list;
@@ -71,6 +72,10 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
         new GetRecentJSON().execute();
         recyclerView.setAdapter(adapter);
         adapter.SetOnItemClickListener(RecentFragment.this);
+        progressDialog1 = new ProgressDialog(getContext());
+        progressDialog1.setTitle("Recents Posts");
+        progressDialog1.setMessage("Loading");
+        progressDialog1.show();
 
 
     }
@@ -129,6 +134,7 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
                     Toast.makeText(getContext(),"done",Toast.LENGTH_LONG).show();
                   //  progressBar.setVisibility(View.GONE);
 
+                    progressDialog1.dismiss();
                     for(int i = 0; i<response.body().size(); i++){
 
                         String temdetails = response.body().get(i).getDate();

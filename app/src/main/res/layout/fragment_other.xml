@@ -123,7 +123,7 @@
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:gravity="center"
-                android:text="Animation"
+                android:text="Animation සිංහලෙන්"
                 android:textColor="@color/colorPrimary"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -263,7 +263,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
-                android:id="@+id/crdKibuli"
+                android:id="@+id/crdKibulitext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

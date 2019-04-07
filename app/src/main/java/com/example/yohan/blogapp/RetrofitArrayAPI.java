@@ -39,4 +39,36 @@ public interface RetrofitArrayAPI {
 
     @GET("posts?categories=928")
     Call<List<WPJavaPost>> getUnityPost();
+
+    @GET("posts?categories=95")
+    Call<List<WPJavaPost>> getMoviesPost();
+
+    @GET("posts?categories=1064")
+    Call<List<WPJavaPost>> getAnimationPost();
+
+    @GET("posts?categories=366")
+    Call<List<WPJavaPost>> getGamesPost();
+
+    @GET("posts?categories=139")
+    Call<List<WPJavaPost>> getSportPost();
+
+    @GET("posts?categories=273")
+    Call<List<WPJavaPost>> getTechEnglishPost();
+
+    @GET("posts?categories=381")
+    Call<List<WPJavaPost>> getTechTamilPost();
+
+    @GET("posts?categories=196")
+    Call<List<WPJavaPost>> getTechSinhalaPost();
+
+    @GET("posts?categories=98")
+    Call<List<WPJavaPost>> getTechnologyPost();
+
+    @GET("posts?categories=752")
+    Call<List<WPJavaPost>> getKibuliPost();
+
+    @GET("posts?categories=1038")
+    Call<List<WPJavaPost>> getOtherPost();
+
+
 }

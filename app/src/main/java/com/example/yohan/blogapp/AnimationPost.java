@@ -3,7 +3,6 @@ package com.example.yohan.blogapp;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.speech.RecognizerResultsIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,52 +23,49 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class LaravelPost extends AppCompatActivity implements RecentPostAdapter.onItemClicked {
+public class AnimationPost extends AppCompatActivity implements RecentPostAdapter.onItemClicked{
 
     private Toolbar mToolbar;
-    private RecyclerView LaravelrecyclerView;
+    private RecyclerView AnimationrecyclerView;
     private LinearLayoutManager linearLayoutManager;
     private ArrayList<RecentModel> list;
     private RecentPostAdapter recentPostAdapter;
     // ProgressDialog progressDialog;
-
     ProgressDialog progressDialog1;
 
 
-    private String LaravelBaseURL = "https://readhublk.com/wp-json/wp/v2/";
+    private String AnimationBaseURL = "https://readhublk.com/wp-json/wp/v2/";
     public static final String RENDER_CONTENT = "RENDER";
     public  static final String title = "render";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_laravel_post);
+        setContentView(R.layout.activity_animation_post);
 
-        mToolbar = findViewById(R.id.LaravelPost_app_bar);
+        mToolbar = findViewById(R.id.AnimationPost_app_bar);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("ReadHub - Laravel");
+        getSupportActionBar().setTitle("ReadHub - Animations");
 
-        LaravelrecyclerView = findViewById(R.id.Laravel_recycleview);
-
-        progressDialog1 = new ProgressDialog(LaravelPost.this);
-        progressDialog1.setTitle("Laravel Posts");
+        AnimationrecyclerView = findViewById(R.id.Animation_recycleview);
+        progressDialog1 = new ProgressDialog(AnimationPost.this);
+        progressDialog1.setTitle("Animations Post");
         progressDialog1.setMessage("Loading");
 
-
-        linearLayoutManager = new LinearLayoutManager(LaravelPost.this,LinearLayoutManager.VERTICAL,false);
-        LaravelrecyclerView.setLayoutManager(linearLayoutManager);
+        linearLayoutManager = new LinearLayoutManager(AnimationPost.this,LinearLayoutManager.VERTICAL,false);
+        AnimationrecyclerView.setLayoutManager(linearLayoutManager);
 
         list = new ArrayList<RecentModel>();
 
         progressDialog1.show();
         recentPostAdapter = new RecentPostAdapter(list,this);
 
-        new GetLaravelJson().execute();
-        LaravelrecyclerView.setAdapter(recentPostAdapter);
-        recentPostAdapter.SetOnItemClickListener(LaravelPost.this);
+        new GetAnimationsJson().execute();
+        AnimationrecyclerView.setAdapter(recentPostAdapter);
+        recentPostAdapter.SetOnItemClickListener(AnimationPost.this);
     }
 
-    public class GetLaravelJson extends AsyncTask<Void,Void,Void> {
+    public class GetAnimationsJson extends AsyncTask<Void,Void,Void> {
 
         ProgressDialog progressDialog;
 
@@ -78,8 +74,8 @@ public class LaravelPost extends AppCompatActivity implements RecentPostAdapter.
         protected void onPreExecute() {
             super.onPreExecute();
 
-            progressDialog = new ProgressDialog(LaravelPost.this);
-            progressDialog.setTitle("Laravel Posts");
+            progressDialog = new ProgressDialog(AnimationPost.this);
+            progressDialog.setTitle("Animations Post");
             progressDialog.setMessage("Loading");
             progressDialog.show();
 
@@ -96,19 +92,19 @@ public class LaravelPost extends AppCompatActivity implements RecentPostAdapter.
         @Override
         protected Void doInBackground(Void... voids) {
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(LaravelBaseURL)
+                    .baseUrl(AnimationBaseURL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
             RetrofitArrayAPI retrofitArrayAPI = retrofit. create(RetrofitArrayAPI.class);
 
-            Call<List<WPJavaPost>> call = retrofitArrayAPI.getLaravelPost();
+            Call<List<WPJavaPost>> call = retrofitArrayAPI.getAnimationPost();
 
 
             call.enqueue(new Callback<List<WPJavaPost>>() {
                 @Override
                 public void onResponse(Call<List<WPJavaPost>> call, Response<List<WPJavaPost>> response) {
-                    Toast.makeText(LaravelPost.this,"done",Toast.LENGTH_LONG).show();
+                    Toast.makeText(AnimationPost.this,"done",Toast.LENGTH_LONG).show();
 
 
                     progressDialog1.dismiss();
@@ -149,15 +145,17 @@ public class LaravelPost extends AppCompatActivity implements RecentPostAdapter.
 
     @Override
     public void OnItemClick(int index) {
+
         Intent i = new Intent(this,RecentPostView.class);
         RecentModel model = list.get(index);
         i.putExtra(RENDER_CONTENT,model.render);
         // i.putExtra(title,model.title);
         startActivity(i);
+
     }
 
     private void updateUI(){
-        Intent startIntent = new Intent(LaravelPost.this,Login.class);
+        Intent startIntent = new Intent(AnimationPost.this,Login.class);
         startActivity(startIntent);
         finish();
     }

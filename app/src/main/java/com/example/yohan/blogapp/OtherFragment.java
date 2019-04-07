@@ -1,6 +1,7 @@
 package com.example.yohan.blogapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -33,6 +34,88 @@ public class OtherFragment extends Fragment {
         crdTechnology = v.findViewById(R.id.crdtechnology);
         crdOthers = v.findViewById(R.id.crdPOther);
         crdKibuli = v.findViewById(R.id.crdKibuli);
+
+
+        crdMovies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),MoviesPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdAnimation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),AnimationPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdGames.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),GamesPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdSport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),SportPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdTechEnglish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getContext(),TechEnglishPost.class);
+                startActivity(i);
+            }
+        });
+
+        crcTechTamil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),TechTamilPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdTechSinhala.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),TechSinhalPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdTechnology.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),TechnologyPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdKibuli.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),KibuliPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdOthers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),OtherPost.class);
+                startActivity(i);
+            }
+        });
 
         return v;
     }
