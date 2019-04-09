@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIN="navigation_view">
+
+    <item android:title="@string/like_amp_follow_us">
+
+        <menu>
+            <item android:id="@+id/nav_facebook"
+                android:icon="@mipmap/face1"
+                android:title="Facebook"/>
+            <item android:id="@+id/nav_lindin"
+                android:icon="@mipmap/linkedin111"
+                android:title="Linkedin"/>
+            <item android:id="@+id/nav_youtube"
+                android:icon="@mipmap/youtube111"
+                android:title="YouTube"/>
+            <item android:id="@+id/nav_twiter"
+                android:icon="@mipmap/twiter111"
+                android:title="YouTube"/>
+
+        </menu>
+
+    </item>
+
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_contact"
+            android:icon="@mipmap/contactus"
+            android:title="Contact Us"/>
+        <item android:id="@+id/nav_about"
+            android:icon="@mipmap/aboutus"
+            android:title="About Us"/>
+
+    </group>
+
+</menu>
