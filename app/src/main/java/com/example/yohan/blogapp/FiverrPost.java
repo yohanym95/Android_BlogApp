@@ -54,7 +54,7 @@ public class FiverrPost extends AppCompatActivity implements RecentPostAdapter.o
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(FiverrPost.this,Login.class);
+                Intent i = new Intent(FiverrPost.this,MainActivity.class);
                 startActivity(i);
             }
         });

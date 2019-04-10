@@ -52,7 +52,7 @@ public class MoviesPost extends AppCompatActivity implements RecentPostAdapter.o
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MoviesPost.this,Login.class);
+                Intent i = new Intent(MoviesPost.this,MainActivity.class);
                 startActivity(i);
             }
         });

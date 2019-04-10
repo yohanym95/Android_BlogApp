@@ -53,7 +53,7 @@ public class TechEnglishPost extends AppCompatActivity implements RecentPostAdap
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(TechEnglishPost.this,Login.class);
+                Intent i = new Intent(TechEnglishPost.this,MainActivity.class);
                 startActivity(i);
             }
         });

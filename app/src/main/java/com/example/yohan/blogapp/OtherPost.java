@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -46,7 +47,17 @@ public class OtherPost extends AppCompatActivity implements RecentPostAdapter.on
 
         mToolbar = findViewById(R.id.OtherPost_app_bar);
         setSupportActionBar(mToolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("ReadHub - Others");
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(OtherPost.this,MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         OtherrecyclerView = findViewById(R.id.Other_recycleview);
         progressDialog1 = new ProgressDialog(OtherPost.this);

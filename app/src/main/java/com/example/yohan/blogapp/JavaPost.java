@@ -56,7 +56,7 @@ public class JavaPost extends AppCompatActivity implements RecentPostAdapter.onI
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(JavaPost.this,Login.class);
+                Intent i = new Intent(JavaPost.this,MainActivity.class);
                 startActivity(i);
             }
         });

@@ -1,5 +1,6 @@
 package com.example.yohan.blogapp;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -53,7 +54,7 @@ public class AnimationPost extends AppCompatActivity implements RecentPostAdapte
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(AnimationPost.this,Login.class);
+                Intent i = new Intent(AnimationPost.this, MainActivity.class);
                 startActivity(i);
             }
         });

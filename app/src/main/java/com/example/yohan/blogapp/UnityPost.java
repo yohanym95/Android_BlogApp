@@ -54,7 +54,7 @@ public class UnityPost extends AppCompatActivity implements RecentPostAdapter.on
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(UnityPost.this,Login.class);
+                Intent i = new Intent(UnityPost.this,MainActivity.class);
                 startActivity(i);
             }
         });

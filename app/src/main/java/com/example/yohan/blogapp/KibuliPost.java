@@ -55,7 +55,7 @@ public class KibuliPost extends AppCompatActivity implements RecentPostAdapter.o
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(KibuliPost.this,Login.class);
+                Intent i = new Intent(KibuliPost.this,MainActivity.class);
                 startActivity(i);
             }
         });

@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -46,7 +47,17 @@ public class PHPPost extends AppCompatActivity implements RecentPostAdapter.onIt
 
         mToolbar = findViewById(R.id.PHPPost_app_bar);
         setSupportActionBar(mToolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("ReadHub - PHP");
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(PHPPost.this,MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         PHPrecyclerView = findViewById(R.id.PHP_recycleview);
         progressDialog1 = new ProgressDialog(PHPPost.this);

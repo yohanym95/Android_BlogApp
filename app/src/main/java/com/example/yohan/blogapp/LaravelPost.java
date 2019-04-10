@@ -55,7 +55,7 @@ public class LaravelPost extends AppCompatActivity implements RecentPostAdapter.
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(LaravelPost.this,Login.class);
+                Intent i = new Intent(LaravelPost.this,MainActivity.class);
                 startActivity(i);
             }
         });

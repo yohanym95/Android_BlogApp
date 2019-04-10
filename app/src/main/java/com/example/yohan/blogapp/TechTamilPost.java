@@ -54,7 +54,7 @@ public class TechTamilPost extends AppCompatActivity implements RecentPostAdapte
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(TechTamilPost.this,Login.class);
+                Intent i = new Intent(TechTamilPost.this,MainActivity.class);
                 startActivity(i);
             }
         });

@@ -54,7 +54,7 @@ public class TechnologyPost extends AppCompatActivity implements RecentPostAdapt
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(TechnologyPost.this,Login.class);
+                Intent i = new Intent(TechnologyPost.this,MainActivity.class);
                 startActivity(i);
             }
         });

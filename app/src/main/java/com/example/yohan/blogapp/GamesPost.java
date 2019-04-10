@@ -53,7 +53,7 @@ public class GamesPost extends AppCompatActivity implements RecentPostAdapter.on
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(GamesPost.this,Login.class);
+                Intent i = new Intent(GamesPost.this,MainActivity.class);
                 startActivity(i);
             }
         });

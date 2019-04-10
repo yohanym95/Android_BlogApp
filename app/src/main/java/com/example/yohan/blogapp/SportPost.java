@@ -54,7 +54,7 @@ public class SportPost extends AppCompatActivity implements RecentPostAdapter.on
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(SportPost.this,Login.class);
+                Intent i = new Intent(SportPost.this,MainActivity.class);
                 startActivity(i);
             }
         });

@@ -55,7 +55,7 @@ public class KotlinPost extends AppCompatActivity implements RecentPostAdapter.o
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(KotlinPost.this,Login.class);
+                Intent i = new Intent(KotlinPost.this,MainActivity.class);
                 startActivity(i);
             }
         });
