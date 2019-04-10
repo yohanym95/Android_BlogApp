@@ -29,13 +29,21 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tvauthor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
             android:id="@+id/tvsubtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:lineSpacingExtra="2dp"
             android:maxLines="5"
-            android:padding="5dp"
+            android:layout_margin="5dp"
             android:textStyle="bold" />
 
 

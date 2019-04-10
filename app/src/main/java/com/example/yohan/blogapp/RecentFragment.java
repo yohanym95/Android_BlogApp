@@ -39,7 +39,7 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
     private RecentPostAdapter adapter;
     //  public String render;
 
-    private String baseURL = "https://readhublk.com/wp-json/wp/v2/";
+    private String baseURL = "https://readhub.lk/wp-json/wp/v2/";
 
     public static final String RENDER_CONTENT = "render";
     public static final String title = "render";
@@ -140,6 +140,8 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
                         String temdetails = response.body().get(i).getDate();
                         String titile = response.body().get(i).getTitle().getRendered().toString();
                         titile = titile.replace("&#8211;","");
+                        titile = titile.replace("&#x200d;","");
+                        titile = titile.replace("&#8230;","");
                         String render = response.body().get(i).getContent().getRendered();
                        /// render = render.replace("--aspect-ratio","aspect-ratio");
 
@@ -147,7 +149,7 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
 
                         list.add(new RecentModel( titile,
                                 temdetails,
-                                response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getTieMedium().getSourceUrl(),render,RecentModel.IMAGE_TYPE));
+                                response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getTieMedium().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName()));
                     }
 
                     adapter.notifyDataSetChanged();

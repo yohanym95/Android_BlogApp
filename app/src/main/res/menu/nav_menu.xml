@@ -18,7 +18,7 @@
                 android:title="YouTube"/>
             <item android:id="@+id/nav_twiter"
                 android:icon="@mipmap/twiter111"
-                android:title="YouTube"/>
+                android:title="Twitter"/>
 
         </menu>
 

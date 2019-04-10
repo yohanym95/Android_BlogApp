@@ -35,7 +35,7 @@ public class RecentPostAdapter extends RecyclerView.Adapter<RecentPostAdapter.Im
 
     public class ImageTypeViewHolder extends RecyclerView.ViewHolder{
 
-        TextView title,subtitle;
+        TextView title,subtitle,author;
         ImageView imageView;
 
         public ImageTypeViewHolder(@NonNull View itemView) {
@@ -44,6 +44,7 @@ public class RecentPostAdapter extends RecyclerView.Adapter<RecentPostAdapter.Im
             this.title = itemView.findViewById(R.id.tvtitle);
             this.subtitle = itemView.findViewById(R.id.tvsubtitle);
             this.imageView = itemView.findViewById(R.id.iconImage);
+            this.author = itemView.findViewById(R.id.tvauthor);
 
 
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +79,7 @@ public class RecentPostAdapter extends RecyclerView.Adapter<RecentPostAdapter.Im
         imageTypeViewHolder.title.setText(model.title);
          imageTypeViewHolder.subtitle.setText(model.date);
         String imageUrl = model.Image;
+        imageTypeViewHolder.author.setText(model.author);
 
         Picasso.get().load(imageUrl).fit().centerInside().into(imageTypeViewHolder.imageView);
 

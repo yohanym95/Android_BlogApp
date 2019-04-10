@@ -14,18 +14,18 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_gravity="center"
-            android:layout_margin="10dp"
+            android:layout_margin="8dp"
             android:src="@mipmap/ic_launcher_readhub" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:gravity="center"
+            android:layout_marginTop="5dp"
             android:text="Welcome to ReadHub "
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -37,23 +37,29 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:orientation="vertical">
 
         <Button
             android:id="@+id/btnlogin"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="8dp"
             android:gravity="center"
-            android:text="Already have account" />
+            android:text="Already have account"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@android:color/background_light"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/btncreateaccount"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Need a New Account" />
+            android:text="Need a New Account"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@android:color/background_light"
+            android:textStyle="bold"/>
     </LinearLayout>
 
 

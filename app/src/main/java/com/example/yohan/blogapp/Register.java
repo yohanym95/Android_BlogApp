@@ -47,7 +47,18 @@ public class Register extends AppCompatActivity {
         btnCraeteAccount = findViewById(R.id.btnCreate);
         regToolbar = (Toolbar)findViewById(R.id.register_app_bar);
         setSupportActionBar(regToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Create Account");
+
+        regToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(Register.this,Login.class);
+                startActivity(i);
+            }
+        });
 
         mregProgressdialog = new ProgressDialog(this);
 

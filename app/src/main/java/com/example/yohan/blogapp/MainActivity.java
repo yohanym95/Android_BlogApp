@@ -1,14 +1,18 @@
 package com.example.yohan.blogapp;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -46,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         drawerLayout = findViewById(R.id.drawerlayout);
         navigationView = findViewById(R.id.nav_view);
+
 
         navigationView.setNavigationItemSelectedListener(this );
         navigationView.setItemIconTintList(null);
@@ -99,11 +104,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onOptionsItemSelected(item);
 
         if(item.getItemId() == R.id.main_logout){
-            FirebaseAuth.getInstance().signOut();;
-            updateUI();
+
+            openDialog();
+
         }
         return true;
     }
+
+    public void openDialog(){
+
+        logoutDialog logoutdialog = new logoutDialog();
+        logoutdialog.show(getSupportFragmentManager(),"Logoutdialog");
+
+    }
+
+
+
     @Override
     public void onBackPressed() {
         if(drawerLayout.isDrawerOpen(GravityCompat.START)){

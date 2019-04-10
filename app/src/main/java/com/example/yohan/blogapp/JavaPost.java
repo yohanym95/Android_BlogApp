@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,7 +36,7 @@ public class JavaPost extends AppCompatActivity implements RecentPostAdapter.onI
 
 
 
-    private String JavaBaseURL = "https://readhublk.com/wp-json/wp/v2/";
+    private String JavaBaseURL = "https://readhub.lk/wp-json/wp/v2/";
     public static final String RENDER_CONTENT = "RENDER";
     public  static final String title = "render";
 
@@ -48,7 +49,17 @@ public class JavaPost extends AppCompatActivity implements RecentPostAdapter.onI
 
         mToolbar = findViewById(R.id.javapost_app_bar);
         setSupportActionBar(mToolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("ReadHub - JAVA");
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(JavaPost.this,Login.class);
+                startActivity(i);
+            }
+        });
 
         JavarecyclerView = findViewById(R.id.java_recycleview);
 
@@ -120,6 +131,9 @@ public class JavaPost extends AppCompatActivity implements RecentPostAdapter.onI
                         String temdetails = response.body().get(i).getDate();
                         String titile = response.body().get(i).getTitle().getRendered().toString();
                         titile = titile.replace("&#8211;","");
+                        titile = titile.replace("&#x200d;","");
+                        titile = titile.replace("&#8230;","");
+                        titile = titile.replace("&amp;","");
                         String render = response.body().get(i).getContent().getRendered();
                         /// render = render.replace("--aspect-ratio","aspect-ratio");
 
@@ -127,7 +141,7 @@ public class JavaPost extends AppCompatActivity implements RecentPostAdapter.onI
 
                         list.add(new RecentModel( titile,
                                 temdetails,
-                                response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getTieMedium().getSourceUrl(),render,RecentModel.IMAGE_TYPE));
+                                response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getTieMedium().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName()));
 
                     }
 
@@ -179,9 +193,15 @@ public class JavaPost extends AppCompatActivity implements RecentPostAdapter.onI
         super.onOptionsItemSelected(item);
 
         if(item.getItemId() == R.id.main_logout){
-            FirebaseAuth.getInstance().signOut();;
-            updateUI();
+            openDialog();
         }
         return true;
+    }
+
+    public void openDialog(){
+
+        logoutDialog logoutdialog = new logoutDialog();
+        logoutdialog.show(getSupportFragmentManager(),"Logoutdialog");
+
     }
 }

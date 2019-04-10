@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,7 +35,7 @@ public class TechTamilPost extends AppCompatActivity implements RecentPostAdapte
     ProgressDialog progressDialog1;
 
 
-    private String TechTamilBaseURL = "https://readhublk.com/wp-json/wp/v2/";
+    private String TechTamilBaseURL = "https://readhub.lk/wp-json/wp/v2/";
     public static final String RENDER_CONTENT = "RENDER";
     public  static final String title = "render";
 
@@ -45,7 +46,18 @@ public class TechTamilPost extends AppCompatActivity implements RecentPostAdapte
 
         mToolbar = findViewById(R.id.TechTamilPost_app_bar);
         setSupportActionBar(mToolbar);
+
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("ReadHub - Tech Tamil");
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(TechTamilPost.this,Login.class);
+                startActivity(i);
+            }
+        });
 
         TechTamilrecyclerView = findViewById(R.id.TechTamil_recycleview);
         progressDialog1 = new ProgressDialog(TechTamilPost.this);
@@ -114,6 +126,9 @@ public class TechTamilPost extends AppCompatActivity implements RecentPostAdapte
                         String temdetails = response.body().get(i).getDate();
                         String titile = response.body().get(i).getTitle().getRendered().toString();
                         titile = titile.replace("&#8211;","");
+                        titile = titile.replace("&#x200d;","");
+                        titile = titile.replace("&#8230;","");
+                        titile = titile.replace("&amp;","");
                         String render = response.body().get(i).getContent().getRendered();
                         /// render = render.replace("--aspect-ratio","aspect-ratio");
 
@@ -121,7 +136,7 @@ public class TechTamilPost extends AppCompatActivity implements RecentPostAdapte
 
                         list.add(new RecentModel( titile,
                                 temdetails,
-                                response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getTieMedium().getSourceUrl(),render,RecentModel.IMAGE_TYPE));
+                                response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getTieMedium().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName()));
 
                     }
 
@@ -174,9 +189,15 @@ public class TechTamilPost extends AppCompatActivity implements RecentPostAdapte
         super.onOptionsItemSelected(item);
 
         if(item.getItemId() == R.id.main_logout){
-            FirebaseAuth.getInstance().signOut();;
-            updateUI();
+            openDialog();
         }
         return true;
+    }
+
+    public void openDialog(){
+
+        logoutDialog logoutdialog = new logoutDialog();
+        logoutdialog.show(getSupportFragmentManager(),"Logoutdialog");
+
     }
 }

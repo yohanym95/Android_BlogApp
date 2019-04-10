@@ -34,7 +34,7 @@ public class OtherPost extends AppCompatActivity implements RecentPostAdapter.on
     ProgressDialog progressDialog1;
 
 
-    private String OtherBaseURL = "https://readhublk.com/wp-json/wp/v2/";
+    private String OtherBaseURL = "https://readhub.lk/wp-json/wp/v2/";
     public static final String RENDER_CONTENT = "RENDER";
     public  static final String title = "render";
 
@@ -114,7 +114,10 @@ public class OtherPost extends AppCompatActivity implements RecentPostAdapter.on
 
                         String temdetails = response.body().get(i).getDate();
                         String titile = response.body().get(i).getTitle().getRendered().toString();
-                        titile = titile.replace("&#8211;", "");
+                        titile = titile.replace("&#8211;","");
+                        titile = titile.replace("&#x200d;","");
+                        titile = titile.replace("&#8230;","");
+                        titile = titile.replace("&amp;","");
                         String render = response.body().get(i).getContent().getRendered();
                         /// render = render.replace("--aspect-ratio","aspect-ratio");
 
@@ -122,7 +125,7 @@ public class OtherPost extends AppCompatActivity implements RecentPostAdapter.on
 
                         list.add(new RecentModel(titile,
                                 temdetails,
-                                response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getTieMedium().getSourceUrl(), render, RecentModel.IMAGE_TYPE));
+                                response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getTieMedium().getSourceUrl(), render, RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName()));
 
                     }
 
@@ -170,9 +173,15 @@ public class OtherPost extends AppCompatActivity implements RecentPostAdapter.on
         super.onOptionsItemSelected(item);
 
         if(item.getItemId() == R.id.main_logout){
-            FirebaseAuth.getInstance().signOut();;
-            updateUI();
+            openDialog();
         }
         return true;
+    }
+
+    public void openDialog(){
+
+        logoutDialog logoutdialog = new logoutDialog();
+        logoutdialog.show(getSupportFragmentManager(),"Logoutdialog");
+
     }
 }

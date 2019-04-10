@@ -38,11 +38,20 @@ public class Loginaccount extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Login");
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Loginaccount.this,Login.class);
+                startActivity(i);
+            }
+        });
 
         mloginEmail = findViewById(R.id.login_Email);
         mLoginPassword = findViewById(R.id.login_Password);
         btnLogin = findViewById(R.id.btnLogin);
+
 
         mAuth = FirebaseAuth.getInstance();
 

@@ -71,8 +71,8 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="30dp"
-            android:background="@color/colorPrimaryDark"
             android:text="Login to Your Account"
+            android:background="@color/colorPrimaryDark"
             android:textColor="@android:color/background_light"
             android:textStyle="bold" />
 
