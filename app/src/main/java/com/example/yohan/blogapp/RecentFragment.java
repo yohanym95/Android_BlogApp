@@ -20,6 +20,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.Cache;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -44,6 +46,10 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
     public static final String RENDER_CONTENT = "render";
     public static final String title = "render";
 
+    int cacheSize = 20 * 1024 * 1024; // 10 MB
+    Cache cache;
+    OkHttpClient okHttpClient;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,6 +71,10 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
         recyclerView.setHasFixedSize(true);
         linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(linearLayoutManager);
+        progressDialog1 = new ProgressDialog(getContext());
+        progressDialog1.setTitle("Recents Posts");
+        progressDialog1.setMessage("Loading");
+        progressDialog1.show();
 
         list = new ArrayList<RecentModel>();
 
@@ -72,10 +82,15 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
         new GetRecentJSON().execute();
         recyclerView.setAdapter(adapter);
         adapter.SetOnItemClickListener(RecentFragment.this);
-        progressDialog1 = new ProgressDialog(getContext());
-        progressDialog1.setTitle("Recents Posts");
-        progressDialog1.setMessage("Loading");
-        progressDialog1.show();
+
+
+
+
+        cache = new Cache(getActivity().getCacheDir(), cacheSize);
+
+        okHttpClient = new OkHttpClient.Builder()
+                .cache(cache)
+                .build();
 
 
     }
@@ -104,23 +119,26 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
     }
 
     public class GetRecentJSON extends AsyncTask<Void,Void,Void>{
-        ProgressDialog progressDialog;
+
+
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
 
-            progressDialog = new ProgressDialog(getContext());
-            progressDialog.setTitle("Recent Post");
-            progressDialog.setMessage("Loading");
-            progressDialog.show();
+//            progressDialog = new ProgressDialog(getContext());
+//            progressDialog.setTitle("Recent Post");
+//            progressDialog.setMessage("Loading");
+//            progressDialog.show();
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
 
+
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(baseURL)
+                    .client(okHttpClient)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
@@ -131,10 +149,10 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
             call.enqueue(new Callback<List<WPPost>>() {
                 @Override
                 public void onResponse(Call<List<WPPost>> call, Response<List<WPPost>> response) {
-                    Toast.makeText(getContext(),"done",Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getContext(),"done",Toast.LENGTH_LONG).show();
                   //  progressBar.setVisibility(View.GONE);
 
-                    progressDialog1.dismiss();
+                   progressDialog1.dismiss();
                     for(int i = 0; i<response.body().size(); i++){
 
                         String temdetails = response.body().get(i).getDate();
@@ -142,6 +160,8 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
                         titile = titile.replace("&#8211;","");
                         titile = titile.replace("&#x200d;","");
                         titile = titile.replace("&#8230;","");
+                        titile = titile.replace("&#8220;","");
+                        titile = titile.replace("&#8221;","");
                         String render = response.body().get(i).getContent().getRendered();
                        /// render = render.replace("--aspect-ratio","aspect-ratio");
 
@@ -169,7 +189,7 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            progressDialog.dismiss();
+          //  progressDialog.dismiss();
         }
     }
 

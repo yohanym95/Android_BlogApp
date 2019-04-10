@@ -18,6 +18,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.Cache;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -38,7 +40,10 @@ public class NetworkingPost extends AppCompatActivity  implements RecentPostAdap
     private String NetworkingBaseURL = "https://readhub.lk/wp-json/wp/v2/";
     public static final String RENDER_CONTENT = "RENDER";
     public  static final String title = "render";
+    int cacheSize = 20 * 1024 * 1024; // 10 MB
+    Cache cache;
 
+    OkHttpClient okHttpClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +70,15 @@ public class NetworkingPost extends AppCompatActivity  implements RecentPostAdap
 
 
 
+
+        cache = new Cache(getCacheDir(), cacheSize);
+
+        okHttpClient = new OkHttpClient.Builder()
+                .cache(cache)
+                .build();
+
+
+
         linearLayoutManager = new LinearLayoutManager(NetworkingPost.this,LinearLayoutManager.VERTICAL,false);
         NetworkingrecyclerView.setLayoutManager(linearLayoutManager);
         list = new ArrayList<RecentModel>();
@@ -86,10 +100,10 @@ public class NetworkingPost extends AppCompatActivity  implements RecentPostAdap
         protected void onPreExecute() {
             super.onPreExecute();
 
-            progressDialog = new ProgressDialog(NetworkingPost.this);
-            progressDialog.setTitle("Networking Posts");
-            progressDialog.setMessage("Loading");
-            progressDialog.show();
+//            progressDialog = new ProgressDialog(NetworkingPost.this);
+//            progressDialog.setTitle("Networking Posts");
+//            progressDialog.setMessage("Loading");
+//            progressDialog.show();
 
 
 
@@ -98,13 +112,14 @@ public class NetworkingPost extends AppCompatActivity  implements RecentPostAdap
         @Override
         protected void onProgressUpdate(Void... values) {
             super.onProgressUpdate(values);
-            progressDialog.show();
+         //   progressDialog.show();
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(NetworkingBaseURL)
+                    .client(okHttpClient)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
@@ -116,7 +131,7 @@ public class NetworkingPost extends AppCompatActivity  implements RecentPostAdap
             call.enqueue(new Callback<List<WPJavaPost>>() {
                 @Override
                 public void onResponse(Call<List<WPJavaPost>> call, Response<List<WPJavaPost>> response) {
-                    Toast.makeText(NetworkingPost.this,"done",Toast.LENGTH_LONG).show();
+                  //  Toast.makeText(NetworkingPost.this,"done",Toast.LENGTH_LONG).show();
 
 
                     progressDialog1.dismiss();
@@ -128,6 +143,8 @@ public class NetworkingPost extends AppCompatActivity  implements RecentPostAdap
                         titile = titile.replace("&#x200d;","");
                         titile = titile.replace("&#8230;","");
                         titile = titile.replace("&amp;","");
+                        titile = titile.replace("&#8220;","");
+                        titile = titile.replace("&#8221;","");
                         String render = response.body().get(i).getContent().getRendered();
                         /// render = render.replace("--aspect-ratio","aspect-ratio");
 
@@ -154,7 +171,7 @@ public class NetworkingPost extends AppCompatActivity  implements RecentPostAdap
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            progressDialog.dismiss();
+//            progressDialog.dismiss();
         }
     }
 

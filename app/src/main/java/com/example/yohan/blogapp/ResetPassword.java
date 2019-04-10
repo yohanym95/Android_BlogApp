@@ -69,6 +69,7 @@ public class ResetPassword extends AppCompatActivity {
                     progressDialog.dismiss();
                     Toast.makeText(getApplicationContext(), "Reset password instructions has sent to your email",
                             Toast.LENGTH_SHORT).show();
+                    resetpassword.getEditText().setText("");
                 }else{
                     progressDialog.dismiss();
                     Toast.makeText(getApplicationContext(),

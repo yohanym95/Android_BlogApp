@@ -18,10 +18,14 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import okhttp3.Cache;
+import okhttp3.OkHttpClient;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -32,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private TabLayout mTablLayout;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
+    private Dialog MyDialog1;
+    int cacheSize = 20 * 1024 * 1024; // 10 MB
 
 
 
@@ -55,6 +61,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this );
         navigationView.setItemIconTintList(null);
 
+        Cache cache = new Cache(getCacheDir(), cacheSize);
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .cache(cache)
+                .build();
 
 
 
@@ -154,13 +165,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(i3);
                 break;
             case R.id.nav_contact:
-                Toast.makeText(getApplicationContext(),"Contact Us",Toast.LENGTH_LONG).show();
+                Intent i4 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://readhub.lk/contact-us/"));
+                startActivity(i4);
                 break;
             case R.id.nav_about:
                 Toast.makeText(getApplicationContext(),"about us",Toast.LENGTH_LONG).show();
+                customMyDialog1();
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void customMyDialog1(){
+        MyDialog1 = new Dialog(MainActivity.this);
+        MyDialog1.setContentView(R.layout.aboutus);
+        MyDialog1.setTitle("About Us");
+        MyDialog1.show();
+
+
+
+
+
+    }
 }
+
+//
