@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -32,6 +33,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RecentFragment extends Fragment implements RecentPostAdapter.onItemClicked {
 
     private RecyclerView recyclerView;
+    private SwipeRefreshLayout swipeRefreshLayout;
    // private ProgressBar progressBar;
     private LinearLayoutManager linearLayoutManager;
     ProgressDialog progressDialog1;
@@ -49,6 +51,7 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
     int cacheSize = 20 * 1024 * 1024; // 10 MB
     Cache cache;
     OkHttpClient okHttpClient;
+    private boolean isViewShown = false;
 
 
     @Override
@@ -68,32 +71,63 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
         super.onActivityCreated(savedInstanceState);
 
         recyclerView = view.findViewById(R.id.recycleView_Recent);
+        swipeRefreshLayout = view.findViewById(R.id.myswipe);
         recyclerView.setHasFixedSize(true);
         linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(linearLayoutManager);
-        progressDialog1 = new ProgressDialog(getContext());
-        progressDialog1.setTitle("Recents Posts");
-        progressDialog1.setMessage("Loading");
-        progressDialog1.show();
+
+        cache = new Cache(getActivity().getCacheDir(), cacheSize);
+        okHttpClient = new OkHttpClient.Builder()
+                .cache(cache)
+                .build();
+
+        if(getView() != null){
+            progressDialog1 = new ProgressDialog(getContext());
+            progressDialog1.setTitle("Recents Posts");
+            progressDialog1.setMessage("Loading");
+            progressDialog1.show();
+            new GetRecentJSON().execute();
+        }
+
+
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                progressDialog1 = new ProgressDialog(getContext());
+                progressDialog1.setTitle("Recents Posts");
+                progressDialog1.setMessage("Loading");
+                progressDialog1.show();
+                new GetRecentJSON().execute();
+            }
+        });
 
         list = new ArrayList<RecentModel>();
 
         adapter = new RecentPostAdapter(list,getContext());
-        new GetRecentJSON().execute();
+       // new GetRecentJSON().execute();
         recyclerView.setAdapter(adapter);
         adapter.SetOnItemClickListener(RecentFragment.this);
 
 
 
 
-        cache = new Cache(getActivity().getCacheDir(), cacheSize);
 
-        okHttpClient = new OkHttpClient.Builder()
-                .cache(cache)
-                .build();
 
 
     }
+
+//    @Override
+//    public void setUserVisibleHint(boolean isVisibleToUser) {
+//        super.setUserVisibleHint(isVisibleToUser);
+//        if(getView() != null && isVisibleToUser){
+//
+//
+//        }else {
+//
+//            isViewShown = false;
+//        }
+//    }
 
 
     @Override
@@ -107,6 +141,16 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
         super.onDetach();
 
     }
+
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        progressDialog1 = new ProgressDialog(getContext());
+//        progressDialog1.setTitle("Recents Posts");
+//        progressDialog1.setMessage("Loading");
+//        progressDialog1.show();
+//        new GetRecentJSON().execute();
+//    }
 
     @Override
     public void OnItemClick(int index) {
@@ -153,6 +197,7 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
                   //  progressBar.setVisibility(View.GONE);
 
                    progressDialog1.dismiss();
+                   swipeRefreshLayout.setRefreshing(false);
                     for(int i = 0; i<response.body().size(); i++){
 
                         String temdetails = response.body().get(i).getDate();

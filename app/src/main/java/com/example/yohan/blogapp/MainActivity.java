@@ -61,13 +61,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this );
         navigationView.setItemIconTintList(null);
 
-        Cache cache = new Cache(getCacheDir(), cacheSize);
-
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .cache(cache)
-                .build();
-
-
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -82,6 +75,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         mViewPager.setAdapter(sectionPagerAdapater);
         mTablLayout.setupWithViewPager(mViewPager);
+        mViewPager.setOffscreenPageLimit(2);
+
 
     }
 
@@ -169,7 +164,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(i4);
                 break;
             case R.id.nav_about:
-                Toast.makeText(getApplicationContext(),"about us",Toast.LENGTH_LONG).show();
+               // Toast.makeText(getApplicationContext(),"about us",Toast.LENGTH_LONG).show();
                 customMyDialog1();
                 break;
         }

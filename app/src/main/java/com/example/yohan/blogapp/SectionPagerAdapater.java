@@ -20,6 +20,7 @@ public class SectionPagerAdapater extends FragmentPagerAdapter {
             case 0 :
                 RecentFragment recentFragment = new RecentFragment();
                 return recentFragment;
+
             case 1 :
                 TutorialFragment tutorialFragment = new TutorialFragment();
                 return tutorialFragment;

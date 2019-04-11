@@ -31,6 +31,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvJava"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -60,6 +61,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvAngular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -88,6 +90,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvKotlin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -116,6 +119,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvPHP"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -145,6 +149,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvHTML"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -174,6 +179,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvUnity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -202,6 +208,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvGit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -231,6 +238,7 @@
 
             <TextView
 
+                android:id="@+id/tvNetwork"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -259,6 +267,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvFiver"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -287,6 +296,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvLaravel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

@@ -31,6 +31,7 @@
         card_view:cardUseCompatPadding="false">
 
         <TextView
+            android:id="@+id/tvmovies"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -60,6 +61,7 @@
         card_view:cardUseCompatPadding="false">
 
         <TextView
+            android:id="@+id/tvGames"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -89,6 +91,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvSports"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -118,6 +121,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvAnimation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -147,6 +151,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvTechEnglish"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -176,6 +181,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvTechSinhala"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -205,6 +211,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvTechTamil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -234,6 +241,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvTechnology"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -263,7 +271,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
-                android:id="@+id/crdKibulitext"
+                android:id="@+id/tvKibuli"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -293,6 +301,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvOthers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

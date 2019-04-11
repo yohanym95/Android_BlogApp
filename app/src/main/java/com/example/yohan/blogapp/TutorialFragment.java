@@ -9,12 +9,13 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.TextView;
 
 
 public class TutorialFragment extends Fragment {
 
     private CardView crdJAVA,crdAngular,crdKotlin,crdHTML,crdPHP,crdUnity,crdGIT,crdNetworking,crdFiverr,crdLaravel;
+    private TextView crdJAVA1,crdAngular1,crdKotlin1,crdHTML1,crdPHP1,crdUnity1,crdGIT1,crdNetworking1,crdFiverr1,crdLaravel1;
 
 
 
@@ -34,6 +35,17 @@ public class TutorialFragment extends Fragment {
         crdNetworking = v.findViewById(R.id.crdNetwork);
         crdFiverr = v.findViewById(R.id.crdFiverr);
         crdLaravel = v.findViewById(R.id.crdLaravel);
+
+        crdJAVA1 = v.findViewById(R.id.tvJava);
+        crdAngular1 = v.findViewById(R.id.tvAngular);
+        crdKotlin1 = v.findViewById(R.id.tvKotlin);
+        crdHTML1 = v.findViewById(R.id.tvHTML);
+        crdPHP1 = v.findViewById(R.id.tvPHP);
+        crdUnity1 = v.findViewById(R.id.tvUnity);
+        crdGIT1 = v.findViewById(R.id.tvGit);
+        crdNetworking1 = v.findViewById(R.id.tvNetwork);
+        crdFiverr1 = v.findViewById(R.id.tvFiver);
+        crdLaravel1 = v.findViewById(R.id.tvLaravel);
 
 
 
@@ -130,22 +142,104 @@ public class TutorialFragment extends Fragment {
             }
         });
 
+        crdJAVA1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getContext(), JavaPost.class);
+                startActivity(i);
+
+            }
+        });
+
+        crdAngular1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent i = new Intent(getContext(), AngularPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdKotlin1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getContext(), KotlinPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdHTML1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getContext(), HtmlPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdPHP1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getContext(),PHPPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdUnity1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getContext(),UnityPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdGIT1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getContext(),GitPosts.class);
+                startActivity(i);
+            }
+        });
+
+        crdNetworking1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getContext(),NetworkingPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdFiverr1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),FiverrPost.class);
+                startActivity(i);
+
+            }
+        });
+
+        crdLaravel1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getContext(),LaravelPost.class);
+                startActivity(i);
+            }
+        });
+
         return v;
     }
 
 
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
 
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-
-    }
 
 
 }
