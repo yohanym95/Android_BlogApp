@@ -3,6 +3,7 @@ package com.example.yohan.blogapp;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -29,6 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class TechTamilPost extends AppCompatActivity implements RecentPostAdapter.onItemClicked {
 
     private Toolbar mToolbar;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView TechTamilrecyclerView;
     private LinearLayoutManager linearLayoutManager;
     private ArrayList<RecentModel> list;
@@ -44,12 +46,14 @@ public class TechTamilPost extends AppCompatActivity implements RecentPostAdapte
     Cache cache;
 
     OkHttpClient okHttpClient;
+    private String url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tech_tamil_post);
 
         mToolbar = findViewById(R.id.TechTamilPost_app_bar);
+        swipeRefreshLayout = findViewById(R.id.TechTamilSwipe);
         setSupportActionBar(mToolbar);
 
 
@@ -91,6 +95,12 @@ public class TechTamilPost extends AppCompatActivity implements RecentPostAdapte
         new GetTechTamilJson().execute();
         TechTamilrecyclerView.setAdapter(recentPostAdapter);
         recentPostAdapter.SetOnItemClickListener(TechTamilPost.this);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new GetTechTamilJson().execute();
+            }
+        });
     }
 
     public class GetTechTamilJson extends AsyncTask<Void,Void,Void> {
@@ -152,9 +162,19 @@ public class TechTamilPost extends AppCompatActivity implements RecentPostAdapte
 
                         // String profileUrl = response.body().get(i).getLinks().getAuthor().get(0).getHref();
 
+                        if(response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getThumbnail().getSourceUrl() != null){
+                            url =response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getThumbnail().getSourceUrl();
+                        }else if(response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazinePostSliderLg().getSourceUrl() != null){
+                            url =response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazinePostSliderLg().getSourceUrl();
+                        }else if(response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazineLargeCategory().getSourceUrl() != null){
+                            url = response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazineLargeCategory().getSourceUrl();
+                        }else {
+                            url = response.body().get(i).getBetterFeaturedImage().getSourceUrl();
+                        }
+
                         list.add(new RecentModel( titile,
                                 temdetails,
-                                response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getTieMedium().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName()));
+                                url,render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName()));
 
                     }
 

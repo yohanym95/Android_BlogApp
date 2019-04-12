@@ -3,6 +3,7 @@ package com.example.yohan.blogapp;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -29,6 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class HtmlPost extends AppCompatActivity implements RecentPostAdapter.onItemClicked{
 
     private Toolbar mToolbar;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView HTMLrecyclerView;
     private LinearLayoutManager linearLayoutManager;
     private ArrayList<RecentModel> list;
@@ -44,6 +46,7 @@ public class HtmlPost extends AppCompatActivity implements RecentPostAdapter.onI
     Cache cache;
 
     OkHttpClient okHttpClient;
+    private String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,7 @@ public class HtmlPost extends AppCompatActivity implements RecentPostAdapter.onI
         setContentView(R.layout.activity_html_post);
 
         mToolbar = findViewById(R.id.HtmlPost_app_bar);
+        swipeRefreshLayout = findViewById(R.id.HTMLSwipe);
         setSupportActionBar(mToolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -91,6 +95,12 @@ public class HtmlPost extends AppCompatActivity implements RecentPostAdapter.onI
         new GetHTMLJson().execute();
         HTMLrecyclerView.setAdapter(recentPostAdapter);
         recentPostAdapter.SetOnItemClickListener(HtmlPost.this);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new GetHTMLJson().execute();
+            }
+        });
     }
 
     public class GetHTMLJson extends AsyncTask<Void,Void,Void> {
@@ -135,6 +145,7 @@ public class HtmlPost extends AppCompatActivity implements RecentPostAdapter.onI
                  //   Toast.makeText(HtmlPost.this,"done",Toast.LENGTH_LONG).show();
 
 
+                    swipeRefreshLayout.setRefreshing(false);
                     progressDialog1.dismiss();
                     for (int i =0;i<response.body().size(); i++){
 
@@ -151,9 +162,19 @@ public class HtmlPost extends AppCompatActivity implements RecentPostAdapter.onI
 
                         // String profileUrl = response.body().get(i).getLinks().getAuthor().get(0).getHref();
 
+                        if(response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getThumbnail().getSourceUrl() != null){
+                            url =response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getThumbnail().getSourceUrl();
+                        }else if(response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazinePostSliderLg().getSourceUrl() != null){
+                            url =response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazinePostSliderLg().getSourceUrl();
+                        }else if(response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazineLargeCategory().getSourceUrl() != null){
+                            url = response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazineLargeCategory().getSourceUrl();
+                        }else {
+                            url = response.body().get(i).getBetterFeaturedImage().getSourceUrl();
+                        }
+
                         list.add(new RecentModel( titile,
                                 temdetails,
-                                response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getTieMedium().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName()));
+                                url,render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName()));
 
                     }
 

@@ -52,6 +52,7 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
     Cache cache;
     OkHttpClient okHttpClient;
     private boolean isViewShown = false;
+    private String url ;
 
 
     @Override
@@ -208,13 +209,23 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
                         titile = titile.replace("&#8220;","");
                         titile = titile.replace("&#8221;","");
                         String render = response.body().get(i).getContent().getRendered();
+
+                         if(response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getThumbnail().getSourceUrl() != null){
+                              url =response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getThumbnail().getSourceUrl();
+                         }else if(response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazinePostSliderLg().getSourceUrl() != null){
+                             url =response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazinePostSliderLg().getSourceUrl();
+                         }else if(response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazineLargeCategory().getSourceUrl() != null){
+                             url = response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazineLargeCategory().getSourceUrl();
+                         }else {
+                             url = response.body().get(i).getBetterFeaturedImage().getSourceUrl();
+                         }
                        /// render = render.replace("--aspect-ratio","aspect-ratio");
 
                        // String profileUrl = response.body().get(i).getLinks().getAuthor().get(0).getHref();
 
                         list.add(new RecentModel( titile,
                                 temdetails,
-                                response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getTieMedium().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName()));
+                                url,render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName()));
                     }
 
                     adapter.notifyDataSetChanged();

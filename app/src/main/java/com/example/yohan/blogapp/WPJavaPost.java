@@ -7,293 +7,292 @@ import java.util.List;
 
 public class WPJavaPost {
 
+        @SerializedName("id")
+        @Expose
+        private Integer id;
+        @SerializedName("date")
+        @Expose
+        private String date;
+        @SerializedName("date_gmt")
+        @Expose
+        private String dateGmt;
+        @SerializedName("guid")
+        @Expose
+        private Guid guid;
+        @SerializedName("modified")
+        @Expose
+        private String modified;
+        @SerializedName("modified_gmt")
+        @Expose
+        private String modifiedGmt;
+        @SerializedName("slug")
+        @Expose
+        private String slug;
+        @SerializedName("status")
+        @Expose
+        private String status;
+        @SerializedName("type")
+        @Expose
+        private String type;
+        @SerializedName("link")
+        @Expose
+        private String link;
+        @SerializedName("title")
+        @Expose
+        private Title title;
+        @SerializedName("content")
+        @Expose
+        private Content content;
+        @SerializedName("excerpt")
+        @Expose
+        private Excerpt excerpt;
+        @SerializedName("author")
+        @Expose
+        private Integer author;
+        @SerializedName("featured_media")
+        @Expose
+        private Integer featuredMedia;
+        @SerializedName("comment_status")
+        @Expose
+        private String commentStatus;
+        @SerializedName("ping_status")
+        @Expose
+        private String pingStatus;
+        @SerializedName("sticky")
+        @Expose
+        private Boolean sticky;
+        @SerializedName("template")
+        @Expose
+        private String template;
+        @SerializedName("format")
+        @Expose
+        private String format;
+        @SerializedName("meta")
+        @Expose
+        private List<Object> meta = null;
+        @SerializedName("categories")
+        @Expose
+        private List<Integer> categories = null;
+        @SerializedName("tags")
+        @Expose
+        private List<Integer> tags = null;
+        @SerializedName("better_featured_image")
+        @Expose
+        private BetterFeaturedImage betterFeaturedImage;
+        @SerializedName("_links")
+        @Expose
+        private Links links;
+        @SerializedName("_embedded")
+        @Expose
+        private Embedded embedded;
 
-    @SerializedName("id")
-    @Expose
-    private Integer id;
-    @SerializedName("date")
-    @Expose
-    private String date;
-    @SerializedName("date_gmt")
-    @Expose
-    private String dateGmt;
-    @SerializedName("guid")
-    @Expose
-    private WPPost.Guid guid;
-    @SerializedName("modified")
-    @Expose
-    private String modified;
-    @SerializedName("modified_gmt")
-    @Expose
-    private String modifiedGmt;
-    @SerializedName("slug")
-    @Expose
-    private String slug;
-    @SerializedName("status")
-    @Expose
-    private String status;
-    @SerializedName("type")
-    @Expose
-    private String type;
-    @SerializedName("link")
-    @Expose
-    private String link;
-    @SerializedName("title")
-    @Expose
-    private WPPost.Title title;
-    @SerializedName("content")
-    @Expose
-    private WPPost.Content content;
-    @SerializedName("excerpt")
-    @Expose
-    private WPPost.Excerpt excerpt;
-    @SerializedName("author")
-    @Expose
-    private Integer author;
-    @SerializedName("featured_media")
-    @Expose
-    private Integer featuredMedia;
-    @SerializedName("comment_status")
-    @Expose
-    private String commentStatus;
-    @SerializedName("ping_status")
-    @Expose
-    private String pingStatus;
-    @SerializedName("sticky")
-    @Expose
-    private Boolean sticky;
-    @SerializedName("template")
-    @Expose
-    private String template;
-    @SerializedName("format")
-    @Expose
-    private String format;
-    @SerializedName("meta")
-    @Expose
-    private List<Object> meta = null;
-    @SerializedName("categories")
-    @Expose
-    private List<Integer> categories = null;
-    @SerializedName("tags")
-    @Expose
-    private List<Integer> tags = null;
-    @SerializedName("better_featured_image")
-    @Expose
-    private WPPost.BetterFeaturedImage betterFeaturedImage;
-    @SerializedName("_links")
-    @Expose
-    private WPPost.Links links;
-    @SerializedName("_embedded")
-    @Expose
-    private WPPost.Embedded embedded;
+        public Integer getId() {
+            return id;
+        }
 
-    public Integer getId() {
-        return id;
-    }
+        public void setId(Integer id) {
+            this.id = id;
+        }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+        public String getDate() {
+            return date;
+        }
 
-    public String getDate() {
-        return date;
-    }
+        public void setDate(String date) {
+            this.date = date;
+        }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
+        public String getDateGmt() {
+            return dateGmt;
+        }
 
-    public String getDateGmt() {
-        return dateGmt;
-    }
+        public void setDateGmt(String dateGmt) {
+            this.dateGmt = dateGmt;
+        }
 
-    public void setDateGmt(String dateGmt) {
-        this.dateGmt = dateGmt;
-    }
+        public Guid getGuid() {
+            return guid;
+        }
 
-    public WPPost.Guid getGuid() {
-        return guid;
-    }
+        public void setGuid(Guid guid) {
+            this.guid = guid;
+        }
 
-    public void setGuid(WPPost.Guid guid) {
-        this.guid = guid;
-    }
+        public String getModified() {
+            return modified;
+        }
 
-    public String getModified() {
-        return modified;
-    }
+        public void setModified(String modified) {
+            this.modified = modified;
+        }
 
-    public void setModified(String modified) {
-        this.modified = modified;
-    }
+        public String getModifiedGmt() {
+            return modifiedGmt;
+        }
 
-    public String getModifiedGmt() {
-        return modifiedGmt;
-    }
+        public void setModifiedGmt(String modifiedGmt) {
+            this.modifiedGmt = modifiedGmt;
+        }
 
-    public void setModifiedGmt(String modifiedGmt) {
-        this.modifiedGmt = modifiedGmt;
-    }
+        public String getSlug() {
+            return slug;
+        }
 
-    public String getSlug() {
-        return slug;
-    }
+        public void setSlug(String slug) {
+            this.slug = slug;
+        }
 
-    public void setSlug(String slug) {
-        this.slug = slug;
-    }
+        public String getStatus() {
+            return status;
+        }
 
-    public String getStatus() {
-        return status;
-    }
+        public void setStatus(String status) {
+            this.status = status;
+        }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+        public String getType() {
+            return type;
+        }
 
-    public String getType() {
-        return type;
-    }
+        public void setType(String type) {
+            this.type = type;
+        }
 
-    public void setType(String type) {
-        this.type = type;
-    }
+        public String getLink() {
+            return link;
+        }
 
-    public String getLink() {
-        return link;
-    }
+        public void setLink(String link) {
+            this.link = link;
+        }
 
-    public void setLink(String link) {
-        this.link = link;
-    }
+        public Title getTitle() {
+            return title;
+        }
 
-    public WPPost.Title getTitle() {
-        return title;
-    }
+        public void setTitle(Title title) {
+            this.title = title;
+        }
 
-    public void setTitle(WPPost.Title title) {
-        this.title = title;
-    }
+        public Content getContent() {
+            return content;
+        }
 
-    public WPPost.Content getContent() {
-        return content;
-    }
+        public void setContent(Content content) {
+            this.content = content;
+        }
 
-    public void setContent(WPPost.Content content) {
-        this.content = content;
-    }
+        public Excerpt getExcerpt() {
+            return excerpt;
+        }
 
-    public WPPost.Excerpt getExcerpt() {
-        return excerpt;
-    }
+        public void setExcerpt(Excerpt excerpt) {
+            this.excerpt = excerpt;
+        }
 
-    public void setExcerpt(WPPost.Excerpt excerpt) {
-        this.excerpt = excerpt;
-    }
+        public Integer getAuthor() {
+            return author;
+        }
 
-    public Integer getAuthor() {
-        return author;
-    }
+        public void setAuthor(Integer author) {
+            this.author = author;
+        }
 
-    public void setAuthor(Integer author) {
-        this.author = author;
-    }
+        public Integer getFeaturedMedia() {
+            return featuredMedia;
+        }
 
-    public Integer getFeaturedMedia() {
-        return featuredMedia;
-    }
+        public void setFeaturedMedia(Integer featuredMedia) {
+            this.featuredMedia = featuredMedia;
+        }
 
-    public void setFeaturedMedia(Integer featuredMedia) {
-        this.featuredMedia = featuredMedia;
-    }
+        public String getCommentStatus() {
+            return commentStatus;
+        }
 
-    public String getCommentStatus() {
-        return commentStatus;
-    }
+        public void setCommentStatus(String commentStatus) {
+            this.commentStatus = commentStatus;
+        }
 
-    public void setCommentStatus(String commentStatus) {
-        this.commentStatus = commentStatus;
-    }
+        public String getPingStatus() {
+            return pingStatus;
+        }
 
-    public String getPingStatus() {
-        return pingStatus;
-    }
+        public void setPingStatus(String pingStatus) {
+            this.pingStatus = pingStatus;
+        }
 
-    public void setPingStatus(String pingStatus) {
-        this.pingStatus = pingStatus;
-    }
+        public Boolean getSticky() {
+            return sticky;
+        }
 
-    public Boolean getSticky() {
-        return sticky;
-    }
+        public void setSticky(Boolean sticky) {
+            this.sticky = sticky;
+        }
 
-    public void setSticky(Boolean sticky) {
-        this.sticky = sticky;
-    }
+        public String getTemplate() {
+            return template;
+        }
 
-    public String getTemplate() {
-        return template;
-    }
+        public void setTemplate(String template) {
+            this.template = template;
+        }
 
-    public void setTemplate(String template) {
-        this.template = template;
-    }
+        public String getFormat() {
+            return format;
+        }
 
-    public String getFormat() {
-        return format;
-    }
+        public void setFormat(String format) {
+            this.format = format;
+        }
 
-    public void setFormat(String format) {
-        this.format = format;
-    }
+        public List<Object> getMeta() {
+            return meta;
+        }
 
-    public List<Object> getMeta() {
-        return meta;
-    }
+        public void setMeta(List<Object> meta) {
+            this.meta = meta;
+        }
 
-    public void setMeta(List<Object> meta) {
-        this.meta = meta;
-    }
+        public List<Integer> getCategories() {
+            return categories;
+        }
 
-    public List<Integer> getCategories() {
-        return categories;
-    }
+        public void setCategories(List<Integer> categories) {
+            this.categories = categories;
+        }
 
-    public void setCategories(List<Integer> categories) {
-        this.categories = categories;
-    }
+        public List<Integer> getTags() {
+            return tags;
+        }
 
-    public List<Integer> getTags() {
-        return tags;
-    }
+        public void setTags(List<Integer> tags) {
+            this.tags = tags;
+        }
 
-    public void setTags(List<Integer> tags) {
-        this.tags = tags;
-    }
+        public BetterFeaturedImage getBetterFeaturedImage() {
+            return betterFeaturedImage;
+        }
 
-    public WPPost.BetterFeaturedImage getBetterFeaturedImage() {
-        return betterFeaturedImage;
-    }
+        public void setBetterFeaturedImage(BetterFeaturedImage betterFeaturedImage) {
+            this.betterFeaturedImage = betterFeaturedImage;
+        }
 
-    public void setBetterFeaturedImage(WPPost.BetterFeaturedImage betterFeaturedImage) {
-        this.betterFeaturedImage = betterFeaturedImage;
-    }
+        public Links getLinks() {
+            return links;
+        }
 
-    public WPPost.Links getLinks() {
-        return links;
-    }
+        public void setLinks(Links links) {
+            this.links = links;
+        }
 
-    public void setLinks(WPPost.Links links) {
-        this.links = links;
-    }
+        public Embedded getEmbedded() {
+            return embedded;
+        }
 
-    public WPPost.Embedded getEmbedded() {
-        return embedded;
-    }
-
-    public void setEmbedded(WPPost.Embedded embedded) {
-        this.embedded = embedded;
-    }
+        public void setEmbedded(Embedded embedded) {
+            this.embedded = embedded;
+        }
 
 
     public class About {
@@ -396,10 +395,10 @@ public class WPJavaPost {
         private String slug;
         @SerializedName("avatar_urls")
         @Expose
-        private WPPost.AvatarUrls avatarUrls;
+        private AvatarUrls avatarUrls;
         @SerializedName("_links")
         @Expose
-        private WPPost.Links_ links;
+        private Links_ links;
 
         public Integer getId() {
             return id;
@@ -449,19 +448,19 @@ public class WPJavaPost {
             this.slug = slug;
         }
 
-        public WPPost.AvatarUrls getAvatarUrls() {
+        public AvatarUrls getAvatarUrls() {
             return avatarUrls;
         }
 
-        public void setAvatarUrls(WPPost.AvatarUrls avatarUrls) {
+        public void setAvatarUrls(AvatarUrls avatarUrls) {
             this.avatarUrls = avatarUrls;
         }
 
-        public WPPost.Links_ getLinks() {
+        public Links_ getLinks() {
             return links;
         }
 
-        public void setLinks(WPPost.Links_ links) {
+        public void setLinks(Links_ links) {
             this.links = links;
         }
 
@@ -554,7 +553,7 @@ public class WPJavaPost {
         private String mediaType;
         @SerializedName("media_details")
         @Expose
-        private WPPost.MediaDetails mediaDetails;
+        private MediaDetails mediaDetails;
         @SerializedName("post")
         @Expose
         private Integer post;
@@ -602,11 +601,11 @@ public class WPJavaPost {
             this.mediaType = mediaType;
         }
 
-        public WPPost.MediaDetails getMediaDetails() {
+        public MediaDetails getMediaDetails() {
             return mediaDetails;
         }
 
-        public void setMediaDetails(WPPost.MediaDetails mediaDetails) {
+        public void setMediaDetails(MediaDetails mediaDetails) {
             this.mediaDetails = mediaDetails;
         }
 
@@ -661,7 +660,6 @@ public class WPJavaPost {
         }
 
     }
-
 
 
     public class Collection_ {
@@ -825,40 +823,39 @@ public class WPJavaPost {
 
         @SerializedName("author")
         @Expose
-        private List<WPPost.Author_> author = null;
+        private List<Author_> author = null;
         @SerializedName("wp:featuredmedia")
         @Expose
-        private List<WPPost.WpFeaturedmedium_> wpFeaturedmedia = null;
+        private List<WpFeaturedmedium_> wpFeaturedmedia = null;
         @SerializedName("wp:term")
         @Expose
-        private List<List<WPPost.WpTerm_>> wpTerm = null;
+        private List<List<WpTerm_>> wpTerm = null;
 
-        public List<WPPost.Author_> getAuthor() {
+        public List<Author_> getAuthor() {
             return author;
         }
 
-        public void setAuthor(List<WPPost.Author_> author) {
+        public void setAuthor(List<Author_> author) {
             this.author = author;
         }
 
-        public List<WPPost.WpFeaturedmedium_> getWpFeaturedmedia() {
+        public List<WpFeaturedmedium_> getWpFeaturedmedia() {
             return wpFeaturedmedia;
         }
 
-        public void setWpFeaturedmedia(List<WPPost.WpFeaturedmedium_> wpFeaturedmedia) {
+        public void setWpFeaturedmedia(List<WpFeaturedmedium_> wpFeaturedmedia) {
             this.wpFeaturedmedia = wpFeaturedmedia;
         }
 
-        public List<List<WPPost.WpTerm_>> getWpTerm() {
+        public List<List<WpTerm_>> getWpTerm() {
             return wpTerm;
         }
 
-        public void setWpTerm(List<List<WPPost.WpTerm_>> wpTerm) {
+        public void setWpTerm(List<List<WpTerm_>> wpTerm) {
             this.wpTerm = wpTerm;
         }
 
     }
-
 
 
 
@@ -950,7 +947,6 @@ public class WPJavaPost {
 
     }
 
-
     public class Guid {
 
         @SerializedName("rendered")
@@ -966,7 +962,6 @@ public class WPJavaPost {
         }
 
     }
-
 
     public class ImageMeta {
 
@@ -1243,116 +1238,249 @@ public class WPJavaPost {
 
     }
 
+
+    public class Large {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime-type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class Large_ {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
     public class Links {
 
         @SerializedName("self")
         @Expose
-        private List<WPPost.Self> self = null;
+        private List<Self> self = null;
         @SerializedName("collection")
         @Expose
-        private List<WPPost.Collection> collection = null;
+        private List<Collection> collection = null;
         @SerializedName("about")
         @Expose
-        private List<WPPost.About> about = null;
+        private List<About> about = null;
         @SerializedName("author")
         @Expose
-        private List<WPPost.Author> author = null;
+        private List<Author> author = null;
         @SerializedName("replies")
         @Expose
-        private List<WPPost.Reply> replies = null;
+        private List<Reply> replies = null;
         @SerializedName("version-history")
         @Expose
-        private List<WPPost.VersionHistory> versionHistory = null;
+        private List<VersionHistory> versionHistory = null;
+        @SerializedName("predecessor-version")
+        @Expose
+        private List<PredecessorVersion> predecessorVersion = null;
         @SerializedName("wp:featuredmedia")
         @Expose
-        private List<WPPost.WpFeaturedmedium> wpFeaturedmedia = null;
+        private List<WpFeaturedmedium> wpFeaturedmedia = null;
         @SerializedName("wp:attachment")
         @Expose
-        private List<WPPost.WpAttachment> wpAttachment = null;
+        private List<WpAttachment> wpAttachment = null;
         @SerializedName("wp:term")
         @Expose
-        private List<WPPost.WpTerm> wpTerm = null;
+        private List<WpTerm> wpTerm = null;
         @SerializedName("curies")
         @Expose
-        private List<WPPost.Cury> curies = null;
+        private List<Cury> curies = null;
 
-        public List<WPPost.Self> getSelf() {
+        public List<Self> getSelf() {
             return self;
         }
 
-        public void setSelf(List<WPPost.Self> self) {
+        public void setSelf(List<Self> self) {
             this.self = self;
         }
 
-        public List<WPPost.Collection> getCollection() {
+        public List<Collection> getCollection() {
             return collection;
         }
 
-        public void setCollection(List<WPPost.Collection> collection) {
+        public void setCollection(List<Collection> collection) {
             this.collection = collection;
         }
 
-        public List<WPPost.About> getAbout() {
+        public List<About> getAbout() {
             return about;
         }
 
-        public void setAbout(List<WPPost.About> about) {
+        public void setAbout(List<About> about) {
             this.about = about;
         }
 
-        public List<WPPost.Author> getAuthor() {
+        public List<Author> getAuthor() {
             return author;
         }
 
-        public void setAuthor(List<WPPost.Author> author) {
+        public void setAuthor(List<Author> author) {
             this.author = author;
         }
 
-        public List<WPPost.Reply> getReplies() {
+        public List<Reply> getReplies() {
             return replies;
         }
 
-        public void setReplies(List<WPPost.Reply> replies) {
+        public void setReplies(List<Reply> replies) {
             this.replies = replies;
         }
 
-        public List<WPPost.VersionHistory> getVersionHistory() {
+        public List<VersionHistory> getVersionHistory() {
             return versionHistory;
         }
 
-        public void setVersionHistory(List<WPPost.VersionHistory> versionHistory) {
+        public void setVersionHistory(List<VersionHistory> versionHistory) {
             this.versionHistory = versionHistory;
         }
 
-        public List<WPPost.WpFeaturedmedium> getWpFeaturedmedia() {
+        public List<PredecessorVersion> getPredecessorVersion() {
+            return predecessorVersion;
+        }
+
+        public void setPredecessorVersion(List<PredecessorVersion> predecessorVersion) {
+            this.predecessorVersion = predecessorVersion;
+        }
+
+        public List<WpFeaturedmedium> getWpFeaturedmedia() {
             return wpFeaturedmedia;
         }
 
-        public void setWpFeaturedmedia(List<WPPost.WpFeaturedmedium> wpFeaturedmedia) {
+        public void setWpFeaturedmedia(List<WpFeaturedmedium> wpFeaturedmedia) {
             this.wpFeaturedmedia = wpFeaturedmedia;
         }
 
-        public List<WPPost.WpAttachment> getWpAttachment() {
+        public List<WpAttachment> getWpAttachment() {
             return wpAttachment;
         }
 
-        public void setWpAttachment(List<WPPost.WpAttachment> wpAttachment) {
+        public void setWpAttachment(List<WpAttachment> wpAttachment) {
             this.wpAttachment = wpAttachment;
         }
 
-        public List<WPPost.WpTerm> getWpTerm() {
+        public List<WpTerm> getWpTerm() {
             return wpTerm;
         }
 
-        public void setWpTerm(List<WPPost.WpTerm> wpTerm) {
+        public void setWpTerm(List<WpTerm> wpTerm) {
             this.wpTerm = wpTerm;
         }
 
-        public List<WPPost.Cury> getCuries() {
+        public List<Cury> getCuries() {
             return curies;
         }
 
-        public void setCuries(List<WPPost.Cury> curies) {
+        public void setCuries(List<Cury> curies) {
             this.curies = curies;
         }
 
@@ -1363,24 +1491,24 @@ public class WPJavaPost {
 
         @SerializedName("self")
         @Expose
-        private List<WPPost.Self_> self = null;
+        private List<Self_> self = null;
         @SerializedName("collection")
         @Expose
-        private List<WPPost.Collection_> collection = null;
+        private List<Collection_> collection = null;
 
-        public List<WPPost.Self_> getSelf() {
+        public List<Self_> getSelf() {
             return self;
         }
 
-        public void setSelf(List<WPPost.Self_> self) {
+        public void setSelf(List<Self_> self) {
             this.self = self;
         }
 
-        public List<WPPost.Collection_> getCollection() {
+        public List<Collection_> getCollection() {
             return collection;
         }
 
-        public void setCollection(List<WPPost.Collection_> collection) {
+        public void setCollection(List<Collection_> collection) {
             this.collection = collection;
         }
 
@@ -1391,57 +1519,57 @@ public class WPJavaPost {
 
         @SerializedName("self")
         @Expose
-        private List<WPPost.Self__> self = null;
+        private List<Self__> self = null;
         @SerializedName("collection")
         @Expose
-        private List<WPPost.Collection__> collection = null;
+        private List<Collection__> collection = null;
         @SerializedName("about")
         @Expose
-        private List<WPPost.About_> about = null;
+        private List<About_> about = null;
         @SerializedName("author")
         @Expose
-        private List<WPPost.Author__> author = null;
+        private List<Author__> author = null;
         @SerializedName("replies")
         @Expose
-        private List<WPPost.Reply_> replies = null;
+        private List<Reply_> replies = null;
 
-        public List<WPPost.Self__> getSelf() {
+        public List<Self__> getSelf() {
             return self;
         }
 
-        public void setSelf(List<WPPost.Self__> self) {
+        public void setSelf(List<Self__> self) {
             this.self = self;
         }
 
-        public List<WPPost.Collection__> getCollection() {
+        public List<Collection__> getCollection() {
             return collection;
         }
 
-        public void setCollection(List<WPPost.Collection__> collection) {
+        public void setCollection(List<Collection__> collection) {
             this.collection = collection;
         }
 
-        public List<WPPost.About_> getAbout() {
+        public List<About_> getAbout() {
             return about;
         }
 
-        public void setAbout(List<WPPost.About_> about) {
+        public void setAbout(List<About_> about) {
             this.about = about;
         }
 
-        public List<WPPost.Author__> getAuthor() {
+        public List<Author__> getAuthor() {
             return author;
         }
 
-        public void setAuthor(List<WPPost.Author__> author) {
+        public void setAuthor(List<Author__> author) {
             this.author = author;
         }
 
-        public List<WPPost.Reply_> getReplies() {
+        public List<Reply_> getReplies() {
             return replies;
         }
 
-        public void setReplies(List<WPPost.Reply_> replies) {
+        public void setReplies(List<Reply_> replies) {
             this.replies = replies;
         }
 
@@ -1452,72 +1580,73 @@ public class WPJavaPost {
 
         @SerializedName("self")
         @Expose
-        private List<WPPost.Self___> self = null;
+        private List<Self___> self = null;
         @SerializedName("collection")
         @Expose
-        private List<WPPost.Collection___> collection = null;
+        private List<Collection___> collection = null;
         @SerializedName("about")
         @Expose
-        private List<WPPost.About__> about = null;
+        private List<About__> about = null;
         @SerializedName("wp:post_type")
         @Expose
-        private List<WPPost.WpPostType> wpPostType = null;
+        private List<WpPostType> wpPostType = null;
         @SerializedName("curies")
         @Expose
-        private List<WPPost.Cury_> curies = null;
+        private List<Cury_> curies = null;
         @SerializedName("up")
         @Expose
-        private List<WPPost.Up> up = null;
+        private List<Up> up = null;
 
-        public List<WPPost.Self___> getSelf() {
+        public List<Self___> getSelf() {
             return self;
         }
 
-        public void setSelf(List<WPPost.Self___> self) {
+        public void setSelf(List<Self___> self) {
             this.self = self;
         }
 
-        public List<WPPost.Collection___> getCollection() {
+        public List<Collection___> getCollection() {
             return collection;
         }
 
-        public void setCollection(List<WPPost.Collection___> collection) {
+        public void setCollection(List<Collection___> collection) {
             this.collection = collection;
         }
 
-        public List<WPPost.About__> getAbout() {
+        public List<About__> getAbout() {
             return about;
         }
 
-        public void setAbout(List<WPPost.About__> about) {
+        public void setAbout(List<About__> about) {
             this.about = about;
         }
 
-        public List<WPPost.WpPostType> getWpPostType() {
+        public List<WpPostType> getWpPostType() {
             return wpPostType;
         }
 
-        public void setWpPostType(List<WPPost.WpPostType> wpPostType) {
+        public void setWpPostType(List<WpPostType> wpPostType) {
             this.wpPostType = wpPostType;
         }
 
-        public List<WPPost.Cury_> getCuries() {
+        public List<Cury_> getCuries() {
             return curies;
         }
 
-        public void setCuries(List<WPPost.Cury_> curies) {
+        public void setCuries(List<Cury_> curies) {
             this.curies = curies;
         }
 
-        public List<WPPost.Up> getUp() {
+        public List<Up> getUp() {
             return up;
         }
 
-        public void setUp(List<WPPost.Up> up) {
+        public void setUp(List<Up> up) {
             this.up = up;
         }
 
     }
+
 
     public class MediaDetails {
 
@@ -1532,10 +1661,10 @@ public class WPJavaPost {
         private String file;
         @SerializedName("sizes")
         @Expose
-        private WPPost.Sizes sizes;
+        private Sizes sizes;
         @SerializedName("image_meta")
         @Expose
-        private WPPost.ImageMeta imageMeta;
+        private ImageMeta imageMeta;
 
         public Integer getWidth() {
             return width;
@@ -1561,24 +1690,23 @@ public class WPJavaPost {
             this.file = file;
         }
 
-        public WPPost.Sizes getSizes() {
+        public Sizes getSizes() {
             return sizes;
         }
 
-        public void setSizes(WPPost.Sizes sizes) {
+        public void setSizes(Sizes sizes) {
             this.sizes = sizes;
         }
 
-        public WPPost.ImageMeta getImageMeta() {
+        public ImageMeta getImageMeta() {
             return imageMeta;
         }
 
-        public void setImageMeta(WPPost.ImageMeta imageMeta) {
+        public void setImageMeta(ImageMeta imageMeta) {
             this.imageMeta = imageMeta;
         }
 
     }
-
 
 
     public class MediaDetails_ {
@@ -1594,10 +1722,10 @@ public class WPJavaPost {
         private String file;
         @SerializedName("sizes")
         @Expose
-        private WPPost.Sizes_ sizes;
+        private Sizes_ sizes;
         @SerializedName("image_meta")
         @Expose
-        private WPPost.ImageMeta_ imageMeta;
+        private ImageMeta_ imageMeta;
 
         public Integer getWidth() {
             return width;
@@ -1623,19 +1751,19 @@ public class WPJavaPost {
             this.file = file;
         }
 
-        public WPPost.Sizes_ getSizes() {
+        public Sizes_ getSizes() {
             return sizes;
         }
 
-        public void setSizes(WPPost.Sizes_ sizes) {
+        public void setSizes(Sizes_ sizes) {
             this.sizes = sizes;
         }
 
-        public WPPost.ImageMeta_ getImageMeta() {
+        public ImageMeta_ getImageMeta() {
             return imageMeta;
         }
 
-        public void setImageMeta(WPPost.ImageMeta_ imageMeta) {
+        public void setImageMeta(ImageMeta_ imageMeta) {
             this.imageMeta = imageMeta;
         }
 
@@ -1654,6 +1782,128 @@ public class WPJavaPost {
         @Expose
         private Integer height;
         @SerializedName("mime-type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class MediumLarge {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime-type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class MediumLarge_ {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
         @Expose
         private String mimeType;
         @SerializedName("source_url")
@@ -1764,6 +2014,34 @@ public class WPJavaPost {
     }
 
 
+    public class PredecessorVersion {
+
+        @SerializedName("id")
+        @Expose
+        private Integer id;
+        @SerializedName("href")
+        @Expose
+        private String href;
+
+        public Integer getId() {
+            return id;
+        }
+
+        public void setId(Integer id) {
+            this.id = id;
+        }
+
+        public String getHref() {
+            return href;
+        }
+
+        public void setHref(String href) {
+            this.href = href;
+        }
+
+    }
+
+
     public class Reply {
 
         @SerializedName("embeddable")
@@ -1836,6 +2114,7 @@ public class WPJavaPost {
 
     }
 
+
     public class Self_ {
 
         @SerializedName("href")
@@ -1851,7 +2130,6 @@ public class WPJavaPost {
         }
 
     }
-
 
     public class Self__ {
 
@@ -1891,158 +2169,509 @@ public class WPJavaPost {
 
         @SerializedName("thumbnail")
         @Expose
-        private WPPost.Thumbnail thumbnail;
+        private Thumbnail thumbnail;
         @SerializedName("medium")
         @Expose
-        private WPPost.Medium medium;
-        @SerializedName("tie-small")
+        private Medium medium;
+        @SerializedName("medium_large")
         @Expose
-        private WPPost.TieSmall tieSmall;
-        @SerializedName("tie-medium")
+        private MediumLarge mediumLarge;
+        @SerializedName("large")
         @Expose
-        private WPPost.TieMedium tieMedium;
-        @SerializedName("tie-large")
+        private Large large;
+        @SerializedName("vmagazine-rectangle-thumb")
         @Expose
-        private WPPost.TieLarge tieLarge;
-        @SerializedName("slider")
+        private VmagazineRectangleThumb vmagazineRectangleThumb;
+        @SerializedName("vmagazine-small-thumb")
         @Expose
-        private WPPost.Slider slider;
+        private VmagazineSmallThumb vmagazineSmallThumb;
+        @SerializedName("vmagazine-large-category")
+        @Expose
+        private VmagazineLargeCategory vmagazineLargeCategory;
+        @SerializedName("vmagazine-single-third")
+        @Expose
+        private VmagazineSingleThird vmagazineSingleThird;
+        @SerializedName("vmagazine-long-thumb")
+        @Expose
+        private VmagazineLongThumb vmagazineLongThumb;
+        @SerializedName("vmagazine-small-square-thumb")
+        @Expose
+        private VmagazineSmallSquareThumb vmagazineSmallSquareThumb;
+        @SerializedName("vmagazine-large-square-thumb")
+        @Expose
+        private VmagazineLargeSquareThumb vmagazineLargeSquareThumb;
+        @SerializedName("vmagazine-large-square-middle")
+        @Expose
+        private VmagazineLargeSquareMiddle vmagazineLargeSquareMiddle;
+        @SerializedName("vmagazine-long-post-thumb")
+        @Expose
+        private VmagazineLongPostThumb vmagazineLongPostThumb;
+        @SerializedName("vmagazine-rect-post-thumb")
+        @Expose
+        private VmagazineRectPostThumb vmagazineRectPostThumb;
+        @SerializedName("vmagazine-slider-thumb")
+        @Expose
+        private VmagazineSliderThumb vmagazineSliderThumb;
+        @SerializedName("vmagazine-ftr-slider-thumb")
+        @Expose
+        private VmagazineFtrSliderThumb vmagazineFtrSliderThumb;
+        @SerializedName("vmagazine-vertical-slider-thumb")
+        @Expose
+        private VmagazineVerticalSliderThumb vmagazineVerticalSliderThumb;
+        @SerializedName("vmagazine-rect-post-carousel")
+        @Expose
+        private VmagazineRectPostCarousel vmagazineRectPostCarousel;
+        @SerializedName("vmagazine-post-slider-lg")
+        @Expose
+        private VmagazinePostSliderLg vmagazinePostSliderLg;
+        @SerializedName("vmagazine-cat-post-sm")
+        @Expose
+        private VmagazineCatPostSm vmagazineCatPostSm;
+        @SerializedName("team-thumb")
+        @Expose
+        private TeamThumb teamThumb;
+        @SerializedName("sow-carousel-default")
+        @Expose
+        private SowCarouselDefault sowCarouselDefault;
 
-        public WPPost.Thumbnail getThumbnail() {
+        public Thumbnail getThumbnail() {
             return thumbnail;
         }
 
-        public void setThumbnail(WPPost.Thumbnail thumbnail) {
+        public void setThumbnail(Thumbnail thumbnail) {
             this.thumbnail = thumbnail;
         }
 
-        public WPPost.Medium getMedium() {
+        public Medium getMedium() {
             return medium;
         }
 
-        public void setMedium(WPPost.Medium medium) {
+        public void setMedium(Medium medium) {
             this.medium = medium;
         }
 
-        public WPPost.TieSmall getTieSmall() {
-            return tieSmall;
+        public MediumLarge getMediumLarge() {
+            return mediumLarge;
         }
 
-        public void setTieSmall(WPPost.TieSmall tieSmall) {
-            this.tieSmall = tieSmall;
+        public void setMediumLarge(MediumLarge mediumLarge) {
+            this.mediumLarge = mediumLarge;
         }
 
-        public WPPost.TieMedium getTieMedium() {
-            return tieMedium;
+        public Large getLarge() {
+            return large;
         }
 
-        public void setTieMedium(WPPost.TieMedium tieMedium) {
-            this.tieMedium = tieMedium;
+        public void setLarge(Large large) {
+            this.large = large;
         }
 
-        public WPPost.TieLarge getTieLarge() {
-            return tieLarge;
+        public VmagazineRectangleThumb getVmagazineRectangleThumb() {
+            return vmagazineRectangleThumb;
         }
 
-        public void setTieLarge(WPPost.TieLarge tieLarge) {
-            this.tieLarge = tieLarge;
+        public void setVmagazineRectangleThumb(VmagazineRectangleThumb vmagazineRectangleThumb) {
+            this.vmagazineRectangleThumb = vmagazineRectangleThumb;
         }
 
-        public WPPost.Slider getSlider() {
-            return slider;
+        public VmagazineSmallThumb getVmagazineSmallThumb() {
+            return vmagazineSmallThumb;
         }
 
-        public void setSlider(WPPost.Slider slider) {
-            this.slider = slider;
+        public void setVmagazineSmallThumb(VmagazineSmallThumb vmagazineSmallThumb) {
+            this.vmagazineSmallThumb = vmagazineSmallThumb;
+        }
+
+        public VmagazineLargeCategory getVmagazineLargeCategory() {
+            return vmagazineLargeCategory;
+        }
+
+        public void setVmagazineLargeCategory(VmagazineLargeCategory vmagazineLargeCategory) {
+            this.vmagazineLargeCategory = vmagazineLargeCategory;
+        }
+
+        public VmagazineSingleThird getVmagazineSingleThird() {
+            return vmagazineSingleThird;
+        }
+
+        public void setVmagazineSingleThird(VmagazineSingleThird vmagazineSingleThird) {
+            this.vmagazineSingleThird = vmagazineSingleThird;
+        }
+
+        public VmagazineLongThumb getVmagazineLongThumb() {
+            return vmagazineLongThumb;
+        }
+
+        public void setVmagazineLongThumb(VmagazineLongThumb vmagazineLongThumb) {
+            this.vmagazineLongThumb = vmagazineLongThumb;
+        }
+
+        public VmagazineSmallSquareThumb getVmagazineSmallSquareThumb() {
+            return vmagazineSmallSquareThumb;
+        }
+
+        public void setVmagazineSmallSquareThumb(VmagazineSmallSquareThumb vmagazineSmallSquareThumb) {
+            this.vmagazineSmallSquareThumb = vmagazineSmallSquareThumb;
+        }
+
+        public VmagazineLargeSquareThumb getVmagazineLargeSquareThumb() {
+            return vmagazineLargeSquareThumb;
+        }
+
+        public void setVmagazineLargeSquareThumb(VmagazineLargeSquareThumb vmagazineLargeSquareThumb) {
+            this.vmagazineLargeSquareThumb = vmagazineLargeSquareThumb;
+        }
+
+        public VmagazineLargeSquareMiddle getVmagazineLargeSquareMiddle() {
+            return vmagazineLargeSquareMiddle;
+        }
+
+        public void setVmagazineLargeSquareMiddle(VmagazineLargeSquareMiddle vmagazineLargeSquareMiddle) {
+            this.vmagazineLargeSquareMiddle = vmagazineLargeSquareMiddle;
+        }
+
+        public VmagazineLongPostThumb getVmagazineLongPostThumb() {
+            return vmagazineLongPostThumb;
+        }
+
+        public void setVmagazineLongPostThumb(VmagazineLongPostThumb vmagazineLongPostThumb) {
+            this.vmagazineLongPostThumb = vmagazineLongPostThumb;
+        }
+
+        public VmagazineRectPostThumb getVmagazineRectPostThumb() {
+            return vmagazineRectPostThumb;
+        }
+
+        public void setVmagazineRectPostThumb(VmagazineRectPostThumb vmagazineRectPostThumb) {
+            this.vmagazineRectPostThumb = vmagazineRectPostThumb;
+        }
+
+        public VmagazineSliderThumb getVmagazineSliderThumb() {
+            return vmagazineSliderThumb;
+        }
+
+        public void setVmagazineSliderThumb(VmagazineSliderThumb vmagazineSliderThumb) {
+            this.vmagazineSliderThumb = vmagazineSliderThumb;
+        }
+
+        public VmagazineFtrSliderThumb getVmagazineFtrSliderThumb() {
+            return vmagazineFtrSliderThumb;
+        }
+
+        public void setVmagazineFtrSliderThumb(VmagazineFtrSliderThumb vmagazineFtrSliderThumb) {
+            this.vmagazineFtrSliderThumb = vmagazineFtrSliderThumb;
+        }
+
+        public VmagazineVerticalSliderThumb getVmagazineVerticalSliderThumb() {
+            return vmagazineVerticalSliderThumb;
+        }
+
+        public void setVmagazineVerticalSliderThumb(VmagazineVerticalSliderThumb vmagazineVerticalSliderThumb) {
+            this.vmagazineVerticalSliderThumb = vmagazineVerticalSliderThumb;
+        }
+
+        public VmagazineRectPostCarousel getVmagazineRectPostCarousel() {
+            return vmagazineRectPostCarousel;
+        }
+
+        public void setVmagazineRectPostCarousel(VmagazineRectPostCarousel vmagazineRectPostCarousel) {
+            this.vmagazineRectPostCarousel = vmagazineRectPostCarousel;
+        }
+
+        public VmagazinePostSliderLg getVmagazinePostSliderLg() {
+            return vmagazinePostSliderLg;
+        }
+
+        public void setVmagazinePostSliderLg(VmagazinePostSliderLg vmagazinePostSliderLg) {
+            this.vmagazinePostSliderLg = vmagazinePostSliderLg;
+        }
+
+        public VmagazineCatPostSm getVmagazineCatPostSm() {
+            return vmagazineCatPostSm;
+        }
+
+        public void setVmagazineCatPostSm(VmagazineCatPostSm vmagazineCatPostSm) {
+            this.vmagazineCatPostSm = vmagazineCatPostSm;
+        }
+
+        public TeamThumb getTeamThumb() {
+            return teamThumb;
+        }
+
+        public void setTeamThumb(TeamThumb teamThumb) {
+            this.teamThumb = teamThumb;
+        }
+
+        public SowCarouselDefault getSowCarouselDefault() {
+            return sowCarouselDefault;
+        }
+
+        public void setSowCarouselDefault(SowCarouselDefault sowCarouselDefault) {
+            this.sowCarouselDefault = sowCarouselDefault;
         }
 
     }
-
 
     public class Sizes_ {
 
         @SerializedName("thumbnail")
         @Expose
-        private WPPost.Thumbnail_ thumbnail;
+        private Thumbnail_ thumbnail;
         @SerializedName("medium")
         @Expose
-        private WPPost.Medium_ medium;
-        @SerializedName("tie-small")
+        private Medium_ medium;
+        @SerializedName("medium_large")
         @Expose
-        private WPPost.TieSmall_ tieSmall;
-        @SerializedName("tie-medium")
+        private MediumLarge_ mediumLarge;
+        @SerializedName("large")
         @Expose
-        private WPPost.TieMedium_ tieMedium;
-        @SerializedName("tie-large")
+        private Large_ large;
+        @SerializedName("vmagazine-rectangle-thumb")
         @Expose
-        private WPPost.TieLarge_ tieLarge;
-        @SerializedName("slider")
+        private VmagazineRectangleThumb_ vmagazineRectangleThumb;
+        @SerializedName("vmagazine-small-thumb")
         @Expose
-        private WPPost.Slider_ slider;
+        private VmagazineSmallThumb_ vmagazineSmallThumb;
+        @SerializedName("vmagazine-large-category")
+        @Expose
+        private VmagazineLargeCategory_ vmagazineLargeCategory;
+        @SerializedName("vmagazine-single-third")
+        @Expose
+        private VmagazineSingleThird_ vmagazineSingleThird;
+        @SerializedName("vmagazine-long-thumb")
+        @Expose
+        private VmagazineLongThumb_ vmagazineLongThumb;
+        @SerializedName("vmagazine-small-square-thumb")
+        @Expose
+        private VmagazineSmallSquareThumb_ vmagazineSmallSquareThumb;
+        @SerializedName("vmagazine-large-square-thumb")
+        @Expose
+        private VmagazineLargeSquareThumb_ vmagazineLargeSquareThumb;
+        @SerializedName("vmagazine-large-square-middle")
+        @Expose
+        private VmagazineLargeSquareMiddle_ vmagazineLargeSquareMiddle;
+        @SerializedName("vmagazine-long-post-thumb")
+        @Expose
+        private VmagazineLongPostThumb_ vmagazineLongPostThumb;
+        @SerializedName("vmagazine-rect-post-thumb")
+        @Expose
+        private VmagazineRectPostThumb_ vmagazineRectPostThumb;
+        @SerializedName("vmagazine-slider-thumb")
+        @Expose
+        private VmagazineSliderThumb_ vmagazineSliderThumb;
+        @SerializedName("vmagazine-ftr-slider-thumb")
+        @Expose
+        private VmagazineFtrSliderThumb_ vmagazineFtrSliderThumb;
+        @SerializedName("vmagazine-vertical-slider-thumb")
+        @Expose
+        private VmagazineVerticalSliderThumb_ vmagazineVerticalSliderThumb;
+        @SerializedName("vmagazine-rect-post-carousel")
+        @Expose
+        private VmagazineRectPostCarousel_ vmagazineRectPostCarousel;
+        @SerializedName("vmagazine-post-slider-lg")
+        @Expose
+        private VmagazinePostSliderLg_ vmagazinePostSliderLg;
+        @SerializedName("vmagazine-cat-post-sm")
+        @Expose
+        private VmagazineCatPostSm_ vmagazineCatPostSm;
+        @SerializedName("team-thumb")
+        @Expose
+        private TeamThumb_ teamThumb;
+        @SerializedName("sow-carousel-default")
+        @Expose
+        private SowCarouselDefault_ sowCarouselDefault;
         @SerializedName("full")
         @Expose
-        private WPPost.Full full;
+        private Full full;
 
-        public WPPost.Thumbnail_ getThumbnail() {
+        public Thumbnail_ getThumbnail() {
             return thumbnail;
         }
 
-        public void setThumbnail(WPPost.Thumbnail_ thumbnail) {
+        public void setThumbnail(Thumbnail_ thumbnail) {
             this.thumbnail = thumbnail;
         }
 
-        public WPPost.Medium_ getMedium() {
+        public Medium_ getMedium() {
             return medium;
         }
 
-        public void setMedium(WPPost.Medium_ medium) {
+        public void setMedium(Medium_ medium) {
             this.medium = medium;
         }
 
-        public WPPost.TieSmall_ getTieSmall() {
-            return tieSmall;
+        public MediumLarge_ getMediumLarge() {
+            return mediumLarge;
         }
 
-        public void setTieSmall(WPPost.TieSmall_ tieSmall) {
-            this.tieSmall = tieSmall;
+        public void setMediumLarge(MediumLarge_ mediumLarge) {
+            this.mediumLarge = mediumLarge;
         }
 
-        public WPPost.TieMedium_ getTieMedium() {
-            return tieMedium;
+        public Large_ getLarge() {
+            return large;
         }
 
-        public void setTieMedium(WPPost.TieMedium_ tieMedium) {
-            this.tieMedium = tieMedium;
+        public void setLarge(Large_ large) {
+            this.large = large;
         }
 
-        public WPPost.TieLarge_ getTieLarge() {
-            return tieLarge;
+        public VmagazineRectangleThumb_ getVmagazineRectangleThumb() {
+            return vmagazineRectangleThumb;
         }
 
-        public void setTieLarge(WPPost.TieLarge_ tieLarge) {
-            this.tieLarge = tieLarge;
+        public void setVmagazineRectangleThumb(VmagazineRectangleThumb_ vmagazineRectangleThumb) {
+            this.vmagazineRectangleThumb = vmagazineRectangleThumb;
         }
 
-        public WPPost.Slider_ getSlider() {
-            return slider;
+        public VmagazineSmallThumb_ getVmagazineSmallThumb() {
+            return vmagazineSmallThumb;
         }
 
-        public void setSlider(WPPost.Slider_ slider) {
-            this.slider = slider;
+        public void setVmagazineSmallThumb(VmagazineSmallThumb_ vmagazineSmallThumb) {
+            this.vmagazineSmallThumb = vmagazineSmallThumb;
         }
 
-        public WPPost.Full getFull() {
+        public VmagazineLargeCategory_ getVmagazineLargeCategory() {
+            return vmagazineLargeCategory;
+        }
+
+        public void setVmagazineLargeCategory(VmagazineLargeCategory_ vmagazineLargeCategory) {
+            this.vmagazineLargeCategory = vmagazineLargeCategory;
+        }
+
+        public VmagazineSingleThird_ getVmagazineSingleThird() {
+            return vmagazineSingleThird;
+        }
+
+        public void setVmagazineSingleThird(VmagazineSingleThird_ vmagazineSingleThird) {
+            this.vmagazineSingleThird = vmagazineSingleThird;
+        }
+
+        public VmagazineLongThumb_ getVmagazineLongThumb() {
+            return vmagazineLongThumb;
+        }
+
+        public void setVmagazineLongThumb(VmagazineLongThumb_ vmagazineLongThumb) {
+            this.vmagazineLongThumb = vmagazineLongThumb;
+        }
+
+        public VmagazineSmallSquareThumb_ getVmagazineSmallSquareThumb() {
+            return vmagazineSmallSquareThumb;
+        }
+
+        public void setVmagazineSmallSquareThumb(VmagazineSmallSquareThumb_ vmagazineSmallSquareThumb) {
+            this.vmagazineSmallSquareThumb = vmagazineSmallSquareThumb;
+        }
+
+        public VmagazineLargeSquareThumb_ getVmagazineLargeSquareThumb() {
+            return vmagazineLargeSquareThumb;
+        }
+
+        public void setVmagazineLargeSquareThumb(VmagazineLargeSquareThumb_ vmagazineLargeSquareThumb) {
+            this.vmagazineLargeSquareThumb = vmagazineLargeSquareThumb;
+        }
+
+        public VmagazineLargeSquareMiddle_ getVmagazineLargeSquareMiddle() {
+            return vmagazineLargeSquareMiddle;
+        }
+
+        public void setVmagazineLargeSquareMiddle(VmagazineLargeSquareMiddle_ vmagazineLargeSquareMiddle) {
+            this.vmagazineLargeSquareMiddle = vmagazineLargeSquareMiddle;
+        }
+
+        public VmagazineLongPostThumb_ getVmagazineLongPostThumb() {
+            return vmagazineLongPostThumb;
+        }
+
+        public void setVmagazineLongPostThumb(VmagazineLongPostThumb_ vmagazineLongPostThumb) {
+            this.vmagazineLongPostThumb = vmagazineLongPostThumb;
+        }
+
+        public VmagazineRectPostThumb_ getVmagazineRectPostThumb() {
+            return vmagazineRectPostThumb;
+        }
+
+        public void setVmagazineRectPostThumb(VmagazineRectPostThumb_ vmagazineRectPostThumb) {
+            this.vmagazineRectPostThumb = vmagazineRectPostThumb;
+        }
+
+        public VmagazineSliderThumb_ getVmagazineSliderThumb() {
+            return vmagazineSliderThumb;
+        }
+
+        public void setVmagazineSliderThumb(VmagazineSliderThumb_ vmagazineSliderThumb) {
+            this.vmagazineSliderThumb = vmagazineSliderThumb;
+        }
+
+        public VmagazineFtrSliderThumb_ getVmagazineFtrSliderThumb() {
+            return vmagazineFtrSliderThumb;
+        }
+
+        public void setVmagazineFtrSliderThumb(VmagazineFtrSliderThumb_ vmagazineFtrSliderThumb) {
+            this.vmagazineFtrSliderThumb = vmagazineFtrSliderThumb;
+        }
+
+        public VmagazineVerticalSliderThumb_ getVmagazineVerticalSliderThumb() {
+            return vmagazineVerticalSliderThumb;
+        }
+
+        public void setVmagazineVerticalSliderThumb(VmagazineVerticalSliderThumb_ vmagazineVerticalSliderThumb) {
+            this.vmagazineVerticalSliderThumb = vmagazineVerticalSliderThumb;
+        }
+
+        public VmagazineRectPostCarousel_ getVmagazineRectPostCarousel() {
+            return vmagazineRectPostCarousel;
+        }
+
+        public void setVmagazineRectPostCarousel(VmagazineRectPostCarousel_ vmagazineRectPostCarousel) {
+            this.vmagazineRectPostCarousel = vmagazineRectPostCarousel;
+        }
+
+        public VmagazinePostSliderLg_ getVmagazinePostSliderLg() {
+            return vmagazinePostSliderLg;
+        }
+
+        public void setVmagazinePostSliderLg(VmagazinePostSliderLg_ vmagazinePostSliderLg) {
+            this.vmagazinePostSliderLg = vmagazinePostSliderLg;
+        }
+
+        public VmagazineCatPostSm_ getVmagazineCatPostSm() {
+            return vmagazineCatPostSm;
+        }
+
+        public void setVmagazineCatPostSm(VmagazineCatPostSm_ vmagazineCatPostSm) {
+            this.vmagazineCatPostSm = vmagazineCatPostSm;
+        }
+
+        public TeamThumb_ getTeamThumb() {
+            return teamThumb;
+        }
+
+        public void setTeamThumb(TeamThumb_ teamThumb) {
+            this.teamThumb = teamThumb;
+        }
+
+        public SowCarouselDefault_ getSowCarouselDefault() {
+            return sowCarouselDefault;
+        }
+
+        public void setSowCarouselDefault(SowCarouselDefault_ sowCarouselDefault) {
+            this.sowCarouselDefault = sowCarouselDefault;
+        }
+
+        public Full getFull() {
             return full;
         }
 
-        public void setFull(WPPost.Full full) {
+        public void setFull(Full full) {
             this.full = full;
         }
 
     }
 
 
-    public class Slider {
+    public class SowCarouselDefault {
 
         @SerializedName("file")
         @Expose
@@ -2103,7 +2732,7 @@ public class WPJavaPost {
     }
 
 
-    public class Slider_ {
+    public class SowCarouselDefault_ {
 
         @SerializedName("file")
         @Expose
@@ -2163,6 +2792,127 @@ public class WPJavaPost {
 
     }
 
+
+    public class TeamThumb {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime-type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class TeamThumb_ {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
 
     public class Thumbnail {
 
@@ -2226,371 +2976,6 @@ public class WPJavaPost {
 
 
     public class Thumbnail_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime_type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class TieLarge {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class TieLarge_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime_type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class TieMedium {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class TieMedium_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime_type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class TieSmall {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-    public class TieSmall_ {
 
         @SerializedName("file")
         @Expose
@@ -2741,6 +3126,1955 @@ public class WPJavaPost {
     }
 
 
+    public class VmagazineCatPostSm {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime-type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineCatPostSm_ {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineFtrSliderThumb {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime-type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineFtrSliderThumb_ {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineLargeCategory {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime-type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineLargeCategory_ {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineLargeSquareMiddle {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime-type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineLargeSquareMiddle_ {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineLargeSquareThumb {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime-type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+    public class VmagazineLargeSquareThumb_ {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+    public class VmagazineLongPostThumb {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime-type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineLongPostThumb_ {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineLongThumb {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime-type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineLongThumb_ {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazinePostSliderLg {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime-type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazinePostSliderLg_ {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineRectPostCarousel {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime-type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineRectPostCarousel_ {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineRectPostThumb {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime-type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineRectPostThumb_ {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineRectangleThumb {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime-type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineRectangleThumb_ {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+    public class VmagazineSingleThird {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime-type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineSingleThird_ {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineSliderThumb {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime-type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineSliderThumb_ {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineSmallSquareThumb {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime-type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineSmallSquareThumb_ {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineSmallThumb {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime-type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineSmallThumb_ {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineVerticalSliderThumb {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime-type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class VmagazineVerticalSliderThumb_ {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
     public class WpAttachment {
 
         @SerializedName("href")
@@ -2804,13 +5138,13 @@ public class WPJavaPost {
         private String link;
         @SerializedName("title")
         @Expose
-        private WPPost.Title_ title;
+        private Title_ title;
         @SerializedName("author")
         @Expose
         private Integer author;
         @SerializedName("caption")
         @Expose
-        private WPPost.Caption caption;
+        private Caption caption;
         @SerializedName("alt_text")
         @Expose
         private String altText;
@@ -2822,13 +5156,13 @@ public class WPJavaPost {
         private String mimeType;
         @SerializedName("media_details")
         @Expose
-        private WPPost.MediaDetails_ mediaDetails;
+        private MediaDetails_ mediaDetails;
         @SerializedName("source_url")
         @Expose
         private String sourceUrl;
         @SerializedName("_links")
         @Expose
-        private WPPost.Links__ links;
+        private Links__ links;
 
         public Integer getId() {
             return id;
@@ -2870,11 +5204,11 @@ public class WPJavaPost {
             this.link = link;
         }
 
-        public WPPost.Title_ getTitle() {
+        public Title_ getTitle() {
             return title;
         }
 
-        public void setTitle(WPPost.Title_ title) {
+        public void setTitle(Title_ title) {
             this.title = title;
         }
 
@@ -2886,11 +5220,11 @@ public class WPJavaPost {
             this.author = author;
         }
 
-        public WPPost.Caption getCaption() {
+        public Caption getCaption() {
             return caption;
         }
 
-        public void setCaption(WPPost.Caption caption) {
+        public void setCaption(Caption caption) {
             this.caption = caption;
         }
 
@@ -2918,11 +5252,11 @@ public class WPJavaPost {
             this.mimeType = mimeType;
         }
 
-        public WPPost.MediaDetails_ getMediaDetails() {
+        public MediaDetails_ getMediaDetails() {
             return mediaDetails;
         }
 
-        public void setMediaDetails(WPPost.MediaDetails_ mediaDetails) {
+        public void setMediaDetails(MediaDetails_ mediaDetails) {
             this.mediaDetails = mediaDetails;
         }
 
@@ -2934,11 +5268,11 @@ public class WPJavaPost {
             this.sourceUrl = sourceUrl;
         }
 
-        public WPPost.Links__ getLinks() {
+        public Links__ getLinks() {
             return links;
         }
 
-        public void setLinks(WPPost.Links__ links) {
+        public void setLinks(Links__ links) {
             this.links = links;
         }
 
@@ -3020,7 +5354,7 @@ public class WPJavaPost {
         private String taxonomy;
         @SerializedName("_links")
         @Expose
-        private WPPost.Links___ links;
+        private Links___ links;
 
         public Integer getId() {
             return id;
@@ -3062,16 +5396,18 @@ public class WPJavaPost {
             this.taxonomy = taxonomy;
         }
 
-        public WPPost.Links___ getLinks() {
+        public Links___ getLinks() {
             return links;
         }
 
-        public void setLinks(WPPost.Links___ links) {
+        public void setLinks(Links___ links) {
             this.links = links;
         }
 
     }
-}
 
+
+
+}
 
 

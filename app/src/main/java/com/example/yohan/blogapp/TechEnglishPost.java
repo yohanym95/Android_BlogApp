@@ -3,6 +3,7 @@ package com.example.yohan.blogapp;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -29,6 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class TechEnglishPost extends AppCompatActivity implements RecentPostAdapter.onItemClicked {
 
     private Toolbar mToolbar;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView TechEnglishrecyclerView;
     private LinearLayoutManager linearLayoutManager;
     private ArrayList<RecentModel> list;
@@ -44,12 +46,14 @@ public class TechEnglishPost extends AppCompatActivity implements RecentPostAdap
     Cache cache;
 
     OkHttpClient okHttpClient;
+    private String url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tech_english_post);
 
         mToolbar = findViewById(R.id.TechEnglishPost_app_bar);
+        swipeRefreshLayout = findViewById(R.id.TechEnglishSwipe);
         setSupportActionBar(mToolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -88,6 +92,12 @@ public class TechEnglishPost extends AppCompatActivity implements RecentPostAdap
         new GetTechEnglishJson().execute();
         TechEnglishrecyclerView.setAdapter(recentPostAdapter);
         recentPostAdapter.SetOnItemClickListener(TechEnglishPost.this);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new GetTechEnglishJson().execute();
+            }
+        });
     }
 
     public class GetTechEnglishJson extends AsyncTask<Void,Void,Void> {
@@ -133,6 +143,7 @@ public class TechEnglishPost extends AppCompatActivity implements RecentPostAdap
                   //  Toast.makeText(TechEnglishPost.this,"done",Toast.LENGTH_LONG).show();
 
 
+                    swipeRefreshLayout.setRefreshing(false);
                     progressDialog1.dismiss();
                     for (int i =0;i<response.body().size(); i++){
 
@@ -149,9 +160,19 @@ public class TechEnglishPost extends AppCompatActivity implements RecentPostAdap
 
                         // String profileUrl = response.body().get(i).getLinks().getAuthor().get(0).getHref();
 
+                        if(response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getThumbnail().getSourceUrl() != null){
+                            url =response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getThumbnail().getSourceUrl();
+                        }else if(response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazinePostSliderLg().getSourceUrl() != null){
+                            url =response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazinePostSliderLg().getSourceUrl();
+                        }else if(response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazineLargeCategory().getSourceUrl() != null){
+                            url = response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazineLargeCategory().getSourceUrl();
+                        }else {
+                            url = response.body().get(i).getBetterFeaturedImage().getSourceUrl();
+                        }
+
                         list.add(new RecentModel( titile,
                                 temdetails,
-                                response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getTieMedium().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName()));
+                                url,render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName()));
 
                     }
 

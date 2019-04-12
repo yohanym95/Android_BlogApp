@@ -3,6 +3,7 @@ package com.example.yohan.blogapp;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -29,6 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class UnityPost extends AppCompatActivity implements RecentPostAdapter.onItemClicked {
 
     private Toolbar mToolbar;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView UnityrecyclerView;
     private LinearLayoutManager linearLayoutManager;
     private ArrayList<RecentModel> list;
@@ -44,6 +46,7 @@ public class UnityPost extends AppCompatActivity implements RecentPostAdapter.on
     Cache cache;
 
     OkHttpClient okHttpClient;
+    private String url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +55,7 @@ public class UnityPost extends AppCompatActivity implements RecentPostAdapter.on
 
 
         mToolbar = findViewById(R.id.UnityPost_app_bar);
+        swipeRefreshLayout = findViewById(R.id.UnitySwipe);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -90,6 +94,14 @@ public class UnityPost extends AppCompatActivity implements RecentPostAdapter.on
         new GetUnityJson().execute();
         UnityrecyclerView.setAdapter(recentPostAdapter);
         recentPostAdapter.SetOnItemClickListener(UnityPost.this);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                new GetUnityJson().execute();
+            }
+        });
 
 
 
@@ -138,6 +150,7 @@ public class UnityPost extends AppCompatActivity implements RecentPostAdapter.on
                  //   Toast.makeText(UnityPost.this,"done",Toast.LENGTH_LONG).show();
 
 
+                    swipeRefreshLayout.setRefreshing(false);
                     progressDialog1.dismiss();
                     for (int i =0;i<response.body().size(); i++){
 
@@ -153,10 +166,19 @@ public class UnityPost extends AppCompatActivity implements RecentPostAdapter.on
                         /// render = render.replace("--aspect-ratio","aspect-ratio");
 
                         // String profileUrl = response.body().get(i).getLinks().getAuthor().get(0).getHref();
+                        if(response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getThumbnail().getSourceUrl() != null){
+                            url =response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getThumbnail().getSourceUrl();
+                        }else if(response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazinePostSliderLg().getSourceUrl() != null){
+                            url =response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazinePostSliderLg().getSourceUrl();
+                        }else if(response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazineLargeCategory().getSourceUrl() != null){
+                            url = response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazineLargeCategory().getSourceUrl();
+                        }else {
+                            url = response.body().get(i).getBetterFeaturedImage().getSourceUrl();
+                        }
 
                         list.add(new RecentModel( titile,
                                 temdetails,
-                                response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getTieMedium().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName()));
+                                url,render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName()));
 
                     }
 
