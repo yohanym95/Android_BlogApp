@@ -60,7 +60,7 @@ public class LaravelPost extends AppCompatActivity implements RecentPostAdapter.
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("ReadHub - Laravel");
+        getSupportActionBar().setTitle("ReadHub - SQL");
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,7 +72,7 @@ public class LaravelPost extends AppCompatActivity implements RecentPostAdapter.
         LaravelrecyclerView = findViewById(R.id.Laravel_recycleview);
 
         progressDialog1 = new ProgressDialog(LaravelPost.this);
-        progressDialog1.setTitle("Laravel Posts");
+        progressDialog1.setTitle("SQL - සිංහලෙන් Posts");
         progressDialog1.setMessage("Loading");
 
 
@@ -148,6 +148,7 @@ public class LaravelPost extends AppCompatActivity implements RecentPostAdapter.
                //     Toast.makeText(LaravelPost.this,"done",Toast.LENGTH_LONG).show();
 
 
+                    swipeRefreshLayout.setRefreshing(false);
                     progressDialog1.dismiss();
                     for (int i =0;i<response.body().size(); i++){
 
@@ -164,19 +165,10 @@ public class LaravelPost extends AppCompatActivity implements RecentPostAdapter.
 
                         // String profileUrl = response.body().get(i).getLinks().getAuthor().get(0).getHref();
 
-                        if(response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getThumbnail().getSourceUrl() != null){
-                            url =response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getThumbnail().getSourceUrl();
-                        }else if(response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazinePostSliderLg().getSourceUrl() != null){
-                            url =response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazinePostSliderLg().getSourceUrl();
-                        }else if(response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazineLargeCategory().getSourceUrl() != null){
-                            url = response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getVmagazineLargeCategory().getSourceUrl();
-                        }else {
-                            url = response.body().get(i).getBetterFeaturedImage().getSourceUrl();
-                        }
 
                         list.add(new RecentModel( titile,
                                 temdetails,
-                                url,render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName()));
+                                response.body().get(i).getEmbedded().getWpFeaturedmedia().get(0).getMediaDetails().getSizes().getThumbnail().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName()));
 
                     }
 

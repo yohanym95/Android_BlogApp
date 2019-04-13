@@ -307,7 +307,7 @@
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:gravity="center"
-                android:text="Other"
+                android:text="Entertainment"
                 android:textColor="@color/colorPrimary"
                 android:textSize="13sp"
                 android:textStyle="bold" />

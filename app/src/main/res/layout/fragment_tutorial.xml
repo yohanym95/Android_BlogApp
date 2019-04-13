@@ -302,7 +302,7 @@
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:gravity="center"
-                android:text="Laravel - සිංහලෙන්"
+                android:text="SQL - සිංහලෙන්"
                 android:textColor="@color/colorPrimary"
                 android:textSize="13sp"
                 android:textStyle="bold" />

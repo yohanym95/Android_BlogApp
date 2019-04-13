@@ -28,7 +28,7 @@ public interface RetrofitArrayAPI {
     @GET("posts?categories=927&per_page=15&_embed")
     Call<List<WPJavaPost>> getKotlinPost();
 
-    @GET("posts?categories=913&_embed")
+    @GET("posts?categories=1140&_embed")
     Call<List<WPJavaPost>> getLaravelPost();
 
     @GET("posts?categories=240&per_page=15&_embed")
@@ -67,7 +67,7 @@ public interface RetrofitArrayAPI {
     @GET("posts?categories=752&per_page=15&_embed")
     Call<List<WPJavaPost>> getKibuliPost();
 
-    @GET("posts?categories=1038&_embed")
+    @GET("posts?categories=4&per_page=15&_embed")
     Call<List<WPJavaPost>> getOtherPost();
 
 
