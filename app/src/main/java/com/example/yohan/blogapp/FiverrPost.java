@@ -194,7 +194,7 @@ public class FiverrPost extends AppCompatActivity implements RecentPostAdapter.o
         Intent i = new Intent(this,RecentPostView.class);
         RecentModel model = list.get(index);
         i.putExtra(RENDER_CONTENT,model.render);
-        // i.putExtra(title,model.title);
+        //i.putExtra(title,model.title);
         startActivity(i);
 
     }

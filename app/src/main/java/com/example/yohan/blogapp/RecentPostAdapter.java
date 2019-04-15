@@ -59,6 +59,8 @@ public class RecentPostAdapter extends RecyclerView.Adapter<RecentPostAdapter.Im
                     }
                 }
             });
+
+
         }
     }
 

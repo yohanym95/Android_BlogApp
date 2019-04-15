@@ -147,6 +147,7 @@ public class KibuliPost extends AppCompatActivity implements RecentPostAdapter.o
                  //   Toast.makeText(KibuliPost.this,"done",Toast.LENGTH_LONG).show();
 
 
+                    swipeRefreshLayout.setRefreshing(false);
                     progressDialog1.dismiss();
                     for (int i =0;i<response.body().size(); i++){
 

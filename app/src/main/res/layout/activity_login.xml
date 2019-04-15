@@ -59,7 +59,19 @@
             android:text="Need a New Account"
             android:background="@color/colorPrimaryDark"
             android:textColor="@android:color/background_light"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/sign_in_button"
+            android:paddingRight="8dp"
+            android:paddingLeft="20dp"
+            android:text="Login with Google"
+            android:background="@color/common_google_signin_btn_text_dark_disabled"
+            android:drawableStart="@drawable/googleg_standard_color_18"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"/>
     </LinearLayout>
 
 

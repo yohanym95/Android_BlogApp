@@ -20,6 +20,7 @@
             android:layout_margin="5dp"
             android:src="@mipmap/ic_launcher" />
 
+
         <TextView
             android:id="@+id/tvtitle"
             android:layout_width="match_parent"

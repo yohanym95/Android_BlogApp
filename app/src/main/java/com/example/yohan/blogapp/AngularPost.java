@@ -195,7 +195,7 @@ public class AngularPost extends AppCompatActivity implements RecentPostAdapter.
         Intent i = new Intent(this,RecentPostView.class);
         RecentModel model = list.get(index);
         i.putExtra(RENDER_CONTENT,model.render);
-        // i.putExtra(title,model.title);
+       //  i.putExtra(title,model.title);
         startActivity(i);
     }
 

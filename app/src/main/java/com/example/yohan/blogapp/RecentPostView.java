@@ -7,10 +7,12 @@ import android.util.Base64;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.TextView;
 
 public class RecentPostView extends AppCompatActivity {
 
     private WebView recentpostWebView;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,11 +20,15 @@ public class RecentPostView extends AppCompatActivity {
         setContentView(R.layout.activity_recent_post_view);
 
         recentpostWebView = findViewById(R.id.recent_postwebview);
+        //textView = findViewById(R.id.webtitle);
 
         Intent i = getIntent();
         String renderContent = i.getStringExtra(RecentFragment.RENDER_CONTENT);
+       // String renderContentt = i.getStringExtra(RecentFragment.);
+
         String renderContent1 = i.getStringExtra(JavaPost.RENDER_CONTENT);
         String renderContent2 = i.getStringExtra(AngularPost.RENDER_CONTENT);
+       // String renderContentt2 = i.getStringExtra(AngularPost.title);
         String renderContent3 = i.getStringExtra(FiverrPost.RENDER_CONTENT);
         String renderContent4 = i.getStringExtra(GitPosts.RENDER_CONTENT);
         String renderContent5 = i.getStringExtra(HtmlPost.RENDER_CONTENT);
@@ -91,7 +97,8 @@ public class RecentPostView extends AppCompatActivity {
             recentpostWebView.getSettings().setBuiltInZoomControls(true);
             recentpostWebView.getSettings().setDisplayZoomControls(true);
             recentpostWebView.loadData(bodyrender,"text/html","base64");
-        }else if(renderContent2 != null){
+        }else if(renderContent2 != null ){
+          //  textView.setText(renderContentt2);
             String head = "<head><style>img{max-width:100%;width:auto;height:auto;}</style></head>";
             String body = "<html>"+head+"<body>"+renderContent2+"</body></html>";
             String bodyrender = Base64.encodeToString(body.getBytes(),Base64.NO_PADDING);
