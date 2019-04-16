@@ -64,8 +64,7 @@ public class TechSinhalPost extends AppCompatActivity implements RecentPostAdapt
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(TechSinhalPost.this,MainActivity.class);
-                startActivity(i);
+                onBackPressed();
             }
         });
 

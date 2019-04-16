@@ -60,8 +60,7 @@ public class GitPosts extends AppCompatActivity implements RecentPostAdapter.onI
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(GitPosts.this,MainActivity.class);
-                startActivity(i);
+                onBackPressed();
             }
         });
 

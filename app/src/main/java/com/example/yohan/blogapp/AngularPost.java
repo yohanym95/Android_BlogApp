@@ -62,8 +62,7 @@ public class AngularPost extends AppCompatActivity implements RecentPostAdapter.
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(AngularPost.this,MainActivity.class);
-                startActivity(i);
+                onBackPressed();
             }
         });
 

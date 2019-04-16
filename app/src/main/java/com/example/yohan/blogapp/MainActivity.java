@@ -141,13 +141,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (menuItem.getItemId()){
             case R.id.nav_facebook:
                // Toast.makeText(getApplicationContext(),"Like us on Facebook",Toast.LENGTH_LONG).show();
-                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/readhublk"));
-                startActivity(i);
+
+                try{
+                  Intent i = new Intent(Intent.ACTION_VIEW,Uri.parse("fb://page/2660854717474049"));
+                  startActivity(i);
+                }catch (Exception e){ startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/readhublk")));
+
+                }
                 break;
             case R.id.nav_lindin:
                // Toast.makeText(getApplicationContext(),"Like us on Linkedin",Toast.LENGTH_LONG).show();
-                Intent i1 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/company/readhub/"));
-                startActivity(i1);
+
+                    Intent i1 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/company/readhub/"));
+                    startActivity(i1);
                 break;
             case R.id.nav_youtube:
                 //Toast.makeText(getApplicationContext(),"Like us on Youtube",Toast.LENGTH_LONG).show();

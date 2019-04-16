@@ -65,8 +65,7 @@ public class OtherPost extends AppCompatActivity implements RecentPostAdapter.on
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(OtherPost.this,MainActivity.class);
-                startActivity(i);
+                onBackPressed();
             }
         });
 

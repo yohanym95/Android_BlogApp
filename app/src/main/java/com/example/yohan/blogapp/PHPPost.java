@@ -65,8 +65,7 @@ public class PHPPost extends AppCompatActivity implements RecentPostAdapter.onIt
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(PHPPost.this,MainActivity.class);
-                startActivity(i);
+                onBackPressed();
             }
         });
 

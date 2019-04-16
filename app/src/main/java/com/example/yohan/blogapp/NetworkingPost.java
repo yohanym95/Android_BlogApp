@@ -63,8 +63,7 @@ public class NetworkingPost extends AppCompatActivity  implements RecentPostAdap
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(NetworkingPost.this,MainActivity.class);
-                startActivity(i);
+                onBackPressed();
             }
         });
 

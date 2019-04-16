@@ -43,8 +43,7 @@ public class Loginaccount extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Loginaccount.this,Login.class);
-                startActivity(i);
+                onBackPressed();
             }
         });
 

@@ -63,8 +63,7 @@ public class HtmlPost extends AppCompatActivity implements RecentPostAdapter.onI
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HtmlPost.this,MainActivity.class);
-                startActivity(i);
+                onBackPressed();
             }
         });
 
