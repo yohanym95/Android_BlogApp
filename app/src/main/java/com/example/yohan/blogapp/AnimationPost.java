@@ -1,8 +1,12 @@
 package com.example.yohan.blogapp;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -38,6 +42,7 @@ public class AnimationPost extends AppCompatActivity implements RecentPostAdapte
     private RecentPostAdapter recentPostAdapter;
     // ProgressDialog progressDialog;
     ProgressDialog progressDialog1;
+    Dialog MyDialog1;
 
 
     private String AnimationBaseURL = "https://readhub.lk/wp-json/wp/v2/";
@@ -84,18 +89,26 @@ public class AnimationPost extends AppCompatActivity implements RecentPostAdapte
         linearLayoutManager = new LinearLayoutManager(AnimationPost.this,LinearLayoutManager.VERTICAL,false);
         AnimationrecyclerView.setLayoutManager(linearLayoutManager);
 
-        list = new ArrayList<RecentModel>();
+        if(haveNetwork(getApplicationContext())){
+            list = new ArrayList<RecentModel>();
 
-        progressDialog1.show();
-        recentPostAdapter = new RecentPostAdapter(list,this);
-
-        new GetAnimationsJson().execute();
-        AnimationrecyclerView.setAdapter(recentPostAdapter);
-        recentPostAdapter.SetOnItemClickListener(AnimationPost.this);
+            recentPostAdapter = new RecentPostAdapter(list,this);
+            progressDialog1.show();
+            new GetAnimationsJson().execute();
+            AnimationrecyclerView.setAdapter(recentPostAdapter);
+            recentPostAdapter.SetOnItemClickListener(AnimationPost.this);
+        }else {
+            connectionDialog1();
+        }
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                new GetAnimationsJson().execute();
+
+                if (haveNetwork(getApplicationContext())){
+                    new GetAnimationsJson().execute();
+                }else {
+                    connectionDialog1();
+                }
             }
         });
     }
@@ -224,5 +237,30 @@ public class AnimationPost extends AppCompatActivity implements RecentPostAdapte
         logoutDialog logoutdialog = new logoutDialog();
         logoutdialog.show(getSupportFragmentManager(),"Logoutdialog");
 
+    }
+    public void connectionDialog1(){
+        MyDialog1 = new Dialog(AnimationPost.this);
+        MyDialog1.setContentView(R.layout.customconnectiondialog);
+        MyDialog1.setTitle("Error");
+        MyDialog1.show();
+    }
+
+    private boolean haveNetwork(Context context){
+        boolean have_WIFI = false;
+        boolean have_MobileData = false;
+
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
+        // NetworkInfo [] networkInfos = connectivityManager.getAllNetworkInfo();
+        if (connectivityManager != null)
+        {
+            NetworkInfo[] info = connectivityManager.getAllNetworkInfo();
+            if (info != null)
+                for (int i = 0; i < info.length; i++)
+                    if (info[i].getState() == NetworkInfo.State.CONNECTED)
+                    {
+                        return true;
+                    }
+        }
+        return false;
     }
 }

@@ -1,7 +1,11 @@
 package com.example.yohan.blogapp;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -38,6 +42,7 @@ public class PHPPost extends AppCompatActivity implements RecentPostAdapter.onIt
     // ProgressDialog progressDialog;
 
     ProgressDialog progressDialog1;
+    Dialog MyDialog1;
 
 
     private String PHPBaseURL = "https://readhub.lk/wp-json/wp/v2/";
@@ -87,20 +92,28 @@ public class PHPPost extends AppCompatActivity implements RecentPostAdapter.onIt
         linearLayoutManager = new LinearLayoutManager(PHPPost.this,LinearLayoutManager.VERTICAL,false);
         PHPrecyclerView.setLayoutManager(linearLayoutManager);
 
-        list = new ArrayList<>();
+        if(haveNetwork(getApplicationContext())){
+            list = new ArrayList<>();
 
 
-        progressDialog1.show();
-        recentPostAdapter = new RecentPostAdapter(list,this);
+            progressDialog1.show();
+            recentPostAdapter = new RecentPostAdapter(list,this);
 
 
-        new GetPHPJson().execute();
-        PHPrecyclerView.setAdapter(recentPostAdapter);
-        recentPostAdapter.SetOnItemClickListener(PHPPost.this);
+            new GetPHPJson().execute();
+            PHPrecyclerView.setAdapter(recentPostAdapter);
+            recentPostAdapter.SetOnItemClickListener(PHPPost.this);
+        }else{
+            connectionDialog1();
+        }
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                new GetPHPJson().execute();
+                if(haveNetwork(getApplicationContext())){
+                    new GetPHPJson().execute();
+                }else {
+                    connectionDialog1();
+                }
             }
         });
 
@@ -232,5 +245,31 @@ public class PHPPost extends AppCompatActivity implements RecentPostAdapter.onIt
         logoutDialog logoutdialog = new logoutDialog();
         logoutdialog.show(getSupportFragmentManager(),"Logoutdialog");
 
+    }
+
+    public void connectionDialog1(){
+        MyDialog1 = new Dialog(PHPPost.this);
+        MyDialog1.setContentView(R.layout.customconnectiondialog);
+        MyDialog1.setTitle("Error");
+        MyDialog1.show();
+    }
+
+    private boolean haveNetwork(Context context){
+        boolean have_WIFI = false;
+        boolean have_MobileData = false;
+
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
+        // NetworkInfo [] networkInfos = connectivityManager.getAllNetworkInfo();
+        if (connectivityManager != null)
+        {
+            NetworkInfo[] info = connectivityManager.getAllNetworkInfo();
+            if (info != null)
+                for (int i = 0; i < info.length; i++)
+                    if (info[i].getState() == NetworkInfo.State.CONNECTED)
+                    {
+                        return true;
+                    }
+        }
+        return false;
     }
 }

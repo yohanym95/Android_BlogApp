@@ -39,7 +39,6 @@ public class logoutDialog extends AppCompatDialogFragment {
                         googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
-
                                 updateUI();
                             }
                         });
@@ -60,9 +59,7 @@ public class logoutDialog extends AppCompatDialogFragment {
         Intent startIntent = new Intent(getContext(),Login.class);
         startIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(startIntent);
-        getActivity().finish();
-
-
+      //  getActivity().finish();
     }
 
 

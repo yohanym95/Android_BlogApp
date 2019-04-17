@@ -1,8 +1,11 @@
 package com.example.yohan.blogapp;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -29,6 +32,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static android.content.Context.CONNECTIVITY_SERVICE;
+
 
 public class RecentFragment extends Fragment implements RecentPostAdapter.onItemClicked {
 
@@ -36,8 +41,10 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
     private SwipeRefreshLayout swipeRefreshLayout;
    // private ProgressBar progressBar;
     private LinearLayoutManager linearLayoutManager;
-    ProgressDialog progressDialog1;
+    ProgressDialog progressDialog1,progressDialog2;
     View view;
+    Context context;
+    Dialog MyDialog1;
 
     private ArrayList<RecentModel> list;
     private RecentPostAdapter adapter;
@@ -77,38 +84,51 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
         linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        cache = new Cache(getActivity().getCacheDir(), cacheSize);
-        okHttpClient = new OkHttpClient.Builder()
-                .cache(cache)
-                .build();
-
-        if(getView() != null){
-            progressDialog1 = new ProgressDialog(getContext());
-            progressDialog1.setTitle("Recents Posts");
-            progressDialog1.setMessage("Loading");
-            progressDialog1.show();
-            new GetRecentJSON().execute();
-        }
-
-
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                if(haveNetwork(getContext())){
+                    progressDialog1 = new ProgressDialog(getContext());
+                    progressDialog1.setTitle("Recents Posts");
+                    progressDialog1.setMessage("Loading");
+                    progressDialog1.show();
+                    new GetRecentJSON().execute();
+                }else {
+                    connectionDialog1();
+
+                }
+            }
+        });
+
+
+        cache = new Cache(getActivity().getCacheDir(), cacheSize);
+        okHttpClient = new OkHttpClient.Builder()
+                .cache(cache)
+                .build();
+        if(haveNetwork(getContext())){
+
+            if(getView() != null){
                 progressDialog1 = new ProgressDialog(getContext());
                 progressDialog1.setTitle("Recents Posts");
                 progressDialog1.setMessage("Loading");
                 progressDialog1.show();
                 new GetRecentJSON().execute();
             }
-        });
 
-        list = new ArrayList<RecentModel>();
+            list = new ArrayList<RecentModel>();
 
-        adapter = new RecentPostAdapter(list,getContext());
-       // new GetRecentJSON().execute();
-        recyclerView.setAdapter(adapter);
-        adapter.SetOnItemClickListener(RecentFragment.this);
+            adapter = new RecentPostAdapter(list,getContext());
+            // new GetRecentJSON().execute();
+            recyclerView.setAdapter(adapter);
+            adapter.SetOnItemClickListener(RecentFragment.this);
+
+        }else{
+
+            connectionDialog1();
+         //   new GetRecentJSON().execute();
+
+        }
 
 
 
@@ -239,6 +259,33 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
             super.onPostExecute(aVoid);
           //  progressDialog.dismiss();
         }
+    }
+
+    public void connectionDialog1(){
+        MyDialog1 = new Dialog(getContext());
+        MyDialog1.setContentView(R.layout.customconnectiondialog);
+        MyDialog1.setTitle("Error");
+        MyDialog1.show();
+    }
+
+
+    private boolean haveNetwork(Context context){
+        boolean have_WIFI = false;
+        boolean have_MobileData = false;
+
+        ConnectivityManager connectivityManager = (ConnectivityManager) getContext().getSystemService(CONNECTIVITY_SERVICE);
+       // NetworkInfo [] networkInfos = connectivityManager.getAllNetworkInfo();
+        if (connectivityManager != null)
+        {
+            NetworkInfo[] info = connectivityManager.getAllNetworkInfo();
+            if (info != null)
+                for (int i = 0; i < info.length; i++)
+                    if (info[i].getState() == NetworkInfo.State.CONNECTED)
+                    {
+                        return true;
+                    }
+        }
+        return false;
     }
 
 

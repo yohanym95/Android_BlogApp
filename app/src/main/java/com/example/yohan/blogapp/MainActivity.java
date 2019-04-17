@@ -128,13 +128,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
+
+        Boolean doubleBacktoExitPressedOnce = false;
         if(drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START);
-        }else {
-            super.onBackPressed();
+        }else if(mViewPager.getCurrentItem() >0){
+
+            doubleBacktoExitPressedOnce = false;
+
+        }else if(mViewPager.getCurrentItem() == 0) {
+            doubleBacktoExitPressedOnce = true;
+
+            if(doubleBacktoExitPressedOnce){
+                super.onBackPressed();
+            }
         }
 
+        mViewPager.setCurrentItem(0);
+
+
+
     }
+
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -185,10 +201,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         MyDialog1.show();
 
 
-
-
-
     }
+
+
+
 }
 
 //

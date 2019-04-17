@@ -137,6 +137,8 @@ public class Login extends AppCompatActivity {
         updateUI(currentUser);
     }
 
+
+
     private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
 
         AuthCredential credential = GoogleAuthProvider
@@ -168,4 +170,6 @@ public class Login extends AppCompatActivity {
         }
 
     }
+
+
 }

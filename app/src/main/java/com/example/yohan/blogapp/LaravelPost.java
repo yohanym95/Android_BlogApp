@@ -1,7 +1,11 @@
 package com.example.yohan.blogapp;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.speech.RecognizerResultsIntent;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -39,6 +43,7 @@ public class LaravelPost extends AppCompatActivity implements RecentPostAdapter.
     // ProgressDialog progressDialog;
 
     ProgressDialog progressDialog1;
+    Dialog MyDialog1;
 
 
     private String LaravelBaseURL = "https://readhub.lk/wp-json/wp/v2/";
@@ -88,18 +93,26 @@ public class LaravelPost extends AppCompatActivity implements RecentPostAdapter.
         linearLayoutManager = new LinearLayoutManager(LaravelPost.this,LinearLayoutManager.VERTICAL,false);
         LaravelrecyclerView.setLayoutManager(linearLayoutManager);
 
-        list = new ArrayList<RecentModel>();
+        if(haveNetwork(getApplicationContext())){
+            list = new ArrayList<RecentModel>();
 
-        progressDialog1.show();
-        recentPostAdapter = new RecentPostAdapter(list,this);
+            progressDialog1.show();
+            recentPostAdapter = new RecentPostAdapter(list,this);
 
-        new GetLaravelJson().execute();
-        LaravelrecyclerView.setAdapter(recentPostAdapter);
-        recentPostAdapter.SetOnItemClickListener(LaravelPost.this);
+            new GetLaravelJson().execute();
+            LaravelrecyclerView.setAdapter(recentPostAdapter);
+            recentPostAdapter.SetOnItemClickListener(LaravelPost.this);
+        }else {
+            connectionDialog1();
+        }
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                new GetLaravelJson().execute();
+                if(haveNetwork(getApplicationContext())){
+                    new GetLaravelJson().execute();
+                }else {
+                    connectionDialog1();
+                }
             }
         });
     }
@@ -228,5 +241,31 @@ public class LaravelPost extends AppCompatActivity implements RecentPostAdapter.
         logoutDialog logoutdialog = new logoutDialog();
         logoutdialog.show(getSupportFragmentManager(),"Logoutdialog");
 
+    }
+
+    public void connectionDialog1(){
+        MyDialog1 = new Dialog(LaravelPost.this);
+        MyDialog1.setContentView(R.layout.customconnectiondialog);
+        MyDialog1.setTitle("Error");
+        MyDialog1.show();
+    }
+
+    private boolean haveNetwork(Context context){
+        boolean have_WIFI = false;
+        boolean have_MobileData = false;
+
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
+        // NetworkInfo [] networkInfos = connectivityManager.getAllNetworkInfo();
+        if (connectivityManager != null)
+        {
+            NetworkInfo[] info = connectivityManager.getAllNetworkInfo();
+            if (info != null)
+                for (int i = 0; i < info.length; i++)
+                    if (info[i].getState() == NetworkInfo.State.CONNECTED)
+                    {
+                        return true;
+                    }
+        }
+        return false;
     }
 }

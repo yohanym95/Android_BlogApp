@@ -55,7 +55,11 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                onBackPressed();
+                Intent i = new Intent(Register.this,Login.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                finish();
+
             }
         });
 
