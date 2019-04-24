@@ -8,74 +8,50 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:464589277503:android:d60d57ed1df04daa",
+        "mobilesdk_app_id": "1:464589277503:android:da0543943ca9f326",
         "android_client_info": {
-          "package_name": "com.example.yohan.blogapp"
+          "package_name": "net.malshikay.yohan.blogapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "464589277503-9042sns3ap54tado9hk8vphqg3rb8b7o.apps.googleusercontent.com",
+          "client_id": "464589277503-7l8p4jeg8bg1uf0e0f2j41recsvqtf2m.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.yohan.blogapp",
-            "certificate_hash": "34a8284f2dcd58f8e636990623ee9cdeb7cd65ec"
+            "package_name": "net.malshikay.yohan.blogapp",
+            "certificate_hash": "579d946da21a65b7e94aaf275459dfd248b180f5"
           }
         },
         {
-          "client_id": "464589277503-qgde5hlmiupvv52d53b0hjj4andicfml.apps.googleusercontent.com",
+          "client_id": "464589277503-kqffc94dciiarh96krdpv05m2iio1pjk.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.yohan.blogapp",
-            "certificate_hash": "75f0d2c63ef58871b42febb6b86236b4d4321cf6"
+            "package_name": "net.malshikay.yohan.blogapp",
+            "certificate_hash": "9ee2195716da29149997f26a2a9d56052eabac6d"
           }
         },
         {
-          "client_id": "464589277503-esbk09q29v4uddr47sjgv166u9os1fqf.apps.googleusercontent.com",
+          "client_id": "464589277503-e9qga967udv59dgdaolkkoqhfh8i5da8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.yohan.blogapp",
-            "certificate_hash": "2207eef04dcae06d26ffa96090a02099cd2449dd"
-          }
-        },
-        {
-          "client_id": "464589277503-rq40uokklrunc458auksr93dp1srbpm4.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.yohan.blogapp",
-            "certificate_hash": "376ee5590e2f25b60ba84274620212592e03a2d8"
-          }
-        },
-        {
-          "client_id": "464589277503-mt3oh36gteqi364i2s8jlk9fl8usm7jd.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.yohan.blogapp",
-            "certificate_hash": "dde8ad08ebd34cceaa29ed4c25037ba4fd25e65c"
-          }
-        },
-        {
-          "client_id": "464589277503-glctaicfkol762egvcivkcclquaeq0g3.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.yohan.blogapp",
-            "certificate_hash": "d367dec13c79118908fd36f0d2cdaaccae7becc6"
-          }
-        },
-        {
-          "client_id": "464589277503-eqet79t0a17lvs87ubjdef0mgamcpt2j.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.yohan.blogapp",
+            "package_name": "net.malshikay.yohan.blogapp",
             "certificate_hash": "c8ecebae5146180543311a2191d105a80eda9509"
           }
         },
         {
-          "client_id": "464589277503-0chito2c3nio8fqul8psmof847560qp2.apps.googleusercontent.com",
+          "client_id": "464589277503-gbif42b3te3df5iivj20mc9cp3fnmhqj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.yohan.blogapp",
-            "certificate_hash": "ea9a25addcc43b54115534c5def6c9ccee1121b7"
+            "package_name": "net.malshikay.yohan.blogapp",
+            "certificate_hash": "e2def90f30610bf635547be862f1d2da65525638"
+          }
+        },
+        {
+          "client_id": "464589277503-vi1t82bic3falrgbsdu299ctbv3hdesc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.malshikay.yohan.blogapp",
+            "certificate_hash": "6c46f9381406f8d1a919c8f8915cca567f46dd94"
           }
         },
         {

@@ -16,9 +16,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
-
-import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -103,6 +100,7 @@ public class MoviesPost extends AppCompatActivity implements RecentPostAdapter.o
             public void onRefresh() {
                 if(haveNetwork(getApplicationContext())){
                     new GetMovieJson().execute();
+                    list.clear();
                 }else {
                     connectionDialog1();
                 }

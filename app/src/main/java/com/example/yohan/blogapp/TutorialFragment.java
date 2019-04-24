@@ -1,8 +1,6 @@
 package com.example.yohan.blogapp;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
@@ -14,8 +12,8 @@ import android.widget.TextView;
 
 public class TutorialFragment extends Fragment {
 
-    private CardView crdJAVA,crdAngular,crdKotlin,crdHTML,crdPHP,crdUnity,crdGIT,crdNetworking,crdFiverr,crdLaravel;
-    private TextView crdJAVA1,crdAngular1,crdKotlin1,crdHTML1,crdPHP1,crdUnity1,crdGIT1,crdNetworking1,crdFiverr1,crdLaravel1;
+    private CardView crdJAVA,crdAngular,crdKotlin,crdHTML,crdPHP,crdUnity,crdGIT,crdNetworking,crdFiverr,crdLaravel,crdReact,crdLara;
+    private TextView crdJAVA1,crdAngular1,crdKotlin1,crdHTML1,crdPHP1,crdUnity1,crdGIT1,crdNetworking1,crdFiverr1,crdLaravel1,crdReact1,crdLara1;
 
 
 
@@ -35,6 +33,8 @@ public class TutorialFragment extends Fragment {
         crdNetworking = v.findViewById(R.id.crdNetwork);
         crdFiverr = v.findViewById(R.id.crdFiverr);
         crdLaravel = v.findViewById(R.id.crdLaravel);
+        crdReact = v.findViewById(R.id.crdreactN);
+        crdLara = v.findViewById(R.id.crdLara);
 
         crdJAVA1 = v.findViewById(R.id.tvJava);
         crdAngular1 = v.findViewById(R.id.tvAngular);
@@ -46,6 +46,8 @@ public class TutorialFragment extends Fragment {
         crdNetworking1 = v.findViewById(R.id.tvNetwork);
         crdFiverr1 = v.findViewById(R.id.tvFiver);
         crdLaravel1 = v.findViewById(R.id.tvLaravel);
+        crdReact1 = v.findViewById(R.id.tvReactN);
+        crdLara1 = v.findViewById(R.id.tvLara1);
 
 
 
@@ -142,6 +144,22 @@ public class TutorialFragment extends Fragment {
             }
         });
 
+        crdReact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),ReactNativePost.class);
+                startActivity(i);
+            }
+        });
+
+        crdLara.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),Laravelpost1.class);
+                startActivity(i);
+            }
+        });
+
         crdJAVA1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -230,6 +248,22 @@ public class TutorialFragment extends Fragment {
             public void onClick(View v) {
 
                 Intent i = new Intent(getContext(),LaravelPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdReact1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),ReactNativePost.class);
+                startActivity(i);
+            }
+        });
+
+        crdLara1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),Laravelpost1.class);
                 startActivity(i);
             }
         });

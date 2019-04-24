@@ -1,6 +1,5 @@
 package com.example.yohan.blogapp;
 
-import android.Manifest;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -17,9 +16,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
-
-import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -106,6 +102,7 @@ public class AnimationPost extends AppCompatActivity implements RecentPostAdapte
 
                 if (haveNetwork(getApplicationContext())){
                     new GetAnimationsJson().execute();
+                    list.clear();
                 }else {
                     connectionDialog1();
                 }

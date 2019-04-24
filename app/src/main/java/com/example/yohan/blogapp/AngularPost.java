@@ -16,11 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-
-import java.security.acl.AclNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -97,11 +93,14 @@ public class AngularPost extends AppCompatActivity implements RecentPostAdapter.
 
             new GetAngularJson().execute();
             angularrecyclerView.setAdapter(recentPostAdapter);
+
             recentPostAdapter.SetOnItemClickListener(AngularPost.this);
+
         }else{
             connectionDialog1();
 
         }
+
 
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -109,7 +108,9 @@ public class AngularPost extends AppCompatActivity implements RecentPostAdapter.
             public void onRefresh() {
 
                 if(haveNetwork(getApplicationContext())){
+
                     new GetAngularJson().execute();
+                    list.clear();
                 }else {
                     connectionDialog1();
                 }
@@ -181,7 +182,6 @@ public class AngularPost extends AppCompatActivity implements RecentPostAdapter.
                                 response.body().get(i).getEmbedded().getWpFeaturedmedia().get(0).getMediaDetails().getSizes().getThumbnail().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName()));
 
                     }
-
                     recentPostAdapter.notifyDataSetChanged();
                 }
 

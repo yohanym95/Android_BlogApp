@@ -114,4 +114,11 @@ public class Loginaccount extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(Loginaccount.this,Login.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
+        finish();
+    }
 }

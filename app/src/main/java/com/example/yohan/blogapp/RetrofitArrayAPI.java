@@ -64,11 +64,17 @@ public interface RetrofitArrayAPI {
     @GET("posts?categories=98&_embed")
     Call<List<WPJavaPost>> getTechnologyPost();
 
-    @GET("posts?categories=752&per_page=15&_embed")
+    @GET("posts?categories=241&per_page=15&_embed")
     Call<List<WPJavaPost>> getKibuliPost();
+
+    @GET("posts?categories=1210&per_page=15&_embed")
+    Call<List<WPJavaPost>> getReactNativePost();
 
     @GET("posts?categories=4&per_page=15&_embed")
     Call<List<WPJavaPost>> getOtherPost();
+
+    @GET("posts?categories=913&per_page=15&_embed")
+    Call<List<WPJavaPost>> getLaraPost();
 
 
 }

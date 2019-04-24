@@ -16,9 +16,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
-
-import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -108,6 +105,7 @@ public class SportPost extends AppCompatActivity implements RecentPostAdapter.on
             public void onRefresh() {
                 if(haveNetwork(getApplicationContext())){
                     new GetSportJson().execute();
+                    list.clear();
                 }else {
                     connectionDialog1();
                 }

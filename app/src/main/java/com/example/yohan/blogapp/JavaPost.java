@@ -16,9 +16,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
-
-import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -110,6 +107,7 @@ public class JavaPost extends AppCompatActivity implements RecentPostAdapter.onI
             public void onRefresh() {
                 if(haveNetwork(getApplicationContext())){
                     new GetJavaJson().execute();
+                    list.clear();
                 }else {
                     connectionDialog1();
                 }

@@ -16,9 +16,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
-
-import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +63,7 @@ public class KibuliPost extends AppCompatActivity implements RecentPostAdapter.o
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("ReadHub - කිඹුලිගේ කතා");
+        getSupportActionBar().setTitle("ReadHub - Devices");
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,7 +73,7 @@ public class KibuliPost extends AppCompatActivity implements RecentPostAdapter.o
 
         KibulirecyclerView = findViewById(R.id.Kibuli_recycleview);
         progressDialog1 = new ProgressDialog(KibuliPost.this);
-        progressDialog1.setTitle("කිඹුලිගේ කතා මල්ල");
+        progressDialog1.setTitle("Devices");
         progressDialog1.setMessage("Loading");
 
 
@@ -109,6 +106,7 @@ public class KibuliPost extends AppCompatActivity implements RecentPostAdapter.o
             public void onRefresh() {
                 if(haveNetwork(getApplicationContext())){
                     new GetKibuliJson().execute();
+                    list.clear();
                 }else {
                     connectionDialog1();
                 }

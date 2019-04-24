@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
-import android.speech.RecognizerResultsIntent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,9 +16,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
-
-import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -110,6 +106,7 @@ public class LaravelPost extends AppCompatActivity implements RecentPostAdapter.
             public void onRefresh() {
                 if(haveNetwork(getApplicationContext())){
                     new GetLaravelJson().execute();
+                    list.clear();
                 }else {
                     connectionDialog1();
                 }
