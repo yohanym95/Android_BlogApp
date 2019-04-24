@@ -2,14 +2,13 @@ package com.example.yohan.blogapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.TextView;
 
 
 public class OtherFragment extends Fragment {
@@ -17,6 +16,7 @@ public class OtherFragment extends Fragment {
 
 
     private CardView crdMovies,crdGames,crdSport,crdAnimation,crdTechEnglish,crdTechSinhala,crcTechTamil,crdTechnology,crdOthers,crdKibuli;
+    private TextView crdMovies1,crdGames1,crdSport1,crdAnimation1,crdTechEnglish1,crdTechSinhala1,crcTechTamil1,crdTechnology1,crdOthers1,crdKibuli1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,6 +34,17 @@ public class OtherFragment extends Fragment {
         crdTechnology = v.findViewById(R.id.crdtechnology);
         crdOthers = v.findViewById(R.id.crdPOther);
         crdKibuli = v.findViewById(R.id.crdKibuli);
+
+        crdMovies1 = v.findViewById(R.id.tvmovies);
+        crdGames1 = v.findViewById(R.id.tvGames);
+        crdSport1 = v.findViewById(R.id.tvSports);
+        crdAnimation1 = v.findViewById(R.id.tvAnimation);
+        crdTechEnglish1 = v.findViewById(R.id.tvTechEnglish);
+        crdTechSinhala1 = v.findViewById(R.id.tvTechSinhala);
+        crcTechTamil1 = v.findViewById(R.id.tvTechTamil);
+        crdTechnology1 = v.findViewById(R.id.tvTechnology);
+        crdOthers1 = v.findViewById(R.id.tvOthers);
+        crdKibuli1 = v.findViewById(R.id.tvKibuli);
 
 
         crdMovies.setOnClickListener(new View.OnClickListener() {
@@ -117,6 +128,88 @@ public class OtherFragment extends Fragment {
             }
         });
 
+        crdMovies1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),MoviesPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdAnimation1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),AnimationPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdGames1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),GamesPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdSport1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),SportPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdTechEnglish1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getContext(),TechEnglishPost.class);
+                startActivity(i);
+            }
+        });
+
+        crcTechTamil1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),TechTamilPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdTechSinhala1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),TechSinhalPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdTechnology1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),TechnologyPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdKibuli1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),KibuliPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdOthers1 .setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),OtherPost.class);
+                startActivity(i);
+            }
+        });
+
+
         return v;
     }
 
@@ -133,6 +226,8 @@ public class OtherFragment extends Fragment {
         super.onDetach();
 
     }
+
+
 
 
 }

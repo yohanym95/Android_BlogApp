@@ -47,7 +47,21 @@ public class Register extends AppCompatActivity {
         btnCraeteAccount = findViewById(R.id.btnCreate);
         regToolbar = (Toolbar)findViewById(R.id.register_app_bar);
         setSupportActionBar(regToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Create Account");
+
+        regToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(Register.this,Login.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                finish();
+
+            }
+        });
 
         mregProgressdialog = new ProgressDialog(this);
 
@@ -99,7 +113,6 @@ public class Register extends AppCompatActivity {
                             hashMap.put("name",display_name);
                          //   hashMap.put("status","Hi there , I'm Using chat App");
                             hashMap.put("email",email);
-                            hashMap.put("password",password);
 
                             mDatabaseReference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
@@ -134,5 +147,13 @@ public class Register extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(Register.this,Login.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
+        finish();
     }
 }

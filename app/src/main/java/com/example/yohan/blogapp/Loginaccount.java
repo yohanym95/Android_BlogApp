@@ -22,7 +22,7 @@ public class Loginaccount extends AppCompatActivity {
 
     private Toolbar toolbar;
     private TextInputLayout mloginEmail, mLoginPassword;
-    private Button btnLogin;
+    private Button btnLogin,btnReset;
     private ProgressDialog mProgressDialog;
 
     private FirebaseAuth mAuth;
@@ -38,11 +38,25 @@ public class Loginaccount extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Login");
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Loginaccount.this,Login.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                finish();
+            }
+        });
 
         mloginEmail = findViewById(R.id.login_Email);
         mLoginPassword = findViewById(R.id.login_Password);
         btnLogin = findViewById(R.id.btnLogin);
+        btnReset = findViewById(R.id.btnresetPassword);
+
+
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -62,6 +76,14 @@ public class Loginaccount extends AppCompatActivity {
                 } else {
                     Toast.makeText(Loginaccount.this, "Please Enter Your Details In every Forms", Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Loginaccount.this,ResetPassword.class);
+                startActivity(i);
             }
         });
     }
@@ -92,4 +114,11 @@ public class Loginaccount extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(Loginaccount.this,Login.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
+        finish();
+    }
 }

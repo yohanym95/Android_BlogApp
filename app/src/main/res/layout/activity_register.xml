@@ -82,7 +82,10 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="30dp"
-            android:text="Create Account" />
+            android:text="Create Account"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@android:color/background_light"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 </LinearLayout>

@@ -18,7 +18,7 @@
                 android:title="YouTube"/>
             <item android:id="@+id/nav_twiter"
                 android:icon="@mipmap/twiter111"
-                android:title="YouTube"/>
+                android:title="Twitter"/>
 
         </menu>
 
@@ -26,12 +26,17 @@
 
 
     <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_rate"
+         android:icon="@drawable/ic_star_half_black_24dp"
+         android:title="Rate Us"/>
         <item android:id="@+id/nav_contact"
             android:icon="@mipmap/contactus"
             android:title="Contact Us"/>
         <item android:id="@+id/nav_about"
             android:icon="@mipmap/aboutus"
             android:title="About Us"/>
+
+
 
     </group>
 

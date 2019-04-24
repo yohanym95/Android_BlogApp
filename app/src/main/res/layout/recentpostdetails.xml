@@ -20,13 +20,23 @@
             android:layout_margin="5dp"
             android:src="@mipmap/ic_launcher" />
 
+
         <TextView
             android:id="@+id/tvtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@android:color/background_dark"/>
+
+        <TextView
+            android:id="@+id/tvauthor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/tvsubtitle"
@@ -35,7 +45,7 @@
             android:layout_marginBottom="5dp"
             android:lineSpacingExtra="2dp"
             android:maxLines="5"
-            android:padding="5dp"
+            android:layout_margin="5dp"
             android:textStyle="bold" />
 
 

@@ -1,8 +1,13 @@
 package com.example.yohan.blogapp;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,13 +15,13 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
-
-import com.google.firebase.auth.FirebaseAuth;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.Cache;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -26,26 +31,43 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NetworkingPost extends AppCompatActivity  implements RecentPostAdapter.onItemClicked{
 
     private Toolbar mToolbar;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView NetworkingrecyclerView;
     private LinearLayoutManager linearLayoutManager;
     private ArrayList<RecentModel> list;
     private RecentPostAdapter recentPostAdapter;
     // ProgressDialog progressDialog;
     ProgressDialog progressDialog1;
+    Dialog MyDialog1;
 
 
-    private String NetworkingBaseURL = "https://readhublk.com/wp-json/wp/v2/";
+    private String NetworkingBaseURL = "https://readhub.lk/wp-json/wp/v2/";
     public static final String RENDER_CONTENT = "RENDER";
     public  static final String title = "render";
+    int cacheSize = 20 * 1024 * 1024; // 10 MB
+    Cache cache;
 
+    OkHttpClient okHttpClient;
+
+    private String url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_networking_post);
 
         mToolbar = findViewById(R.id.NetworkingPost_app_bar);
+        swipeRefreshLayout = findViewById(R.id.NetworkSwipe);
         setSupportActionBar(mToolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("ReadHub - Networking");
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         NetworkingrecyclerView = findViewById(R.id.Networking_recycleview);
         progressDialog1 = new ProgressDialog(NetworkingPost.this);
@@ -54,16 +76,40 @@ public class NetworkingPost extends AppCompatActivity  implements RecentPostAdap
 
 
 
+
+        cache = new Cache(getCacheDir(), cacheSize);
+
+        okHttpClient = new OkHttpClient.Builder()
+                .cache(cache)
+                .build();
+
+
+
         linearLayoutManager = new LinearLayoutManager(NetworkingPost.this,LinearLayoutManager.VERTICAL,false);
         NetworkingrecyclerView.setLayoutManager(linearLayoutManager);
-        list = new ArrayList<RecentModel>();
+        if(haveNetwork(getApplicationContext())){
+            list = new ArrayList<RecentModel>();
 
-        progressDialog1.show();
-        recentPostAdapter = new RecentPostAdapter(list,this);
+            progressDialog1.show();
+            recentPostAdapter = new RecentPostAdapter(list,this);
 
-        new GetNetworkJson().execute();
-        NetworkingrecyclerView.setAdapter(recentPostAdapter);
-        recentPostAdapter.SetOnItemClickListener(NetworkingPost.this);
+            new GetNetworkJson().execute();
+            NetworkingrecyclerView.setAdapter(recentPostAdapter);
+            recentPostAdapter.SetOnItemClickListener(NetworkingPost.this);
+        }else {
+            connectionDialog1();
+        }
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                if(haveNetwork(getApplicationContext())){
+                    new GetNetworkJson().execute();
+                    list.clear();
+                }else {
+                    connectionDialog1();
+                }
+            }
+        });
     }
 
     public class GetNetworkJson extends AsyncTask<Void,Void,Void> {
@@ -75,10 +121,10 @@ public class NetworkingPost extends AppCompatActivity  implements RecentPostAdap
         protected void onPreExecute() {
             super.onPreExecute();
 
-            progressDialog = new ProgressDialog(NetworkingPost.this);
-            progressDialog.setTitle("Networking Posts");
-            progressDialog.setMessage("Loading");
-            progressDialog.show();
+//            progressDialog = new ProgressDialog(NetworkingPost.this);
+//            progressDialog.setTitle("Networking Posts");
+//            progressDialog.setMessage("Loading");
+//            progressDialog.show();
 
 
 
@@ -87,13 +133,14 @@ public class NetworkingPost extends AppCompatActivity  implements RecentPostAdap
         @Override
         protected void onProgressUpdate(Void... values) {
             super.onProgressUpdate(values);
-            progressDialog.show();
+         //   progressDialog.show();
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(NetworkingBaseURL)
+                    .client(okHttpClient)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
@@ -105,23 +152,30 @@ public class NetworkingPost extends AppCompatActivity  implements RecentPostAdap
             call.enqueue(new Callback<List<WPJavaPost>>() {
                 @Override
                 public void onResponse(Call<List<WPJavaPost>> call, Response<List<WPJavaPost>> response) {
-                    Toast.makeText(NetworkingPost.this,"done",Toast.LENGTH_LONG).show();
+                  //  Toast.makeText(NetworkingPost.this,"done",Toast.LENGTH_LONG).show();
 
 
+                    swipeRefreshLayout.setRefreshing(false);
                     progressDialog1.dismiss();
                     for (int i =0;i<response.body().size(); i++){
 
                         String temdetails = response.body().get(i).getDate();
                         String titile = response.body().get(i).getTitle().getRendered().toString();
                         titile = titile.replace("&#8211;","");
+                        titile = titile.replace("&#x200d;","");
+                        titile = titile.replace("&#8230;","");
+                        titile = titile.replace("&amp;","");
+                        titile = titile.replace("&#8220;","");
+                        titile = titile.replace("&#8221;","");
                         String render = response.body().get(i).getContent().getRendered();
                         /// render = render.replace("--aspect-ratio","aspect-ratio");
 
-                        // String profileUrl = response.body().get(i).getLinks().getAuthor().get(0).getHref();
+
+
 
                         list.add(new RecentModel( titile,
                                 temdetails,
-                                response.body().get(i).getBetterFeaturedImage().getMediaDetails().getSizes().getTieMedium().getSourceUrl(),render,RecentModel.IMAGE_TYPE));
+                                response.body().get(i).getEmbedded().getWpFeaturedmedia().get(0).getMediaDetails().getSizes().getTieMedium().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName()));
 
                     }
 
@@ -140,7 +194,7 @@ public class NetworkingPost extends AppCompatActivity  implements RecentPostAdap
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            progressDialog.dismiss();
+//            progressDialog.dismiss();
         }
     }
 
@@ -175,9 +229,40 @@ public class NetworkingPost extends AppCompatActivity  implements RecentPostAdap
         super.onOptionsItemSelected(item);
 
         if(item.getItemId() == R.id.main_logout){
-            FirebaseAuth.getInstance().signOut();;
-            updateUI();
+            openDialog();
         }
         return true;
+    }
+
+    public void openDialog(){
+
+        logoutDialog logoutdialog = new logoutDialog();
+        logoutdialog.show(getSupportFragmentManager(),"Logoutdialog");
+
+    }
+    public void connectionDialog1(){
+        MyDialog1 = new Dialog(NetworkingPost.this);
+        MyDialog1.setContentView(R.layout.customconnectiondialog);
+        MyDialog1.setTitle("Error");
+        MyDialog1.show();
+    }
+
+    private boolean haveNetwork(Context context){
+        boolean have_WIFI = false;
+        boolean have_MobileData = false;
+
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
+        // NetworkInfo [] networkInfos = connectivityManager.getAllNetworkInfo();
+        if (connectivityManager != null)
+        {
+            NetworkInfo[] info = connectivityManager.getAllNetworkInfo();
+            if (info != null)
+                for (int i = 0; i < info.length; i++)
+                    if (info[i].getState() == NetworkInfo.State.CONNECTED)
+                    {
+                        return true;
+                    }
+        }
+        return false;
     }
 }

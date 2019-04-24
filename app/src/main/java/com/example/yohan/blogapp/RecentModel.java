@@ -6,14 +6,16 @@ public class RecentModel {
     public String title,date,Image;
     public String render;
     public int type;
-    public static String profile;
+    public String author;
 
 
-    public RecentModel(String title, String date, String image, String render, int type) {
+
+    public RecentModel(String title, String date, String image, String render, int type,String author) {
         this.title = title;
         this.date = date;
         this.Image = image;
         this.render = render;
         this.type = type;
+        this.author=author;
     }
 }

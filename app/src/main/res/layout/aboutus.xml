@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--<TextView
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Distribution Code"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textColor="@android:color/background_dark"/>-->
+
+    <ImageView
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:layout_margin="6dp"
+        android:id="@+id/customdialogImage"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher_readhub"
+        android:layout_gravity="center"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="ReadHub is an Online Media Platform For Latest Technology,Tv series,Movies, Games, Web News and Tutorials."
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_blue_dark"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Readhublk@gmail.com"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/background_dark"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="https://readhub.lk/"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/background_dark"/>
+
+
+
+
+  <!--  <Button
+        android:id="@+id/customdialogButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Ok"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        />-->
+
+</LinearLayout>

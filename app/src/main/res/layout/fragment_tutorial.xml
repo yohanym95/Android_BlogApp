@@ -31,6 +31,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvJava"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -60,6 +61,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvAngular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -88,6 +90,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvKotlin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -116,6 +119,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvPHP"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -145,6 +149,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvHTML"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -174,6 +179,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvUnity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -202,6 +208,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvGit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -231,6 +238,7 @@
 
             <TextView
 
+                android:id="@+id/tvNetwork"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -259,6 +267,7 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvFiver"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -287,12 +296,71 @@
             card_view:cardUseCompatPadding="false">
 
             <TextView
+                android:id="@+id/tvLaravel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:gravity="center"
-                android:text="Laravel - සිංහලෙන්"
+                android:text="SQL - සිංහලෙන්"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/crdreactN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="5"
+            android:layout_rowWeight="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_margin="7dp"
+            card_view:cardBackgroundColor="@android:color/background_light"
+            card_view:cardCornerRadius="20dp"
+            card_view:cardElevation="5dp"
+            card_view:cardUseCompatPadding="false">
+
+            <TextView
+                android:id="@+id/tvReactN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="React Native සිංහලෙන්"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/crdLara"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="5"
+            android:layout_rowWeight="1"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_margin="7dp"
+            card_view:cardBackgroundColor="@android:color/background_light"
+            card_view:cardCornerRadius="20dp"
+            card_view:cardElevation="5dp"
+            card_view:cardUseCompatPadding="false">
+
+            <TextView
+                android:id="@+id/tvLara1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="       Laravel සිංහල‌ෙන්     "
                 android:textColor="@color/colorPrimary"
                 android:textSize="13sp"
                 android:textStyle="bold" />

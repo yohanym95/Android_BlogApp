@@ -4,13 +4,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.TextView;
 
 public class RecentPostView extends AppCompatActivity {
 
     private WebView recentpostWebView;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,11 +19,15 @@ public class RecentPostView extends AppCompatActivity {
         setContentView(R.layout.activity_recent_post_view);
 
         recentpostWebView = findViewById(R.id.recent_postwebview);
+        //textView = findViewById(R.id.webtitle);
 
         Intent i = getIntent();
         String renderContent = i.getStringExtra(RecentFragment.RENDER_CONTENT);
+       // String renderContentt = i.getStringExtra(RecentFragment.);
+
         String renderContent1 = i.getStringExtra(JavaPost.RENDER_CONTENT);
         String renderContent2 = i.getStringExtra(AngularPost.RENDER_CONTENT);
+       // String renderContentt2 = i.getStringExtra(AngularPost.title);
         String renderContent3 = i.getStringExtra(FiverrPost.RENDER_CONTENT);
         String renderContent4 = i.getStringExtra(GitPosts.RENDER_CONTENT);
         String renderContent5 = i.getStringExtra(HtmlPost.RENDER_CONTENT);
@@ -41,6 +46,8 @@ public class RecentPostView extends AppCompatActivity {
         String renderContent18 =i.getStringExtra(TechnologyPost.RENDER_CONTENT);
         String renderContent19 =i.getStringExtra(KibuliPost.RENDER_CONTENT);
         String renderContent20 =i.getStringExtra(OtherPost.RENDER_CONTENT);
+        String renderContent21 = i.getStringExtra(ReactNativePost.RENDER_CONTENT);
+        String renderContent22 = i.getStringExtra(Laravelpost1.RENDER_CONTENT);
 
 
         if(renderContent != null){
@@ -56,7 +63,6 @@ public class RecentPostView extends AppCompatActivity {
             recentpostWebView.getSettings().setAllowFileAccessFromFileURLs(true);
             recentpostWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
             recentpostWebView.getSettings().setDomStorageEnabled(true);
-
 
 //        recentpostWebView.getSettings().getLoadsImagesAutomatically();
             // webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
@@ -91,7 +97,8 @@ public class RecentPostView extends AppCompatActivity {
             recentpostWebView.getSettings().setBuiltInZoomControls(true);
             recentpostWebView.getSettings().setDisplayZoomControls(true);
             recentpostWebView.loadData(bodyrender,"text/html","base64");
-        }else if(renderContent2 != null){
+        }else if(renderContent2 != null ){
+          //  textView.setText(renderContentt2);
             String head = "<head><style>img{max-width:100%;width:auto;height:auto;}</style></head>";
             String body = "<html>"+head+"<body>"+renderContent2+"</body></html>";
             String bodyrender = Base64.encodeToString(body.getBytes(),Base64.NO_PADDING);
@@ -526,6 +533,54 @@ public class RecentPostView extends AppCompatActivity {
         }else if(renderContent20!= null){
             String head = "<head><style>img{max-width:100%;width:auto;height:auto;}</style></head>";
             String body = "<html>"+head+"<body>"+renderContent20+"</body></html>";
+            String bodyrender = Base64.encodeToString(body.getBytes(),Base64.NO_PADDING);
+            //  String url = "https://readhublk.com/%E0%B6%AF%E0%B6%B1%E0%B7%8A%E0%B6%B1-%E0%B7%83%E0%B7%92%E0%B6%82%E0%B7%84%E0%B6%BD%E0%B7%99%E0%B6%B1%E0%B7%8A-html-part-03/";
+
+            //  WebSettings webSettings = recentpostWebView.getSettings();
+            recentpostWebView.setWebViewClient(new WebViewClient());
+            recentpostWebView.getSettings().setJavaScriptEnabled(true);
+            recentpostWebView.getSettings().setLoadsImagesAutomatically(true);
+            recentpostWebView.getSettings().setAllowFileAccessFromFileURLs(true);
+            recentpostWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
+            recentpostWebView.getSettings().setDomStorageEnabled(true);
+
+
+//        recentpostWebView.getSettings().getLoadsImagesAutomatically();
+            // webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+            // webView.getSettings().setLoadWithOverviewMode(true);
+            // webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+            //  recentpostWebView.getSettings().setUseWideViewPort(true);
+            recentpostWebView.getSettings().setSupportZoom(true);
+            recentpostWebView.getSettings().setBuiltInZoomControls(true);
+            recentpostWebView.getSettings().setDisplayZoomControls(true);
+            recentpostWebView.loadData(bodyrender,"text/html","base64");
+        }else if(renderContent21!= null){
+            String head = "<head><style>img{max-width:100%;width:auto;height:auto;}</style></head>";
+            String body = "<html>"+head+"<body>"+renderContent21+"</body></html>";
+            String bodyrender = Base64.encodeToString(body.getBytes(),Base64.NO_PADDING);
+            //  String url = "https://readhublk.com/%E0%B6%AF%E0%B6%B1%E0%B7%8A%E0%B6%B1-%E0%B7%83%E0%B7%92%E0%B6%82%E0%B7%84%E0%B6%BD%E0%B7%99%E0%B6%B1%E0%B7%8A-html-part-03/";
+
+            //  WebSettings webSettings = recentpostWebView.getSettings();
+            recentpostWebView.setWebViewClient(new WebViewClient());
+            recentpostWebView.getSettings().setJavaScriptEnabled(true);
+            recentpostWebView.getSettings().setLoadsImagesAutomatically(true);
+            recentpostWebView.getSettings().setAllowFileAccessFromFileURLs(true);
+            recentpostWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
+            recentpostWebView.getSettings().setDomStorageEnabled(true);
+
+
+//        recentpostWebView.getSettings().getLoadsImagesAutomatically();
+            // webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+            // webView.getSettings().setLoadWithOverviewMode(true);
+            // webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+            //  recentpostWebView.getSettings().setUseWideViewPort(true);
+            recentpostWebView.getSettings().setSupportZoom(true);
+            recentpostWebView.getSettings().setBuiltInZoomControls(true);
+            recentpostWebView.getSettings().setDisplayZoomControls(true);
+            recentpostWebView.loadData(bodyrender,"text/html","base64");
+        }else if(renderContent22!= null){
+            String head = "<head><style>img{max-width:100%;width:auto;height:auto;}</style></head>";
+            String body = "<html>"+head+"<body>"+renderContent22+"</body></html>";
             String bodyrender = Base64.encodeToString(body.getBytes(),Base64.NO_PADDING);
             //  String url = "https://readhublk.com/%E0%B6%AF%E0%B6%B1%E0%B7%8A%E0%B6%B1-%E0%B7%83%E0%B7%92%E0%B6%82%E0%B7%84%E0%B6%BD%E0%B7%99%E0%B6%B1%E0%B7%8A-html-part-03/";
 

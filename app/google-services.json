@@ -8,18 +8,50 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:464589277503:android:d60d57ed1df04daa",
+        "mobilesdk_app_id": "1:464589277503:android:da0543943ca9f326",
         "android_client_info": {
-          "package_name": "com.example.yohan.blogapp"
+          "package_name": "net.malshikay.yohan.blogapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "464589277503-eqet79t0a17lvs87ubjdef0mgamcpt2j.apps.googleusercontent.com",
+          "client_id": "464589277503-7l8p4jeg8bg1uf0e0f2j41recsvqtf2m.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.yohan.blogapp",
+            "package_name": "net.malshikay.yohan.blogapp",
+            "certificate_hash": "579d946da21a65b7e94aaf275459dfd248b180f5"
+          }
+        },
+        {
+          "client_id": "464589277503-kqffc94dciiarh96krdpv05m2iio1pjk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.malshikay.yohan.blogapp",
+            "certificate_hash": "9ee2195716da29149997f26a2a9d56052eabac6d"
+          }
+        },
+        {
+          "client_id": "464589277503-e9qga967udv59dgdaolkkoqhfh8i5da8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.malshikay.yohan.blogapp",
             "certificate_hash": "c8ecebae5146180543311a2191d105a80eda9509"
+          }
+        },
+        {
+          "client_id": "464589277503-gbif42b3te3df5iivj20mc9cp3fnmhqj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.malshikay.yohan.blogapp",
+            "certificate_hash": "e2def90f30610bf635547be862f1d2da65525638"
+          }
+        },
+        {
+          "client_id": "464589277503-vi1t82bic3falrgbsdu299ctbv3hdesc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.malshikay.yohan.blogapp",
+            "certificate_hash": "6c46f9381406f8d1a919c8f8915cca567f46dd94"
           }
         },
         {
@@ -33,20 +65,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "464589277503-me1b7qmff9h4t39nucupquuvfib14j93.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }
