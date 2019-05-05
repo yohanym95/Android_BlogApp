@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +41,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class JavaPost extends AppCompatActivity implements RecentPostAdapter.onItemClicked {
 
     private Toolbar mToolbar;
-    private SwipeRefreshLayout swipeRefreshLayout;
+   // private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView JavarecyclerView;
     private LinearLayoutManager linearLayoutManager;
     private ArrayList<RecentModel> list;
@@ -45,12 +55,12 @@ public class JavaPost extends AppCompatActivity implements RecentPostAdapter.onI
     private String JavaBaseURL = "https://readhub.lk/wp-json/wp/v2/";
     public static final String RENDER_CONTENT = "RENDER";
     public  static final String title = "render";
-    int cacheSize = 20 * 1024 * 1024; // 10 MB
-    Cache cache;
 
-    OkHttpClient okHttpClient;
 
     private String url;
+    private DatabaseReference mDatabase;
+    private FirebaseAuth mAuth;
+    ValueEventListener valueEventListener;
 
 
     @Override
@@ -58,8 +68,9 @@ public class JavaPost extends AppCompatActivity implements RecentPostAdapter.onI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_java_post);
 
+        FirebaseDatabase.getInstance().goOnline();
         mToolbar = findViewById(R.id.javapost_app_bar);
-        swipeRefreshLayout = findViewById(R.id.JavSwipe);
+       // swipeRefreshLayout = findViewById(R.id.JavSwipe);
         setSupportActionBar(mToolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -77,61 +88,47 @@ public class JavaPost extends AppCompatActivity implements RecentPostAdapter.onI
         progressDialog1 = new ProgressDialog(JavaPost.this);
         progressDialog1.setTitle("JAVA Posts");
         progressDialog1.setMessage("Loading");
+        FirebaseDatabase.getInstance().goOnline();
 
+        mAuth = FirebaseAuth.getInstance();
 
+        String userId = mAuth.getUid();
 
-        cache = new Cache(getCacheDir(), cacheSize);
+        mDatabase = FirebaseDatabase.getInstance().getReference("Articles").child(userId).child("JAVA Articles");
 
-        okHttpClient = new OkHttpClient.Builder()
-                .cache(cache)
-                .build();
-
+        progressDialog1.show();
 
         linearLayoutManager = new LinearLayoutManager(JavaPost.this,LinearLayoutManager.VERTICAL,false);
         JavarecyclerView.setLayoutManager(linearLayoutManager);
+        list = new ArrayList<RecentModel>();
 
         if(haveNetwork(getApplicationContext())){
-            list = new ArrayList<RecentModel>();
-
-            progressDialog1.show();
-            recentPostAdapter =  new RecentPostAdapter(list,this);
-
+            mDatabase.removeValue();
             new GetJavaJson().execute();
-            JavarecyclerView.setAdapter(recentPostAdapter);
-            recentPostAdapter.SetOnItemClickListener(JavaPost.this);
+            list.clear();
+            InitListner();
+            mDatabase.addValueEventListener(valueEventListener);
+
         }else {
-            connectionDialog1();
+            new GetJavaJson().execute();
+
+            list.clear();
+            InitListner();
+            mDatabase.addValueEventListener(valueEventListener);
+            progressDialog1.dismiss();
+            mDatabase.keepSynced(true);
         }
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                if(haveNetwork(getApplicationContext())){
-                    new GetJavaJson().execute();
-                    list.clear();
-                }else {
-                    connectionDialog1();
-                }
-            }
-        });
 
 
     }
 
-    public class GetJavaJson extends AsyncTask<Void,Void,Void>{
 
-        ProgressDialog progressDialog;
+    public class GetJavaJson extends AsyncTask<Void,Void,Void>{
 
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-
-//            progressDialog = new ProgressDialog(JavaPost.this);
-//            progressDialog.setTitle("JAVA Post");
-//            progressDialog.setMessage("Loading");
-//            progressDialog.show();
-
-
 
         }
 
@@ -145,7 +142,6 @@ public class JavaPost extends AppCompatActivity implements RecentPostAdapter.onI
         protected Void doInBackground(Void... voids) {
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(JavaBaseURL)
-                    .client(okHttpClient)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
@@ -157,10 +153,91 @@ public class JavaPost extends AppCompatActivity implements RecentPostAdapter.onI
             call.enqueue(new Callback<List<WPJavaPost>>() {
                 @Override
                 public void onResponse(Call<List<WPJavaPost>> call, Response<List<WPJavaPost>> response) {
-                   // Toast.makeText(JavaPost.this,"done",Toast.LENGTH_LONG).show();
+                    for (int i =0;i<response.body().size(); i++){
+
+                        String temdetails = response.body().get(i).getDate();
+                        String titile = response.body().get(i).getTitle().getRendered().toString();
+                        titile = titile.replace("&#8211;","");
+                        titile = titile.replace("&#x200d;","");
+                        titile = titile.replace("&#8230;","");
+                        titile = titile.replace("&amp;","");
+                        titile = titile.replace("&#8220;","");
+                        titile = titile.replace("&#8221;","");
+                        String render = response.body().get(i).getContent().getRendered();
+                        /// render = render.replace("--aspect-ratio","aspect-ratio");
+
+                        // String profileUrl = response.body().get(i).getLinks().getAuthor().get(0).getHref();
+                        Model model = new Model( titile,
+                                temdetails,
+                                response.body().get(i).getEmbedded().getWpFeaturedmedia().get(0).getMediaDetails().getSizes().getThumbnail().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName());
+
+                        mDatabase.push().setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()){
+                                    progressDialog1.dismiss();
+                                  //  FirebaseDatabase.getInstance().goOffline();
+                                }else {
+                                    progressDialog1.dismiss();
+                                 //   FirebaseDatabase.getInstance().goOffline();
+
+                                }
+
+                            }
+                        });
+                    }
+
+                }
+
+                @Override
+                public void onFailure(Call<List<WPJavaPost>> call, Throwable t) {
+
+                }
+            });
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+//            progressDialog.dismiss();
+        }
+    }
+
+    public class GetJavaJson1 extends AsyncTask<Void,Void,Void>{
+
+        ProgressDialog progressDialog;
 
 
-                    swipeRefreshLayout.setRefreshing(false);
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+            //   progressDialog.show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(JavaBaseURL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            RetrofitArrayAPI retrofitArrayAPI = retrofit. create(RetrofitArrayAPI.class);
+
+            Call<List<WPJavaPost>> call = retrofitArrayAPI.getJavaPost();
+
+
+            call.enqueue(new Callback<List<WPJavaPost>>() {
+                @Override
+                public void onResponse(Call<List<WPJavaPost>> call, Response<List<WPJavaPost>> response) {
+
                     progressDialog1.dismiss();
                     for (int i =0;i<response.body().size(); i++){
 
@@ -202,6 +279,54 @@ public class JavaPost extends AppCompatActivity implements RecentPostAdapter.onI
             super.onPostExecute(aVoid);
 //            progressDialog.dismiss();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mDatabase != null){
+            mDatabase.removeEventListener(valueEventListener);
+            valueEventListener = null;
+            //FirebaseDatabase.getInstance().goOffline();
+
+        }
+    }
+    private void InitListner(){
+        valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+
+
+                list.clear();
+                for (DataSnapshot data : dataSnapshot.getChildren()){
+
+
+                    RecentModel model = data.getValue(RecentModel.class);
+                    list.add(model);
+
+
+                }
+
+                recentPostAdapter =  new RecentPostAdapter(list,getApplicationContext());
+                JavarecyclerView.setAdapter(recentPostAdapter);
+                recentPostAdapter.SetOnItemClickListener(JavaPost.this);
+
+                // progressDialog1.dismiss();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                recentPostAdapter =  new RecentPostAdapter(list,getApplicationContext());
+                new GetJavaJson1().execute();
+                JavarecyclerView.setAdapter(recentPostAdapter);
+                recentPostAdapter.SetOnItemClickListener(JavaPost.this);
+
+            }
+
+        };
     }
 
     @Override

@@ -8,6 +8,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -16,6 +17,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,10 +45,10 @@ import static android.content.Context.CONNECTIVITY_SERVICE;
 public class RecentFragment extends Fragment implements RecentPostAdapter.onItemClicked {
 
     private RecyclerView recyclerView;
-    private SwipeRefreshLayout swipeRefreshLayout;
+   // private SwipeRefreshLayout swipeRefreshLayout;
    // private ProgressBar progressBar;
     private LinearLayoutManager linearLayoutManager;
-    ProgressDialog progressDialog1,progressDialog2;
+    ProgressDialog progressDialog1;
     View view;
     Context context;
     Dialog MyDialog1;
@@ -53,9 +64,10 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
 
     int cacheSize = 20 * 1024 * 1024; // 10 MB
     Cache cache;
-    OkHttpClient okHttpClient;
     private boolean isViewShown = false;
-    private String url ;
+    private DatabaseReference mDatabase;
+    private FirebaseAuth mAuth;
+    ValueEventListener valueEventListener;
 
 
     @Override
@@ -75,77 +87,55 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
         super.onActivityCreated(savedInstanceState);
 
         recyclerView = view.findViewById(R.id.recycleView_Recent);
-        swipeRefreshLayout = view.findViewById(R.id.myswipe);
+       // swipeRefreshLayout = view.findViewById(R.id.myswipe);
         recyclerView.setHasFixedSize(true);
         linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(linearLayoutManager);
+        progressDialog1 = new ProgressDialog(getContext());
+        progressDialog1.setTitle("Recents Posts");
+        progressDialog1.setMessage("Loading");
 
 
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                if(haveNetwork(getContext())){
-                    progressDialog1 = new ProgressDialog(getContext());
-                    progressDialog1.setTitle("Recents Posts");
-                    progressDialog1.setMessage("Loading");
-                    progressDialog1.show();
-                    new GetRecentJSON().execute();
-                    list.clear();
-                }else {
-                    connectionDialog1();
+        mAuth = FirebaseAuth.getInstance();
 
-                }
-            }
-        });
+        String userId = mAuth.getUid();
 
+        mDatabase = FirebaseDatabase.getInstance().getReference("Articles").child(userId).child("Recent Articles");
 
-        cache = new Cache(getActivity().getCacheDir(), cacheSize);
-        okHttpClient = new OkHttpClient.Builder()
-                .cache(cache)
-                .build();
+        list = new ArrayList<RecentModel>();
+
         if(haveNetwork(getContext())){
 
+            progressDialog1.show();
             if(getView() != null){
-                progressDialog1 = new ProgressDialog(getContext());
-                progressDialog1.setTitle("Recents Posts");
-                progressDialog1.setMessage("Loading");
-                progressDialog1.show();
+                mDatabase.removeValue();
                 new GetRecentJSON().execute();
+
+                list.clear();
+                InitListner();
+                mDatabase.addValueEventListener(valueEventListener);
+
             }
-
-            list = new ArrayList<RecentModel>();
-
-            adapter = new RecentPostAdapter(list,getContext());
-            // new GetRecentJSON().execute();
-            recyclerView.setAdapter(adapter);
-            adapter.SetOnItemClickListener(RecentFragment.this);
 
         }else{
 
-            connectionDialog1();
-         //   new GetRecentJSON().execute();
 
+            if(getView() != null){
+                new GetRecentJSON().execute();
+                list.clear();
+                InitListner();
+                mDatabase.addValueEventListener(valueEventListener);
+
+
+            }
+            progressDialog1.dismiss();
+            mDatabase.keepSynced(true);
         }
 
-
-
-
-
-
+       // FirebaseDatabase.getInstance().goOffline();
 
     }
 
-//    @Override
-//    public void setUserVisibleHint(boolean isVisibleToUser) {
-//        super.setUserVisibleHint(isVisibleToUser);
-//        if(getView() != null && isVisibleToUser){
-//
-//
-//        }else {
-//
-//            isViewShown = false;
-//        }
-//    }
 
 
     @Override
@@ -160,15 +150,6 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
 
     }
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        progressDialog1 = new ProgressDialog(getContext());
-//        progressDialog1.setTitle("Recents Posts");
-//        progressDialog1.setMessage("Loading");
-//        progressDialog1.show();
-//        new GetRecentJSON().execute();
-//    }
 
     @Override
     public void OnItemClick(int index) {
@@ -180,7 +161,127 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
 
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+       // databaseReference.removeEventListener(valueEventListener);
+     //   mDatabase.removeEventListener(getContext());
+        if(mDatabase != null){
+            mDatabase.removeEventListener(valueEventListener);
+            valueEventListener = null;
+            //FirebaseDatabase.getInstance().goOffline();
+        }
+    }
+
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        if(mDatabase != null){
+//            mDatabase.removeEventListener(valueEventListener);
+//            valueEventListener = null;
+//
+//        }
+//    }
+
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//        if(mDatabase != null){
+//            mDatabase.removeEventListener(valueEventListener);
+//            valueEventListener = null;
+//
+//        }
+//    }
+
     public class GetRecentJSON extends AsyncTask<Void,Void,Void>{
+
+
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(baseURL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            RetrofitArrayAPI retrofitArrayAPI = retrofit.create(RetrofitArrayAPI.class);
+
+            Call<List<WPPost>> call = retrofitArrayAPI.getPostInfo();
+
+            call.enqueue(new Callback<List<WPPost>>() {
+                @Override
+                public void onResponse(Call<List<WPPost>> call, Response<List<WPPost>> response) {
+
+                    for(int i = 0; i<response.body().size(); i++){
+
+                        String temdetails = response.body().get(i).getDate();
+                        String titile = response.body().get(i).getTitle().getRendered().toString();
+                        titile = titile.replace("&#8211;","");
+                        titile = titile.replace("&#x200d;","");
+                        titile = titile.replace("&#8230;","");
+                        titile = titile.replace("&#8220;","");
+                        titile = titile.replace("&#8221;","");
+                        String render = response.body().get(i).getContent().getRendered();
+
+
+
+
+                        Model model = new Model( titile,
+                                temdetails,
+                                response.body().get(i).getEmbedded().getWpFeaturedmedia().get(0).getMediaDetails().getSizes().getThumbnail().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName());
+
+                        mDatabase.push().setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()){
+
+                                    progressDialog1.dismiss();
+                                    //FirebaseDatabase.getInstance().goOffline();
+
+                                }else {
+
+                                    progressDialog1.dismiss();
+                                    //FirebaseDatabase.getInstance().goOffline();
+
+                                }
+
+                            }
+                        });
+
+                    }
+
+
+
+
+                }
+
+                @Override
+                public void onFailure(Call<List<WPPost>> call, Throwable t) {
+
+                }
+            });
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+        }
+    }
+
+    public class GetRecentJSON1 extends AsyncTask<Void,Void,Void>{
 
 
 
@@ -200,7 +301,6 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
 
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(baseURL)
-                    .client(okHttpClient)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
@@ -208,14 +308,12 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
 
             Call<List<WPPost>> call = retrofitArrayAPI.getPostInfo();
 
+
             call.enqueue(new Callback<List<WPPost>>() {
                 @Override
                 public void onResponse(Call<List<WPPost>> call, Response<List<WPPost>> response) {
-                    //Toast.makeText(getContext(),"done",Toast.LENGTH_LONG).show();
-                  //  progressBar.setVisibility(View.GONE);
 
-                   progressDialog1.dismiss();
-                   swipeRefreshLayout.setRefreshing(false);
+                    progressDialog1.dismiss();
                     for(int i = 0; i<response.body().size(); i++){
 
                         String temdetails = response.body().get(i).getDate();
@@ -228,9 +326,9 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
                         String render = response.body().get(i).getContent().getRendered();
 
 
-                       /// render = render.replace("--aspect-ratio","aspect-ratio");
+                        /// render = render.replace("--aspect-ratio","aspect-ratio");
 
-                       // String profileUrl = response.body().get(i).getLinks().getAuthor().get(0).getHref();
+                        // String profileUrl = response.body().get(i).getLinks().getAuthor().get(0).getHref();
 
                         list.add(new RecentModel( titile,
                                 temdetails,
@@ -254,9 +352,11 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-          //  progressDialog.dismiss();
+            //  progressDialog.dismiss();
         }
     }
+
+
 
     public void connectionDialog1(){
         MyDialog1 = new Dialog(getContext());
@@ -265,13 +365,49 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
         MyDialog1.show();
     }
 
+    private void InitListner(){
+      valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+
+
+                list.clear();
+                for (DataSnapshot data : dataSnapshot.getChildren()){
+
+                    RecentModel model = data.getValue(RecentModel.class);
+                    list.add(model);
+
+
+                }
+
+                adapter = new RecentPostAdapter(list,getContext());
+                recyclerView.setAdapter(adapter);
+                adapter.SetOnItemClickListener(RecentFragment.this);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                adapter = new RecentPostAdapter(list,getContext());
+                new GetRecentJSON1().execute();
+                recyclerView.setAdapter(adapter);
+                adapter.SetOnItemClickListener(RecentFragment.this);
+
+            }
+
+        };
+    }
+
 
     private boolean haveNetwork(Context context){
         boolean have_WIFI = false;
         boolean have_MobileData = false;
 
         ConnectivityManager connectivityManager = (ConnectivityManager) getContext().getSystemService(CONNECTIVITY_SERVICE);
-       // NetworkInfo [] networkInfos = connectivityManager.getAllNetworkInfo();
+
         if (connectivityManager != null)
         {
             NetworkInfo[] info = connectivityManager.getAllNetworkInfo();

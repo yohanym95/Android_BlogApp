@@ -19,6 +19,7 @@ import android.view.MenuItem;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mToolbar = findViewById(R.id.main_app_bar);
         mTablLayout = findViewById(R.id.main_tabs);
         mViewPager = findViewById(R.id.view_pager);
+       // FirebaseDatabase.getInstance().goOnline();
 
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("ReadHub");
@@ -117,7 +119,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+      //  FirebaseDatabase.getInstance().goOffline();
+    }
 
     @Override
     public void onBackPressed() {
@@ -134,6 +140,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             if(doubleBacktoExitPressedOnce){
                 super.onBackPressed();
+               // FirebaseDatabase.getInstance().goOffline();
+              //  finish();
             }
         }
 
@@ -142,7 +150,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     }
-
 
 
     @Override

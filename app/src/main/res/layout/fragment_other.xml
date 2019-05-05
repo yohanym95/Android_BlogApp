@@ -158,7 +158,7 @@
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:gravity="center"
-                android:text=" Tech News - English  "
+                android:text="  Tech News - English   "
                 android:textColor="@color/colorPrimary"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -218,7 +218,7 @@
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:gravity="center"
-                android:text="  Tech News - Tamil  "
+                android:text="  Tech News - Tamil   "
                 android:textColor="@color/colorPrimary"
                 android:textSize="13sp"
                 android:textStyle="bold" />

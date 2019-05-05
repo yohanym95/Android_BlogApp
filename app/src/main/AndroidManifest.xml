@@ -13,7 +13,8 @@
         android:largeHeap="true"
         android:roundIcon="@drawable/readhublogo"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name=".BlogApp">
         <activity android:name=".Laravelpost1"></activity>
         <activity android:name=".ReactNativePost" />
 

@@ -102,30 +102,11 @@ public class Register extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 
-                            FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-
-                            String uId = firebaseUser.getUid();
-
-                            mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("User").child(uId);
-
-                            HashMap<String,String> hashMap = new HashMap<>();
-
-                            hashMap.put("name",display_name);
-                         //   hashMap.put("status","Hi there , I'm Using chat App");
-                            hashMap.put("email",email);
-
-                            mDatabaseReference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-
                                     mregProgressdialog.dismiss();
                                     Intent i = new Intent(Register.this,MainActivity.class);
                                     i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(i);
                                     finish();
-                                }
-                            });
-
 
 
 
