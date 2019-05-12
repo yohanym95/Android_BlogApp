@@ -1,6 +1,7 @@
 package com.example.yohan.blogapp;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -75,6 +76,12 @@ public class RecentPostAdapter extends RecyclerView.Adapter<RecentPostAdapter.Im
 
     @Override
     public void onBindViewHolder(@NonNull ImageTypeViewHolder imageTypeViewHolder, int i) {
+
+//        Typeface custom_font = Typeface.createFromAsset(context.getAssets(),  "iskpota.ttf");
+//
+//        imageTypeViewHolder.title.setTypeface(custom_font);
+//        imageTypeViewHolder.author.setTypeface(custom_font);
+//        imageTypeViewHolder.subtitle.setTypeface(custom_font);
 
         RecentModel model = dataList.get(i);
 

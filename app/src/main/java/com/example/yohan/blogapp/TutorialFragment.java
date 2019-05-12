@@ -1,6 +1,7 @@
 package com.example.yohan.blogapp;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
@@ -48,6 +49,8 @@ public class TutorialFragment extends Fragment {
         crdLaravel1 = v.findViewById(R.id.tvLaravel);
         crdReact1 = v.findViewById(R.id.tvReactN);
         crdLara1 = v.findViewById(R.id.tvLara1);
+   //     Typeface custom_font = Typeface.createFromAsset(getContext().getAssets(),  "iskpota.ttf");
+
 
 
 
@@ -159,6 +162,7 @@ public class TutorialFragment extends Fragment {
                 startActivity(i);
             }
         });
+     //   crdJAVA1.setTypeface(custom_font);
 
         crdJAVA1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,6 +174,7 @@ public class TutorialFragment extends Fragment {
             }
         });
 
+      //  crdAngular1.setTypeface(custom_font);
         crdAngular1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -180,6 +185,7 @@ public class TutorialFragment extends Fragment {
             }
         });
 
+      //  crdKotlin1.setTypeface(custom_font);
         crdKotlin1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -189,6 +195,7 @@ public class TutorialFragment extends Fragment {
             }
         });
 
+       // crdHTML1.setTypeface(custom_font);
         crdHTML1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -198,6 +205,8 @@ public class TutorialFragment extends Fragment {
             }
         });
 
+
+       // crdPHP1.setTypeface(custom_font);
         crdPHP1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -207,6 +216,7 @@ public class TutorialFragment extends Fragment {
             }
         });
 
+     //   crdUnity1.setTypeface(custom_font);
         crdUnity1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -216,6 +226,7 @@ public class TutorialFragment extends Fragment {
             }
         });
 
+     //   crdGIT1.setTypeface(custom_font);
         crdGIT1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -225,6 +236,7 @@ public class TutorialFragment extends Fragment {
             }
         });
 
+     //   crdNetworking1.setTypeface(custom_font);
         crdNetworking1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -234,6 +246,7 @@ public class TutorialFragment extends Fragment {
             }
         });
 
+     //   crdFiverr1.setTypeface(custom_font);
         crdFiverr1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -243,6 +256,7 @@ public class TutorialFragment extends Fragment {
             }
         });
 
+       //// crdLaravel1.setTypeface(custom_font);
         crdLaravel1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -252,6 +266,7 @@ public class TutorialFragment extends Fragment {
             }
         });
 
+      //  crdReact1.setTypeface(custom_font);
         crdReact1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -260,6 +275,7 @@ public class TutorialFragment extends Fragment {
             }
         });
 
+       // crdLara1.setTypeface(custom_font);
         crdLara1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
