@@ -4,6 +4,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:showIN="navigation_view">
 
+
+
+    <item android:title="Select the Language">
+
+        <menu>
+            <item android:id="@+id/nav_english"
+                android:title="English"/>
+            <item android:id="@+id/nav_sinhala"
+                android:title="Sinhala"/>
+
+        </menu>
+
+    </item>
+
+
+
     <item android:title="@string/like_amp_follow_us">
 
         <menu>

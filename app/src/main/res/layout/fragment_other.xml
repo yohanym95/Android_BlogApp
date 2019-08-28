@@ -5,10 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OtherFragment"
-    android:orientation="vertical"
-    android:id="@+id/otherFragment">
+    android:orientation="vertical">
 
-    <android.support.v7.widget.GridLayout
+    <androidx.gridlayout.widget.GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
@@ -16,7 +15,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp">
 
-    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/crdMovies"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,10 +43,10 @@
             android:textSize="13sp"
             android:textStyle="bold" />
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 
-    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/crdGames"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,9 +73,9 @@
             android:textSize="13sp"
             android:textStyle="bold" />
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/crdSports"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -104,10 +103,10 @@
                 android:textSize="13sp"
                 android:textStyle="bold" />
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/crdAnimation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -134,10 +133,40 @@
                 android:textSize="13sp"
                 android:textStyle="bold" />
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdtechNewsEnglish"
+<!--        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"-->
+<!--            android:id="@+id/crdtechNewsEnglish"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="7dp"-->
+<!--            android:clickable="true"-->
+<!--            card_view:cardBackgroundColor="@android:color/background_light"-->
+<!--            card_view:cardCornerRadius="20dp"-->
+<!--            card_view:cardElevation="5dp"-->
+<!--            card_view:cardUseCompatPadding="false"-->
+<!--            card_view:layout_rowWeight="1"-->
+<!--            card_view:layout_row="2"-->
+<!--            card_view:layout_column="0"-->
+<!--            card_view:layout_columnWeight="1"-->
+<!--            card_view:layout_gravity="fill">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvTechEnglish"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:clickable="true"-->
+<!--                android:gravity="center"-->
+<!--                android:text="  Tech News - English  "-->
+<!--                android:textColor="@color/colorPrimary"-->
+<!--                android:textSize="13sp"-->
+<!--                android:textStyle="bold" />-->
+
+<!--        </androidx.cardview.widget.CardView>-->
+
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/crdKibuli"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="7dp"
@@ -146,28 +175,27 @@
             card_view:cardCornerRadius="20dp"
             card_view:cardElevation="5dp"
             card_view:cardUseCompatPadding="false"
-            card_view:layout_rowWeight="1"
             card_view:layout_row="2"
             card_view:layout_column="0"
+            card_view:layout_rowWeight="1"
             card_view:layout_columnWeight="1"
             card_view:layout_gravity="fill">
 
             <TextView
-                android:id="@+id/tvTechEnglish"
+                android:id="@+id/tvKibuli"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:gravity="center"
-                android:text="  Tech News - English  "
+                android:text="Devices"
                 android:textColor="@color/colorPrimary"
                 android:textSize="13sp"
                 android:textStyle="bold" />
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/crdtechNewsSinhala"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -194,9 +222,9 @@
                 android:textSize="13sp"
                 android:textStyle="bold" />
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/crdtechNewsTamil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -224,70 +252,42 @@
                 android:textSize="13sp"
                 android:textStyle="bold" />
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdtechnology"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="7dp"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_row="3"
-            card_view:layout_rowWeight="1"
-            card_view:layout_column="1"
-            card_view:layout_columnWeight="1"
-            card_view:layout_gravity="fill">
+<!--        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"-->
+<!--            android:id="@+id/crdtechnology"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="7dp"-->
+<!--            card_view:cardBackgroundColor="@android:color/background_light"-->
+<!--            card_view:cardCornerRadius="20dp"-->
+<!--            card_view:cardElevation="5dp"-->
+<!--            card_view:cardUseCompatPadding="false"-->
+<!--            card_view:layout_row="3"-->
+<!--            card_view:layout_rowWeight="1"-->
+<!--            card_view:layout_column="1"-->
+<!--            card_view:layout_columnWeight="1"-->
+<!--            card_view:layout_gravity="fill">-->
 
-            <TextView
-                android:id="@+id/tvTechnology"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="Technology"
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+<!--            <TextView-->
+<!--                android:id="@+id/tvTechnology"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:clickable="true"-->
+<!--                android:gravity="center"-->
+<!--                android:text="Technology"-->
+<!--                android:textColor="@color/colorPrimary"-->
+<!--                android:textSize="13sp"-->
+<!--                android:textStyle="bold" />-->
 
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdKibuli"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="7dp"
-            android:clickable="true"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_row="4"
-            card_view:layout_column="0"
-            card_view:layout_rowWeight="1"
-            card_view:layout_columnWeight="1"
-            card_view:layout_gravity="fill">
-
-            <TextView
-                android:id="@+id/tvKibuli"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="Devices"
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
-
-        </android.support.v7.widget.CardView>
+<!--        </androidx.cardview.widget.CardView>-->
 
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+
+
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/crdPOther"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -296,7 +296,7 @@
             card_view:cardCornerRadius="20dp"
             card_view:cardElevation="5dp"
             card_view:cardUseCompatPadding="false"
-            card_view:layout_row="4"
+            card_view:layout_row="3"
             card_view:layout_column="1"
             card_view:layout_rowWeight="1"
             card_view:layout_columnWeight="1"
@@ -314,8 +314,8 @@
                 android:textSize="13sp"
                 android:textStyle="bold" />
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-    </android.support.v7.widget.GridLayout>
+    </androidx.gridlayout.widget.GridLayout>
 
 </LinearLayout>

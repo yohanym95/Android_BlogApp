@@ -67,6 +67,7 @@ public class WPPost {
     @SerializedName("format")
     @Expose
     private String format;
+    //
     @SerializedName("meta")
     @Expose
     private List<Object> meta = null;
@@ -245,7 +246,7 @@ public class WPPost {
     public void setFormat(String format) {
         this.format = format;
     }
-
+//
     public List<Object> getMeta() {
         return meta;
     }

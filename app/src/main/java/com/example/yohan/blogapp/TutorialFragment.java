@@ -1,10 +1,9 @@
 package com.example.yohan.blogapp;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.cardview.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +12,8 @@ import android.widget.TextView;
 
 public class TutorialFragment extends Fragment {
 
-    private CardView crdJAVA,crdAngular,crdKotlin,crdHTML,crdPHP,crdUnity,crdGIT,crdNetworking,crdFiverr,crdLaravel,crdReact,crdLara;
-    private TextView crdJAVA1,crdAngular1,crdKotlin1,crdHTML1,crdPHP1,crdUnity1,crdGIT1,crdNetworking1,crdFiverr1,crdLaravel1,crdReact1,crdLara1;
+    private CardView crdJAVA,crdAngular,crdHTML,crdPHP,crdUnity,crdGIT,crdFiverr,crdLaravel,crdReact,crdLara,crdArduino,crdAndroid;
+    private TextView crdJAVA1,crdAngular1,crdHTML1,crdPHP1,crdUnity1,crdGIT1,crdFiverr1,crdLaravel1,crdReact1,crdLara1,crdArduino1,crdAndroid1;
 
 
 
@@ -26,31 +25,30 @@ public class TutorialFragment extends Fragment {
 
         crdJAVA = v.findViewById(R.id.crdJAVA);
         crdAngular = v.findViewById(R.id.crdAngular);
-        crdKotlin = v.findViewById(R.id.crdKotlin);
         crdHTML = v.findViewById(R.id.crdHTML);
         crdPHP = v.findViewById(R.id.crdPHP);
         crdUnity = v.findViewById(R.id.crdUnity);
         crdGIT = v.findViewById(R.id.crdGIT);
-        crdNetworking = v.findViewById(R.id.crdNetwork);
         crdFiverr = v.findViewById(R.id.crdFiverr);
         crdLaravel = v.findViewById(R.id.crdLaravel);
         crdReact = v.findViewById(R.id.crdreactN);
         crdLara = v.findViewById(R.id.crdLara);
+        crdArduino = v.findViewById(R.id.crdArduino);
+        crdAndroid = v.findViewById(R.id.crdAndroid);
+
 
         crdJAVA1 = v.findViewById(R.id.tvJava);
         crdAngular1 = v.findViewById(R.id.tvAngular);
-        crdKotlin1 = v.findViewById(R.id.tvKotlin);
         crdHTML1 = v.findViewById(R.id.tvHTML);
         crdPHP1 = v.findViewById(R.id.tvPHP);
         crdUnity1 = v.findViewById(R.id.tvUnity);
         crdGIT1 = v.findViewById(R.id.tvGit);
-        crdNetworking1 = v.findViewById(R.id.tvNetwork);
         crdFiverr1 = v.findViewById(R.id.tvFiver);
         crdLaravel1 = v.findViewById(R.id.tvLaravel);
         crdReact1 = v.findViewById(R.id.tvReactN);
         crdLara1 = v.findViewById(R.id.tvLara1);
-   //     Typeface custom_font = Typeface.createFromAsset(getContext().getAssets(),  "iskpota.ttf");
-
+        crdArduino1 = v.findViewById(R.id.tvArduino);
+        crdAndroid1 = v.findViewById(R.id.tvAndroid);
 
 
 
@@ -75,14 +73,7 @@ public class TutorialFragment extends Fragment {
             }
         });
 
-        crdKotlin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Intent i = new Intent(getContext(), KotlinPost.class);
-                startActivity(i);
-            }
-        });
 
         crdHTML.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,14 +111,7 @@ public class TutorialFragment extends Fragment {
             }
         });
 
-        crdNetworking.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Intent i = new Intent(getContext(),NetworkingPost.class);
-                startActivity(i);
-            }
-        });
 
         crdFiverr.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,7 +146,27 @@ public class TutorialFragment extends Fragment {
                 startActivity(i);
             }
         });
-     //   crdJAVA1.setTypeface(custom_font);
+
+
+
+        crdArduino.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),ArduinoPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdAndroid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),AndroidPost.class);
+                startActivity(i);
+            }
+        });
+
+
+
 
         crdJAVA1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,7 +178,6 @@ public class TutorialFragment extends Fragment {
             }
         });
 
-      //  crdAngular1.setTypeface(custom_font);
         crdAngular1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -185,17 +188,8 @@ public class TutorialFragment extends Fragment {
             }
         });
 
-      //  crdKotlin1.setTypeface(custom_font);
-        crdKotlin1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Intent i = new Intent(getContext(), KotlinPost.class);
-                startActivity(i);
-            }
-        });
 
-       // crdHTML1.setTypeface(custom_font);
         crdHTML1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -205,8 +199,6 @@ public class TutorialFragment extends Fragment {
             }
         });
 
-
-       // crdPHP1.setTypeface(custom_font);
         crdPHP1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -216,7 +208,6 @@ public class TutorialFragment extends Fragment {
             }
         });
 
-     //   crdUnity1.setTypeface(custom_font);
         crdUnity1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -226,7 +217,6 @@ public class TutorialFragment extends Fragment {
             }
         });
 
-     //   crdGIT1.setTypeface(custom_font);
         crdGIT1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -236,17 +226,8 @@ public class TutorialFragment extends Fragment {
             }
         });
 
-     //   crdNetworking1.setTypeface(custom_font);
-        crdNetworking1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Intent i = new Intent(getContext(),NetworkingPost.class);
-                startActivity(i);
-            }
-        });
 
-     //   crdFiverr1.setTypeface(custom_font);
         crdFiverr1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -256,7 +237,6 @@ public class TutorialFragment extends Fragment {
             }
         });
 
-       //// crdLaravel1.setTypeface(custom_font);
         crdLaravel1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -266,7 +246,6 @@ public class TutorialFragment extends Fragment {
             }
         });
 
-      //  crdReact1.setTypeface(custom_font);
         crdReact1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -275,7 +254,6 @@ public class TutorialFragment extends Fragment {
             }
         });
 
-       // crdLara1.setTypeface(custom_font);
         crdLara1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -283,6 +261,25 @@ public class TutorialFragment extends Fragment {
                 startActivity(i);
             }
         });
+
+
+
+        crdArduino1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),ArduinoPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdAndroid1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),AndroidPost.class);
+                startActivity(i);
+            }
+        });
+
 
         return v;
     }

@@ -10,6 +10,9 @@ public interface RetrofitArrayAPI {
     @GET("posts?per_page=15&_embed")
     Call<List<WPPost>> getPostInfo();
 
+    @GET("posts?per_page=15&_embed")
+    Call<List<WPPost>> getEngPostInfo();
+
     @GET("posts?categories=1029&per_page=15&_embed")
     Call<List<WPJavaPost>> getJavaPost();
 
@@ -25,13 +28,13 @@ public interface RetrofitArrayAPI {
     @GET("posts?categories=1128&per_page=15&_embed")
     Call<List<WPJavaPost>> getHTMLPost();
 
-    @GET("posts?categories=927&per_page=15&_embed")
+    @GET("posts?categories=738&per_page=15&_embed")
     Call<List<WPJavaPost>> getKotlinPost();
 
     @GET("posts?categories=1140&_embed")
     Call<List<WPJavaPost>> getLaravelPost();
 
-    @GET("posts?categories=240&per_page=15&_embed")
+    @GET("posts?categories=72&per_page=15&_embed")
     Call<List<WPJavaPost>> getNetworkingPost();
 
     @GET("posts?categories=1112&per_page=15&_embed")
@@ -75,6 +78,33 @@ public interface RetrofitArrayAPI {
 
     @GET("posts?categories=913&per_page=15&_embed")
     Call<List<WPJavaPost>> getLaraPost();
+
+    @GET("posts?categories=968&per_page=15&_embed")
+    Call<List<WPJavaPost>> getPythonPost();
+
+    @GET("posts?categories=1354&per_page=15&_embed")
+    Call<List<WPJavaPost>> getArduinoPost();
+
+    @GET("posts?categories=1359&per_page=15&_embed")
+    Call<List<WPJavaPost>> getCloudPost();
+
+    @GET("posts?categories=85&per_page=15&_embed")
+    Call<List<WPJavaPost>> getEngDevicePost();
+
+    @GET("posts?categories=1345&per_page=15&_embed")
+    Call<List<WPJavaPost>> getEngGitPost();
+
+    @GET("posts?categories=1358&per_page=15&_embed")
+    Call<List<WPJavaPost>> getEngJavascriptPost();
+
+    @GET("posts?categories=1026&per_page=15&_embed")
+    Call<List<WPJavaPost>> getEngLawBasicsPost();
+
+    @GET("posts?categories=32&per_page=15&_embed")
+    Call<List<WPJavaPost>> getEngTechNewsPost();
+
+    @GET("posts?categories=1190&per_page=15&_embed")
+    Call<List<WPJavaPost>> getAndroidNewsPost();
 
 
 }

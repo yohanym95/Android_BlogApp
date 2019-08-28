@@ -7,10 +7,15 @@
     tools:context=".RecentPostView"
     android:orientation="vertical">
 
-
-
-    <WebView
-        android:id="@+id/recent_postwebview"
+    <include
+        android:id="@+id/WebViewpost_app_bar"
+        layout="@layout/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
+
+        <WebView
+             android:id="@+id/recent_postwebview"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent" />
+
 </LinearLayout>

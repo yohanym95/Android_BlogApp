@@ -4,27 +4,29 @@ import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabLayout;
+import androidx.core.view.GravityCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Adapter;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private FirebaseAuth mAuth;
-    private Toolbar mToolbar;
+    private Toolbar mToolbar,mToolbar1;
     private ViewPager mViewPager;
     private SectionPagerAdapater sectionPagerAdapater;
     private TabLayout mTablLayout;
@@ -32,8 +34,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView navigationView;
     private Dialog MyDialog1;
     int cacheSize = 20 * 1024 * 1024; // 10 MB
-
-
+    private EngSectionPagerAdapter engSectionPagerAdapter;
+    PagerAdapter adapter;
+    boolean boolAdap;
+    FragmentManager manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,37 +45,76 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         mToolbar = findViewById(R.id.main_app_bar);
-        mTablLayout = findViewById(R.id.main_tabs);
-        mViewPager = findViewById(R.id.view_pager);
-       // FirebaseDatabase.getInstance().goOnline();
-
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("ReadHub");
-        getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        drawerLayout = findViewById(R.id.drawerlayout);
-        navigationView = findViewById(R.id.nav_view);
-
-
-        navigationView.setNavigationItemSelectedListener(this );
-        navigationView.setItemIconTintList(null);
+        mToolbar1 = findViewById(R.id.engmain_app_bar);
 
 
 
-        mAuth = FirebaseAuth.getInstance();
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,mToolbar,
-                R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        selectLanguage1(boolAdap);
 
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
 
-        sectionPagerAdapater = new SectionPagerAdapater(getSupportFragmentManager());
 
-        mViewPager.setAdapter(sectionPagerAdapater);
-        mTablLayout.setupWithViewPager(mViewPager);
-        mViewPager.setOffscreenPageLimit(2);
 
+    }
+
+
+
+    public void selectLanguage1(boolean bool){
+        if(bool){
+            setSupportActionBar(mToolbar1);
+            getSupportActionBar().setTitle("ReadHub");
+            getSupportActionBar().setDisplayShowCustomEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            drawerLayout = findViewById(R.id.drawerlayout);
+            navigationView = findViewById(R.id.nav_view);
+
+
+            navigationView.setNavigationItemSelectedListener(this );
+            navigationView.setItemIconTintList(null);
+
+
+
+            mAuth = FirebaseAuth.getInstance();
+
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,mToolbar1,
+                    R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+
+            drawerLayout.addDrawerListener(toggle);
+            toggle.syncState();
+            manager = this.getSupportFragmentManager();
+            manager.beginTransaction()
+                    .show(manager.findFragmentById(R.id.frageng))
+                    .hide(manager.findFragmentById(R.id.fragsinhala))
+                    .commit();
+        }else{
+
+            setSupportActionBar(mToolbar);
+            getSupportActionBar().setTitle("ReadHub");
+            getSupportActionBar().setDisplayShowCustomEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            drawerLayout = findViewById(R.id.drawerlayout);
+            navigationView = findViewById(R.id.nav_view);
+
+
+            navigationView.setNavigationItemSelectedListener(this );
+            navigationView.setItemIconTintList(null);
+
+
+
+            mAuth = FirebaseAuth.getInstance();
+
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,mToolbar,
+                    R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+
+            drawerLayout.addDrawerListener(toggle);
+            toggle.syncState();
+
+            manager = this.getSupportFragmentManager();
+            manager.beginTransaction()
+                    .show(manager.findFragmentById(R.id.fragsinhala))
+                    .hide(manager.findFragmentById(R.id.frageng))
+                    .commit();
+        }
 
     }
 
@@ -155,9 +198,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()){
+            case R.id.nav_english:
+                selectLanguage1(true);
+                break;
+            case R.id.nav_sinhala:
+                selectLanguage1(false);
+                break;
             case R.id.nav_facebook:
-               // Toast.makeText(getApplicationContext(),"Like us on Facebook",Toast.LENGTH_LONG).show();
-
                 try{
                   Intent i = new Intent(Intent.ACTION_VIEW,Uri.parse("fb://page/2660854717474049"));
                   startActivity(i);

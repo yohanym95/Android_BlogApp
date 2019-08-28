@@ -1,0 +1,182 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragmentengTutorial"
+    android:orientation="vertical">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical">
+
+
+
+
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/crdKotlin"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="fill"
+            android:layout_margin="7dp"
+            card_view:cardBackgroundColor="@android:color/background_light"
+            card_view:cardCornerRadius="20dp"
+            card_view:cardElevation="5dp"
+            card_view:cardUseCompatPadding="false">
+
+            <TextView
+                android:id="@+id/tvKotlin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="Kotlin"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/crdNetwork"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="fill"
+            android:layout_margin="7dp"
+            card_view:cardBackgroundColor="@android:color/background_light"
+            card_view:cardCornerRadius="20dp"
+            card_view:cardElevation="5dp"
+            card_view:cardUseCompatPadding="false">
+
+            <TextView
+
+                android:id="@+id/tvNetwork"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="Networking"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/crdPython"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="fill"
+            android:layout_margin="7dp"
+            card_view:cardBackgroundColor="@android:color/background_light"
+            card_view:cardCornerRadius="20dp"
+            card_view:cardElevation="5dp"
+            card_view:cardUseCompatPadding="false">
+
+            <TextView
+                android:id="@+id/tvPython"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="Python"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/crdCloudComputing"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="fill"
+            android:layout_margin="7dp"
+            card_view:cardBackgroundColor="@android:color/background_light"
+            card_view:cardCornerRadius="20dp"
+            card_view:cardElevation="5dp"
+            card_view:cardUseCompatPadding="false">
+
+            <TextView
+                android:id="@+id/tvCloud"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="Cloud Computing"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/crdGit1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="fill"
+            android:layout_margin="7dp"
+            card_view:cardBackgroundColor="@android:color/background_light"
+            card_view:cardCornerRadius="20dp"
+            card_view:cardElevation="5dp"
+            card_view:cardUseCompatPadding="false">
+
+            <TextView
+                android:id="@+id/tvGit1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="Git"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/crdJavascript"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="fill"
+            android:layout_margin="7dp"
+            card_view:cardBackgroundColor="@android:color/background_light"
+            card_view:cardCornerRadius="20dp"
+            card_view:cardElevation="5dp"
+            card_view:cardUseCompatPadding="false">
+
+            <TextView
+                android:id="@+id/tvJavaScript"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="JavaScript"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+    </GridLayout>
+
+</RelativeLayout>

@@ -7,13 +7,12 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
-import android.support.annotation.NonNull;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,8 +28,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
-import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -51,7 +50,7 @@ public class AngularPost extends AppCompatActivity implements RecentPostAdapter.
 
     private String JavaBaseURL = "https://readhub.lk/wp-json/wp/v2/";
     public static final String RENDER_CONTENT = "RENDER";
-    public  static final String title = "render";
+    public  static final String link = "link";
 
     Dialog MyDialog1;
 
@@ -59,6 +58,7 @@ public class AngularPost extends AppCompatActivity implements RecentPostAdapter.
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     ValueEventListener valueEventListener;
+    OkHttpClient okHttpClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,6 +82,10 @@ public class AngularPost extends AppCompatActivity implements RecentPostAdapter.
         progressDialog1 = new ProgressDialog(AngularPost.this);
         progressDialog1.setTitle("Angular Post");
         progressDialog1.setMessage("Loading");
+        okHttpClient = new OkHttpClient.Builder()
+                .connectTimeout(120, TimeUnit.SECONDS)
+                .readTimeout(120, TimeUnit.SECONDS)
+                .build();
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -168,7 +172,7 @@ public class AngularPost extends AppCompatActivity implements RecentPostAdapter.
 
                         Model model = new Model( titile,
                                 temdetails,
-                                response.body().get(i).getEmbedded().getWpFeaturedmedia().get(0).getMediaDetails().getSizes().getThumbnail().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName());
+                                response.body().get(i).getEmbedded().getWpFeaturedmedia().get(0).getMediaDetails().getSizes().getThumbnail().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName(),response.body().get(i).getLink());
 
                         mDatabase.push().setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
@@ -262,7 +266,7 @@ public class AngularPost extends AppCompatActivity implements RecentPostAdapter.
 
                         list.add(new RecentModel( titile,
                                 temdetails,
-                                response.body().get(i).getEmbedded().getWpFeaturedmedia().get(0).getMediaDetails().getSizes().getThumbnail().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName()));
+                                response.body().get(i).getEmbedded().getWpFeaturedmedia().get(0).getMediaDetails().getSizes().getThumbnail().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName(),response.body().get(i).getLink()));
 
                     }
                     recentPostAdapter.notifyDataSetChanged();
@@ -339,6 +343,7 @@ public class AngularPost extends AppCompatActivity implements RecentPostAdapter.
         Intent i = new Intent(this,RecentPostView.class);
         RecentModel model = list.get(index);
         i.putExtra(RENDER_CONTENT,model.render);
+        i.putExtra(link,model.link);
 
         startActivity(i);
     }
