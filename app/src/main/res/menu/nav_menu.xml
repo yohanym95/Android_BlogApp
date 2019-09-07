@@ -10,9 +10,12 @@
 
         <menu>
             <item android:id="@+id/nav_english"
-                android:title="English"/>
+                android:title="English"
+                android:icon="@drawable/ic_language_black_24dp"/>
             <item android:id="@+id/nav_sinhala"
-                android:title="Sinhala"/>
+                android:title="Sinhala"
+                android:icon="@drawable/ic_language_black_24dp"
+                />
 
         </menu>
 

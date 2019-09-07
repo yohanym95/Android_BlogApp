@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.cardview.widget.CardView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridLayout;
 import android.widget.TextView;
 
 
@@ -49,6 +51,12 @@ public class TutorialFragment extends Fragment {
         crdLara1 = v.findViewById(R.id.tvLara1);
         crdArduino1 = v.findViewById(R.id.tvArduino);
         crdAndroid1 = v.findViewById(R.id.tvAndroid);
+
+//        GridLayout gridLayout = v.findViewById(R.id.tutorialgrid);
+//        gridLayout.setColumnCount(2);
+//        gridLayout.setOrientation(GridLayout.VERTICAL);
+
+
 
 
 

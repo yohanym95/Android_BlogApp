@@ -28,7 +28,7 @@ public class fragmentengTutorial extends Fragment {
         crdPython = v.findViewById(R.id.crdPython);
         crdCloud = v.findViewById(R.id.crdCloudComputing);
         crdGit = v.findViewById(R.id.crdGit1);
-        crdJavascript = v.findViewById(R.id.crdJavascript);
+        crdJavascript = v.findViewById(R.id.crdcrdJavascript);
 
 
         crdKotlin1 = v.findViewById(R.id.tvKotlin);
