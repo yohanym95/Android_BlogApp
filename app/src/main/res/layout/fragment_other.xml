@@ -5,24 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OtherFragment"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:background="?attr/backgroundcolor">
 
 
      <ScrollView
          android:layout_width="match_parent"
          android:layout_height="match_parent"
-         android:background="#F3EFEF">
+         android:background="?attr/backgroundcolor">
          <LinearLayout
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              android:orientation="horizontal"
-             android:background="#F3EFEF">
+             android:background="?attr/backgroundcolor">
 
              <LinearLayout
                  android:layout_width="0dp"
                  android:layout_height="match_parent"
                  android:layout_weight="1"
-                 android:background="#F3EFEF"
+                 android:background="?attr/backgroundcolor"
                  android:orientation="vertical">
 
                  <androidx.cardview.widget.CardView
@@ -32,7 +33,7 @@
                      android:layout_weight="1"
                      android:layout_margin="7dp"
                      android:clickable="true"
-                     app:cardBackgroundColor="@android:color/background_light"
+                     app:cardBackgroundColor="?attr/cardbackgroundcolor"
                      app:cardCornerRadius="20dp"
                      app:cardElevation="5dp"
                      app:cardUseCompatPadding="false"
@@ -58,7 +59,7 @@
                          android:clickable="true"
                          android:gravity="center"
                          android:text="Movies"
-                         android:textColor="@color/colorPrimary"
+                         android:textColor="?attr/topictextcolor"
                          android:textSize="13sp"
                          android:textStyle="bold" />
 
@@ -71,7 +72,7 @@
                      android:layout_margin="7dp"
                      android:layout_weight="1"
                      android:clickable="true"
-                     app:cardBackgroundColor="@android:color/background_light"
+                     app:cardBackgroundColor="?attr/cardbackgroundcolor"
                      app:cardCornerRadius="20dp"
                      app:cardElevation="5dp"
                      app:cardUseCompatPadding="false"
@@ -97,7 +98,7 @@
                          android:clickable="true"
                          android:gravity="center"
                          android:text="Sports"
-                         android:textColor="@color/colorPrimary"
+                         android:textColor="?attr/topictextcolor"
                          android:textSize="13sp"
                          android:textStyle="bold" />
 
@@ -110,7 +111,7 @@
                      android:layout_margin="7dp"
                      android:layout_weight="1"
                      android:clickable="true"
-                     app:cardBackgroundColor="@android:color/background_light"
+                     app:cardBackgroundColor="?attr/cardbackgroundcolor"
                      app:cardCornerRadius="20dp"
                      app:cardElevation="5dp"
                      app:cardUseCompatPadding="false"
@@ -136,7 +137,7 @@
                          android:clickable="true"
                          android:gravity="center"
                          android:text="Devices"
-                         android:textColor="@color/colorPrimary"
+                         android:textColor="?attr/topictextcolor"
                          android:textSize="13sp"
                          android:textStyle="bold" />
 
@@ -149,7 +150,7 @@
                      android:layout_margin="7dp"
                      android:layout_weight="1"
                      android:clickable="true"
-                     app:cardBackgroundColor="@android:color/background_light"
+                     app:cardBackgroundColor="?attr/cardbackgroundcolor"
                      app:cardCornerRadius="20dp"
                      app:cardElevation="5dp"
                      app:cardUseCompatPadding="false"
@@ -165,7 +166,7 @@
                          android:layout_gravity="center"
                          android:layout_marginTop="25dp"
                          android:layout_marginBottom="25dp"
-                         app:srcCompat="@mipmap/tech_background" />
+                         app:srcCompat="@drawable/ic_memory_black_24dp" />
 
                      <TextView
                          android:id="@+id/tvTechTamil"
@@ -175,7 +176,7 @@
                          android:clickable="true"
                          android:gravity="center"
                          android:text="  Tech News - Tamil   "
-                         android:textColor="@color/colorPrimary"
+                         android:textColor="?attr/topictextcolor"
                          android:textSize="13sp"
                          android:textStyle="bold" />
 
@@ -188,7 +189,7 @@
                  android:layout_width="0dp"
                  android:layout_height="match_parent"
                  android:layout_weight="1"
-                 android:background="#F3EFEF"
+                 android:background="?attr/backgroundcolor"
                  android:orientation="vertical">
 
                  <androidx.cardview.widget.CardView
@@ -197,7 +198,7 @@
                      android:layout_height="0dp"
                      android:layout_margin="7dp"
                      android:layout_weight="1"
-                     app:cardBackgroundColor="@android:color/background_light"
+                     app:cardBackgroundColor="?attr/cardbackgroundcolor"
                      app:cardCornerRadius="20dp"
                      app:cardElevation="5dp"
                      app:cardUseCompatPadding="false"
@@ -222,7 +223,7 @@
                          android:clickable="true"
                          android:gravity="center"
                          android:text="Games"
-                         android:textColor="@color/colorPrimary"
+                         android:textColor="?attr/topictextcolor"
                          android:textSize="13sp"
                          android:textStyle="bold" />
 
@@ -234,7 +235,7 @@
                      android:layout_height="0dp"
                      android:layout_margin="7dp"
                      android:layout_weight="1"
-                     app:cardBackgroundColor="@android:color/background_light"
+                     app:cardBackgroundColor="?attr/cardbackgroundcolor"
                      app:cardCornerRadius="20dp"
                      app:cardElevation="5dp"
                      app:cardUseCompatPadding="false"
@@ -260,7 +261,7 @@
                          android:clickable="true"
                          android:gravity="center"
                          android:text="Animation සිංහලෙන්"
-                         android:textColor="@color/colorPrimary"
+                         android:textColor="?attr/topictextcolor"
                          android:textSize="13sp"
                          android:textStyle="bold" />
 
@@ -272,7 +273,7 @@
                      android:layout_height="0dp"
                      android:layout_margin="7dp"
                      android:layout_weight="1"
-                     app:cardBackgroundColor="@android:color/background_light"
+                     app:cardBackgroundColor="?attr/cardbackgroundcolor"
                      app:cardCornerRadius="20dp"
                      app:cardElevation="5dp"
                      app:cardUseCompatPadding="false"
@@ -288,7 +289,7 @@
                          android:layout_gravity="center"
                          android:layout_marginTop="25dp"
                          android:layout_marginBottom="25dp"
-                         app:srcCompat="@mipmap/tech_background" />
+                         app:srcCompat="@drawable/ic_memory_black_24dp" />
 
                      <TextView
                          android:id="@+id/tvTechSinhala"
@@ -298,7 +299,7 @@
                          android:clickable="true"
                          android:gravity="center"
                          android:text="Tech News - සිංහලෙන්"
-                         android:textColor="@color/colorPrimary"
+                         android:textColor="?attr/topictextcolor"
                          android:textSize="13sp"
                          android:textStyle="bold" />
 
@@ -310,7 +311,7 @@
                      android:layout_height="0dp"
                      android:layout_margin="7dp"
                      android:layout_weight="1"
-                     app:cardBackgroundColor="@android:color/background_light"
+                     app:cardBackgroundColor="?attr/cardbackgroundcolor"
                      app:cardCornerRadius="20dp"
                      app:cardElevation="5dp"
                      app:cardUseCompatPadding="false"
@@ -326,7 +327,7 @@
                          android:layout_gravity="center"
                          android:layout_marginTop="25dp"
                          android:layout_marginBottom="25dp"
-                         app:srcCompat="@mipmap/entertainement_foreground" />
+                         app:srcCompat="@drawable/ic_library_music_black_24dp" />
 
                      <TextView
                          android:id="@+id/tvOthers"
@@ -336,7 +337,7 @@
                          android:clickable="true"
                          android:gravity="center"
                          android:text="Entertainment"
-                         android:textColor="@color/colorPrimary"
+                         android:textColor="?attr/topictextcolor"
                          android:textSize="13sp"
                          android:textStyle="bold" />
 

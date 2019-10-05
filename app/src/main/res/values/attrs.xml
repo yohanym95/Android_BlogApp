@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ds">
+        <attr name="backgroundcolor" format="color"/>
+        <attr name="cardbackgroundcolor" format="color"/>
+        <attr name="titletextcolor" format="color" />
+        <attr name="timetextcolor" format="color" />
+        <attr name="topictextcolor" format="color" />
+        <attr name="tintcolor" format="color" />
+        <attr name="buttoncolor" format="color" />
+        <attr name="navmenucolor" format="color" />
+
+    </declare-styleable>
+</resources>

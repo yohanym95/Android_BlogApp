@@ -59,8 +59,14 @@ public class GitPosts extends AppCompatActivity implements RecentPostAdapter.onI
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     ValueEventListener valueEventListener;
+    sharedPref sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        sharedPreferences = new sharedPref(this);
+        if (sharedPreferences.loadNightModeState() == true){
+            setTheme(R.style.darkTheme);
+        }else
+            setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_git_posts);
 

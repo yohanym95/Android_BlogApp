@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TechnologyPost"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="?attr/backgroundcolor">
 
 
     <include
@@ -19,7 +20,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/Technology_recycleview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="?attr/backgroundcolor"/>
 
 
 </LinearLayout>

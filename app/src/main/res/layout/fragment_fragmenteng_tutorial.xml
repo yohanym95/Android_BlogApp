@@ -5,23 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TutorialFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="?attr/backgroundcolor">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#F3EFEF">
+        android:background="?attr/backgroundcolor">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="?attr/backgroundcolor">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#F3EFEF"
+                android:background="?attr/backgroundcolor"
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
@@ -36,7 +38,7 @@
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:clickable="true"
-                    card_view:cardBackgroundColor="@android:color/background_light"
+                    card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
                     card_view:cardCornerRadius="20dp"
                     card_view:cardElevation="5dp"
                     card_view:cardUseCompatPadding="false">
@@ -58,7 +60,7 @@
                         android:clickable="true"
                         android:gravity="center"
                         android:text="Kotlin"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="?attr/topictextcolor"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -75,7 +77,7 @@
                     android:layout_gravity="fill"
                     android:layout_margin="7dp"
                     android:layout_weight="1"
-                    card_view:cardBackgroundColor="@android:color/background_light"
+                    card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
                     card_view:cardCornerRadius="20dp"
                     card_view:cardElevation="5dp"
                     card_view:cardUseCompatPadding="false">
@@ -96,7 +98,7 @@
                         android:clickable="true"
                         android:gravity="center"
                         android:text="Networking"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="?attr/topictextcolor"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -114,7 +116,7 @@
                     android:layout_margin="7dp"
                     android:layout_weight="1"
                     android:clickable="true"
-                    card_view:cardBackgroundColor="@android:color/background_light"
+                    card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
                     card_view:cardCornerRadius="20dp"
                     card_view:cardElevation="5dp"
                     card_view:cardUseCompatPadding="false">
@@ -135,7 +137,7 @@
                         android:clickable="true"
                         android:gravity="center"
                         android:text="Python"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="?attr/topictextcolor"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -150,7 +152,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_weight="1"
-                android:background="#F3EFEF">
+                android:background="?attr/backgroundcolor">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/crdCloudComputing"
@@ -163,7 +165,7 @@
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
                     android:layout_margin="7dp"
-                    card_view:cardBackgroundColor="@android:color/background_light"
+                    card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
                     card_view:cardCornerRadius="20dp"
                     card_view:cardElevation="5dp"
                     card_view:cardUseCompatPadding="false">
@@ -184,7 +186,7 @@
                         android:clickable="true"
                         android:gravity="center"
                         android:text="Cloud Computing"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="?attr/topictextcolor"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -201,7 +203,7 @@
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
                     android:layout_margin="7dp"
-                    card_view:cardBackgroundColor="@android:color/background_light"
+                    card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
                     card_view:cardCornerRadius="20dp"
                     card_view:cardElevation="5dp"
                     card_view:cardUseCompatPadding="false">
@@ -222,7 +224,7 @@
                         android:clickable="true"
                         android:gravity="center"
                         android:text="GIT"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="?attr/topictextcolor"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -239,7 +241,7 @@
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
                     android:layout_margin="7dp"
-                    card_view:cardBackgroundColor="@android:color/background_light"
+                    card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
                     card_view:cardCornerRadius="20dp"
                     card_view:cardElevation="5dp"
                     card_view:cardUseCompatPadding="false">
@@ -261,7 +263,7 @@
                         android:clickable="true"
                         android:gravity="center"
                         android:text="JavaScript"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="?attr/topictextcolor"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 

@@ -17,10 +17,17 @@ public class OtherFragment extends Fragment {
 
     private CardView crdMovies,crdGames,crdSport,crdAnimation,crdTechEnglish,crdTechSinhala,crcTechTamil,crdTechnology,crdOthers,crdKibuli;
     private TextView crdMovies1,crdGames1,crdSport1,crdAnimation1,crdTechEnglish1,crdTechSinhala1,crcTechTamil1,crdTechnology1,crdOthers1,crdKibuli1;
+    sharedPref sharedPreferences;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        sharedPreferences = new sharedPref(getContext());
+        if (sharedPreferences.loadNightModeState() == true){
+            getContext().setTheme(R.style.darkTheme);
+        }else
+            getContext().setTheme(R.style.AppTheme);
+
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_other, container, false);
 

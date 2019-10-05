@@ -14,14 +14,20 @@ import android.widget.TextView;
 
 public class TutorialFragment extends Fragment {
 
-    private CardView crdJAVA,crdAngular,crdHTML,crdPHP,crdUnity,crdGIT,crdFiverr,crdLaravel,crdReact,crdLara,crdArduino,crdAndroid;
-    private TextView crdJAVA1,crdAngular1,crdHTML1,crdPHP1,crdUnity1,crdGIT1,crdFiverr1,crdLaravel1,crdReact1,crdLara1,crdArduino1,crdAndroid1;
+    private CardView crdJAVA,crdAngular,crdHTML,crdPHP,crdUnity,crdGIT,crdFiverr,crdLaravel,crdReact,crdLara,crdArduino,crdAndroid,crdXML;
+    private TextView crdJAVA1,crdAngular1,crdHTML1,crdPHP1,crdUnity1,crdGIT1,crdFiverr1,crdLaravel1,crdReact1,crdLara1,crdArduino1,crdAndroid1,crdXml1;
+    sharedPref sharedPreferences;
 
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        sharedPreferences = new sharedPref(getContext());
+        if (sharedPreferences.loadNightModeState() == true){
+            getContext().setTheme(R.style.darkTheme);
+        }else
+            getContext().setTheme(R.style.AppTheme);
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_tutorial, container, false);
 
@@ -37,6 +43,7 @@ public class TutorialFragment extends Fragment {
         crdLara = v.findViewById(R.id.crdLara);
         crdArduino = v.findViewById(R.id.crdArduino);
         crdAndroid = v.findViewById(R.id.crdAndroid);
+        crdXML = v.findViewById(R.id.crdxml);
 
 
         crdJAVA1 = v.findViewById(R.id.tvJava);
@@ -51,6 +58,7 @@ public class TutorialFragment extends Fragment {
         crdLara1 = v.findViewById(R.id.tvLara1);
         crdArduino1 = v.findViewById(R.id.tvArduino);
         crdAndroid1 = v.findViewById(R.id.tvAndroid);
+        crdXml1 = v.findViewById(R.id.tvxml);
 
 //        GridLayout gridLayout = v.findViewById(R.id.tutorialgrid);
 //        gridLayout.setColumnCount(2);
@@ -173,6 +181,14 @@ public class TutorialFragment extends Fragment {
             }
         });
 
+        crdXML.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),XMLPost.class);
+                startActivity(i);
+            }
+        });
+
 
 
 
@@ -284,6 +300,14 @@ public class TutorialFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getContext(),AndroidPost.class);
+                startActivity(i);
+            }
+        });
+
+        crdXml1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),XMLPost.class);
                 startActivity(i);
             }
         });

@@ -2,11 +2,16 @@ package com.example.yohan.blogapp;
 
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+
+import androidx.appcompat.widget.PopupMenu;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.PagerAdapter;
@@ -23,6 +28,8 @@ import android.widget.Adapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private FirebaseAuth mAuth;
@@ -38,14 +45,52 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     PagerAdapter adapter;
     boolean boolAdap;
     FragmentManager manager;
+    boolean mode;
+    sharedPref sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        sharedPreferences = new sharedPref(this);
+        if (sharedPreferences.loadNightModeState() == true){
+            setTheme(R.style.darkTheme);
+        }else
+            setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mToolbar = findViewById(R.id.main_app_bar);
         mToolbar1 = findViewById(R.id.engmain_app_bar);
+
+        Intent intent = new Intent();
+
+        String manufacturer = android.os.Build.MANUFACTURER;
+
+        switch (manufacturer) {
+
+            case "xiaomi":
+                intent.setComponent(new ComponentName("com.miui.securitycenter",
+                        "com.miui.permcenter.autostart.AutoStartManagementActivity"));
+                break;
+            case "oppo":
+                intent.setComponent(new ComponentName("com.coloros.safecenter",
+                        "com.coloros.safecenter.permission.startup.StartupAppListActivity"));
+
+                break;
+            case "vivo":
+                intent.setComponent(new ComponentName("com.vivo.permissionmanager",
+                        "com.vivo.permissionmanager.activity.BgStartUpManagerActivity"));
+                break;
+            case "huawei":
+                intent.setComponent(new ComponentName("com.huawei.systemmanager", "com.huawei.systemmanager.optimize.process.ProtectActivity"));
+                break;
+        }
+
+        List<ResolveInfo> arrayList =  getPackageManager().queryIntentActivities(intent,
+                PackageManager.MATCH_DEFAULT_ONLY);
+
+        if (arrayList.size() > 0) {
+            startActivity(intent);
+        }
 
 
 
@@ -65,12 +110,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportActionBar().setTitle("ReadHub");
             getSupportActionBar().setDisplayShowCustomEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+           // final PopupMenu popupMenu = new PopupMenu(getBaseContext())
+
             drawerLayout = findViewById(R.id.drawerlayout);
             navigationView = findViewById(R.id.nav_view);
 
 
             navigationView.setNavigationItemSelectedListener(this );
             navigationView.setItemIconTintList(null);
+           // navigationView.getMenu().getItem(R.id.nav_Mode).setTitle("Light Mode");
+            if (sharedPreferences.loadNightModeState() == true){
+                navigationView.getMenu().findItem(R.id.nav_Mode).setTitle("Light Mode");
+            }else
+                navigationView.getMenu().findItem(R.id.nav_Mode).setTitle("Night Mode");
+
 
 
 
@@ -81,6 +134,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             drawerLayout.addDrawerListener(toggle);
             toggle.syncState();
+
             manager = this.getSupportFragmentManager();
             manager.beginTransaction()
                     .show(manager.findFragmentById(R.id.frageng))
@@ -99,6 +153,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navigationView.setNavigationItemSelectedListener(this );
             navigationView.setItemIconTintList(null);
 
+            if (sharedPreferences.loadNightModeState() == true){
+                navigationView.getMenu().findItem(R.id.nav_Mode).setTitle("Light Mode");
+            }else
+                navigationView.getMenu().findItem(R.id.nav_Mode).setTitle("Night Mode");
 
 
             mAuth = FirebaseAuth.getInstance();
@@ -140,6 +198,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
          super.onCreateOptionsMenu(menu);
          getMenuInflater().inflate(R.menu.main_menu,menu);
 
+
          return true;
     }
 
@@ -165,7 +224,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onDestroy() {
         super.onDestroy();
-      //  FirebaseDatabase.getInstance().goOffline();
+        //FirebaseDatabase.getInstance().goOffline();
     }
 
     @Override
@@ -203,6 +262,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_sinhala:
                 selectLanguage1(false);
+                break;
+            case R.id.nav_Mode :
+                //menuItem.setTitle("Light Mode");
+                if(sharedPreferences.loadNightModeState() == true){
+                  //  menuItem.setTitle("Dark Mode");
+                    sharedPreferences.setNightModeState(false);
+                    restartApp();
+                }else{
+                   // menuItem.setTitle("Light Mode");
+                    sharedPreferences.setNightModeState(true);
+                    restartApp();
+                }
                 break;
             case R.id.nav_facebook:
                 try{
@@ -256,6 +327,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         MyDialog1.show();
 
 
+    }
+
+    public void restartApp(){
+        Intent i = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(i);
+        finish();
     }
 
 

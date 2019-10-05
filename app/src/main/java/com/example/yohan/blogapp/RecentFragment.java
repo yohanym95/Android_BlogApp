@@ -68,11 +68,17 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     ValueEventListener valueEventListener;
+    sharedPref sharedPreferences;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        sharedPreferences = new sharedPref(getContext());
+        if (sharedPreferences.loadNightModeState() == true){
+            getContext().setTheme(R.style.darkTheme);
+        }else
+            getContext().setTheme(R.style.AppTheme);
 
          view = inflater.inflate(R.layout.fragment_recent, container, false);
        // progressBar = v.findViewById(R.id.)

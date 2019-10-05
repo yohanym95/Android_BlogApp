@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     tools:context=".fragmentengOther"
     android:orientation="vertical"
-    android:background="#F3EFEF">
+    android:background="?attr/backgroundcolor">
 
     <GridLayout
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         android:orientation="vertical"
-        android:background="#F3EFEF">
+        android:background="?attr/backgroundcolor">
 
 
 
@@ -25,7 +25,7 @@
             android:layout_height="50dp"
             android:layout_gravity="fill"
             android:layout_margin="7dp"
-            card_view:cardBackgroundColor="@android:color/background_light"
+            card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
             card_view:cardCornerRadius="20dp"
             card_view:cardElevation="5dp"
             card_view:cardUseCompatPadding="false">
@@ -38,7 +38,7 @@
                 android:clickable="true"
                 android:gravity="center"
                 android:text="Law Basics"
-                android:textColor="@color/colorPrimary"
+                android:textColor="?attr/topictextcolor"
                 android:textSize="13sp"
                 android:textStyle="bold" />
 
@@ -53,7 +53,7 @@
             android:layout_height="50dp"
             android:layout_gravity="fill"
             android:layout_margin="7dp"
-            card_view:cardBackgroundColor="@android:color/background_light"
+            card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
             card_view:cardCornerRadius="20dp"
             card_view:cardElevation="5dp"
             card_view:cardUseCompatPadding="false">
@@ -67,7 +67,7 @@
                 android:clickable="true"
                 android:gravity="center"
                 android:text="Devices"
-                android:textColor="@color/colorPrimary"
+                android:textColor="?attr/topictextcolor"
                 android:textSize="13sp"
                 android:textStyle="bold" />
 
@@ -82,7 +82,7 @@
             android:layout_height="50dp"
             android:layout_gravity="fill"
             android:layout_margin="7dp"
-            card_view:cardBackgroundColor="@android:color/background_light"
+            card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
             card_view:cardCornerRadius="20dp"
             card_view:cardElevation="5dp"
             card_view:cardUseCompatPadding="false">
@@ -95,7 +95,7 @@
                 android:clickable="true"
                 android:gravity="center"
                 android:text="Tech News"
-                android:textColor="@color/colorPrimary"
+                android:textColor="?attr/topictextcolor"
                 android:textSize="13sp"
                 android:textStyle="bold" />
 

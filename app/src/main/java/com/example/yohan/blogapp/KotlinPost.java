@@ -59,8 +59,14 @@ public class KotlinPost extends AppCompatActivity implements RecentPostAdapter.o
     private FirebaseAuth mAuth;
     ValueEventListener valueEventListener;
     OkHttpClient okHttpClient;
+    sharedPref sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        sharedPreferences = new sharedPref(this);
+        if (sharedPreferences.loadNightModeState() == true){
+            setTheme(R.style.darkTheme);
+        }else
+            setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kotlin_post);
 

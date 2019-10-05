@@ -63,8 +63,14 @@ public class AnimationPost extends AppCompatActivity implements RecentPostAdapte
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     ValueEventListener valueEventListener;
+    sharedPref sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        sharedPreferences = new sharedPref(this);
+        if (sharedPreferences.loadNightModeState() == true){
+            setTheme(R.style.darkTheme);
+        }else
+            setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animation_post);
 

@@ -5,12 +5,14 @@
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     android:orientation="vertical"
-    app:cardElevation="5dp">
+    app:cardElevation="5dp"
+    android:background="?attr/cardbackgroundcolor">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="?attr/cardbackgroundcolor">
 
         <ImageView
             android:id="@+id/iconImage"
@@ -28,7 +30,7 @@
             android:layout_margin="5dp"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@android:color/background_dark"/>
+            android:textColor="?attr/titletextcolor"/>
 
         <TextView
             android:id="@+id/tvauthor"
@@ -36,7 +38,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:textSize="15sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="?attr/timetextcolor"/>
 
         <TextView
             android:id="@+id/tvsubtitle"
@@ -46,7 +49,8 @@
             android:lineSpacingExtra="2dp"
             android:maxLines="5"
             android:layout_margin="5dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="?attr/timetextcolor"/>
 
 
     </LinearLayout>

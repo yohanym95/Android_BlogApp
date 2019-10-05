@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TechEnglishPost"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="?attr/backgroundcolor">
 
     <include
         android:id="@+id/TechEnglishPost_app_bar"
@@ -19,7 +20,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/TechEnglish_recycleview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="?attr/backgroundcolor"/>
 
 
 </LinearLayout>

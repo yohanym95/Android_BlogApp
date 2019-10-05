@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GamesPost"
+    android:background="?attr/backgroundcolor"
     android:orientation="vertical">
 
     <include
@@ -21,7 +22,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/Games_recycleview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="?attr/backgroundcolor"/>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </LinearLayout>

@@ -2,7 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:showIN="navigation_view">
+    tools:showIN="navigation_view"
+    >
 
 
 
@@ -16,6 +17,18 @@
                 android:title="Sinhala"
                 android:icon="@drawable/ic_language_black_24dp"
                 />
+
+        </menu>
+
+    </item>
+
+    <item android:title="Setting">
+
+        <menu>
+            <item android:id="@+id/nav_Mode"
+
+                android:title="Dark Mode"
+                android:icon="@drawable/ic_color_lens_black_24dp"/>
 
         </menu>
 

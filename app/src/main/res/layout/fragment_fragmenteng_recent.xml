@@ -7,12 +7,14 @@
     tools:context=".fragmentengRecent"
     android:orientation="vertical"
     android:gravity="bottom"
+    android:background="?attr/backgroundcolor"
     >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/EngrecycleView_Recent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="?attr/backgroundcolor"/>
 
 <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
 <!--        android:id="@+id/fab_1"-->

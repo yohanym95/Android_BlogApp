@@ -106,5 +106,8 @@ public interface RetrofitArrayAPI {
     @GET("posts?categories=1190&per_page=15&_embed")
     Call<List<WPJavaPost>> getAndroidNewsPost();
 
+    @GET("posts?categories=1580&per_page=15&_embed")
+    Call<List<WPJavaPost>> getXMLPost();
+
 
 }

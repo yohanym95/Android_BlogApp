@@ -19,9 +19,15 @@ public class RecentPostView extends AppCompatActivity {
   private TextView textView;
   String ShareLink;
   private Toolbar mToolbar;
+  sharedPref sharedPreferences;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
+    sharedPreferences = new sharedPref(this);
+    if (sharedPreferences.loadNightModeState() == true){
+      setTheme(R.style.darkTheme);
+    }else
+      setTheme(R.style.AppTheme);
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_recent_post_view);
 
@@ -39,6 +45,8 @@ public class RecentPostView extends AppCompatActivity {
     });
 
     recentpostWebView = findViewById(R.id.recent_postwebview);
+//    recentpostWebView.setBackgroundColor(R.attr.navmenucolor);
+
     //textView = findViewById(R.id.webtitle);
 
     Intent i = getIntent();

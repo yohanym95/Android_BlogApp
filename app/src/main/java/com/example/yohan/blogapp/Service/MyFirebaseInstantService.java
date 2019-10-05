@@ -6,6 +6,8 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
+
+import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import android.util.Log;
 
@@ -19,7 +21,7 @@ import java.util.Random;
 public class MyFirebaseInstantService extends FirebaseMessagingService {
 
     @Override
-    public void onMessageReceived(RemoteMessage remoteMessage) {
+    public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
 
         if(remoteMessage.getData().isEmpty()){
@@ -36,7 +38,7 @@ public class MyFirebaseInstantService extends FirebaseMessagingService {
         String body = data.get("body").toString();
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        String NOTIFICATION_CHANNEL_ID = "com.example.yohan.blogapp.test";
+        String NOTIFICATION_CHANNEL_ID = "com.example.yohan.blogapp";
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID,"Notification",
@@ -64,7 +66,7 @@ public class MyFirebaseInstantService extends FirebaseMessagingService {
 
     private void showNotification(String title, String body) {
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        String NOTIFICATION_CHANNEL_ID = "package com.example.yohan.blogapp.test";
+        String NOTIFICATION_CHANNEL_ID = "package com.example.yohan.blogapp";
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID,"Notification",
@@ -95,6 +97,6 @@ public class MyFirebaseInstantService extends FirebaseMessagingService {
     public void onNewToken(String s) {
         super.onNewToken(s);
 
-        Log.d("TokenFirebae",s);
+        Log.d("TokenFirebase",s);
     }
 }
