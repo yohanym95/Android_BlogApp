@@ -259,6 +259,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (menuItem.getItemId()){
             case R.id.nav_english:
                 selectLanguage1(true);
+               // throw new RuntimeException("Test Crash");
                 break;
             case R.id.nav_sinhala:
                 selectLanguage1(false);

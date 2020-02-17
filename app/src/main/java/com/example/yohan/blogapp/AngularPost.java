@@ -20,6 +20,7 @@ import android.view.View;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -69,6 +70,8 @@ public class AngularPost extends AppCompatActivity implements RecentPostAdapter.
             setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_angular_post);
+
+        //FirebaseCrashlytics.getInstance().;
 
         mToolbar = findViewById(R.id.angularpost_app_bar);
        // swipeRefreshLayout = findViewById(R.id.angularSwipe);
