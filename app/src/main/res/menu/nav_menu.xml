@@ -2,7 +2,39 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:showIN="navigation_view">
+    tools:showIN="navigation_view"
+    >
+
+
+
+    <item android:title="Select the Language">
+
+        <menu>
+            <item android:id="@+id/nav_english"
+                android:title="English"
+                android:icon="@drawable/ic_language_black_24dp"/>
+            <item android:id="@+id/nav_sinhala"
+                android:title="Sinhala"
+                android:icon="@drawable/ic_language_black_24dp"
+                />
+
+        </menu>
+
+    </item>
+
+    <item android:title="Setting">
+
+        <menu>
+            <item android:id="@+id/nav_Mode"
+
+                android:title="Dark Mode"
+                android:icon="@drawable/ic_color_lens_black_24dp"/>
+
+        </menu>
+
+    </item>
+
+
 
     <item android:title="@string/like_amp_follow_us">
 

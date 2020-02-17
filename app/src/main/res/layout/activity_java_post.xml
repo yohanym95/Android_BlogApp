@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".JavaPost"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="?attr/backgroundcolor">
 
 
     <include
@@ -15,10 +16,11 @@
         android:layout_height="wrap_content" />
 
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/java_recycleview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="?attr/backgroundcolor"/>
 
 
 </LinearLayout>

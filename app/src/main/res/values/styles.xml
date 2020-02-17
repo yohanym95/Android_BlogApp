@@ -3,14 +3,57 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">#2196F3</item>
+        <item name="colorPrimaryDark">#3C8DE9</item>
+        <item name="colorAccent">#2196F3</item>
+        <item name="backgroundcolor">#F3EFEF</item>
+        <item name="cardbackgroundcolor">#ffffff</item>
+        <item name="titletextcolor">#000000</item>
+        <item name="topictextcolor">@color/colorPrimary</item>
+        <item name="timetextcolor">#808080</item>
+        <item name="tintcolor">#000000</item>
+        <item name="buttoncolor">#2196F3</item>
+        <item name="navmenucolor">#ffffff</item>
+        <item name="android:windowAnimationStyle">@style/windowAnimationTrasition</item>
+
+    </style>
+
+    <!-- Base night mode theme. -->
+    <style name="darkTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#3A3939</item>
+        <item name="colorPrimaryDark">#1B1A1A</item>
+        <item name="colorAccent">#272626</item>
+        <item name="backgroundcolor">#303030</item>
+        <item name="cardbackgroundcolor">#1D1C1C</item>
+        <item name="titletextcolor">#ffffff</item>
+        <item name="topictextcolor">#ffffff</item>
+        <item name="timetextcolor">#C0BFBF</item>
+        <item name="tintcolor">#ffffff</item>
+        <item name="navmenucolor">#B6B2B2</item>
+        <item name="buttoncolor">#2196F3</item>
+        <item name="android:windowAnimationStyle">@style/windowAnimationTrasition</item>
+
     </style>
 
     <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
+<!--        <item name="windowActionBar">false</item>-->
         <item name="windowNoTitle">true</item>
     </style>
+    <style name="windowAnimationTrasition">
+        <item name="android:windowEnterAnimation" >@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+    <style name="popupTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">#ffffff</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+
+<!--    <style name="AppTheme" parent="android:Theme.Holo.Light">-->
+<!--        <item name="android:popupMenuStyle">@style/PopUp</item>-->
+<!--    </style>-->
+
 
 </resources>

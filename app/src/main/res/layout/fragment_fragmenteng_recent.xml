@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragmentengRecent"
+    android:orientation="vertical"
+    android:gravity="bottom"
+    android:background="?attr/backgroundcolor"
+    >
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/EngrecycleView_Recent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/backgroundcolor"/>
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/fab_1"-->
+<!--        android:foregroundGravity="bottom"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        app:backgroundTint="@android:color/holo_green_light"-->
+<!--        app:elevation="8dp"-->
+<!--        app:fabSize="normal"-->
+<!--        android:clickable="true"-->
+<!--        android:layout_margin="20dp"-->
+<!--        app:srcCompat="@drawable/ic_share_black_24dp"-->
+<!--        />-->
+
+
+</RelativeLayout>

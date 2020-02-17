@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FiverrPost"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="?attr/backgroundcolor">
 
     <include
         android:id="@+id/FiverrPost_app_bar"
@@ -15,15 +16,15 @@
 
 
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/FiverSwipe"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/Fiverr_recycleview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </android.support.v4.widget.SwipeRefreshLayout>
+            android:layout_height="match_parent"
+            android:background="?attr/backgroundcolor"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
 </LinearLayout>

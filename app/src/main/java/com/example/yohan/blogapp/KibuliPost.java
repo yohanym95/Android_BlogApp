@@ -7,13 +7,12 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
-import android.support.annotation.NonNull;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,8 +28,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
-import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -52,15 +51,21 @@ public class KibuliPost extends AppCompatActivity implements RecentPostAdapter.o
 
     private String KibuliBaseURL = "https://readhub.lk/wp-json/wp/v2/";
     public static final String RENDER_CONTENT = "RENDER";
-    public  static final String title = "render";
+    public  static final String link = "link";
 
     private String url;
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     ValueEventListener valueEventListener;
-
+    OkHttpClient okHttpClient;
+    sharedPref sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        sharedPreferences = new sharedPref(this);
+        if (sharedPreferences.loadNightModeState() == true){
+            setTheme(R.style.darkTheme);
+        }else
+            setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kibuli_post);
 
@@ -89,6 +94,10 @@ public class KibuliPost extends AppCompatActivity implements RecentPostAdapter.o
         String userId = mAuth.getUid();
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Articles").child(userId).child("Kibuli Articles");
+        okHttpClient = new OkHttpClient.Builder()
+                .connectTimeout(120, TimeUnit.SECONDS)
+                .readTimeout(120, TimeUnit.SECONDS)
+                .build();
 
         linearLayoutManager = new LinearLayoutManager(KibuliPost.this,LinearLayoutManager.VERTICAL,false);
         KibulirecyclerView.setLayoutManager(linearLayoutManager);
@@ -135,6 +144,7 @@ public class KibuliPost extends AppCompatActivity implements RecentPostAdapter.o
         protected Void doInBackground(Void... voids) {
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(KibuliBaseURL)
+                    .client(okHttpClient)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
@@ -163,7 +173,7 @@ public class KibuliPost extends AppCompatActivity implements RecentPostAdapter.o
 
                         Model model = new Model( titile,
                                 temdetails,
-                                response.body().get(i).getEmbedded().getWpFeaturedmedia().get(0).getMediaDetails().getSizes().getThumbnail().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName());
+                                response.body().get(i).getEmbedded().getWpFeaturedmedia().get(0).getMediaDetails().getSizes().getThumbnail().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName(),response.body().get(i).getLink());
 
                         mDatabase.push().setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
@@ -253,7 +263,7 @@ public class KibuliPost extends AppCompatActivity implements RecentPostAdapter.o
 
                         list.add(new RecentModel( titile,
                                 temdetails,
-                                response.body().get(i).getEmbedded().getWpFeaturedmedia().get(0).getMediaDetails().getSizes().getThumbnail().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName()));
+                                response.body().get(i).getEmbedded().getWpFeaturedmedia().get(0).getMediaDetails().getSizes().getThumbnail().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName(),response.body().get(i).getLink()));
 
                     }
 
@@ -330,7 +340,7 @@ public class KibuliPost extends AppCompatActivity implements RecentPostAdapter.o
         Intent i = new Intent(this,RecentPostView.class);
         RecentModel model = list.get(index);
         i.putExtra(RENDER_CONTENT,model.render);
-        // i.putExtra(title,model.title);
+         i.putExtra(link,model.link);
         startActivity(i);
 
     }

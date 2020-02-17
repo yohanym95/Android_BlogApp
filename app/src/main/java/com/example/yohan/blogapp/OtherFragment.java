@@ -3,8 +3,8 @@ package com.example.yohan.blogapp;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.cardview.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +17,17 @@ public class OtherFragment extends Fragment {
 
     private CardView crdMovies,crdGames,crdSport,crdAnimation,crdTechEnglish,crdTechSinhala,crcTechTamil,crdTechnology,crdOthers,crdKibuli;
     private TextView crdMovies1,crdGames1,crdSport1,crdAnimation1,crdTechEnglish1,crdTechSinhala1,crcTechTamil1,crdTechnology1,crdOthers1,crdKibuli1;
+    sharedPref sharedPreferences;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        sharedPreferences = new sharedPref(getContext());
+        if (sharedPreferences.loadNightModeState() == true){
+            getContext().setTheme(R.style.darkTheme);
+        }else
+            getContext().setTheme(R.style.AppTheme);
+
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_other, container, false);
 
@@ -28,10 +35,10 @@ public class OtherFragment extends Fragment {
         crdGames = v.findViewById(R.id.crdGames);
         crdSport = v.findViewById(R.id.crdSports);
         crdAnimation = v.findViewById(R.id.crdAnimation);
-        crdTechEnglish = v.findViewById(R.id.crdtechNewsEnglish);
+
         crdTechSinhala = v.findViewById(R.id.crdtechNewsSinhala);
         crcTechTamil = v.findViewById(R.id.crdtechNewsTamil);
-        crdTechnology = v.findViewById(R.id.crdtechnology);
+
         crdOthers = v.findViewById(R.id.crdPOther);
         crdKibuli = v.findViewById(R.id.crdKibuli);
 
@@ -39,10 +46,10 @@ public class OtherFragment extends Fragment {
         crdGames1 = v.findViewById(R.id.tvGames);
         crdSport1 = v.findViewById(R.id.tvSports);
         crdAnimation1 = v.findViewById(R.id.tvAnimation);
-        crdTechEnglish1 = v.findViewById(R.id.tvTechEnglish);
+
         crdTechSinhala1 = v.findViewById(R.id.tvTechSinhala);
         crcTechTamil1 = v.findViewById(R.id.tvTechTamil);
-        crdTechnology1 = v.findViewById(R.id.tvTechnology);
+
         crdOthers1 = v.findViewById(R.id.tvOthers);
         crdKibuli1 = v.findViewById(R.id.tvKibuli);
 
@@ -79,14 +86,7 @@ public class OtherFragment extends Fragment {
             }
         });
 
-        crdTechEnglish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Intent i = new Intent(getContext(),TechEnglishPost.class);
-                startActivity(i);
-            }
-        });
 
         crcTechTamil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,13 +104,7 @@ public class OtherFragment extends Fragment {
             }
         });
 
-        crdTechnology.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getContext(),TechnologyPost.class);
-                startActivity(i);
-            }
-        });
+
 
         crdKibuli.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -160,15 +154,6 @@ public class OtherFragment extends Fragment {
             }
         });
 
-        crdTechEnglish1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent i = new Intent(getContext(),TechEnglishPost.class);
-                startActivity(i);
-            }
-        });
-
         crcTechTamil1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -185,13 +170,6 @@ public class OtherFragment extends Fragment {
             }
         });
 
-        crdTechnology1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getContext(),TechnologyPost.class);
-                startActivity(i);
-            }
-        });
 
         crdKibuli1.setOnClickListener(new View.OnClickListener() {
             @Override

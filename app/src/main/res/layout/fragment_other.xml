@@ -5,317 +5,350 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OtherFragment"
-    android:orientation="vertical"
-    android:id="@+id/otherFragment">
-
-    <android.support.v7.widget.GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp">
-
-    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/crdMovies"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="7dp"
-        android:clickable="true"
-        card_view:cardBackgroundColor="@android:color/background_light"
-        card_view:cardCornerRadius="20dp"
-        card_view:cardElevation="5dp"
-        card_view:cardUseCompatPadding="false"
-        card_view:layout_row="0"
-        card_view:layout_rowWeight="1"
-        card_view:layout_column="0"
-        card_view:layout_columnWeight="1"
-        card_view:layout_gravity="fill">
-
-        <TextView
-            android:id="@+id/tvmovies"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:clickable="true"
-            android:gravity="center"
-            android:text="Movies"
-            android:textColor="@color/colorPrimary"
-            android:textSize="13sp"
-            android:textStyle="bold" />
-
-    </android.support.v7.widget.CardView>
+    android:orientation="horizontal"
+    android:background="?attr/backgroundcolor">
 
 
-    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/crdGames"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="7dp"
-        card_view:cardBackgroundColor="@android:color/background_light"
-        card_view:cardCornerRadius="20dp"
-        card_view:cardElevation="5dp"
-        card_view:cardUseCompatPadding="false"
-        card_view:layout_row="0"
-        card_view:layout_rowWeight="1"
-        card_view:layout_column="1"
-        card_view:layout_columnWeight="1"
-        card_view:layout_gravity="fill">
+     <ScrollView
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:background="?attr/backgroundcolor">
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="horizontal"
+             android:background="?attr/backgroundcolor">
 
-        <TextView
-            android:id="@+id/tvGames"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:clickable="true"
-            android:gravity="center"
-            android:text="Games"
-            android:textColor="@color/colorPrimary"
-            android:textSize="13sp"
-            android:textStyle="bold" />
+             <LinearLayout
+                 android:layout_width="0dp"
+                 android:layout_height="match_parent"
+                 android:layout_weight="1"
+                 android:background="?attr/backgroundcolor"
+                 android:orientation="vertical">
 
-    </android.support.v7.widget.CardView>
+                 <androidx.cardview.widget.CardView
+                     android:id="@+id/crdMovies"
+                     android:layout_width="match_parent"
+                     android:layout_height="0dp"
+                     android:layout_weight="1"
+                     android:layout_margin="7dp"
+                     android:clickable="true"
+                     app:cardBackgroundColor="?attr/cardbackgroundcolor"
+                     app:cardCornerRadius="20dp"
+                     app:cardElevation="5dp"
+                     app:cardUseCompatPadding="false"
+                     app:layout_row="0"
+                     app:layout_rowWeight="1"
+                     app:layout_column="0"
+                     app:layout_columnWeight="1"
+                     app:layout_gravity="fill">
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdSports"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="7dp"
-            android:clickable="true"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_row="1"
-            card_view:layout_rowWeight="1"
-            card_view:layout_columnWeight="1"
-            card_view:layout_column="0"
-            card_view:layout_gravity="fill">
+                     <ImageView
+                         android:layout_width="70dp"
+                         android:layout_height="70dp"
+                         android:layout_gravity="center"
+                         android:layout_marginTop="25dp"
+                         android:layout_marginBottom="25dp"
+                         app:srcCompat="@drawable/ic_movie_filter_black_24dp" />
 
-            <TextView
-                android:id="@+id/tvSports"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="Sports"
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                     <TextView
+                         android:id="@+id/tvmovies"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_gravity="bottom"
+                         android:clickable="true"
+                         android:gravity="center"
+                         android:text="Movies"
+                         android:textColor="?attr/topictextcolor"
+                         android:textSize="13sp"
+                         android:textStyle="bold" />
 
-        </android.support.v7.widget.CardView>
+                 </androidx.cardview.widget.CardView>
 
+                 <androidx.cardview.widget.CardView
+                     android:id="@+id/crdSports"
+                     android:layout_width="match_parent"
+                     android:layout_height="0dp"
+                     android:layout_margin="7dp"
+                     android:layout_weight="1"
+                     android:clickable="true"
+                     app:cardBackgroundColor="?attr/cardbackgroundcolor"
+                     app:cardCornerRadius="20dp"
+                     app:cardElevation="5dp"
+                     app:cardUseCompatPadding="false"
+                     app:layout_column="0"
+                     app:layout_columnWeight="1"
+                     app:layout_gravity="fill"
+                     app:layout_row="1"
+                     app:layout_rowWeight="1">
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdAnimation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="7dp"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_row="1"
-            card_view:layout_column="1"
-            card_view:layout_rowWeight="1"
-            card_view:layout_columnWeight="1"
-            card_view:layout_gravity="fill">
+                     <ImageView
+                         android:layout_width="70dp"
+                         android:layout_height="70dp"
+                         android:layout_gravity="center"
+                         android:layout_marginTop="25dp"
+                         android:layout_marginBottom="25dp"
+                         app:srcCompat="@mipmap/sport_background" />
 
-            <TextView
-                android:id="@+id/tvAnimation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="Animation සිංහලෙන්"
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                     <TextView
+                         android:id="@+id/tvSports"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_gravity="bottom"
+                         android:clickable="true"
+                         android:gravity="center"
+                         android:text="Sports"
+                         android:textColor="?attr/topictextcolor"
+                         android:textSize="13sp"
+                         android:textStyle="bold" />
 
-        </android.support.v7.widget.CardView>
+                 </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdtechNewsEnglish"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="7dp"
-            android:clickable="true"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_rowWeight="1"
-            card_view:layout_row="2"
-            card_view:layout_column="0"
-            card_view:layout_columnWeight="1"
-            card_view:layout_gravity="fill">
+                 <androidx.cardview.widget.CardView
+                     android:id="@+id/crdKibuli"
+                     android:layout_width="match_parent"
+                     android:layout_height="0dp"
+                     android:layout_margin="7dp"
+                     android:layout_weight="1"
+                     android:clickable="true"
+                     app:cardBackgroundColor="?attr/cardbackgroundcolor"
+                     app:cardCornerRadius="20dp"
+                     app:cardElevation="5dp"
+                     app:cardUseCompatPadding="false"
+                     app:layout_column="0"
+                     app:layout_columnWeight="1"
+                     app:layout_gravity="fill"
+                     app:layout_row="2"
+                     app:layout_rowWeight="1">
 
-            <TextView
-                android:id="@+id/tvTechEnglish"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="  Tech News - English  "
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                     <ImageView
+                         android:layout_width="70dp"
+                         android:layout_height="70dp"
+                         android:layout_gravity="center"
+                         android:layout_marginTop="25dp"
+                         android:layout_marginBottom="25dp"
+                         app:srcCompat="@drawable/ic_devices_other_black_24dp" />
 
-        </android.support.v7.widget.CardView>
+                     <TextView
+                         android:id="@+id/tvKibuli"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_gravity="bottom"
+                         android:clickable="true"
+                         android:gravity="center"
+                         android:text="Devices"
+                         android:textColor="?attr/topictextcolor"
+                         android:textSize="13sp"
+                         android:textStyle="bold" />
 
+                 </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdtechNewsSinhala"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="7dp"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_row="2"
-            card_view:layout_rowWeight="1"
-            card_view:layout_column="1"
-            card_view:layout_columnWeight="1"
-            card_view:layout_gravity="fill">
+                 <androidx.cardview.widget.CardView
+                     android:id="@+id/crdtechNewsTamil"
+                     android:layout_width="match_parent"
+                     android:layout_height="0dp"
+                     android:layout_margin="7dp"
+                     android:layout_weight="1"
+                     android:clickable="true"
+                     app:cardBackgroundColor="?attr/cardbackgroundcolor"
+                     app:cardCornerRadius="20dp"
+                     app:cardElevation="5dp"
+                     app:cardUseCompatPadding="false"
+                     app:layout_column="0"
+                     app:layout_columnWeight="1"
+                     app:layout_gravity="fill"
+                     app:layout_row="3"
+                     app:layout_rowWeight="1">
 
-            <TextView
-                android:id="@+id/tvTechSinhala"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="Tech News - සිංහලෙන්"
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                     <ImageView
+                         android:layout_width="70dp"
+                         android:layout_height="70dp"
+                         android:layout_gravity="center"
+                         android:layout_marginTop="25dp"
+                         android:layout_marginBottom="25dp"
+                         app:srcCompat="@drawable/ic_memory_black_24dp" />
 
-        </android.support.v7.widget.CardView>
+                     <TextView
+                         android:id="@+id/tvTechTamil"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_gravity="bottom"
+                         android:clickable="true"
+                         android:gravity="center"
+                         android:text="  Tech News - Tamil   "
+                         android:textColor="?attr/topictextcolor"
+                         android:textSize="13sp"
+                         android:textStyle="bold" />
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdtechNewsTamil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="7dp"
-            android:clickable="true"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_row="3"
-            card_view:layout_rowWeight="1"
-            card_view:layout_columnWeight="1"
-            card_view:layout_column="0"
-            card_view:layout_gravity="fill">
+                 </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/tvTechTamil"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="  Tech News - Tamil   "
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
-
-        </android.support.v7.widget.CardView>
+             </LinearLayout>
 
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdtechnology"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="7dp"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_row="3"
-            card_view:layout_rowWeight="1"
-            card_view:layout_column="1"
-            card_view:layout_columnWeight="1"
-            card_view:layout_gravity="fill">
+             <LinearLayout
+                 android:layout_width="0dp"
+                 android:layout_height="match_parent"
+                 android:layout_weight="1"
+                 android:background="?attr/backgroundcolor"
+                 android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvTechnology"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="Technology"
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                 <androidx.cardview.widget.CardView
+                     android:id="@+id/crdGames"
+                     android:layout_width="match_parent"
+                     android:layout_height="0dp"
+                     android:layout_margin="7dp"
+                     android:layout_weight="1"
+                     app:cardBackgroundColor="?attr/cardbackgroundcolor"
+                     app:cardCornerRadius="20dp"
+                     app:cardElevation="5dp"
+                     app:cardUseCompatPadding="false"
+                     app:layout_column="1"
+                     app:layout_columnWeight="1"
+                     app:layout_gravity="fill"
+                     app:layout_row="0"
+                     app:layout_rowWeight="1">
 
-        </android.support.v7.widget.CardView>
+                     <ImageView
+                         android:layout_width="70dp"
+                         android:layout_height="70dp"
+                         android:layout_gravity="center"
+                         android:layout_marginTop="25dp"
+                         android:layout_marginBottom="25dp"
+                         app:srcCompat="@drawable/ic_videogame_asset_black_24dp" />
+                     <TextView
+                         android:id="@+id/tvGames"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_gravity="bottom"
+                         android:clickable="true"
+                         android:gravity="center"
+                         android:text="Games"
+                         android:textColor="?attr/topictextcolor"
+                         android:textSize="13sp"
+                         android:textStyle="bold" />
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdKibuli"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="7dp"
-            android:clickable="true"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_row="4"
-            card_view:layout_column="0"
-            card_view:layout_rowWeight="1"
-            card_view:layout_columnWeight="1"
-            card_view:layout_gravity="fill">
+                 </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/tvKibuli"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="Devices"
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                 <androidx.cardview.widget.CardView
+                     android:id="@+id/crdAnimation"
+                     android:layout_width="match_parent"
+                     android:layout_height="0dp"
+                     android:layout_margin="7dp"
+                     android:layout_weight="1"
+                     app:cardBackgroundColor="?attr/cardbackgroundcolor"
+                     app:cardCornerRadius="20dp"
+                     app:cardElevation="5dp"
+                     app:cardUseCompatPadding="false"
+                     app:layout_column="1"
+                     app:layout_columnWeight="1"
+                     app:layout_gravity="fill"
+                     app:layout_row="1"
+                     app:layout_rowWeight="1">
 
-        </android.support.v7.widget.CardView>
+                     <ImageView
+                         android:layout_width="70dp"
+                         android:layout_height="70dp"
+                         android:layout_gravity="center"
+                         android:layout_marginTop="25dp"
+                         android:layout_marginBottom="25dp"
+                         app:srcCompat="@mipmap/animation_background" />
+
+                     <TextView
+                         android:id="@+id/tvAnimation"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_gravity="bottom"
+                         android:clickable="true"
+                         android:gravity="center"
+                         android:text="Animation සිංහලෙන්"
+                         android:textColor="?attr/topictextcolor"
+                         android:textSize="13sp"
+                         android:textStyle="bold" />
+
+                 </androidx.cardview.widget.CardView>
+
+                 <androidx.cardview.widget.CardView
+                     android:id="@+id/crdtechNewsSinhala"
+                     android:layout_width="match_parent"
+                     android:layout_height="0dp"
+                     android:layout_margin="7dp"
+                     android:layout_weight="1"
+                     app:cardBackgroundColor="?attr/cardbackgroundcolor"
+                     app:cardCornerRadius="20dp"
+                     app:cardElevation="5dp"
+                     app:cardUseCompatPadding="false"
+                     app:layout_column="1"
+                     app:layout_columnWeight="1"
+                     app:layout_gravity="fill"
+                     app:layout_row="2"
+                     app:layout_rowWeight="1">
+
+                     <ImageView
+                         android:layout_width="70dp"
+                         android:layout_height="70dp"
+                         android:layout_gravity="center"
+                         android:layout_marginTop="25dp"
+                         android:layout_marginBottom="25dp"
+                         app:srcCompat="@drawable/ic_memory_black_24dp" />
+
+                     <TextView
+                         android:id="@+id/tvTechSinhala"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_gravity="bottom"
+                         android:clickable="true"
+                         android:gravity="center"
+                         android:text="Tech News - සිංහලෙන්"
+                         android:textColor="?attr/topictextcolor"
+                         android:textSize="13sp"
+                         android:textStyle="bold" />
+
+                 </androidx.cardview.widget.CardView>
+
+                 <androidx.cardview.widget.CardView
+                     android:id="@+id/crdPOther"
+                     android:layout_width="match_parent"
+                     android:layout_height="0dp"
+                     android:layout_margin="7dp"
+                     android:layout_weight="1"
+                     app:cardBackgroundColor="?attr/cardbackgroundcolor"
+                     app:cardCornerRadius="20dp"
+                     app:cardElevation="5dp"
+                     app:cardUseCompatPadding="false"
+                     app:layout_column="1"
+                     app:layout_columnWeight="1"
+                     app:layout_gravity="fill"
+                     app:layout_row="3"
+                     app:layout_rowWeight="1">
+
+                     <ImageView
+                         android:layout_width="70dp"
+                         android:layout_height="70dp"
+                         android:layout_gravity="center"
+                         android:layout_marginTop="25dp"
+                         android:layout_marginBottom="25dp"
+                         app:srcCompat="@drawable/ic_library_music_black_24dp" />
+
+                     <TextView
+                         android:id="@+id/tvOthers"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_gravity="bottom"
+                         android:clickable="true"
+                         android:gravity="center"
+                         android:text="Entertainment"
+                         android:textColor="?attr/topictextcolor"
+                         android:textSize="13sp"
+                         android:textStyle="bold" />
+
+                 </androidx.cardview.widget.CardView>
+             </LinearLayout>
+         </LinearLayout>
+     </ScrollView>
 
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdPOther"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="7dp"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_row="4"
-            card_view:layout_column="1"
-            card_view:layout_rowWeight="1"
-            card_view:layout_columnWeight="1"
-            card_view:layout_gravity="fill">
 
-            <TextView
-                android:id="@+id/tvOthers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="Entertainment"
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
 
-        </android.support.v7.widget.CardView>
 
-    </android.support.v7.widget.GridLayout>
 
 </LinearLayout>

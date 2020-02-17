@@ -7,18 +7,20 @@ public class RecentModel {
     public String render;
     public int type;
     public String author;
+    public String link;
 
 
     public RecentModel(){
 
     }
 
-    public RecentModel(String title, String date, String image, String render, int type,String author) {
+    public RecentModel(String title, String date, String image, String render, int type,String author,String link) {
         this.title = title;
         this.date = date;
         this.Image = image;
         this.render = render;
         this.type = type;
         this.author=author;
+        this.link = link;
     }
 }

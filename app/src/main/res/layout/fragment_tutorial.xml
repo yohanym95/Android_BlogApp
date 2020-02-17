@@ -1,376 +1,641 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TutorialFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="?attr/backgroundcolor">
 
-    <android.support.v7.widget.GridLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp">
+        android:background="?attr/backgroundcolor">
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdJAVA"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="7dp"
-            android:clickable="true"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_row="0"
-            card_view:layout_column="0"
-            card_view:layout_gravity="fill"
-            card_view:layout_columnWeight="1"
-            card_view:layout_rowWeight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="?attr/backgroundcolor">
 
-            <TextView
-                android:id="@+id/tvJava"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="JAVA - සිංහලෙන්"
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/backgroundcolor"
+                android:orientation="vertical">
 
-        </android.support.v7.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crdJAVA"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_row="0"
+                    android:layout_rowWeight="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
+                    card_view:cardCornerRadius="20dp"
+                    card_view:cardElevation="5dp"
+                    card_view:cardUseCompatPadding="false">
 
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="25dp"
+                        android:src="@mipmap/java1_foreground" />
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdAngular"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="7dp"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_row="0"
-            card_view:layout_rowWeight="1"
-            card_view:layout_columnWeight="1"
-            card_view:layout_column="1"
-            card_view:layout_gravity="fill">
+                    <TextView
+                        android:id="@+id/tvJava"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:layout_marginTop="30dp"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="JAVA"
+                        android:textColor="?attr/topictextcolor"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvAngular"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="  Angular - සිංහලෙන්  "
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
 
-        </android.support.v7.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crdArduino"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="7dp"
+                    android:layout_weight="1"
+                    card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
+                    card_view:cardCornerRadius="20dp"
+                    card_view:cardElevation="5dp"
+                    card_view:cardUseCompatPadding="false">
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdKotlin"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="7dp"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_row="1"
-            card_view:layout_rowWeight="1"
-            card_view:layout_column="0"
-            card_view:layout_columnWeight="1"
-            card_view:layout_gravity="fill">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="25dp"
+                        android:src="@mipmap/arduino1_foreground" />
 
-            <TextView
-                android:id="@+id/tvKotlin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="Kotlin"
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/tvArduino"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="Arduino"
+                        android:textColor="?attr/topictextcolor"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
 
-        </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdPHP"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="7dp"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_row="1"
-            card_view:layout_rowWeight="1"
-            card_view:layout_column="1"
-            card_view:layout_columnWeight="1"
-            card_view:layout_gravity="fill">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crdHTML"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="7dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
+                    card_view:cardCornerRadius="20dp"
+                    card_view:cardElevation="5dp"
+                    card_view:cardUseCompatPadding="false">
 
-            <TextView
-                android:id="@+id/tvPHP"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="PHP - සිංහලෙන්"
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="25dp"
+                        android:src="@mipmap/html1_background" />
 
-        </android.support.v7.widget.CardView>
+                    <TextView
+                        android:id="@+id/tvHTML"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="HTML"
+                        android:textColor="?attr/topictextcolor"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdHTML"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="7dp"
-            android:clickable="true"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_row="2"
-            card_view:layout_rowWeight="1"
-            card_view:layout_column="0"
-            card_view:layout_columnWeight="1"
-            card_view:layout_gravity="fill">
+                </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/tvHTML"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="HTML - සිංහලෙන්"
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crdGIT"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="7dp"
+                    android:layout_weight="1"
+                    card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
+                    card_view:cardCornerRadius="20dp"
+                    card_view:cardElevation="5dp"
+                    card_view:cardUseCompatPadding="false">
 
-        </android.support.v7.widget.CardView>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="25dp"
+                        android:src="@mipmap/git1_background" />
 
+                    <TextView
+                        android:id="@+id/tvGit"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="GIT"
+                        android:textColor="?attr/topictextcolor"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdUnity"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="7dp"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_row="2"
-            card_view:layout_rowWeight="1"
-            card_view:layout_column="1"
-            card_view:layout_columnWeight="1"
-            card_view:layout_gravity="fill">
+                </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/tvUnity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="Unity - සිංහලෙන්"
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crdFiverr"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_row="4"
+                    android:layout_rowWeight="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="7dp"
+                    android:layout_weight="1"
+                    card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
+                    card_view:cardCornerRadius="20dp"
+                    card_view:cardElevation="5dp"
+                    card_view:cardUseCompatPadding="false">
 
-        </android.support.v7.widget.CardView>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="25dp"
+                        android:src="@mipmap/fiverr_background" />
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdGIT"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="7dp"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_row="3"
-            card_view:layout_column="0"
-            card_view:layout_rowWeight="1"
-            card_view:layout_columnWeight="1"
-            card_view:layout_gravity="fill">
+                    <TextView
+                        android:id="@+id/tvFiver"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="Fiverr"
+                        android:textColor="?attr/topictextcolor"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvGit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="GIT - සිංහලෙන්"
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
 
-        </android.support.v7.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crdreactN"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_row="5"
+                    android:layout_rowWeight="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="7dp"
+                    android:layout_weight="1"
+                    card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
+                    card_view:cardCornerRadius="20dp"
+                    card_view:cardElevation="5dp"
+                    card_view:cardUseCompatPadding="false">
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdNetwork"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="7dp"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_row="3"
-            card_view:layout_rowWeight="1"
-            card_view:layout_column="1"
-            card_view:layout_columnWeight="1"
-            card_view:layout_gravity="fill">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="25dp"
+                        android:src="@mipmap/react_background" />
 
-            <TextView
+                    <TextView
+                        android:id="@+id/tvReactN"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="React Native"
+                        android:textColor="?attr/topictextcolor"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
 
-                android:id="@+id/tvNetwork"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="Networking"
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
 
-        </android.support.v7.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crdxml"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_row="5"
+                    android:layout_rowWeight="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="7dp"
+                    android:layout_weight="1"
+                    card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
+                    card_view:cardCornerRadius="20dp"
+                    card_view:cardElevation="5dp"
+                    card_view:cardUseCompatPadding="false">
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdFiverr"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="7dp"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_row="4"
-            card_view:layout_rowWeight="1"
-            card_view:layout_column="0"
-            card_view:layout_columnWeight="1"
-            card_view:layout_gravity="fill">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="25dp"
+                        android:src="@mipmap/xml_background" />
 
-            <TextView
-                android:id="@+id/tvFiver"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="Fiverr - සිංහලෙන්"
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/tvxml"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="XML"
+                        android:textColor="?attr/topictextcolor"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
 
-        </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdLaravel"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="7dp"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_row="4"
-            card_view:layout_column="1"
-            card_view:layout_rowWeight="1"
-            card_view:layout_columnWeight="1"
-            card_view:layout_gravity="fill">
-
-            <TextView
-                android:id="@+id/tvLaravel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="SQL - සිංහලෙන්"
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
-
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdreactN"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="7dp"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_row="5"
-            card_view:layout_rowWeight="1"
-            card_view:layout_column="0"
-            card_view:layout_columnWeight="1"
-            card_view:layout_gravity="fill">
-
-            <TextView
-                android:id="@+id/tvReactN"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="React Native සිංහලෙන්"
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
-
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/crdLara"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="7dp"
-            card_view:cardBackgroundColor="@android:color/background_light"
-            card_view:cardCornerRadius="20dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="false"
-            card_view:layout_row="5"
-            card_view:layout_rowWeight="1"
-            card_view:layout_columnWeight="1"
-            card_view:layout_column="1"
-            card_view:layout_gravity="fill">
-
-            <TextView
-                android:id="@+id/tvLara1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="     Laravel සිංහල‌ෙන්   "
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
-
-        </android.support.v7.widget.CardView>
+            </LinearLayout>
 
 
-    </android.support.v7.widget.GridLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:background="?attr/backgroundcolor">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crdAngular"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_row="0"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="7dp"
+                    card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
+                    card_view:cardCornerRadius="20dp"
+                    card_view:cardElevation="5dp"
+                    card_view:cardUseCompatPadding="false">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="25dp"
+                        android:src="@mipmap/angular1_foreground" />
+
+                    <TextView
+                        android:id="@+id/tvAngular"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text=" Angular "
+                        android:textColor="?attr/topictextcolor"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crdPHP"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="7dp"
+                    card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
+                    card_view:cardCornerRadius="20dp"
+                    card_view:cardElevation="5dp"
+                    card_view:cardUseCompatPadding="false">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="25dp"
+                        android:src="@mipmap/php1_background" />
+
+                    <TextView
+                        android:id="@+id/tvPHP"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="PHP"
+                        android:textColor="?attr/topictextcolor"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crdUnity"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="7dp"
+                    card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
+                    card_view:cardCornerRadius="20dp"
+                    card_view:cardElevation="5dp"
+                    card_view:cardUseCompatPadding="false">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="25dp"
+                        android:src="@mipmap/unitylogo_background" />
+
+
+                    <TextView
+                        android:id="@+id/tvUnity"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="Unity"
+                        android:textColor="?attr/topictextcolor"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crdAndroid"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="7dp"
+                    card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
+                    card_view:cardCornerRadius="20dp"
+                    card_view:cardElevation="5dp"
+                    card_view:cardUseCompatPadding="false">
+
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="25dp"
+                        card_view:srcCompat="@drawable/ic_android_black_24dp" />
+
+                    <TextView
+
+                        android:id="@+id/tvAndroid"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="Android"
+                        android:textColor="?attr/topictextcolor"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crdLaravel"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_row="4"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="7dp"
+                    card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
+                    card_view:cardCornerRadius="20dp"
+                    card_view:cardElevation="5dp"
+                    card_view:cardUseCompatPadding="false">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="25dp"
+                        card_view:srcCompat="@drawable/ic_storage_black_24dp" />
+
+                    <TextView
+                        android:id="@+id/tvLaravel"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="SQL"
+                        android:textColor="?attr/topictextcolor"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crdLara"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_row="5"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="7dp"
+                    card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
+                    card_view:cardCornerRadius="20dp"
+                    card_view:cardElevation="5dp"
+                    card_view:cardUseCompatPadding="false">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="25dp"
+                        android:src="@mipmap/laravel_background" />
+
+
+                    <TextView
+                        android:id="@+id/tvLara1"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="      Laravel      "
+                        android:textColor="?attr/topictextcolor"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:id="@+id/crd"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_row="5"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="7dp"
+                    android:background="?attr/backgroundcolor">
+<!--                    card_view:cardCornerRadius="20dp"-->
+<!--                    card_view:cardUseCompatPadding="false"-->
+<!--                    card_view:cardBackgroundColor="#F3EFEF">-->
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="25dp"
+                        android:background="?attr/backgroundcolor"/>
+
+
+                    <TextView
+                        android:id="@+id/tv"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:background="?attr/backgroundcolor"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
 
 
 
 </RelativeLayout>
+
+
+<!--<ScrollView-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent">-->
+
+<!--<GridLayout-->
+<!--    android:id="@+id/tutorialgrid"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:layout_alignParentStart="true"-->
+<!--    android:layout_alignParentTop="true"-->
+<!--    android:layout_marginStart="0dp"-->
+<!--    android:layout_marginTop="0dp">-->
+
+<!--    -->
+
+
+<!--    -->
+
+<!--    &lt;!&ndash;        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:id="@+id/crdKotlin"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:layout_row="1"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:layout_rowWeight="1"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:layout_column="0"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:layout_columnWeight="1"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:layout_gravity="fill"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:layout_margin="7dp"&ndash;&gt;-->
+<!--    &lt;!&ndash;            card_view:cardBackgroundColor="@android:color/background_light"&ndash;&gt;-->
+<!--    &lt;!&ndash;            card_view:cardCornerRadius="20dp"&ndash;&gt;-->
+<!--    &lt;!&ndash;            card_view:cardElevation="5dp"&ndash;&gt;-->
+<!--    &lt;!&ndash;            card_view:cardUseCompatPadding="false">&ndash;&gt;-->
+
+<!--    &lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--    &lt;!&ndash;                android:id="@+id/tvKotlin"&ndash;&gt;-->
+<!--    &lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--    &lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--    &lt;!&ndash;                android:layout_gravity="center"&ndash;&gt;-->
+<!--    &lt;!&ndash;                android:clickable="true"&ndash;&gt;-->
+<!--    &lt;!&ndash;                android:gravity="center"&ndash;&gt;-->
+<!--    &lt;!&ndash;                android:text="Kotlin"&ndash;&gt;-->
+<!--    &lt;!&ndash;                android:textColor="@color/colorPrimary"&ndash;&gt;-->
+<!--    &lt;!&ndash;                android:textSize="13sp"&ndash;&gt;-->
+<!--    &lt;!&ndash;                android:textStyle="bold" />&ndash;&gt;-->
+
+<!--    &lt;!&ndash;        </androidx.cardview.widget.CardView>&ndash;&gt;-->
+
+
+
+<!--</GridLayout>-->
+<!--</ScrollView>-->

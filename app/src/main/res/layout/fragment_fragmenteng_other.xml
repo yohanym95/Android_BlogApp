@@ -1,0 +1,111 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragmentengOther"
+    android:orientation="vertical"
+    android:background="?attr/backgroundcolor">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical"
+        android:background="?attr/backgroundcolor">
+
+
+
+
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/crdLawBasics"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="fill"
+            android:layout_margin="7dp"
+            card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
+            card_view:cardCornerRadius="20dp"
+            card_view:cardElevation="5dp"
+            card_view:cardUseCompatPadding="false">
+
+            <TextView
+                android:id="@+id/tvLawBasics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="Law Basics"
+                android:textColor="?attr/topictextcolor"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/crdDevices"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="fill"
+            android:layout_margin="7dp"
+            card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
+            card_view:cardCornerRadius="20dp"
+            card_view:cardElevation="5dp"
+            card_view:cardUseCompatPadding="false">
+
+            <TextView
+
+                android:id="@+id/tvDevices"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="Devices"
+                android:textColor="?attr/topictextcolor"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/crdTechNews"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="fill"
+            android:layout_margin="7dp"
+            card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
+            card_view:cardCornerRadius="20dp"
+            card_view:cardElevation="5dp"
+            card_view:cardUseCompatPadding="false">
+
+            <TextView
+                android:id="@+id/tvTechNews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="Tech News"
+                android:textColor="?attr/topictextcolor"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+    </GridLayout>
+
+</RelativeLayout>
