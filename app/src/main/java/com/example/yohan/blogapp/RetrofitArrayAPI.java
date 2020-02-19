@@ -109,5 +109,7 @@ public interface RetrofitArrayAPI {
     @GET("posts?categories=1580&per_page=15&_embed")
     Call<List<WPJavaPost>> getXMLPost();
 
+    @GET("posts?categories=1410&per_page=15&_embed")
+    Call<List<WPJavaPost>> getFlutterPost();
 
 }

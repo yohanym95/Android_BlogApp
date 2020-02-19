@@ -13,8 +13,8 @@ import android.widget.TextView;
 
 
 public class fragmentengTutorial extends Fragment {
-    private CardView crdKotlin,crdNetworking,crdPython,crdCloud,crdGit,crdJavascript;
-    private TextView crdKotlin1,crdNetworking1,crdPython1,crdCloud1,crdGit1,crdJavascript1;
+    private CardView crdKotlin,crdNetworking,crdPython,crdCloud,crdGit,crdJavascript,crdFlutter;
+    private TextView crdKotlin1,crdNetworking1,crdPython1,crdCloud1,crdGit1,crdJavascript1,crdFlutter1;
 
 
     @Nullable
@@ -29,6 +29,7 @@ public class fragmentengTutorial extends Fragment {
         crdCloud = v.findViewById(R.id.crdCloudComputing);
         crdGit = v.findViewById(R.id.crdGit1);
         crdJavascript = v.findViewById(R.id.crdcrdJavascript);
+        crdFlutter = v.findViewById(R.id.crdFlutter);
 
 
         crdKotlin1 = v.findViewById(R.id.tvKotlin);
@@ -37,6 +38,7 @@ public class fragmentengTutorial extends Fragment {
         crdCloud1 = v.findViewById(R.id.tvCloud);
         crdGit1 = v.findViewById(R.id.tvGit1);
         crdJavascript1 = v.findViewById(R.id.tvJavaScript);
+        crdFlutter1 = v.findViewById(R.id.tvFlutter);
 
         crdKotlin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +88,13 @@ public class fragmentengTutorial extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getContext(),JavascriptPost.class);
+                startActivity(i);
+            }
+        });
+        crdFlutter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),FlutterPost.class);
                 startActivity(i);
             }
         });
@@ -142,6 +151,13 @@ public class fragmentengTutorial extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getContext(),JavascriptPost.class);
+                startActivity(i);
+            }
+        });
+        crdFlutter1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),FlutterPost.class);
                 startActivity(i);
             }
         });

@@ -143,6 +143,45 @@
 
                 </androidx.cardview.widget.CardView>
 
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crdFlutter"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="7dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
+                    card_view:cardCornerRadius="20dp"
+                    card_view:cardElevation="5dp"
+                    card_view:cardUseCompatPadding="false">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="25dp"
+                        android:src="@mipmap/flutter_background" />
+
+                    <TextView
+                        android:id="@+id/tvFlutter"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="Flutter"
+                        android:textColor="?attr/topictextcolor"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </androidx.cardview.widget.CardView>
+
 
             </LinearLayout>
 
@@ -268,6 +307,46 @@
                         android:textStyle="bold" />
 
                 </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:id="@+id/crd"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_row="5"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="7dp"
+                    android:background="?attr/backgroundcolor">
+                    <!--                    card_view:cardCornerRadius="20dp"-->
+                    <!--                    card_view:cardUseCompatPadding="false"-->
+                    <!--                    card_view:cardBackgroundColor="#F3EFEF">-->
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="25dp"
+                        android:background="?attr/backgroundcolor"/>
+
+
+                    <TextView
+                        android:id="@+id/tv"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:background="?attr/backgroundcolor"/>
+
+                </LinearLayout>
 
 
             </LinearLayout>
