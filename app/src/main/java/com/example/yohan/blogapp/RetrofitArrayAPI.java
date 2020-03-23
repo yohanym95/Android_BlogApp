@@ -112,4 +112,9 @@ public interface RetrofitArrayAPI {
     @GET("posts?categories=1410&per_page=15&_embed")
     Call<List<WPJavaPost>> getFlutterPost();
 
+    //News - update
+    @GET("api/get-current-statistical/")
+    Call<CoronaPost> getNewsCorona();
+
+
 }

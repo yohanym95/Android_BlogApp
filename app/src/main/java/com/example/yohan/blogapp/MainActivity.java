@@ -276,6 +276,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     restartApp();
                 }
                 break;
+            case  R.id.coronaMode:
+                Intent corona = new Intent(getApplicationContext(),CoronaUpdate.class);
+                startActivity(corona);
+                break;
             case R.id.nav_facebook:
                 try{
                   Intent i = new Intent(Intent.ACTION_VIEW,Uri.parse("fb://page/2660854717474049"));

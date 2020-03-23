@@ -22,6 +22,18 @@
 
     </item>
 
+    <item android:title="News">
+
+        <menu>
+            <item android:id="@+id/coronaMode"
+
+                android:title="COVID-19"
+                android:icon="@mipmap/coronavirus_foreground"/>
+
+        </menu>
+
+    </item>
+
     <item android:title="Setting">
 
         <menu>

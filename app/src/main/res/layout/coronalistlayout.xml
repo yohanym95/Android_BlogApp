@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:orientation="horizontal"
+    app:cardElevation="5dp"
+    android:background="?attr/cardbackgroundcolor">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="3"
+            android:background="?attr/cardbackgroundcolor">
+
+
+            <TextView
+                android:id="@+id/hospitalTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#485264"/>
+
+            <TextView
+                android:id="@+id/hospitalLocal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="?attr/timetextcolor"/>
+
+            <TextView
+                android:id="@+id/hospitalForiegn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:lineSpacingExtra="2dp"
+                android:maxLines="5"
+                android:layout_margin="5dp"
+                android:textStyle="bold"
+                android:textColor="?attr/timetextcolor"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:text="Total"
+                android:textColor="#B94343"/>
+
+            <TextView
+                android:id="@+id/totalTreat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:lineSpacingExtra="2dp"
+                android:maxLines="5"
+                android:layout_margin="5dp"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textColor="#B94343"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

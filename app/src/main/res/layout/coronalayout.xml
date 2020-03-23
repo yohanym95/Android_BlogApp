@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="150dp"
+    android:layout_height="165dp"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    app:cardElevation="5dp"
+    android:background="@color/cardview_light_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="?attr/cardbackgroundcolor">
+
+        <ImageView
+            android:id="@+id/coronaImage"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="4dp"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+
+        <TextView
+            android:id="@+id/coronaImageDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#252738"/>
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

@@ -16,7 +16,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".FlutterPost"></activity>
+        <activity android:name=".CoronaUpdate"></activity>
+        <activity android:name=".FlutterPost" />
         <activity android:name=".XMLPost" />
         <activity android:name=".AndroidPost" />
         <activity android:name=".EngDevicePost" />
@@ -81,8 +82,8 @@
             </intent-filter>
         </service>
     </application>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>
