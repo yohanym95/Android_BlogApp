@@ -13,108 +13,123 @@ public interface RetrofitArrayAPI {
     @GET("posts?per_page=15&_embed")
     Call<List<WPPost>> getEngPostInfo();
 
-    @GET("posts?categories=1029&per_page=15&_embed")
-    Call<List<WPJavaPost>> getJavaPost();
+    @GET("posts?categories=766&per_page=15&_embed")
+    Call<List<WPPost>> getJavaPost();
 
-    @GET("posts?categories=1030&per_page=15&_embed")
-    Call<List<WPJavaPost>> getAngularPost();
+    @GET("posts?categories=757&per_page=15&_embed")
+    Call<List<WPPost>> getAngularPost();
 
-    @GET("posts?categories=421&_embed")
-    Call<List<WPJavaPost>> getFiverPost();
+    @GET("posts?categories=273&_embed")
+    Call<List<WPPost>> getFiverPost();
 
-    @GET("posts?categories=1039&per_page=15&_embed")
-    Call<List<WPJavaPost>> getGitPost();
+    @GET("posts?categories=185&per_page=15&_embed")
+    Call<List<WPPost>> getGitPost();
 
-    @GET("posts?categories=1128&per_page=15&_embed")
-    Call<List<WPJavaPost>> getHTMLPost();
+    @GET("posts?categories=930&per_page=15&_embed")
+    Call<List<WPPost>> getHTMLPost();
 
-    @GET("posts?categories=738&per_page=15&_embed")
-    Call<List<WPJavaPost>> getKotlinPost();
+    @GET("posts?categories=102&per_page=15&_embed")
+    Call<List<WPPost>> getKotlinPost();
 
-    @GET("posts?categories=1140&_embed")
-    Call<List<WPJavaPost>> getLaravelPost();
+    @GET("posts?categories=943&_embed")
+    Call<List<WPPost>> getLaravelPost();
 
-    @GET("posts?categories=72&per_page=15&_embed")
-    Call<List<WPJavaPost>> getNetworkingPost();
+    @GET("posts?categories=17&per_page=15&_embed")
+    Call<List<WPPost>> getNetworkingPost();
 
-    @GET("posts?categories=1112&per_page=15&_embed")
-    Call<List<WPJavaPost>> getPHPPost();
+    @GET("posts?categories=917&per_page=15&_embed")
+    Call<List<WPPost>> getPHPPost();
 
-    @GET("posts?categories=928&per_page=15&_embed")
-    Call<List<WPJavaPost>> getUnityPost();
+    @GET("posts?categories=753&per_page=15&_embed")
+    Call<List<WPPost>> getUnityPost();
 
-    @GET("posts?categories=95&per_page=15&_embed")
-    Call<List<WPJavaPost>> getMoviesPost();
+    @GET("posts?categories=35&per_page=15&_embed")
+    Call<List<WPPost>> getMoviesPost();
 
-    @GET("posts?categories=1064&per_page=15&_embed")
-    Call<List<WPJavaPost>> getAnimationPost();
+    @GET("posts?categories=807&per_page=15&_embed")
+    Call<List<WPPost>> getAnimationPost();
 
-    @GET("posts?categories=366&per_page=15&_embed")
-    Call<List<WPJavaPost>> getGamesPost();
+    @GET("posts?categories=64&per_page=15&_embed")
+    Call<List<WPPost>> getGamesPost();
 
-    @GET("posts?categories=139&_embed")
-    Call<List<WPJavaPost>> getSportPost();
+    @GET("posts?categories=57&_embed")
+    Call<List<WPPost>> getSportPost();
 
     @GET("posts?categories=273&_embed")
     Call<List<WPJavaPost>> getTechEnglishPost();
 
-    @GET("posts?categories=381&_embed")
-    Call<List<WPJavaPost>> getTechTamilPost();
+    @GET("posts?categories=218&_embed")
+    Call<List<WPPost>> getTechTamilPost();
 
-    @GET("posts?categories=196&_embed")
-    Call<List<WPJavaPost>> getTechSinhalaPost();
+    @GET("posts?categories=38&_embed")
+    Call<List<WPPost>> getTechSinhalaPost();
 
     @GET("posts?categories=98&_embed")
     Call<List<WPJavaPost>> getTechnologyPost();
 
-    @GET("posts?categories=241&per_page=15&_embed")
-    Call<List<WPJavaPost>> getKibuliPost();
+    @GET("posts?categories=195&per_page=15&_embed")
+    Call<List<WPPost>> getKibuliPost();
 
-    @GET("posts?categories=1210&per_page=15&_embed")
-    Call<List<WPJavaPost>> getReactNativePost();
+    @GET("posts?categories=975&per_page=15&_embed")
+    Call<List<WPPost>> getReactNativePost();
 
-    @GET("posts?categories=4&per_page=15&_embed")
-    Call<List<WPJavaPost>> getOtherPost();
+    @GET("posts?categories=376&per_page=15&_embed")
+    Call<List<WPPost>> getOtherPost();
 
-    @GET("posts?categories=913&per_page=15&_embed")
-    Call<List<WPJavaPost>> getLaraPost();
+    @GET("posts?categories=1366&per_page=15&_embed")
+    Call<List<WPPost>> getLaraPost();
 
-    @GET("posts?categories=968&per_page=15&_embed")
-    Call<List<WPJavaPost>> getPythonPost();
+    @GET("posts?categories=39&per_page=15&_embed")
+    Call<List<WPPost>> getPythonPost();
 
-    @GET("posts?categories=1354&per_page=15&_embed")
-    Call<List<WPJavaPost>> getArduinoPost();
+    @GET("posts?categories=1106&per_page=15&_embed")
+    Call<List<WPPost>> getArduinoPost();
 
-    @GET("posts?categories=1359&per_page=15&_embed")
-    Call<List<WPJavaPost>> getCloudPost();
+    @GET("posts?categories=5&per_page=15&_embed")
+    Call<List<WPPost>> getCloudPost();
 
-    @GET("posts?categories=85&per_page=15&_embed")
-    Call<List<WPJavaPost>> getEngDevicePost();
+    @GET("posts?categories=33&per_page=15&_embed")
+    Call<List<WPPost>> getEngDevicePost();
 
-    @GET("posts?categories=1345&per_page=15&_embed")
-    Call<List<WPJavaPost>> getEngGitPost();
+    @GET("posts?categories=10&per_page=15&_embed")
+    Call<List<WPPost>> getEngGitPost();
 
-    @GET("posts?categories=1358&per_page=15&_embed")
-    Call<List<WPJavaPost>> getEngJavascriptPost();
+    @GET("posts?categories=129&per_page=15&_embed")
+    Call<List<WPPost>> getEngJavascriptPost();
 
-    @GET("posts?categories=1026&per_page=15&_embed")
-    Call<List<WPJavaPost>> getEngLawBasicsPost();
+    @GET("posts?categories=148&per_page=15&_embed")
+    Call<List<WPPost>> getEngLawBasicsPost();
 
-    @GET("posts?categories=32&per_page=15&_embed")
-    Call<List<WPJavaPost>> getEngTechNewsPost();
+    @GET("posts?categories=3&per_page=15&_embed")
+    Call<List<WPPost>> getEngTechNewsPost();
 
-    @GET("posts?categories=1190&per_page=15&_embed")
-    Call<List<WPJavaPost>> getAndroidNewsPost();
+    @GET("posts?categories=952&per_page=15&_embed")
+    Call<List<WPPost>> getAndroidNewsPost();
 
-    @GET("posts?categories=1580&per_page=15&_embed")
-    Call<List<WPJavaPost>> getXMLPost();
+    @GET("posts?categories=1310&per_page=15&_embed")
+    Call<List<WPPost>> getXMLPost();
 
-    @GET("posts?categories=1410&per_page=15&_embed")
-    Call<List<WPJavaPost>> getFlutterPost();
+    @GET("posts?categories=248&per_page=15&_embed")
+    Call<List<WPPost>> getFlutterPost();
 
     //News - update
     @GET("api/get-current-statistical/")
     Call<CoronaPost> getNewsCorona();
 
+    //english
+    @GET("posts?categories=287&per_page=15&_embed")
+    Call<List<WPPost>> getEnglishForLife();
+
+    //english
+    @GET("posts?categories=268&per_page=15&_embed")
+    Call<List<WPPost>> getML();
+
+
+    //sinhala
+    @GET("posts?categories=1395&per_page=15&_embed")
+    Call<List<WPPost>> getPythonSinhala();
+
+//    @GET("posts?categories=33&per_page=15&_embed")
+//    Call<List<WPPost>> getEngTechNewsPostGadget();
 
 }

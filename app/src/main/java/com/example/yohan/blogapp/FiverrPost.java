@@ -51,7 +51,7 @@ public class FiverrPost extends AppCompatActivity implements RecentPostAdapter.o
    Dialog MyDialog1;
 
 
-    private String FiverrBaseURL = "https://readhub.lk/wp-json/wp/v2/";
+    private String FiverrBaseURL = "https://sinhala.readhub.lk/wp-json/wp/v2/";
     public static final String RENDER_CONTENT = "RENDER";
     public  static final String link = "link";
     int cacheSize = 20 * 1024 * 1024; // 10 MB
@@ -162,12 +162,12 @@ public class FiverrPost extends AppCompatActivity implements RecentPostAdapter.o
 
             RetrofitArrayAPI retrofitArrayAPI = retrofit. create(RetrofitArrayAPI.class);
 
-            Call<List<WPJavaPost>> call = retrofitArrayAPI.getFiverPost();
+            Call<List<WPPost>> call = retrofitArrayAPI.getFiverPost();
 
 
-            call.enqueue(new Callback<List<WPJavaPost>>() {
+            call.enqueue(new Callback<List<WPPost>>() {
                 @Override
-                public void onResponse(Call<List<WPJavaPost>> call, Response<List<WPJavaPost>> response) {
+                public void onResponse(Call<List<WPPost>> call, Response<List<WPPost>> response) {
 
                     for (int i =0;i<response.body().size(); i++){
 
@@ -202,7 +202,7 @@ public class FiverrPost extends AppCompatActivity implements RecentPostAdapter.o
                 }
 
                 @Override
-                public void onFailure(Call<List<WPJavaPost>> call, Throwable t) {
+                public void onFailure(Call<List<WPPost>> call, Throwable t) {
 
                 }
             });
@@ -245,12 +245,12 @@ public class FiverrPost extends AppCompatActivity implements RecentPostAdapter.o
 
             RetrofitArrayAPI retrofitArrayAPI = retrofit. create(RetrofitArrayAPI.class);
 
-            Call<List<WPJavaPost>> call = retrofitArrayAPI.getFiverPost();
+            Call<List<WPPost>> call = retrofitArrayAPI.getFiverPost();
 
 
-            call.enqueue(new Callback<List<WPJavaPost>>() {
+            call.enqueue(new Callback<List<WPPost>>() {
                 @Override
-                public void onResponse(Call<List<WPJavaPost>> call, Response<List<WPJavaPost>> response) {
+                public void onResponse(Call<List<WPPost>> call, Response<List<WPPost>> response) {
 
                     progressDialog1.dismiss();
                     for (int i =0;i<response.body().size(); i++){
@@ -278,7 +278,7 @@ public class FiverrPost extends AppCompatActivity implements RecentPostAdapter.o
                 }
 
                 @Override
-                public void onFailure(Call<List<WPJavaPost>> call, Throwable t) {
+                public void onFailure(Call<List<WPPost>> call, Throwable t) {
 
                 }
             });

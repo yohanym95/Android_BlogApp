@@ -3,16 +3,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".RecentFragment"
     android:orientation="vertical"
     android:background="?attr/backgroundcolor">
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleView_Recent"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?attr/backgroundcolor"/>
+            android:orientation="vertical">
+                <com.google.android.gms.ads.AdView
+                    android:id="@+id/banneradView"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    ads:adSize="BANNER"
+                    ads:adUnitId="@string/banner_ad_unit_id"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycleView_Recent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/backgroundcolor"/>
+
+        </LinearLayout>
 
 
 

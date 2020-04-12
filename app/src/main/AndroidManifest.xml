@@ -16,7 +16,10 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".CoronaUpdate"></activity>
+        <activity android:name=".SinhalaPython"></activity>
+        <activity android:name=".MLPost" />
+        <activity android:name=".EnglishLifePost" />
+        <activity android:name=".CoronaUpdate" />
         <activity android:name=".FlutterPost" />
         <activity android:name=".XMLPost" />
         <activity android:name=".AndroidPost" />
@@ -71,7 +74,10 @@
 
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+            android:value="@integer/google_play_services_version" /> <!-- ca-app-pub-6817607400530928~1760651534 - test ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-6817607400530928~1760651534" />
 
         <service
             android:name=".Service.MyFirebaseInstantService"
@@ -82,8 +88,8 @@
             </intent-filter>
         </service>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

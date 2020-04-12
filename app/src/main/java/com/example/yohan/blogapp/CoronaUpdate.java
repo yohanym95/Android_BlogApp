@@ -14,8 +14,32 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
+
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.chart.common.dataentry.ValueDataEntry;
+import com.anychart.charts.Cartesian;
+import com.anychart.core.cartesian.series.Column;
+import com.anychart.enums.Anchor;
+import com.anychart.enums.HoverMode;
+import com.anychart.enums.Position;
+import com.anychart.enums.TooltipPositionMode;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,6 +63,15 @@ public class CoronaUpdate extends AppCompatActivity {
     String totalLocalCase,totalLocalDeaths,totalLocalRecovered,totalGlobalCase,totalGlobalDeaths,totalGlobalRecovered,newLocalCase,newGlobalCases,newGlobalDeaths,newLocalDeaths;
     int localDeaths,globalDeaths;
     private Switch simpleSwitch;
+    private DatabaseReference mDatabase;
+    ValueEventListener valueEventListener;
+    //List<DataEntry> data;
+    Cartesian cartesian;
+    Column column;
+    List<DataEntry> datalist;
+    AnyChartView anyChartView;
+    String date;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +99,14 @@ public class CoronaUpdate extends AppCompatActivity {
         textnewDeaths.setVisibility(View.INVISIBLE);
       //  textnewDeaths.setText("New Deaths");
 
+//        anyChartView = findViewById(R.id.columnChart);
+//        anyChartView.setProgressBar(findViewById(R.id.progress_bar));
+
+
+        date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+
+
+
         mToolbar = findViewById(R.id.Coronapost_app_bar);
         // swipeRefreshLayout = findViewById(R.id.angularSwipe);
         setSupportActionBar(mToolbar);
@@ -83,7 +124,10 @@ public class CoronaUpdate extends AppCompatActivity {
 
         simpleSwitch.setTextOn("Local"); // displayed text of the Switch whenever it is in checked or on state
         simpleSwitch.setTextOff("Global");
+       // mDatabase = FirebaseDatabase.getInstance().getReference("CoronaStatics").child("columnChart");
+
 //        progressDialog1.dismiss();
+
 
         simpleSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -170,8 +214,6 @@ public class CoronaUpdate extends AppCompatActivity {
         coronaHospitalRecycleView.setLayoutManager(linearLayoutManager2);
         coronaHospitalRecycleView.setHasFixedSize(true);
 
-        //
-
 
         progressDialog1 = new ProgressDialog(CoronaUpdate.this);
         progressDialog1.setTitle("COVID-19 Live Update");
@@ -180,9 +222,98 @@ public class CoronaUpdate extends AppCompatActivity {
 
         new GetCoronaUpdate().execute();
 
+       // getColumnChart();
 
 
 
+
+    }
+
+    private void getColumnChart(){
+
+
+        //   data = new ArrayList<>();
+       // datalist.clear();
+        InitListner();
+        mDatabase.addValueEventListener(valueEventListener);
+
+    }
+    private void InitListner(){
+       // datalist.clear();
+        datalist = new ArrayList<>();
+        valueEventListener = new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot data : dataSnapshot.getChildren()){
+
+                   String d = data.getKey();
+
+                    assert d != null;
+                    mDatabase.child(d).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for(DataSnapshot data1 : dataSnapshot.getChildren()){
+                                String date2 = data1.getKey();
+                                String value = data1.getValue().toString();
+                                int dateValue1 = Integer.parseInt(value);
+//
+//                                System.out.println(date);
+                                datalist.add(new ValueDataEntry(date2,dateValue1));
+                            //    datalist.add(new ValueDataEntry("date1",111 ));
+                           //     totalHospital.setText(dateValue1+" "+date2);
+
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+
+                }
+
+
+                cartesian = AnyChart.column();
+
+                column = cartesian.column(datalist);
+
+                column.tooltip()
+                        .titleFormat("{%X}")
+                        .position(Position.CENTER_BOTTOM)
+                        .anchor(Anchor.CENTER_BOTTOM)
+                        .offsetX(0d)
+                        .offsetY(5d)
+                        .format("{%Value}{trailingZeros:false}");
+
+                cartesian.animation(true);
+                cartesian.title("Top 10 Cosmetic Products by Revenue");
+
+                cartesian.yScale().minimum(0d);
+
+                cartesian.yAxis(0).labels().format("{%Value}{trailingZeros:false}");
+
+                cartesian.tooltip().positionMode(TooltipPositionMode.POINT);
+                cartesian.interactivity().hoverMode(HoverMode.BY_X);
+
+                cartesian.xAxis(0).title("Product");
+                cartesian.yAxis(0).title("Revenue");
+
+                anyChartView.setChart(cartesian);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+
+            }
+
+        };
     }
 
 
@@ -256,6 +387,23 @@ public class CoronaUpdate extends AppCompatActivity {
                         newDeaths.setText(newLocalDeaths);
 
                     }
+
+                    int total = Integer.parseInt(totalLocalCase);
+//                    mDatabase.child(date).child(date+"3").setValue(total).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<Void> task) {
+//                            if(task.isSuccessful()){
+//
+//
+//                                // progressDialog1.dismiss();
+//                            }else {
+//
+//                                // progressDialog1.dismiss();
+//
+//                            }
+//
+//                        }
+//                    });
 
 
 

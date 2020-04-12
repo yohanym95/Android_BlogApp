@@ -103,6 +103,30 @@
 
 
 
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/crdEnglishForLife"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="fill"
+            android:layout_margin="7dp"
+            card_view:cardBackgroundColor="?attr/cardbackgroundcolor"
+            card_view:cardCornerRadius="20dp"
+            card_view:cardElevation="5dp"
+            card_view:cardUseCompatPadding="false">
+
+            <TextView
+                android:id="@+id/tvEnglishForLife"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="English For Life"
+                android:textColor="?attr/topictextcolor"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
 
 
 

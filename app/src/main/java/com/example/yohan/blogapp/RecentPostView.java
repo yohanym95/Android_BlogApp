@@ -13,6 +13,10 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 public class RecentPostView extends AppCompatActivity {
 
   private WebView recentpostWebView;
@@ -20,6 +24,7 @@ public class RecentPostView extends AppCompatActivity {
   String ShareLink;
   private Toolbar mToolbar;
   sharedPref sharedPreferences;
+  AdView bannerAdView2;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,30 @@ public class RecentPostView extends AppCompatActivity {
     setContentView(R.layout.activity_recent_post_view);
 
     mToolbar = findViewById(R.id.WebViewpost_app_bar);
+    bannerAdView2 = findViewById(R.id.banneradView2);
+
+    AdRequest adRequest = new AdRequest.Builder().build();
+    bannerAdView2.loadAd(adRequest);
+    bannerAdView2.setAdListener(new AdListener(){
+      @Override
+      public void onAdFailedToLoad(int i) {
+        super.onAdFailedToLoad(i);
+        bannerAdView2.setVisibility(View.GONE);
+        // onAdLoaded();
+
+      }
+
+
+
+      @Override
+      public void onAdLoaded() {
+        super.onAdLoaded();
+        bannerAdView2.setVisibility(View.VISIBLE);
+
+      }
+    });
+
+
     // swipeRefreshLayout = findViewById(R.id.angularSwipe);
     setSupportActionBar(mToolbar);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);

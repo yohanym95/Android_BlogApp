@@ -14,8 +14,8 @@ import android.widget.TextView;
 
 public class TutorialFragment extends Fragment {
 
-    private CardView crdJAVA,crdAngular,crdHTML,crdPHP,crdUnity,crdGIT,crdFiverr,crdLaravel,crdReact,crdLara,crdArduino,crdAndroid,crdXML;
-    private TextView crdJAVA1,crdAngular1,crdHTML1,crdPHP1,crdUnity1,crdGIT1,crdFiverr1,crdLaravel1,crdReact1,crdLara1,crdArduino1,crdAndroid1,crdXml1;
+    private CardView crdJAVA,crdAngular,crdHTML,crdPHP,crdUnity,crdGIT,crdFiverr,crdLaravel,crdReact,crdLara,crdArduino,crdAndroid,crdXML,crdPython;
+    private TextView crdJAVA1,crdAngular1,crdHTML1,crdPHP1,crdUnity1,crdGIT1,crdFiverr1,crdLaravel1,crdReact1,crdLara1,crdArduino1,crdAndroid1,crdXml1,crdPython1;
     sharedPref sharedPreferences;
 
 
@@ -44,6 +44,7 @@ public class TutorialFragment extends Fragment {
         crdArduino = v.findViewById(R.id.crdArduino);
         crdAndroid = v.findViewById(R.id.crdAndroid);
         crdXML = v.findViewById(R.id.crdxml);
+        crdPython = v.findViewById(R.id.crdPythonSinhala);
 
 
         crdJAVA1 = v.findViewById(R.id.tvJava);
@@ -59,6 +60,9 @@ public class TutorialFragment extends Fragment {
         crdArduino1 = v.findViewById(R.id.tvArduino);
         crdAndroid1 = v.findViewById(R.id.tvAndroid);
         crdXml1 = v.findViewById(R.id.tvxml);
+        crdPython1 = v.findViewById(R.id.tvPythonSinhala);
+
+
 
 //        GridLayout gridLayout = v.findViewById(R.id.tutorialgrid);
 //        gridLayout.setColumnCount(2);
@@ -188,6 +192,13 @@ public class TutorialFragment extends Fragment {
                 startActivity(i);
             }
         });
+        crdPython.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(),SinhalaPython.class);
+                startActivity(i);
+            }
+        });
 
 
 
@@ -308,6 +319,13 @@ public class TutorialFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getContext(),XMLPost.class);
+                startActivity(i);
+            }
+        });
+        crdPython1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(),SinhalaPython.class);
                 startActivity(i);
             }
         });

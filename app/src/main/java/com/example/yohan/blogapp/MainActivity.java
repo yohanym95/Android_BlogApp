@@ -8,6 +8,10 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
@@ -27,6 +31,9 @@ import android.widget.Adapter;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import java.util.List;
 
@@ -61,6 +68,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mToolbar = findViewById(R.id.main_app_bar);
         mToolbar1 = findViewById(R.id.engmain_app_bar);
 
+//        setSupportActionBar(mToolbar);
+//        getSupportActionBar().setTitle("ReadHub");
+//        getSupportActionBar().setDisplayShowCustomEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent intent = new Intent();
 
         String manufacturer = android.os.Build.MANUFACTURER;
@@ -97,7 +108,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         selectLanguage1(boolAdap);
 
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(MainActivity.this,new OnSuccessListener<InstanceIdResult>() {
+            @Override
+            public void onSuccess(InstanceIdResult instanceIdResult) {
+                String newToken = instanceIdResult.getToken();
+               FirebaseDatabase.getInstance().getReference("fcm-token").child(newToken).child("token").setValue(newToken).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
 
+
+                           // progressDialog1.dismiss();
+                        }else {
+
+                           // progressDialog1.dismiss();
+
+                        }
+
+                    }
+                });
+            }
+        });
 
 
     }
@@ -106,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void selectLanguage1(boolean bool){
         if(bool){
-            setSupportActionBar(mToolbar1);
+            setSupportActionBar(mToolbar);
             getSupportActionBar().setTitle("ReadHub");
             getSupportActionBar().setDisplayShowCustomEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -129,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             mAuth = FirebaseAuth.getInstance();
 
-            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,mToolbar1,
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,mToolbar,
                     R.string.navigation_drawer_open,R.string.navigation_drawer_close);
 
             drawerLayout.addDrawerListener(toggle);
@@ -137,12 +168,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             manager = this.getSupportFragmentManager();
             manager.beginTransaction()
-                    .show(manager.findFragmentById(R.id.frageng))
-                    .hide(manager.findFragmentById(R.id.fragsinhala))
+                    .show(manager.findFragmentById(R.id.fragsinhala))
+                    .hide(manager.findFragmentById(R.id.frageng))
                     .commit();
         }else{
 
-            setSupportActionBar(mToolbar);
+            setSupportActionBar(mToolbar1);
             getSupportActionBar().setTitle("ReadHub");
             getSupportActionBar().setDisplayShowCustomEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -161,7 +192,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             mAuth = FirebaseAuth.getInstance();
 
-            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,mToolbar,
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,mToolbar1,
                     R.string.navigation_drawer_open,R.string.navigation_drawer_close);
 
             drawerLayout.addDrawerListener(toggle);
@@ -169,8 +200,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             manager = this.getSupportFragmentManager();
             manager.beginTransaction()
-                    .show(manager.findFragmentById(R.id.fragsinhala))
-                    .hide(manager.findFragmentById(R.id.frageng))
+                    .show(manager.findFragmentById(R.id.frageng))
+                    .hide(manager.findFragmentById(R.id.fragsinhala))
                     .commit();
         }
 
@@ -258,11 +289,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()){
             case R.id.nav_english:
-                selectLanguage1(true);
+                selectLanguage1(false);
                // throw new RuntimeException("Test Crash");
                 break;
             case R.id.nav_sinhala:
-                selectLanguage1(false);
+                selectLanguage1(true);
                 break;
             case R.id.nav_Mode :
                 //menuItem.setTitle("Light Mode");

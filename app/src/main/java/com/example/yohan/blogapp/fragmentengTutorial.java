@@ -13,8 +13,8 @@ import android.widget.TextView;
 
 
 public class fragmentengTutorial extends Fragment {
-    private CardView crdKotlin,crdNetworking,crdPython,crdCloud,crdGit,crdJavascript,crdFlutter;
-    private TextView crdKotlin1,crdNetworking1,crdPython1,crdCloud1,crdGit1,crdJavascript1,crdFlutter1;
+    private CardView crdKotlin,crdNetworking,crdPython,crdCloud,crdGit,crdJavascript,crdFlutter,crdML;
+    private TextView crdKotlin1,crdNetworking1,crdPython1,crdCloud1,crdGit1,crdJavascript1,crdFlutter1,crdML1;
 
 
     @Nullable
@@ -30,6 +30,7 @@ public class fragmentengTutorial extends Fragment {
         crdGit = v.findViewById(R.id.crdGit1);
         crdJavascript = v.findViewById(R.id.crdcrdJavascript);
         crdFlutter = v.findViewById(R.id.crdFlutter);
+        crdML = v.findViewById(R.id.crdML);
 
 
         crdKotlin1 = v.findViewById(R.id.tvKotlin);
@@ -39,6 +40,7 @@ public class fragmentengTutorial extends Fragment {
         crdGit1 = v.findViewById(R.id.tvGit1);
         crdJavascript1 = v.findViewById(R.id.tvJavaScript);
         crdFlutter1 = v.findViewById(R.id.tvFlutter);
+        crdML1 = v.findViewById(R.id.tvML);
 
         crdKotlin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +98,14 @@ public class fragmentengTutorial extends Fragment {
             public void onClick(View v) {
                 Intent i = new Intent(getContext(),FlutterPost.class);
                 startActivity(i);
+            }
+        });
+        crdML.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(),MLPost.class);
+                startActivity(i);
+
             }
         });
 
@@ -158,6 +168,13 @@ public class fragmentengTutorial extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getContext(),FlutterPost.class);
+                startActivity(i);
+            }
+        });
+        crdML1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(),MLPost.class);
                 startActivity(i);
             }
         });

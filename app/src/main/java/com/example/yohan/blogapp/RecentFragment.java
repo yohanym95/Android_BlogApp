@@ -18,6 +18,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -48,6 +51,7 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
    // private SwipeRefreshLayout swipeRefreshLayout;
    // private ProgressBar progressBar;
     private LinearLayoutManager linearLayoutManager;
+    AdView bannerView;
     ProgressDialog progressDialog1;
     View view;
     Context context;
@@ -55,7 +59,7 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
     private ArrayList<RecentModel> list;
     private RecentPostAdapter adapter;
     // Stupublic String render;
-    private String baseURL = "https://readhub.lk/wp-json/wp/v2/";
+    private String baseURL = "https://sinhala.readhub.lk/wp-json/wp/v2/";
             //"https://readhub.lk/wp-json/wp/v2/";
 
     public static final String RENDER_CONTENT = "render";
@@ -106,6 +110,30 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
         mAuth = FirebaseAuth.getInstance();
 
         String userId = mAuth.getUid();
+
+        bannerView = view.findViewById(R.id.banneradView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+      //  if(adRequest.)
+        bannerView.loadAd(adRequest);
+
+        bannerView.setAdListener(new AdListener(){
+            @Override
+            public void onAdFailedToLoad(int i) {
+                super.onAdFailedToLoad(i);
+                bannerView.setVisibility(View.GONE);
+               // onAdLoaded();
+
+            }
+
+
+
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+                bannerView.setVisibility(View.VISIBLE);
+
+            }
+        });
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Articles").child(userId).child("Recent Articles");
        // mDatabase.removeValue();
@@ -244,7 +272,7 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
 
                         Model model = new Model( titile,
                                 temdetails,
-                                response.body().get(i).getEmbedded().getWpFeaturedmedia().get(0).getMediaDetails().getSizes().getThumbnail().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName(),response.body().get(i).getLink());
+                                response.body().get(i).getEmbedded().getWpFeaturedmedia().get(0).getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName(),response.body().get(i).getLink());
                         progressDialog1.dismiss();
                         mDatabase.push().setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
@@ -335,7 +363,8 @@ public class RecentFragment extends Fragment implements RecentPostAdapter.onItem
 
                         list.add(new RecentModel( titile,
                                 temdetails,
-                                response.body().get(i).getEmbedded().getWpFeaturedmedia().get(0).getMediaDetails().getSizes().getThumbnail().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName(),response.body().get(i).getLink()));
+                                response.body().get(i).getEmbedded().getWpFeaturedmedia().get(0).getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName(),response.body().get(i).getLink()));
+
                     }
 
                     adapter.notifyDataSetChanged();

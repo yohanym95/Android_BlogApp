@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+
 public class WPPost {
 
     @SerializedName("id")
@@ -67,7 +68,6 @@ public class WPPost {
     @SerializedName("format")
     @Expose
     private String format;
-    //
     @SerializedName("meta")
     @Expose
     private List<Object> meta = null;
@@ -77,9 +77,6 @@ public class WPPost {
     @SerializedName("tags")
     @Expose
     private List<Integer> tags = null;
-    @SerializedName("better_featured_image")
-    @Expose
-    private BetterFeaturedImage betterFeaturedImage;
     @SerializedName("_links")
     @Expose
     private Links links;
@@ -246,7 +243,7 @@ public class WPPost {
     public void setFormat(String format) {
         this.format = format;
     }
-//
+
     public List<Object> getMeta() {
         return meta;
     }
@@ -271,14 +268,6 @@ public class WPPost {
         this.tags = tags;
     }
 
-    public BetterFeaturedImage getBetterFeaturedImage() {
-        return betterFeaturedImage;
-    }
-
-    public void setBetterFeaturedImage(BetterFeaturedImage betterFeaturedImage) {
-        this.betterFeaturedImage = betterFeaturedImage;
-    }
-
     public Links getLinks() {
         return links;
     }
@@ -295,6 +284,43 @@ public class WPPost {
         this.embedded = embedded;
     }
 
+    public class Embedded {
+
+        @SerializedName("author")
+        @Expose
+        private List<Author_> author = null;
+        @SerializedName("wp:featuredmedia")
+        @Expose
+        private List<WpFeaturedmedium_> wpFeaturedmedia = null;
+        @SerializedName("wp:term")
+        @Expose
+        private List<List<WpTerm_>> wpTerm = null;
+
+        public List<Author_> getAuthor() {
+            return author;
+        }
+
+        public void setAuthor(List<Author_> author) {
+            this.author = author;
+        }
+
+        public List<WpFeaturedmedium_> getWpFeaturedmedia() {
+            return wpFeaturedmedia;
+        }
+
+        public void setWpFeaturedmedia(List<WpFeaturedmedium_> wpFeaturedmedia) {
+            this.wpFeaturedmedia = wpFeaturedmedia;
+        }
+
+        public List<List<WpTerm_>> getWpTerm() {
+            return wpTerm;
+        }
+
+        public void setWpTerm(List<List<WpTerm_>> wpTerm) {
+            this.wpTerm = wpTerm;
+        }
+
+    }
 
     public class About {
 
@@ -328,6 +354,7 @@ public class WPPost {
         }
 
     }
+
 
     public class About__ {
 
@@ -495,7 +522,6 @@ public class WPPost {
 
     }
 
-
     public class AvatarUrls {
 
         @SerializedName("24")
@@ -530,100 +556,6 @@ public class WPPost {
 
         public void set96(String _96) {
             this._96 = _96;
-        }
-
-    }
-
-
-    public class BetterFeaturedImage {
-
-        @SerializedName("id")
-        @Expose
-        private Integer id;
-        @SerializedName("alt_text")
-        @Expose
-        private String altText;
-        @SerializedName("caption")
-        @Expose
-        private String caption;
-        @SerializedName("description")
-        @Expose
-        private String description;
-        @SerializedName("media_type")
-        @Expose
-        private String mediaType;
-        @SerializedName("media_details")
-        @Expose
-        private MediaDetails mediaDetails;
-        @SerializedName("post")
-        @Expose
-        private Integer post;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public Integer getId() {
-            return id;
-        }
-
-        public void setId(Integer id) {
-            this.id = id;
-        }
-
-        public String getAltText() {
-            return altText;
-        }
-
-        public void setAltText(String altText) {
-            this.altText = altText;
-        }
-
-        public String getCaption() {
-            return caption;
-        }
-
-        public void setCaption(String caption) {
-            this.caption = caption;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
-
-        public String getMediaType() {
-            return mediaType;
-        }
-
-        public void setMediaType(String mediaType) {
-            this.mediaType = mediaType;
-        }
-
-        public MediaDetails getMediaDetails() {
-            return mediaDetails;
-        }
-
-        public void setMediaDetails(MediaDetails mediaDetails) {
-            this.mediaDetails = mediaDetails;
-        }
-
-        public Integer getPost() {
-            return post;
-        }
-
-        public void setPost(Integer post) {
-            this.post = post;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
         }
 
     }
@@ -780,7 +712,6 @@ public class WPPost {
 
     }
 
-
     public class Cury_ {
 
         @SerializedName("name")
@@ -818,47 +749,6 @@ public class WPPost {
         }
 
     }
-
-
-    public class Embedded {
-
-        @SerializedName("author")
-        @Expose
-        private List<Author_> author = null;
-        @SerializedName("wp:featuredmedia")
-        @Expose
-        private List<WpFeaturedmedium_> wpFeaturedmedia = null;
-        @SerializedName("wp:term")
-        @Expose
-        private List<List<WpTerm_>> wpTerm = null;
-
-        public List<Author_> getAuthor() {
-            return author;
-        }
-
-        public void setAuthor(List<Author_> author) {
-            this.author = author;
-        }
-
-        public List<WpFeaturedmedium_> getWpFeaturedmedia() {
-            return wpFeaturedmedia;
-        }
-
-        public void setWpFeaturedmedia(List<WpFeaturedmedium_> wpFeaturedmedia) {
-            this.wpFeaturedmedia = wpFeaturedmedia;
-        }
-
-        public List<List<WpTerm_>> getWpTerm() {
-            return wpTerm;
-        }
-
-        public void setWpTerm(List<List<WpTerm_>> wpTerm) {
-            this.wpTerm = wpTerm;
-        }
-
-    }
-
-
 
     public class Excerpt {
 
@@ -948,6 +838,7 @@ public class WPPost {
 
     }
 
+
     public class Guid {
 
         @SerializedName("rendered")
@@ -963,6 +854,7 @@ public class WPPost {
         }
 
     }
+
 
     public class ImageMeta {
 
@@ -1101,265 +993,6 @@ public class WPPost {
 
     }
 
-
-    public class ImageMeta_ {
-
-        @SerializedName("aperture")
-        @Expose
-        private String aperture;
-        @SerializedName("credit")
-        @Expose
-        private String credit;
-        @SerializedName("camera")
-        @Expose
-        private String camera;
-        @SerializedName("caption")
-        @Expose
-        private String caption;
-        @SerializedName("created_timestamp")
-        @Expose
-        private String createdTimestamp;
-        @SerializedName("copyright")
-        @Expose
-        private String copyright;
-        @SerializedName("focal_length")
-        @Expose
-        private String focalLength;
-        @SerializedName("iso")
-        @Expose
-        private String iso;
-        @SerializedName("shutter_speed")
-        @Expose
-        private String shutterSpeed;
-        @SerializedName("title")
-        @Expose
-        private String title;
-        @SerializedName("orientation")
-        @Expose
-        private String orientation;
-        @SerializedName("keywords")
-        @Expose
-        private List<Object> keywords = null;
-
-        public String getAperture() {
-            return aperture;
-        }
-
-        public void setAperture(String aperture) {
-            this.aperture = aperture;
-        }
-
-        public String getCredit() {
-            return credit;
-        }
-
-        public void setCredit(String credit) {
-            this.credit = credit;
-        }
-
-        public String getCamera() {
-            return camera;
-        }
-
-        public void setCamera(String camera) {
-            this.camera = camera;
-        }
-
-        public String getCaption() {
-            return caption;
-        }
-
-        public void setCaption(String caption) {
-            this.caption = caption;
-        }
-
-        public String getCreatedTimestamp() {
-            return createdTimestamp;
-        }
-
-        public void setCreatedTimestamp(String createdTimestamp) {
-            this.createdTimestamp = createdTimestamp;
-        }
-
-        public String getCopyright() {
-            return copyright;
-        }
-
-        public void setCopyright(String copyright) {
-            this.copyright = copyright;
-        }
-
-        public String getFocalLength() {
-            return focalLength;
-        }
-
-        public void setFocalLength(String focalLength) {
-            this.focalLength = focalLength;
-        }
-
-        public String getIso() {
-            return iso;
-        }
-
-        public void setIso(String iso) {
-            this.iso = iso;
-        }
-
-        public String getShutterSpeed() {
-            return shutterSpeed;
-        }
-
-        public void setShutterSpeed(String shutterSpeed) {
-            this.shutterSpeed = shutterSpeed;
-        }
-
-        public String getTitle() {
-            return title;
-        }
-
-        public void setTitle(String title) {
-            this.title = title;
-        }
-
-        public String getOrientation() {
-            return orientation;
-        }
-
-        public void setOrientation(String orientation) {
-            this.orientation = orientation;
-        }
-
-        public List<Object> getKeywords() {
-            return keywords;
-        }
-
-        public void setKeywords(List<Object> keywords) {
-            this.keywords = keywords;
-        }
-
-    }
-
-
-    public class Large {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class Large_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime_type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
 
     public class Links {
 
@@ -1594,9 +1227,6 @@ public class WPPost {
         @SerializedName("curies")
         @Expose
         private List<Cury_> curies = null;
-        @SerializedName("up")
-        @Expose
-        private List<Up> up = null;
 
         public List<Self___> getSelf() {
             return self;
@@ -1636,14 +1266,6 @@ public class WPPost {
 
         public void setCuries(List<Cury_> curies) {
             this.curies = curies;
-        }
-
-        public List<Up> getUp() {
-            return up;
-        }
-
-        public void setUp(List<Up> up) {
-            this.up = up;
         }
 
     }
@@ -1710,67 +1332,6 @@ public class WPPost {
     }
 
 
-    public class MediaDetails_ {
-
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("sizes")
-        @Expose
-        private Sizes_ sizes;
-        @SerializedName("image_meta")
-        @Expose
-        private ImageMeta_ imageMeta;
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Sizes_ getSizes() {
-            return sizes;
-        }
-
-        public void setSizes(Sizes_ sizes) {
-            this.sizes = sizes;
-        }
-
-        public ImageMeta_ getImageMeta() {
-            return imageMeta;
-        }
-
-        public void setImageMeta(ImageMeta_ imageMeta) {
-            this.imageMeta = imageMeta;
-        }
-
-    }
-
-
     public class Medium {
 
         @SerializedName("file")
@@ -1782,128 +1343,6 @@ public class WPPost {
         @SerializedName("height")
         @Expose
         private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class MediumLarge {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class MediumLarge_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
         @SerializedName("mime_type")
         @Expose
         private String mimeType;
@@ -1952,68 +1391,6 @@ public class WPPost {
         }
 
     }
-
-
-    public class Medium_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime_type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
 
     public class PredecessorVersion {
 
@@ -2132,6 +1509,7 @@ public class WPPost {
 
     }
 
+
     public class Self__ {
 
         @SerializedName("href")
@@ -2168,80 +1546,54 @@ public class WPPost {
 
     public class Sizes {
 
-        @SerializedName("thumbnail")
-        @Expose
-        private Thumbnail thumbnail;
         @SerializedName("medium")
         @Expose
         private Medium medium;
-        @SerializedName("medium_large")
+        @SerializedName("thumbnail")
         @Expose
-        private MediumLarge mediumLarge;
-        @SerializedName("large")
+        private Thumbnail thumbnail;
+        @SerializedName("td_218x150")
         @Expose
-        private Large large;
-        @SerializedName("vmagazine-rectangle-thumb")
+        private Td218x150 td218x150;
+        @SerializedName("td_324x400")
         @Expose
-        private VmagazineRectangleThumb vmagazineRectangleThumb;
-        @SerializedName("vmagazine-small-thumb")
+        private Td324x400 td324x400;
+        @SerializedName("td_485x360")
         @Expose
-        private VmagazineSmallThumb vmagazineSmallThumb;
-        @SerializedName("vmagazine-large-category")
+        private Td485x360 td485x360;
+        @SerializedName("td_80x60")
         @Expose
-        private VmagazineLargeCategory vmagazineLargeCategory;
-        @SerializedName("vmagazine-single-third")
+        private Td80x60 td80x60;
+        @SerializedName("td_100x70")
         @Expose
-        private VmagazineSingleThird vmagazineSingleThird;
-        @SerializedName("vmagazine-long-thumb")
+        private Td100x70 td100x70;
+        @SerializedName("td_265x198")
         @Expose
-        private VmagazineLongThumb vmagazineLongThumb;
-        @SerializedName("vmagazine-small-square-thumb")
+        private Td265x198 td265x198;
+        @SerializedName("td_324x160")
         @Expose
-        private VmagazineSmallSquareThumb vmagazineSmallSquareThumb;
-        @SerializedName("vmagazine-large-square-thumb")
+        private Td324x160 td324x160;
+        @SerializedName("td_324x235")
         @Expose
-        private VmagazineLargeSquareThumb vmagazineLargeSquareThumb;
-        @SerializedName("vmagazine-large-square-middle")
+        private Td324x235 td324x235;
+        @SerializedName("td_356x220")
         @Expose
-        private VmagazineLargeSquareMiddle vmagazineLargeSquareMiddle;
-        @SerializedName("vmagazine-long-post-thumb")
+        private Td356x220 td356x220;
+        @SerializedName("td_356x364")
         @Expose
-        private VmagazineLongPostThumb vmagazineLongPostThumb;
-        @SerializedName("vmagazine-rect-post-thumb")
+        private Td356x364 td356x364;
+        @SerializedName("td_533x261")
         @Expose
-        private VmagazineRectPostThumb vmagazineRectPostThumb;
-        @SerializedName("vmagazine-slider-thumb")
+        private Td533x261 td533x261;
+        @SerializedName("td_534x462")
         @Expose
-        private VmagazineSliderThumb vmagazineSliderThumb;
-        @SerializedName("vmagazine-ftr-slider-thumb")
+        private Td534x462 td534x462;
+        @SerializedName("td_696x385")
         @Expose
-        private VmagazineFtrSliderThumb vmagazineFtrSliderThumb;
-        @SerializedName("vmagazine-vertical-slider-thumb")
+        private Td696x385 td696x385;
+        @SerializedName("full")
         @Expose
-        private VmagazineVerticalSliderThumb vmagazineVerticalSliderThumb;
-        @SerializedName("vmagazine-rect-post-carousel")
-        @Expose
-        private VmagazineRectPostCarousel vmagazineRectPostCarousel;
-        @SerializedName("vmagazine-post-slider-lg")
-        @Expose
-        private VmagazinePostSliderLg vmagazinePostSliderLg;
-        @SerializedName("vmagazine-cat-post-sm")
-        @Expose
-        private VmagazineCatPostSm vmagazineCatPostSm;
-        @SerializedName("team-thumb")
-        @Expose
-        private TeamThumb teamThumb;
-        @SerializedName("sow-carousel-default")
-        @Expose
-        private SowCarouselDefault sowCarouselDefault;
-
-        public Thumbnail getThumbnail() {
-            return thumbnail;
-        }
-
-        public void setThumbnail(Thumbnail thumbnail) {
-            this.thumbnail = thumbnail;
-        }
+        private Full full;
 
         public Medium getMedium() {
             return medium;
@@ -2251,414 +1603,116 @@ public class WPPost {
             this.medium = medium;
         }
 
-        public MediumLarge getMediumLarge() {
-            return mediumLarge;
-        }
-
-        public void setMediumLarge(MediumLarge mediumLarge) {
-            this.mediumLarge = mediumLarge;
-        }
-
-        public Large getLarge() {
-            return large;
-        }
-
-        public void setLarge(Large large) {
-            this.large = large;
-        }
-
-        public VmagazineRectangleThumb getVmagazineRectangleThumb() {
-            return vmagazineRectangleThumb;
-        }
-
-        public void setVmagazineRectangleThumb(VmagazineRectangleThumb vmagazineRectangleThumb) {
-            this.vmagazineRectangleThumb = vmagazineRectangleThumb;
-        }
-
-        public VmagazineSmallThumb getVmagazineSmallThumb() {
-            return vmagazineSmallThumb;
-        }
-
-        public void setVmagazineSmallThumb(VmagazineSmallThumb vmagazineSmallThumb) {
-            this.vmagazineSmallThumb = vmagazineSmallThumb;
-        }
-
-        public VmagazineLargeCategory getVmagazineLargeCategory() {
-            return vmagazineLargeCategory;
-        }
-
-        public void setVmagazineLargeCategory(VmagazineLargeCategory vmagazineLargeCategory) {
-            this.vmagazineLargeCategory = vmagazineLargeCategory;
-        }
-
-        public VmagazineSingleThird getVmagazineSingleThird() {
-            return vmagazineSingleThird;
-        }
-
-        public void setVmagazineSingleThird(VmagazineSingleThird vmagazineSingleThird) {
-            this.vmagazineSingleThird = vmagazineSingleThird;
-        }
-
-        public VmagazineLongThumb getVmagazineLongThumb() {
-            return vmagazineLongThumb;
-        }
-
-        public void setVmagazineLongThumb(VmagazineLongThumb vmagazineLongThumb) {
-            this.vmagazineLongThumb = vmagazineLongThumb;
-        }
-
-        public VmagazineSmallSquareThumb getVmagazineSmallSquareThumb() {
-            return vmagazineSmallSquareThumb;
-        }
-
-        public void setVmagazineSmallSquareThumb(VmagazineSmallSquareThumb vmagazineSmallSquareThumb) {
-            this.vmagazineSmallSquareThumb = vmagazineSmallSquareThumb;
-        }
-
-        public VmagazineLargeSquareThumb getVmagazineLargeSquareThumb() {
-            return vmagazineLargeSquareThumb;
-        }
-
-        public void setVmagazineLargeSquareThumb(VmagazineLargeSquareThumb vmagazineLargeSquareThumb) {
-            this.vmagazineLargeSquareThumb = vmagazineLargeSquareThumb;
-        }
-
-        public VmagazineLargeSquareMiddle getVmagazineLargeSquareMiddle() {
-            return vmagazineLargeSquareMiddle;
-        }
-
-        public void setVmagazineLargeSquareMiddle(VmagazineLargeSquareMiddle vmagazineLargeSquareMiddle) {
-            this.vmagazineLargeSquareMiddle = vmagazineLargeSquareMiddle;
-        }
-
-        public VmagazineLongPostThumb getVmagazineLongPostThumb() {
-            return vmagazineLongPostThumb;
-        }
-
-        public void setVmagazineLongPostThumb(VmagazineLongPostThumb vmagazineLongPostThumb) {
-            this.vmagazineLongPostThumb = vmagazineLongPostThumb;
-        }
-
-        public VmagazineRectPostThumb getVmagazineRectPostThumb() {
-            return vmagazineRectPostThumb;
-        }
-
-        public void setVmagazineRectPostThumb(VmagazineRectPostThumb vmagazineRectPostThumb) {
-            this.vmagazineRectPostThumb = vmagazineRectPostThumb;
-        }
-
-        public VmagazineSliderThumb getVmagazineSliderThumb() {
-            return vmagazineSliderThumb;
-        }
-
-        public void setVmagazineSliderThumb(VmagazineSliderThumb vmagazineSliderThumb) {
-            this.vmagazineSliderThumb = vmagazineSliderThumb;
-        }
-
-        public VmagazineFtrSliderThumb getVmagazineFtrSliderThumb() {
-            return vmagazineFtrSliderThumb;
-        }
-
-        public void setVmagazineFtrSliderThumb(VmagazineFtrSliderThumb vmagazineFtrSliderThumb) {
-            this.vmagazineFtrSliderThumb = vmagazineFtrSliderThumb;
-        }
-
-        public VmagazineVerticalSliderThumb getVmagazineVerticalSliderThumb() {
-            return vmagazineVerticalSliderThumb;
-        }
-
-        public void setVmagazineVerticalSliderThumb(VmagazineVerticalSliderThumb vmagazineVerticalSliderThumb) {
-            this.vmagazineVerticalSliderThumb = vmagazineVerticalSliderThumb;
-        }
-
-        public VmagazineRectPostCarousel getVmagazineRectPostCarousel() {
-            return vmagazineRectPostCarousel;
-        }
-
-        public void setVmagazineRectPostCarousel(VmagazineRectPostCarousel vmagazineRectPostCarousel) {
-            this.vmagazineRectPostCarousel = vmagazineRectPostCarousel;
-        }
-
-        public VmagazinePostSliderLg getVmagazinePostSliderLg() {
-            return vmagazinePostSliderLg;
-        }
-
-        public void setVmagazinePostSliderLg(VmagazinePostSliderLg vmagazinePostSliderLg) {
-            this.vmagazinePostSliderLg = vmagazinePostSliderLg;
-        }
-
-        public VmagazineCatPostSm getVmagazineCatPostSm() {
-            return vmagazineCatPostSm;
-        }
-
-        public void setVmagazineCatPostSm(VmagazineCatPostSm vmagazineCatPostSm) {
-            this.vmagazineCatPostSm = vmagazineCatPostSm;
-        }
-
-        public TeamThumb getTeamThumb() {
-            return teamThumb;
-        }
-
-        public void setTeamThumb(TeamThumb teamThumb) {
-            this.teamThumb = teamThumb;
-        }
-
-        public SowCarouselDefault getSowCarouselDefault() {
-            return sowCarouselDefault;
-        }
-
-        public void setSowCarouselDefault(SowCarouselDefault sowCarouselDefault) {
-            this.sowCarouselDefault = sowCarouselDefault;
-        }
-
-    }
-
-    public class Sizes_ {
-
-        @SerializedName("thumbnail")
-        @Expose
-        private Thumbnail_ thumbnail;
-        @SerializedName("medium")
-        @Expose
-        private Medium_ medium;
-        @SerializedName("medium_large")
-        @Expose
-        private MediumLarge_ mediumLarge;
-        @SerializedName("large")
-        @Expose
-        private Large_ large;
-        @SerializedName("vmagazine-rectangle-thumb")
-        @Expose
-        private VmagazineRectangleThumb_ vmagazineRectangleThumb;
-        @SerializedName("vmagazine-small-thumb")
-        @Expose
-        private VmagazineSmallThumb_ vmagazineSmallThumb;
-        @SerializedName("vmagazine-large-category")
-        @Expose
-        private VmagazineLargeCategory_ vmagazineLargeCategory;
-        @SerializedName("vmagazine-single-third")
-        @Expose
-        private VmagazineSingleThird_ vmagazineSingleThird;
-        @SerializedName("vmagazine-long-thumb")
-        @Expose
-        private VmagazineLongThumb_ vmagazineLongThumb;
-        @SerializedName("vmagazine-small-square-thumb")
-        @Expose
-        private VmagazineSmallSquareThumb_ vmagazineSmallSquareThumb;
-        @SerializedName("vmagazine-large-square-thumb")
-        @Expose
-        private VmagazineLargeSquareThumb_ vmagazineLargeSquareThumb;
-        @SerializedName("vmagazine-large-square-middle")
-        @Expose
-        private VmagazineLargeSquareMiddle_ vmagazineLargeSquareMiddle;
-        @SerializedName("vmagazine-long-post-thumb")
-        @Expose
-        private VmagazineLongPostThumb_ vmagazineLongPostThumb;
-        @SerializedName("vmagazine-rect-post-thumb")
-        @Expose
-        private VmagazineRectPostThumb_ vmagazineRectPostThumb;
-        @SerializedName("vmagazine-slider-thumb")
-        @Expose
-        private VmagazineSliderThumb_ vmagazineSliderThumb;
-        @SerializedName("vmagazine-ftr-slider-thumb")
-        @Expose
-        private VmagazineFtrSliderThumb_ vmagazineFtrSliderThumb;
-        @SerializedName("vmagazine-vertical-slider-thumb")
-        @Expose
-        private VmagazineVerticalSliderThumb_ vmagazineVerticalSliderThumb;
-        @SerializedName("vmagazine-rect-post-carousel")
-        @Expose
-        private VmagazineRectPostCarousel_ vmagazineRectPostCarousel;
-        @SerializedName("vmagazine-post-slider-lg")
-        @Expose
-        private VmagazinePostSliderLg_ vmagazinePostSliderLg;
-        @SerializedName("vmagazine-cat-post-sm")
-        @Expose
-        private VmagazineCatPostSm_ vmagazineCatPostSm;
-        @SerializedName("team-thumb")
-        @Expose
-        private TeamThumb_ teamThumb;
-        @SerializedName("sow-carousel-default")
-        @Expose
-        private SowCarouselDefault_ sowCarouselDefault;
-        @SerializedName("full")
-        @Expose
-        private Full full;
-
-        public Thumbnail_ getThumbnail() {
+        public Thumbnail getThumbnail() {
             return thumbnail;
         }
 
-        public void setThumbnail(Thumbnail_ thumbnail) {
+        public void setThumbnail(Thumbnail thumbnail) {
             this.thumbnail = thumbnail;
         }
 
-        public Medium_ getMedium() {
-            return medium;
+        public Td218x150 getTd218x150() {
+            return td218x150;
         }
 
-        public void setMedium(Medium_ medium) {
-            this.medium = medium;
+        public void setTd218x150(Td218x150 td218x150) {
+            this.td218x150 = td218x150;
         }
 
-        public MediumLarge_ getMediumLarge() {
-            return mediumLarge;
+        public Td324x400 getTd324x400() {
+            return td324x400;
         }
 
-        public void setMediumLarge(MediumLarge_ mediumLarge) {
-            this.mediumLarge = mediumLarge;
+        public void setTd324x400(Td324x400 td324x400) {
+            this.td324x400 = td324x400;
         }
 
-        public Large_ getLarge() {
-            return large;
+        public Td485x360 getTd485x360() {
+            return td485x360;
         }
 
-        public void setLarge(Large_ large) {
-            this.large = large;
+        public void setTd485x360(Td485x360 td485x360) {
+            this.td485x360 = td485x360;
         }
 
-        public VmagazineRectangleThumb_ getVmagazineRectangleThumb() {
-            return vmagazineRectangleThumb;
+        public Td80x60 getTd80x60() {
+            return td80x60;
         }
 
-        public void setVmagazineRectangleThumb(VmagazineRectangleThumb_ vmagazineRectangleThumb) {
-            this.vmagazineRectangleThumb = vmagazineRectangleThumb;
+        public void setTd80x60(Td80x60 td80x60) {
+            this.td80x60 = td80x60;
         }
 
-        public VmagazineSmallThumb_ getVmagazineSmallThumb() {
-            return vmagazineSmallThumb;
+        public Td100x70 getTd100x70() {
+            return td100x70;
         }
 
-        public void setVmagazineSmallThumb(VmagazineSmallThumb_ vmagazineSmallThumb) {
-            this.vmagazineSmallThumb = vmagazineSmallThumb;
+        public void setTd100x70(Td100x70 td100x70) {
+            this.td100x70 = td100x70;
         }
 
-        public VmagazineLargeCategory_ getVmagazineLargeCategory() {
-            return vmagazineLargeCategory;
+        public Td265x198 getTd265x198() {
+            return td265x198;
         }
 
-        public void setVmagazineLargeCategory(VmagazineLargeCategory_ vmagazineLargeCategory) {
-            this.vmagazineLargeCategory = vmagazineLargeCategory;
+        public void setTd265x198(Td265x198 td265x198) {
+            this.td265x198 = td265x198;
         }
 
-        public VmagazineSingleThird_ getVmagazineSingleThird() {
-            return vmagazineSingleThird;
+        public Td324x160 getTd324x160() {
+            return td324x160;
         }
 
-        public void setVmagazineSingleThird(VmagazineSingleThird_ vmagazineSingleThird) {
-            this.vmagazineSingleThird = vmagazineSingleThird;
+        public void setTd324x160(Td324x160 td324x160) {
+            this.td324x160 = td324x160;
         }
 
-        public VmagazineLongThumb_ getVmagazineLongThumb() {
-            return vmagazineLongThumb;
+        public Td324x235 getTd324x235() {
+            return td324x235;
         }
 
-        public void setVmagazineLongThumb(VmagazineLongThumb_ vmagazineLongThumb) {
-            this.vmagazineLongThumb = vmagazineLongThumb;
+        public void setTd324x235(Td324x235 td324x235) {
+            this.td324x235 = td324x235;
         }
 
-        public VmagazineSmallSquareThumb_ getVmagazineSmallSquareThumb() {
-            return vmagazineSmallSquareThumb;
+        public Td356x220 getTd356x220() {
+            return td356x220;
         }
 
-        public void setVmagazineSmallSquareThumb(VmagazineSmallSquareThumb_ vmagazineSmallSquareThumb) {
-            this.vmagazineSmallSquareThumb = vmagazineSmallSquareThumb;
+        public void setTd356x220(Td356x220 td356x220) {
+            this.td356x220 = td356x220;
         }
 
-        public VmagazineLargeSquareThumb_ getVmagazineLargeSquareThumb() {
-            return vmagazineLargeSquareThumb;
+        public Td356x364 getTd356x364() {
+            return td356x364;
         }
 
-        public void setVmagazineLargeSquareThumb(VmagazineLargeSquareThumb_ vmagazineLargeSquareThumb) {
-            this.vmagazineLargeSquareThumb = vmagazineLargeSquareThumb;
+        public void setTd356x364(Td356x364 td356x364) {
+            this.td356x364 = td356x364;
         }
 
-        public VmagazineLargeSquareMiddle_ getVmagazineLargeSquareMiddle() {
-            return vmagazineLargeSquareMiddle;
+        public Td533x261 getTd533x261() {
+            return td533x261;
         }
 
-        public void setVmagazineLargeSquareMiddle(VmagazineLargeSquareMiddle_ vmagazineLargeSquareMiddle) {
-            this.vmagazineLargeSquareMiddle = vmagazineLargeSquareMiddle;
+        public void setTd533x261(Td533x261 td533x261) {
+            this.td533x261 = td533x261;
         }
 
-        public VmagazineLongPostThumb_ getVmagazineLongPostThumb() {
-            return vmagazineLongPostThumb;
+        public Td534x462 getTd534x462() {
+            return td534x462;
         }
 
-        public void setVmagazineLongPostThumb(VmagazineLongPostThumb_ vmagazineLongPostThumb) {
-            this.vmagazineLongPostThumb = vmagazineLongPostThumb;
+        public void setTd534x462(Td534x462 td534x462) {
+            this.td534x462 = td534x462;
         }
 
-        public VmagazineRectPostThumb_ getVmagazineRectPostThumb() {
-            return vmagazineRectPostThumb;
+        public Td696x385 getTd696x385() {
+            return td696x385;
         }
 
-        public void setVmagazineRectPostThumb(VmagazineRectPostThumb_ vmagazineRectPostThumb) {
-            this.vmagazineRectPostThumb = vmagazineRectPostThumb;
-        }
-
-        public VmagazineSliderThumb_ getVmagazineSliderThumb() {
-            return vmagazineSliderThumb;
-        }
-
-        public void setVmagazineSliderThumb(VmagazineSliderThumb_ vmagazineSliderThumb) {
-            this.vmagazineSliderThumb = vmagazineSliderThumb;
-        }
-
-        public VmagazineFtrSliderThumb_ getVmagazineFtrSliderThumb() {
-            return vmagazineFtrSliderThumb;
-        }
-
-        public void setVmagazineFtrSliderThumb(VmagazineFtrSliderThumb_ vmagazineFtrSliderThumb) {
-            this.vmagazineFtrSliderThumb = vmagazineFtrSliderThumb;
-        }
-
-        public VmagazineVerticalSliderThumb_ getVmagazineVerticalSliderThumb() {
-            return vmagazineVerticalSliderThumb;
-        }
-
-        public void setVmagazineVerticalSliderThumb(VmagazineVerticalSliderThumb_ vmagazineVerticalSliderThumb) {
-            this.vmagazineVerticalSliderThumb = vmagazineVerticalSliderThumb;
-        }
-
-        public VmagazineRectPostCarousel_ getVmagazineRectPostCarousel() {
-            return vmagazineRectPostCarousel;
-        }
-
-        public void setVmagazineRectPostCarousel(VmagazineRectPostCarousel_ vmagazineRectPostCarousel) {
-            this.vmagazineRectPostCarousel = vmagazineRectPostCarousel;
-        }
-
-        public VmagazinePostSliderLg_ getVmagazinePostSliderLg() {
-            return vmagazinePostSliderLg;
-        }
-
-        public void setVmagazinePostSliderLg(VmagazinePostSliderLg_ vmagazinePostSliderLg) {
-            this.vmagazinePostSliderLg = vmagazinePostSliderLg;
-        }
-
-        public VmagazineCatPostSm_ getVmagazineCatPostSm() {
-            return vmagazineCatPostSm;
-        }
-
-        public void setVmagazineCatPostSm(VmagazineCatPostSm_ vmagazineCatPostSm) {
-            this.vmagazineCatPostSm = vmagazineCatPostSm;
-        }
-
-        public TeamThumb_ getTeamThumb() {
-            return teamThumb;
-        }
-
-        public void setTeamThumb(TeamThumb_ teamThumb) {
-            this.teamThumb = teamThumb;
-        }
-
-        public SowCarouselDefault_ getSowCarouselDefault() {
-            return sowCarouselDefault;
-        }
-
-        public void setSowCarouselDefault(SowCarouselDefault_ sowCarouselDefault) {
-            this.sowCarouselDefault = sowCarouselDefault;
+        public void setTd696x385(Td696x385 td696x385) {
+            this.td696x385 = td696x385;
         }
 
         public Full getFull() {
@@ -2672,7 +1726,7 @@ public class WPPost {
     }
 
 
-    public class SowCarouselDefault {
+    public class Td100x70 {
 
         @SerializedName("file")
         @Expose
@@ -2683,7 +1737,7 @@ public class WPPost {
         @SerializedName("height")
         @Expose
         private Integer height;
-        @SerializedName("mime-type")
+        @SerializedName("mime_type")
         @Expose
         private String mimeType;
         @SerializedName("source_url")
@@ -2732,8 +1786,7 @@ public class WPPost {
 
     }
 
-
-    public class SowCarouselDefault_ {
+    public class Td218x150 {
 
         @SerializedName("file")
         @Expose
@@ -2794,68 +1847,7 @@ public class WPPost {
     }
 
 
-    public class TeamThumb {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class TeamThumb_ {
+    public class Td265x198 {
 
         @SerializedName("file")
         @Expose
@@ -2914,69 +1906,617 @@ public class WPPost {
         }
 
     }
+
+
+    public class Td324x160 {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class Td324x235 {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class Td324x400 {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+    public class Td356x220 {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class Td356x364 {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class Td485x360 {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class Td533x261 {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+    public class Td534x462 {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class Td696x385 {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
+
+    public class Td80x60 {
+
+        @SerializedName("file")
+        @Expose
+        private String file;
+        @SerializedName("width")
+        @Expose
+        private Integer width;
+        @SerializedName("height")
+        @Expose
+        private Integer height;
+        @SerializedName("mime_type")
+        @Expose
+        private String mimeType;
+        @SerializedName("source_url")
+        @Expose
+        private String sourceUrl;
+
+        public String getFile() {
+            return file;
+        }
+
+        public void setFile(String file) {
+            this.file = file;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public void setWidth(Integer width) {
+            this.width = width;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public void setHeight(Integer height) {
+            this.height = height;
+        }
+
+        public String getMimeType() {
+            return mimeType;
+        }
+
+        public void setMimeType(String mimeType) {
+            this.mimeType = mimeType;
+        }
+
+        public String getSourceUrl() {
+            return sourceUrl;
+        }
+
+        public void setSourceUrl(String sourceUrl) {
+            this.sourceUrl = sourceUrl;
+        }
+
+    }
+
 
     public class Thumbnail {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class Thumbnail_ {
 
         @SerializedName("file")
         @Expose
@@ -3071,34 +2611,6 @@ public class WPPost {
     }
 
 
-    public class Up {
-
-        @SerializedName("embeddable")
-        @Expose
-        private Boolean embeddable;
-        @SerializedName("href")
-        @Expose
-        private String href;
-
-        public Boolean getEmbeddable() {
-            return embeddable;
-        }
-
-        public void setEmbeddable(Boolean embeddable) {
-            this.embeddable = embeddable;
-        }
-
-        public String getHref() {
-            return href;
-        }
-
-        public void setHref(String href) {
-            this.href = href;
-        }
-
-    }
-
-
     public class VersionHistory {
 
         @SerializedName("count")
@@ -3127,1955 +2639,6 @@ public class WPPost {
     }
 
 
-    public class VmagazineCatPostSm {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineCatPostSm_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime_type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineFtrSliderThumb {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineFtrSliderThumb_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime_type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineLargeCategory {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineLargeCategory_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime_type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineLargeSquareMiddle {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineLargeSquareMiddle_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime_type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineLargeSquareThumb {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-    public class VmagazineLargeSquareThumb_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime_type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-    public class VmagazineLongPostThumb {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineLongPostThumb_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime_type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineLongThumb {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineLongThumb_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime_type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazinePostSliderLg {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazinePostSliderLg_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime_type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineRectPostCarousel {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineRectPostCarousel_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime_type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineRectPostThumb {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineRectPostThumb_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime_type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineRectangleThumb {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineRectangleThumb_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime_type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-    public class VmagazineSingleThird {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineSingleThird_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime_type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineSliderThumb {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineSliderThumb_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime_type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineSmallSquareThumb {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineSmallSquareThumb_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime_type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineSmallThumb {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineSmallThumb_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime_type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineVerticalSliderThumb {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime-type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
-    public class VmagazineVerticalSliderThumb_ {
-
-        @SerializedName("file")
-        @Expose
-        private String file;
-        @SerializedName("width")
-        @Expose
-        private Integer width;
-        @SerializedName("height")
-        @Expose
-        private Integer height;
-        @SerializedName("mime_type")
-        @Expose
-        private String mimeType;
-        @SerializedName("source_url")
-        @Expose
-        private String sourceUrl;
-
-        public String getFile() {
-            return file;
-        }
-
-        public void setFile(String file) {
-            this.file = file;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-
-        public void setMimeType(String mimeType) {
-            this.mimeType = mimeType;
-        }
-
-        public String getSourceUrl() {
-            return sourceUrl;
-        }
-
-        public void setSourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-        }
-
-    }
-
-
     public class WpAttachment {
 
         @SerializedName("href")
@@ -5091,6 +2654,7 @@ public class WPPost {
         }
 
     }
+
 
     public class WpFeaturedmedium {
 
@@ -5157,7 +2721,7 @@ public class WPPost {
         private String mimeType;
         @SerializedName("media_details")
         @Expose
-        private MediaDetails_ mediaDetails;
+        private MediaDetails mediaDetails;
         @SerializedName("source_url")
         @Expose
         private String sourceUrl;
@@ -5253,11 +2817,11 @@ public class WPPost {
             this.mimeType = mimeType;
         }
 
-        public MediaDetails_ getMediaDetails() {
+        public MediaDetails getMediaDetails() {
             return mediaDetails;
         }
 
-        public void setMediaDetails(MediaDetails_ mediaDetails) {
+        public void setMediaDetails(MediaDetails mediaDetails) {
             this.mediaDetails = mediaDetails;
         }
 
@@ -5406,9 +2970,6 @@ public class WPPost {
         }
 
     }
-
-
-
 }
 
 

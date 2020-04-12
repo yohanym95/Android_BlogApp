@@ -50,7 +50,7 @@ public class XMLPost extends AppCompatActivity implements RecentPostAdapter.onIt
     ProgressDialog progressDialog1;
 
 
-    private String JavaBaseURL = "https://readhub.lk/wp-json/wp/v2/";
+    private String JavaBaseURL = "https://sinhala.readhub.lk/wp-json/wp/v2/";
     public static final String RENDER_CONTENT = "RENDER";
     public  static final String link = "link";
 
@@ -157,12 +157,12 @@ public class XMLPost extends AppCompatActivity implements RecentPostAdapter.onIt
 
             RetrofitArrayAPI retrofitArrayAPI = retrofit. create(RetrofitArrayAPI.class);
 
-            Call<List<WPJavaPost>> call = retrofitArrayAPI.getXMLPost();
+            Call<List<WPPost>> call = retrofitArrayAPI.getXMLPost();
 
 
-            call.enqueue(new Callback<List<WPJavaPost>>() {
+            call.enqueue(new Callback<List<WPPost>>() {
                 @Override
-                public void onResponse(Call<List<WPJavaPost>> call, Response<List<WPJavaPost>> response) {
+                public void onResponse(Call<List<WPPost>> call, Response<List<WPPost>> response) {
 
                     for (int i =0;i<response.body().size(); i++){
 
@@ -180,7 +180,7 @@ public class XMLPost extends AppCompatActivity implements RecentPostAdapter.onIt
 
                         Model model = new Model( titile,
                                 temdetails,
-                                response.body().get(i).getEmbedded().getWpFeaturedmedia().get(0).getMediaDetails().getSizes().getThumbnail().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName(),response.body().get(i).getLink());
+                                response.body().get(i).getEmbedded().getWpFeaturedmedia().get(0).getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName(),response.body().get(i).getLink());
 
                         mDatabase.push().setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
@@ -202,7 +202,7 @@ public class XMLPost extends AppCompatActivity implements RecentPostAdapter.onIt
                 }
 
                 @Override
-                public void onFailure(Call<List<WPJavaPost>> call, Throwable t) {
+                public void onFailure(Call<List<WPPost>> call, Throwable t) {
 
                 }
             });
@@ -250,12 +250,12 @@ public class XMLPost extends AppCompatActivity implements RecentPostAdapter.onIt
 
             RetrofitArrayAPI retrofitArrayAPI = retrofit. create(RetrofitArrayAPI.class);
 
-            Call<List<WPJavaPost>> call = retrofitArrayAPI.getXMLPost();
+            Call<List<WPPost>> call = retrofitArrayAPI.getXMLPost();
 
 
-            call.enqueue(new Callback<List<WPJavaPost>>() {
+            call.enqueue(new Callback<List<WPPost>>() {
                 @Override
-                public void onResponse(Call<List<WPJavaPost>> call, Response<List<WPJavaPost>> response) {
+                public void onResponse(Call<List<WPPost>> call, Response<List<WPPost>> response) {
 
                     progressDialog1.dismiss();
                     for (int i =0;i<response.body().size(); i++){
@@ -274,14 +274,14 @@ public class XMLPost extends AppCompatActivity implements RecentPostAdapter.onIt
 
                         list.add(new RecentModel( titile,
                                 temdetails,
-                                response.body().get(i).getEmbedded().getWpFeaturedmedia().get(0).getMediaDetails().getSizes().getThumbnail().getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName(),response.body().get(i).getLink()));
+                                response.body().get(i).getEmbedded().getWpFeaturedmedia().get(0).getSourceUrl(),render,RecentModel.IMAGE_TYPE,response.body().get(i).getEmbedded().getAuthor().get(0).getName(),response.body().get(i).getLink()));
 
                     }
                     recentPostAdapter.notifyDataSetChanged();
                 }
 
                 @Override
-                public void onFailure(Call<List<WPJavaPost>> call, Throwable t) {
+                public void onFailure(Call<List<WPPost>> call, Throwable t) {
 
                 }
             });

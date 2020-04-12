@@ -14,8 +14,8 @@ import android.widget.TextView;
 
 public class fragmentengOther extends Fragment {
 
-    private CardView crdlaw,crdDevices,crdTechNews;
-    private TextView crdlaw1,crdDevices1,crdTechNews1;
+    private CardView crdlaw,crdDevices,crdTechNews,crdEnglishLife;
+    private TextView crdlaw1,crdDevices1,crdTechNews1,crdEnglishLife1;
 
     @Nullable
     @Override
@@ -25,10 +25,12 @@ public class fragmentengOther extends Fragment {
         crdlaw = v.findViewById(R.id.crdLawBasics);
         crdDevices = v.findViewById(R.id.crdDevices);
         crdTechNews = v.findViewById(R.id.crdTechNews);
+        crdEnglishLife = v.findViewById(R.id.crdEnglishForLife);
 
         crdlaw1 = v.findViewById(R.id.tvLawBasics);
         crdDevices1 = v.findViewById(R.id.tvDevices);
         crdTechNews1 = v.findViewById(R.id.tvTechNews);
+        crdEnglishLife1 = v.findViewById(R.id.tvEnglishForLife);
 
         crdlaw.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +54,15 @@ public class fragmentengOther extends Fragment {
             }
         });
 
+        crdEnglishLife.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(getContext(),EnglishLifePost.class);
+                startActivity(i);
+            }
+        });
+
         crdlaw1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,6 +82,15 @@ public class fragmentengOther extends Fragment {
             public void onClick(View v) {
                 Intent i = new Intent(getContext(),TechEnglishPost.class);
                 startActivity(i);
+            }
+        });
+
+        crdEnglishLife1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(),EnglishLifePost.class);
+                startActivity(i);
+
             }
         });
 
