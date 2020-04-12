@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">ReadHub
     </string>
-    <string name="banner_ad_unit_id">ca-app-pub-6817607400530928/1080675740</string>
-    <!--ca-app-pub-6817607400530928/1080675740 - test ca-app-pub-3940256099942544/6300978111 -->
+    <string name="banner_ad_unit_id">###</string>
+  
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
